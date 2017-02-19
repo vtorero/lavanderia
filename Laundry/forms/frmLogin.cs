@@ -68,5 +68,15 @@ namespace Lavanderia.forms
             }
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult x = MessageBox.Show("Desea salir del Sistema", "Programa", MessageBoxButtons.YesNo);
+            if (x == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }

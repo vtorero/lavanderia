@@ -377,11 +377,13 @@
             this.ClientSize = new System.Drawing.Size(745, 558);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmInicio";
             this.Text = "Lavandería San Isidro S.A";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+         
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);

@@ -129,5 +129,8 @@ namespace Lavanderia.forms
             rt.crystalReportViewer1.ReportSource = cryrep;
             rt.Show();﻿
         }
+
+    
+   
     }
 }
