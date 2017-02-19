@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1.forms
+﻿namespace Lavanderia.forms
 {
     partial class frmColor
     {

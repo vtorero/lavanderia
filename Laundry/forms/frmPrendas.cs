@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication1.Models;
-using WindowsFormsApplication1.Persistencia;
-using WindowsFormsApplication1.util;
+using Lavanderia.Models;
+using Lavanderia.Persistencia;
+using Lavanderia.util;
 
-namespace WindowsFormsApplication1.forms
+namespace Lavanderia.forms
 {
     public partial class frmPrendas : Form
 

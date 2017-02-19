@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1.forms
+﻿namespace Lavanderia.forms
 {
     partial class frmLogin
     {
@@ -94,7 +94,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.logo;
+            this.pictureBox1.Image = global::Lavanderia.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(22, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 161);

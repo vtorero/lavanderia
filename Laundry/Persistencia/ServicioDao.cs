@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApplication1.Models;
+using Lavanderia.Models;
 
-namespace WindowsFormsApplication1.Persistencia
+namespace Lavanderia.Persistencia
 {
     class ServicioDao
     {

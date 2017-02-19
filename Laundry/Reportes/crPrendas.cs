@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication1.Reportes {
+namespace Lavanderia.Reportes {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1.Reportes {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApplication1.Reportes.crPrendas.rpt";
+                return "Lavanderia.Reportes.crPrendas.rpt";
             }
             set {
                 // Do nothing

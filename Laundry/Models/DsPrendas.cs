@@ -1,4 +1,5 @@
-﻿namespace WindowsFormsApplication1.Models {
+﻿namespace Lavanderia.Models
+{
     
     
     public partial class DsPrendas {

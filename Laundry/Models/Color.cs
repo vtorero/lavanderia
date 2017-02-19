@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace WindowsFormsApplication1.Models
+namespace Lavanderia.Models
 {
     public class Color
     {

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication1.Persistencia;
+using Lavanderia.Persistencia;
 
 
-namespace WindowsFormsApplication1.forms
+namespace Lavanderia.forms
 {
     public partial class frmColor : Form
     {
@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1.forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            WindowsFormsApplication1.Models.Color color = new WindowsFormsApplication1.Models.Color();
+            Lavanderia.Models.Color color = new Lavanderia.Models.Color();
             int resultado = 0;
             string msj = "";
 

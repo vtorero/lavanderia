@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1.forms
+namespace Lavanderia.forms
 {
     public partial class frmInicio : Form
     {
@@ -121,7 +121,7 @@ namespace WindowsFormsApplication1.forms
          "SELECT idPrenda, NombrePrenda, DescripcionPrenda, PrecioServicio FROM Prenda"), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
             myadap.Fill(ds, "Prendas");
-            cryrep.Load(@"D:\laundry\Laundry\Laundry\Reportes\crPrendas.rpt");
+            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crPrendas.rpt");
 
             cryrep.SetDataSource(ds);
             frmReporte rt = new frmReporte();
