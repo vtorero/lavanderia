@@ -33,7 +33,9 @@ namespace Lavanderia.forms
 
                 {
                     StatusBar mainStatusBar = new StatusBar();
-                    Form childForm = new frmInicio();
+                    frmInicio childForm = new frmInicio();
+                    if (result.tipoUsuario == 1)
+                    childForm.mnuAdmUsuarios.Visible = true;
                     mainStatusBar.Panels.Add("t_usuario");
                     mainStatusBar.Panels.Add("Usuario");
                     mainStatusBar.Panels.Add("t_sucursal");

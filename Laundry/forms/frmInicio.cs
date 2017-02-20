@@ -130,6 +130,14 @@ namespace Lavanderia.forms
             rt.Show();﻿
         }
 
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmOrden();
+            childForm.MdiParent = this;
+            childForm.Text = "Orden de Servicio";
+            childForm.Show();
+        }
+
     
    
     }

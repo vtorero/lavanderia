@@ -81,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BdComun.cs" />
+    <Compile Include="forms\busquedas\frmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\busquedas\frmBuscarCliente.Designer.cs">
+      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmOrden.Designer.cs">
+      <DependentUpon>frmOrden.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmPrendas.cs">
       <SubType>Form</SubType>
@@ -151,6 +163,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="util\Validacion.cs" />
+    <EmbeddedResource Include="forms\busquedas\frmBuscarCliente.resx">
+      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmOrden.resx">
+      <DependentUpon>frmOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPrendas.resx">
       <DependentUpon>frmPrendas.cs</DependentUpon>
