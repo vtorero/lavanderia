@@ -37,11 +37,11 @@ namespace Lavanderia.forms
                 && (!string.IsNullOrWhiteSpace(txtDNI.Text))
                 )
             {
-                cliente.NombreCliente= txtNombres.Text.Trim();
-                cliente.dniCliente = txtDNI.Text.Trim();
-                cliente.correoCliente = txtEmail.Text.Trim();
-                cliente.direccionCliente = txtDireccion.Text.Trim();
-                cliente.telefonoCliente=txtTelefono.Text.Trim();
+                cliente.Nombres= txtNombres.Text.Trim();
+                cliente.DNI= txtDNI.Text.Trim();
+                cliente.Email= txtEmail.Text.Trim();
+                cliente.Dirección= txtDireccion.Text.Trim();
+                cliente.Teléfono=txtTelefono.Text.Trim();
 
                 if(btnGuardar.Text.Equals("&Registrar")){
                  msj="Cliente registrado con Exito!!";

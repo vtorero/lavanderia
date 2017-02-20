@@ -14,7 +14,7 @@ namespace Lavanderia.Persistencia
         {
             int retorno = 0;
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Cliente (nombreCliente, dniCliente, correoCliente,direccionCliente,telefonoCliente) values ('{0}','{1}','{2}','{3}','{4}')",
-                cliente.NombreCliente, cliente.dniCliente, cliente.correoCliente,cliente.direccionCliente,cliente.telefonoCliente), BdComun.ObtenerConexion());
+                cliente.Nombres, cliente.DNI, cliente.Email,cliente.Dirección,cliente.Teléfono), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
@@ -22,7 +22,7 @@ namespace Lavanderia.Persistencia
         public static int Modificar(Cliente cliente) {
             int retorno = 0;
             MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente='{5}'"
-            ,cliente.NombreCliente,cliente.dniCliente,cliente.correoCliente,cliente.direccionCliente,cliente.telefonoCliente,cliente.idCliente), BdComun.ObtenerConexion());
+            , cliente.Nombres, cliente.DNI, cliente.Email, cliente.Dirección, cliente.Teléfono, cliente.idCliente), BdComun.ObtenerConexion());
             retorno= comando.ExecuteNonQuery();
             return retorno;
 
@@ -48,11 +48,11 @@ namespace Lavanderia.Persistencia
             {
                 Cliente cliente= new Cliente();
                 cliente.idCliente = _reader.GetInt32(0);
-                cliente.NombreCliente = _reader.GetString(1);
-                cliente.dniCliente = _reader.GetString(2);
-                cliente.correoCliente = _reader.GetString(3);
-                cliente.direccionCliente = _reader.GetString(4);
-                cliente.telefonoCliente = _reader.GetString(5);
+                cliente.Nombres= _reader.GetString(1);
+                cliente.DNI = _reader.GetString(2);
+                cliente.Email = _reader.GetString(3);
+                cliente.Dirección= _reader.GetString(4);
+                cliente.Teléfono = _reader.GetString(5);
                 _lista.Add(cliente);
             }
 

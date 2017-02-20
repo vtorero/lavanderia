@@ -9,11 +9,11 @@ namespace Lavanderia.Models
     public class Cliente
     {
         public int idCliente { get; set; }
-        public string NombreCliente{ get; set; }
-        public string dniCliente { get; set; }
-        public string correoCliente{ get; set; }
-        public string direccionCliente { get; set; }
-        public string telefonoCliente { get; set; }
+        public string Nombres{ get; set; }
+        public string DNI { get; set; }
+        public string Email{ get; set; }
+        public string Dirección { get; set; }
+        public string Teléfono { get; set; }
 
 
 
@@ -22,11 +22,11 @@ namespace Lavanderia.Models
         public Cliente(int idCliente, string NombreC, string dni, string correo,string direccion,string telefono)
         {
             this.idCliente = idCliente;
-            this.NombreCliente = NombreC;
-            this.dniCliente = dni;
-            this.correoCliente = correo;
-            this.direccionCliente = direccion;
-            this.telefonoCliente = telefono;
+            this.Nombres = NombreC;
+            this.DNI= dni;
+            this.Email= correo;
+            this.Dirección= direccion;
+            this.Teléfono= telefono;
             
         }
     }
