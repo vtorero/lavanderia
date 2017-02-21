@@ -70,6 +70,13 @@ namespace Lavanderia.forms
             if (dgvPrendas.RowCount == 0)
             {
                 dgvPrendas.DataSource = PrendaDao.Listar();
+                dgvPrendas.Columns[0].HeaderText = "Código";
+                dgvPrendas.Columns[0].Width = 60;
+                dgvPrendas.Columns[1].HeaderText = "Nombre";
+                dgvPrendas.Columns[1].Width = 145;
+                dgvPrendas.Columns[2].HeaderText = "Descripción";
+                dgvPrendas.Columns[2].Width = 200;
+                dgvPrendas.Columns[3].HeaderText = "Precio";
             }
         }
 

@@ -59,6 +59,26 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<Cliente> Buscar(string nombre,string dni)
+        {
+            List<Cliente> _lista = new List<Cliente>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT idCliente,nombreCliente,dniCliente,correoCliente,telefonoCliente FROM Cliente where nombreCliente like '%{0}%' and dniCliente like '%{1}%'",nombre,dni), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+while (_reader.Read())
+            {
+                Cliente cliente = new Cliente();
+                cliente.idCliente = _reader.GetInt32(0);
+                cliente.Nombres = _reader.GetString(1);
+                cliente.DNI = _reader.GetString(2);
+                cliente.Email = _reader.GetString(3);
+                cliente.Teléfono = _reader.GetString(4);
+                _lista.Add(cliente);
+            }
+
+            return _lista;
+        }
 
     }
 }

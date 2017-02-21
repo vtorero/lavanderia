@@ -30,6 +30,12 @@ namespace Lavanderia.forms
             if (dgvColores.RowCount == 0)
             {
                 dgvColores.DataSource = ColorDao.Listar();
+                dgvColores.Columns[0].HeaderText= "Código";
+                dgvColores.Columns[0].Width = 100;
+                dgvColores.Columns[1].HeaderText = "Nombre Color";
+                dgvColores.Columns[1].Width = 150;
+                dgvColores.Columns[2].HeaderText = "Valor";
+                dgvColores.Columns[2].Width = 150;
             }
         }
 

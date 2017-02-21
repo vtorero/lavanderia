@@ -145,6 +145,13 @@ namespace Lavanderia.forms
         {
             if (dgvClientes.RowCount == 0)
                 dgvClientes.DataSource = ClienteDao.Listar();
+                dgvClientes.Columns[0].HeaderText = "Código";
+                dgvClientes.Columns[0].Width = 75;
+                dgvClientes.Columns[1].HeaderText = "Nombres";
+                dgvClientes.Columns[1].Width = 180;
+                dgvClientes.Columns[2].Width = 90;
+                dgvClientes.Columns[3].Width = 110;
+            
         }
     }
 }

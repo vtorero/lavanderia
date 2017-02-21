@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblColor = new System.Windows.Forms.PictureBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -44,13 +47,12 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvColores = new System.Windows.Forms.DataGridView();
-            this.lblColor = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblColor)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblColor)).BeginInit();
             this.SuspendLayout();
             // 
             // colorDialog1
@@ -96,6 +98,14 @@
             this.groupBox1.Size = new System.Drawing.Size(436, 219);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // lblColor
+            // 
+            this.lblColor.Location = new System.Drawing.Point(190, 79);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(54, 25);
+            this.lblColor.TabIndex = 9;
+            this.lblColor.TabStop = false;
             // 
             // txtCodigo
             // 
@@ -214,19 +224,21 @@
             // 
             // dgvColores
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvColores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColores.Location = new System.Drawing.Point(6, 6);
             this.dgvColores.Name = "dgvColores";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvColores.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvColores.Size = new System.Drawing.Size(456, 146);
             this.dgvColores.TabIndex = 3;
-            // 
-            // lblColor
-            // 
-            this.lblColor.Location = new System.Drawing.Point(190, 79);
-            this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(54, 25);
-            this.lblColor.TabIndex = 9;
-            this.lblColor.TabStop = false;
             // 
             // frmColor
             // 
@@ -241,9 +253,9 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblColor)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblColor)).EndInit();
             this.ResumeLayout(false);
 
         }

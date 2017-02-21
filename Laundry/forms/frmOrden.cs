@@ -31,9 +31,73 @@ namespace Lavanderia.forms
              
         }
 
-        public void ejecutar(string datos)
+        public void ejecutar(string id,string nombre,string dni,string telefono)
         {
-            txtNombreCliente.Text = datos;
+            txtNombreCliente.Text = nombre;
+            txtDni.Text = dni;
+            lblCodigoCliente.Text = id;
+            txtTelefono.Text=telefono;
+            
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigoCliente_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

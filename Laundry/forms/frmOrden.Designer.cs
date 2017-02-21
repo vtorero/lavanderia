@@ -32,16 +32,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.btnSrcCliente = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblCodigoCliente = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Servicio";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox4
             // 
@@ -69,13 +71,15 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalles";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.lblCodigoCliente);
+            this.groupBox3.Controls.Add(this.txtTelefono);
             this.groupBox3.Controls.Add(this.txtNombreCliente);
             this.groupBox3.Controls.Add(this.btnSrcCliente);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txtDni);
             this.groupBox3.Controls.Add(this.lblCliente);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
@@ -85,13 +89,15 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Cliente";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // textBox4
+            // txtTelefono
             // 
-            this.textBox4.Location = new System.Drawing.Point(96, 88);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 3;
+            this.txtTelefono.Location = new System.Drawing.Point(96, 88);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 22);
+            this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // txtNombreCliente
             // 
@@ -101,6 +107,7 @@
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(304, 22);
             this.txtNombreCliente.TabIndex = 3;
+            this.txtNombreCliente.TextChanged += new System.EventHandler(this.txtNombreCliente_TextChanged);
             // 
             // btnSrcCliente
             // 
@@ -114,12 +121,13 @@
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
-            // textBox3
+            // txtDni
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 2;
+            this.txtDni.Location = new System.Drawing.Point(96, 54);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 2;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // lblCliente
             // 
@@ -131,6 +139,7 @@
             this.lblCliente.Size = new System.Drawing.Size(61, 15);
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Nombres:";
+            this.lblCliente.Click += new System.EventHandler(this.lblCliente_Click);
             // 
             // label2
             // 
@@ -141,6 +150,7 @@
             this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Teléfono:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -151,6 +161,7 @@
             this.label1.Size = new System.Drawing.Size(31, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -172,6 +183,7 @@
             this.lblCodigo.Size = new System.Drawing.Size(55, 16);
             this.lblCodigo.TabIndex = 1;
             this.lblCodigo.Text = "Código:";
+            this.lblCodigo.Click += new System.EventHandler(this.lblCodigo_Click);
             // 
             // groupBox2
             // 
@@ -183,6 +195,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // lblCodigoCliente
+            // 
+            this.lblCodigoCliente.AutoSize = true;
+            this.lblCodigoCliente.Location = new System.Drawing.Point(212, 57);
+            this.lblCodigoCliente.Name = "lblCodigoCliente";
+            this.lblCodigoCliente.Size = new System.Drawing.Size(0, 16);
+            this.lblCodigoCliente.TabIndex = 5;
+            this.lblCodigoCliente.Click += new System.EventHandler(this.txtCodigoCliente_Click);
             // 
             // frmOrden
             // 
@@ -212,11 +234,12 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.Label lblCodigoCliente;
     }
 }
