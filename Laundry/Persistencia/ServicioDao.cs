@@ -19,6 +19,25 @@ namespace Lavanderia.Persistencia
             return retorno;
         }
 
+
+        public static int Modificar(Servicio servicio)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Servicio Set nombreServicio='{0}',precioServicio='{1}' where idServicio='{2}'"
+            , servicio.NombreServicio, servicio.precioServicio, servicio.idServicio), BdComun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+
+        }
+
+        public static int Eliminar(int idservicio)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(string.Format("DELETE FROM Servicio where idServicio='{0}'", idservicio), BdComun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+        }
+
         public static List<Servicio> Buscar()
         {
             List<Servicio> _lista = new List<Servicio>();

@@ -46,6 +46,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvPrendas = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.lblCodigo);
@@ -151,9 +153,9 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(157, 151);
+            this.txtPrecio.Location = new System.Drawing.Point(181, 147);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(74, 24);
+            this.txtPrecio.Size = new System.Drawing.Size(45, 24);
             this.txtPrecio.TabIndex = 3;
             // 
             // txtDescripcion
@@ -225,6 +227,15 @@
             this.dgvPrendas.Size = new System.Drawing.Size(583, 226);
             this.dgvPrendas.TabIndex = 3;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(154, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "S/.";
+            // 
             // frmPrendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +273,7 @@
         private System.Windows.Forms.DataGridView dgvPrendas;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Label label4;
 
     }
 }

@@ -76,6 +76,7 @@ namespace Lavanderia.forms
                 dgvPrendas.Columns[1].Width = 145;
                 dgvPrendas.Columns[2].HeaderText = "Descripción";
                 dgvPrendas.Columns[2].Width = 200;
+                dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
                 dgvPrendas.Columns[3].HeaderText = "Precio";
             }
         }
@@ -121,6 +122,14 @@ namespace Lavanderia.forms
 
                 
                 dgvPrendas.DataSource = PrendaDao.Listar();
+                dgvPrendas.Columns[0].HeaderText = "Código";
+                dgvPrendas.Columns[0].Width = 60;
+                dgvPrendas.Columns[1].HeaderText = "Nombre";
+                dgvPrendas.Columns[1].Width = 145;
+                dgvPrendas.Columns[2].HeaderText = "Descripción";
+                dgvPrendas.Columns[2].Width = 200;
+                dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
+                dgvPrendas.Columns[3].HeaderText = "Precio";
                 tabControl1.SelectedTab = tabPage2;
                 btnGuardar.Text = "&Registrar";
                 resetValores();
@@ -155,6 +164,15 @@ namespace Lavanderia.forms
             {
                 PrendaDao.Eliminar(Convert.ToInt32(id));
                 dgvPrendas.DataSource = PrendaDao.Listar();
+                dgvPrendas.Columns[0].HeaderText = "Código";
+                dgvPrendas.Columns[0].Width = 60;
+                dgvPrendas.Columns[1].HeaderText = "Nombre";
+                dgvPrendas.Columns[1].Width = 145;
+                dgvPrendas.Columns[2].HeaderText = "Descripción";
+                dgvPrendas.Columns[2].Width = 200;
+                dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
+                dgvPrendas.Columns[3].HeaderText = "Precio";
+                
                 MessageBox.Show("Prenda eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
