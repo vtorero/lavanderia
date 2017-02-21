@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,12 +46,12 @@
             // 
             this.txtNombres.Location = new System.Drawing.Point(75, 19);
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(243, 20);
+            this.txtNombres.Size = new System.Drawing.Size(162, 20);
             this.txtNombres.TabIndex = 1;
-            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtDni);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -62,13 +63,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterio de Busqueda";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Lavanderia.Properties.Resources.magnify;
+            this.btnBuscar.Location = new System.Drawing.Point(253, 19);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(70, 46);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(75, 45);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 20);
+            this.txtDni.Size = new System.Drawing.Size(85, 20);
             this.txtDni.TabIndex = 4;
-            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // label2
             // 
@@ -145,5 +155,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

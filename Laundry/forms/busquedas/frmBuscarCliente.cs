@@ -19,24 +19,8 @@ namespace Lavanderia.forms.busquedas
         {
             InitializeComponent();
         }
-
      
-
-        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
-        {
-                     
-            dgvClientes.DataSource = ClienteDao.Buscar(txtNombres.Text, txtDni.Text);
-            dgvClientes.Columns[0].HeaderText = "Código";
-            dgvClientes.Columns[0].Width = 50;
-            dgvClientes.Columns[1].HeaderText = "Nombres";
-            dgvClientes.Columns[1].Width = 100;
-            dgvClientes.Columns[2].Width = 80;
-            dgvClientes.Columns[3].Visible = false;
-            dgvClientes.Columns[4].Visible = false;
-
-
-        }
-
+     
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int pos; 
@@ -58,8 +42,9 @@ namespace Lavanderia.forms.busquedas
             this.Close();
         }
 
-        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
+
             dgvClientes.DataSource = ClienteDao.Buscar(txtNombres.Text, txtDni.Text);
             dgvClientes.Columns[0].HeaderText = "Código";
             dgvClientes.Columns[0].Width = 50;
@@ -70,7 +55,7 @@ namespace Lavanderia.forms.busquedas
             dgvClientes.Columns[4].Visible = false;
         }
 
-    
+  
 
       
 
