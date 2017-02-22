@@ -40,6 +40,14 @@ namespace Lavanderia.forms
             
         }
 
+        public void ejecutar2(string id, string nombre, string precio)
+        {
+            txtNombrePrenda.Text = nombre;
+            txtPrecio.Text =precio;
+            
+
+        }
+
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
@@ -98,6 +106,18 @@ namespace Lavanderia.forms
         private void txtCodigoCliente_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmBuscarPrendas childForm = new frmBuscarPrendas();
+            childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
+            childForm.ShowDialog();
         }
     }
 }

@@ -81,11 +81,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BdComun.cs" />
-    <Compile Include="forms\busquedas\frmBuscarCliente.cs">
+    <Compile Include="forms\busquedas\frmBuscarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\busquedas\frmBuscarCliente.Designer.cs">
-      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    <Compile Include="forms\busquedas\frmBuscarClientes.Designer.cs">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\busquedas\frmBuscarPrendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\busquedas\frmBuscarPrendas.Designer.cs">
+      <DependentUpon>frmBuscarPrendas.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmClientes.cs">
       <SubType>Form</SubType>
@@ -163,8 +169,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="util\Validacion.cs" />
-    <EmbeddedResource Include="forms\busquedas\frmBuscarCliente.resx">
-      <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="forms\busquedas\frmBuscarClientes.resx">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\busquedas\frmBuscarPrendas.resx">
+      <DependentUpon>frmBuscarPrendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
@@ -253,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\112_Plus_Green.ico" />
     <None Include="Resources\magnify.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

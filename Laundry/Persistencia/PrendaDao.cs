@@ -62,6 +62,25 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<Prenda> Buscar(string nombre)
+        {
+            List<Prenda> _lista = new List<Prenda>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT *  FROM Prenda where nombrePrenda like '%{0}%' ", nombre), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                Prenda prenda = new Prenda();
+                prenda.idPrenda= _reader.GetInt32(0);
+                prenda.NombrePrenda = _reader.GetString(1);
+                prenda.precioServicio= _reader.GetFloat(3);
+                _lista.Add(prenda);
+            }
+
+            return _lista;
+        }
+
 
     }
 }
