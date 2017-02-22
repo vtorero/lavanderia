@@ -60,8 +60,8 @@ namespace Lavanderia.forms
             precio = 2;
             total = cantidad * precio;
 
-            dgvOrden.Rows.Add(id,detalle,cantidad,precio,total);
-            dgvOrden.RowHeadersVisible = false;
+            dgvOrden.Rows.Add(i,detalle,cantidad,precio,total);
+            i = i + 1;
         }
 
         private void button2_Click(object sender, EventArgs e)
