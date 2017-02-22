@@ -262,6 +262,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\Annotate_Disabled.ico" />
+    <None Include="Resources\FeatureNotAvailable_5734_12x12_16x.ico" />
     <None Include="Resources\112_Plus_Green.ico" />
     <None Include="Resources\magnify.ico" />
   </ItemGroup>

@@ -13,6 +13,7 @@ namespace Lavanderia.forms
 {
     public partial class frmOrden : Form
     {
+        int i = 1;
         public frmOrden()
         {
             InitializeComponent();
@@ -48,69 +49,19 @@ namespace Lavanderia.forms
 
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCodigo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCodigoCliente_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string id, detalle;
+            id = "1";
+            detalle = "pantalon";
+            float cantidad, precio, total;
+            cantidad = 1;
+            precio = 2;
+            total = cantidad * precio;
 
+            dgvOrden.Rows.Add(id,detalle,cantidad,precio,total);
+            dgvOrden.RowHeadersVisible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,6 +69,11 @@ namespace Lavanderia.forms
             frmBuscarPrendas childForm = new frmBuscarPrendas();
             childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
             childForm.ShowDialog();
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
