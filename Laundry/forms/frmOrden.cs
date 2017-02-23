@@ -14,6 +14,8 @@ namespace Lavanderia.forms
     public partial class frmOrden : Form
     {
         int i = 1;
+         decimal igv = 18;
+          decimal totalOrden = 0;
         public frmOrden()
         {
             InitializeComponent();
@@ -41,10 +43,11 @@ namespace Lavanderia.forms
             
         }
 
-        public void ejecutar2(string id, string nombre, string precio)
+        public void ejecutar2(string id, string nombre, decimal precio)
         {
+            LblId.Text = id;
             txtNombrePrenda.Text = nombre;
-            txtPrecio.Text =precio;
+            txtPrecio.Text = Convert.ToString(Decimal.Round(precio,2));
             
 
         }
@@ -52,23 +55,41 @@ namespace Lavanderia.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             string id, detalle;
-            id = "1";
-            detalle = "pantalon";
-            float cantidad, precio, total;
-            cantidad = 1;
-            precio = 2;
+            id = LblId.Text;
+            detalle = txtNombrePrenda.Text;
+            decimal cantidad, precio, total;
+           
+            cantidad = nroCantidad.Value;
+            precio = Convert.ToDecimal(txtPrecio.Text);
             total = cantidad * precio;
 
-            dgvOrden.Rows.Add(i,detalle,cantidad,precio,total);
+            dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total);
             i = i + 1;
+            totalOrden += Decimal.Round(total,2);
+            txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
+            txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmBuscarPrendas childForm = new frmBuscarPrendas();
-            childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
-            childForm.ShowDialog();
+            if (radioButton1.Checked)
+            {
+                frmBuscarPrendas childForm = new frmBuscarPrendas();
+                childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
+                childForm.ShowDialog();
+            }
+            else if (radioButton2.Checked)
+            {
+                frmBuscarServicio childForm = new frmBuscarServicio();
+                childForm.enviado += new frmBuscarServicio.enviar(ejecutar2);
+                childForm.ShowDialog();
+                
+            }
+
+            
         }
 
         private void groupBox5_Enter(object sender, EventArgs e)

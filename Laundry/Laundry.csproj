@@ -93,6 +93,12 @@
     <Compile Include="forms\busquedas\frmBuscarPrendas.Designer.cs">
       <DependentUpon>frmBuscarPrendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\busquedas\frmBuscarServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\busquedas\frmBuscarServicio.Designer.cs">
+      <DependentUpon>frmBuscarServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\busquedas\frmBuscarPrendas.resx">
       <DependentUpon>frmBuscarPrendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\busquedas\frmBuscarServicio.resx">
+      <DependentUpon>frmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>

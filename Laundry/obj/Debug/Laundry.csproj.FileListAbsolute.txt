@@ -30,6 +30,7 @@ D:\lavanderia\Laundry\bin\Debug\Laundry.exe
 D:\lavanderia\Laundry\bin\Debug\Laundry.pdb
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarCliente.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarPrendas.resources
+D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarServicio.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmClientes.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmColor.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmInicio.resources

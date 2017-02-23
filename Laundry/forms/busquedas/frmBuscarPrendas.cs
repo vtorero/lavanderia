@@ -13,7 +13,7 @@ namespace Lavanderia.forms.busquedas
 {
     public partial class frmBuscarPrendas : Form
     {
-        public delegate void enviar(string id, string nombre, string precio);
+        public delegate void enviar(string id, string nombre, decimal precio);
         public event enviar enviado;
         public frmBuscarPrendas()
         {
@@ -39,7 +39,7 @@ namespace Lavanderia.forms.busquedas
         {
             int pos;
             pos = dgvPrendas.CurrentRow.Index;
-            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToString(dgvPrendas[3, pos].Value));
+            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value));
             this.Close();
         }
     }
