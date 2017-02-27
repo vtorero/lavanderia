@@ -61,6 +61,25 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<Color> Buscar(string nombre)
+        {
+            List<Color> _lista = new List<Color>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT *  FROM Color where nombreColor like '%{0}%' ", nombre), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                Color color = new Color();
+                color.idColor= _reader.GetInt32(0);
+                color.nombreColor= _reader.GetString(1);
+                color.valorColor= _reader.GetString(2);
+                _lista.Add(color);
+            }
+
+            return _lista;
+        }
+
 
     }
 }

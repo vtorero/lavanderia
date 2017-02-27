@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.btnSrcCliente = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,7 +54,6 @@
             this.nroCantidad = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,14 +68,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmbDefecto = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtcolores = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSrcCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -143,18 +147,6 @@
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(304, 22);
             this.txtNombreCliente.TabIndex = 3;
-            // 
-            // btnSrcCliente
-            // 
-            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSrcCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSrcCliente.Image")));
-            this.btnSrcCliente.Location = new System.Drawing.Point(355, 88);
-            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSrcCliente.Name = "btnSrcCliente";
-            this.btnSrcCliente.Size = new System.Drawing.Size(45, 28);
-            this.btnSrcCliente.TabIndex = 4;
-            this.btnSrcCliente.UseVisualStyleBackColor = true;
-            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
             // txtDni
             // 
@@ -228,6 +220,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.txtcolores);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.cmbDefecto);
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Controls.Add(this.groupBox6);
@@ -309,7 +305,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 124);
+            this.label7.Location = new System.Drawing.Point(28, 122);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 16);
             this.label7.TabIndex = 16;
@@ -325,22 +321,12 @@
             this.LblId.Text = "label7";
             this.LblId.Visible = false;
             // 
-            // btnQuitar
-            // 
-            this.btnQuitar.AutoSize = true;
-            this.btnQuitar.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
-            this.btnQuitar.Location = new System.Drawing.Point(426, 87);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(49, 41);
-            this.btnQuitar.TabIndex = 14;
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dgvOrden);
-            this.groupBox5.Location = new System.Drawing.Point(17, 148);
+            this.groupBox5.Location = new System.Drawing.Point(17, 209);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(521, 235);
+            this.groupBox5.Size = new System.Drawing.Size(521, 174);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalle";
@@ -364,14 +350,14 @@
             this.Column2,
             this.Column4,
             this.Column5});
-            this.dgvOrden.Location = new System.Drawing.Point(14, 24);
+            this.dgvOrden.Location = new System.Drawing.Point(6, 34);
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrden.Size = new System.Drawing.Size(501, 198);
+            this.dgvOrden.Size = new System.Drawing.Size(501, 134);
             this.dgvOrden.TabIndex = 0;
             // 
             // Column6
@@ -474,31 +460,6 @@
             this.radioButton1.Text = "Prenda";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(426, 55);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 24);
-            this.button2.TabIndex = 6;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Image = global::Lavanderia.Properties.Resources._112_Plus_Green;
-            this.btnAdd.Location = new System.Drawing.Point(371, 86);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(52, 41);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -553,11 +514,93 @@
             "Descolorido",
             "Rasgado",
             "Gastado"});
-            this.cmbDefecto.Location = new System.Drawing.Point(207, 87);
+            this.cmbDefecto.Location = new System.Drawing.Point(261, 121);
             this.cmbDefecto.Name = "cmbDefecto";
             this.cmbDefecto.Size = new System.Drawing.Size(133, 24);
             this.cmbDefecto.TabIndex = 20;
-            this.cmbDefecto.Text = "Defecto";
+            this.cmbDefecto.Text = "Seleccionar";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(195, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(58, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Defecto:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(35, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 16);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Colores:";
+            // 
+            // txtcolores
+            // 
+            this.txtcolores.Location = new System.Drawing.Point(115, 157);
+            this.txtcolores.Name = "txtcolores";
+            this.txtcolores.Size = new System.Drawing.Size(216, 22);
+            this.txtcolores.TabIndex = 23;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(336, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(22, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.AutoSize = true;
+            this.btnQuitar.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
+            this.btnQuitar.Location = new System.Drawing.Point(438, 162);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(49, 41);
+            this.btnQuitar.TabIndex = 14;
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(426, 55);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 24);
+            this.button2.TabIndex = 6;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AutoSize = true;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::Lavanderia.Properties.Resources._112_Plus_Green;
+            this.btnAdd.Location = new System.Drawing.Point(383, 162);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(52, 41);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSrcCliente
+            // 
+            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSrcCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSrcCliente.Image")));
+            this.btnSrcCliente.Location = new System.Drawing.Point(355, 88);
+            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSrcCliente.Name = "btnSrcCliente";
+            this.btnSrcCliente.Size = new System.Drawing.Size(45, 28);
+            this.btnSrcCliente.TabIndex = 4;
+            this.btnSrcCliente.UseVisualStyleBackColor = true;
+            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
             // frmOrden
             // 
@@ -634,5 +677,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbDefecto;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtcolores;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }

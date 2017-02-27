@@ -87,6 +87,12 @@
     <Compile Include="forms\busquedas\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\busquedas\frmBuscarColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\busquedas\frmBuscarColor.Designer.cs">
+      <DependentUpon>frmBuscarColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\busquedas\frmBuscarPrendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     <Compile Include="util\Validacion.cs" />
     <EmbeddedResource Include="forms\busquedas\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\busquedas\frmBuscarColor.resx">
+      <DependentUpon>frmBuscarColor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\busquedas\frmBuscarPrendas.resx">
       <DependentUpon>frmBuscarPrendas.cs</DependentUpon>

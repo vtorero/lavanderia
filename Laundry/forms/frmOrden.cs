@@ -48,10 +48,15 @@ namespace Lavanderia.forms
             LblId.Text = id;
             txtNombrePrenda.Text = nombre;
             txtPrecio.Text = Convert.ToString(Decimal.Round(precio,2));
+        }
+
+        public void ejecutar3(string colores)
+        {
+            
+            txtcolores.Text = colores;
             
 
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -104,6 +109,13 @@ namespace Lavanderia.forms
         private void groupBox5_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmBuscarColor childForm = new frmBuscarColor();
+            childForm.enviad += new frmBuscarColor.enviar(ejecutar3);
+            childForm.ShowDialog();
         }
     }
 }
