@@ -70,6 +70,15 @@ namespace Lavanderia.forms
             totalOrden += Decimal.Round(total,2);
             txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
             txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
+            restablecer();    
+
+        }
+
+        public void restablecer() {
+            txtNombrePrenda.Text = "";
+            txtPrecio.Text = "";
+            nroCantidad.Value = 0;
+            cmbDefecto.Text = "Defecto";
 
         }
 
