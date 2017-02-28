@@ -164,11 +164,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\Prenda.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\ClienteDao.cs" />
     <Compile Include="Persistencia\ColorDao.cs" />
+    <Compile Include="Persistencia\OrdenDao.cs" />
     <Compile Include="Persistencia\PrendaDao.cs" />
     <Compile Include="Persistencia\ServicioDao.cs" />
     <Compile Include="Persistencia\UsuarioDao.cs" />
@@ -280,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\Overlay_preferences.ico" />
     <None Include="Resources\Annotate_Disabled.ico" />
     <None Include="Resources\FeatureNotAvailable_5734_12x12_16x.ico" />
     <None Include="Resources\112_Plus_Green.ico" />

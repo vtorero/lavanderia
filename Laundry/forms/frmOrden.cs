@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.forms.busquedas;
+using Lavanderia.Persistencia;
+using Lavanderia.Models;
 
 namespace Lavanderia.forms
 {
@@ -74,7 +76,7 @@ namespace Lavanderia.forms
             i = i + 1;
             totalOrden += Decimal.Round(total,2);
             txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
-            txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
+            //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
             restablecer();    
 
         }
@@ -117,5 +119,36 @@ namespace Lavanderia.forms
             childForm.enviad += new frmBuscarColor.enviar(ejecutar3);
             childForm.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Orden ord = new Orden();
+
+            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
+            ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
+            ord.fechaEntrega =s;
+            ord.totalOrden = Convert.ToDecimal(txtPago.Text);
+            ord.idUsuario = 1;
+            ord.observacion = "Texto de prueba";
+            ord.estado = 1;
+            ord.tipoPago = 1;
+            OrdenDao.Agregar(ord);
+
+        }
+
+        private void rdParcial_CheckedChanged(object sender, EventArgs e)
+        {
+            lblPendiente.Visible = true;
+            txtPendiente.Visible = true;
+        }
+
+        private void rdTotal_Click(object sender, EventArgs e)
+        {
+            lblPendiente.Visible = false;
+            txtPendiente.Visible = false;
+            txtPago.Text = txtTotal.Text;
+        }
+
+      
     }
 }
