@@ -140,13 +140,21 @@ namespace Lavanderia.forms
         {
             lblPendiente.Visible = true;
             txtPendiente.Visible = true;
+            txtPago.Text = "";
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
         {
             lblPendiente.Visible = false;
             txtPendiente.Visible = false;
-            txtPago.Text = txtTotal.Text;
+            txtPago.Text = Convert.ToString(totalOrden);
+        }
+
+        private void txtPago_TextChanged(object sender, EventArgs e)
+        {
+              if (!string.IsNullOrWhiteSpace(txtPago.Text)) {
+            txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+              }
         }
 
       
