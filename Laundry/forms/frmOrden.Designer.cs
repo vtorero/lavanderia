@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -88,6 +88,8 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dtHoraEntrega = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,13 +143,17 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(96, 88);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(122, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(134, 22);
             this.txtTelefono.TabIndex = 3;
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.Location = new System.Drawing.Point(96, 22);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
@@ -169,6 +175,8 @@
             // 
             // txtDni
             // 
+            this.txtDni.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtDni.Enabled = false;
             this.txtDni.Location = new System.Drawing.Point(96, 54);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(110, 22);
@@ -207,6 +215,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.dtHoraEntrega);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.dtFechaEntrega);
             this.groupBox2.Controls.Add(this.label13);
@@ -241,16 +251,16 @@
             // dtFechaEntrega
             // 
             this.dtFechaEntrega.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-            this.dtFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtFechaEntrega.Location = new System.Drawing.Point(140, 191);
+            this.dtFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaEntrega.Location = new System.Drawing.Point(150, 191);
             this.dtFechaEntrega.Name = "dtFechaEntrega";
-            this.dtFechaEntrega.Size = new System.Drawing.Size(143, 22);
+            this.dtFechaEntrega.Size = new System.Drawing.Size(109, 22);
             this.dtFechaEntrega.TabIndex = 7;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 191);
+            this.label13.Location = new System.Drawing.Point(18, 194);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 16);
             this.label13.TabIndex = 6;
@@ -491,14 +501,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -510,8 +520,8 @@
             this.dgvOrden.Location = new System.Drawing.Point(6, 34);
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(501, 134);
@@ -543,18 +553,18 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.HeaderText = "Precio";
             this.Column4.Name = "Column4";
             this.Column4.Width = 55;
             // 
             // Column5
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             // 
@@ -633,7 +643,7 @@
             // 
             this.btnAdd.AutoSize = true;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Image = global::Lavanderia.Properties.Resources._112_Plus_Green;
+            this.btnAdd.Image = global::Lavanderia.Properties.Resources.plush;
             this.btnAdd.Location = new System.Drawing.Point(383, 162);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
@@ -676,6 +686,27 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
+            // 
+            // dtHoraEntrega
+            // 
+            this.dtHoraEntrega.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtHoraEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHoraEntrega.Location = new System.Drawing.Point(150, 219);
+            this.dtHoraEntrega.Name = "dtHoraEntrega";
+            this.dtHoraEntrega.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtHoraEntrega.ShowUpDown = true;
+            this.dtHoraEntrega.Size = new System.Drawing.Size(109, 22);
+            this.dtHoraEntrega.TabIndex = 9;
+            this.dtHoraEntrega.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(20, 220);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 16);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Hora:";
             // 
             // frmOrden
             // 
@@ -765,5 +796,7 @@
         private System.Windows.Forms.RadioButton rdParcial;
         private System.Windows.Forms.RadioButton rdTotal;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DateTimePicker dtHoraEntrega;
+        private System.Windows.Forms.Label label12;
     }
 }

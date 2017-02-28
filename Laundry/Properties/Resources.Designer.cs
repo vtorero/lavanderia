@@ -63,16 +63,6 @@ namespace Lavanderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _112_Plus_Green {
-            get {
-                object obj = ResourceManager.GetObject("112_Plus_Green", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Annotate_Disabled {
             get {
                 object obj = ResourceManager.GetObject("Annotate_Disabled", resourceCulture);
@@ -123,9 +113,9 @@ namespace Lavanderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Peruanos_en_el_mundo {
+        internal static System.Drawing.Bitmap plush {
             get {
-                object obj = ResourceManager.GetObject("Peruanos en el mundo", resourceCulture);
+                object obj = ResourceManager.GetObject("plush", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

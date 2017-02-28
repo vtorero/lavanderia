@@ -16,7 +16,7 @@ namespace Lavanderia.forms
     public partial class frmOrden : Form
     {
         int i = 1;
-         decimal igv = 18;
+         //decimal igv = 18;
           decimal totalOrden = 0;
         public frmOrden()
         {
@@ -124,9 +124,10 @@ namespace Lavanderia.forms
         {
             Orden ord = new Orden();
 
-            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
+            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0,10);
+            string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
-            ord.fechaEntrega =s;
+            ord.fechaEntrega =s+ " "+h ;
             ord.totalOrden = Convert.ToDecimal(txtPago.Text);
             ord.idUsuario = 1;
             ord.observacion = "Texto de prueba";
@@ -155,6 +156,11 @@ namespace Lavanderia.forms
               if (!string.IsNullOrWhiteSpace(txtPago.Text)) {
             txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
               }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
       
