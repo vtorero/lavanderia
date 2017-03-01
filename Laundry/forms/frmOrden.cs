@@ -162,6 +162,7 @@ namespace Lavanderia.forms
             lblPendiente.Visible = false;
             txtPendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
+            btnGuardar.Enabled = true;
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
