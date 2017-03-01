@@ -208,6 +208,29 @@ namespace Lavanderia.forms
         {
             btnQuitar.Enabled = true;
         }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            decimal totalDescontar=0;
+            Int32 selectedRowCount = dgvOrden.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+            if (selectedRowCount > 0)
+            {
+
+
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["Column5"].Value.ToString());
+                    dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index); 
+                }
+
+                
+
+            }
+            totalOrden=(totalOrden - totalDescontar);         
+            txtTotal.Text = "S/." + totalOrden;
+            btnQuitar.Enabled = false;
+        }
       
     }
 }
