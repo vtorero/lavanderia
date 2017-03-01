@@ -53,6 +53,11 @@ namespace Lavanderia.util
                 {
                     e.Handled = false;
                 }
+                else if (Char.IsPunctuation(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+
                 else
                 {
                     e.Handled = true;

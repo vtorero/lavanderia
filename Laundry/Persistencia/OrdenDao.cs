@@ -20,5 +20,22 @@ namespace Lavanderia.Persistencia
             return retorno;
         }
 
+        public static int ultimo_id()
+        {
+
+            int id=0;
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT max(idOrden)  FROM Orden"), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+
+                id = _reader.GetInt32(0);
+                
+            }
+
+            return id+1;
+        }
+
     }
 }

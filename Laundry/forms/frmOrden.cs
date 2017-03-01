@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using Lavanderia.forms.busquedas;
 using Lavanderia.Persistencia;
 using Lavanderia.Models;
+using Lavanderia.util;
 
 namespace Lavanderia.forms
 {
     public partial class frmOrden : Form
     {
         int i = 1;
+        Validacion v = new Validacion();
          //decimal igv = 18;
           decimal totalOrden = 0;
         public frmOrden()
@@ -62,7 +64,8 @@ namespace Lavanderia.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if(nroCantidad.Value>0){
+               
             string id, detalle;
             id = LblId.Text;
             detalle = txtNombrePrenda.Text;
@@ -77,7 +80,11 @@ namespace Lavanderia.forms
             totalOrden += Decimal.Round(total,2);
             txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
             //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
-            restablecer();    
+            restablecer(); 
+            }else{
+            MessageBox.Show("Debe indicar el nro de prendas","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            
+            }
 
         }
 
@@ -86,18 +93,23 @@ namespace Lavanderia.forms
             txtPrecio.Text = "";
             nroCantidad.Value = 0;
             cmbDefecto.Text = "Defecto";
+            btnAdd.Enabled = false;
+            nroCantidad.Enabled = false;
+            cmbDefecto.Enabled = false;
+            btnColor.Enabled = false;
+                
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            if (rdPrenda.Checked)
             {
                 frmBuscarPrendas childForm = new frmBuscarPrendas();
                 childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
                 childForm.ShowDialog();
             }
-            else if (radioButton2.Checked)
+            else if (rdServicio.Checked)
             {
                 frmBuscarServicio childForm = new frmBuscarServicio();
                 childForm.enviado += new frmBuscarServicio.enviar(ejecutar2);
@@ -163,6 +175,39 @@ namespace Lavanderia.forms
 
         }
 
+        private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.soloNumeros(e);
+        }
+
+      
+
+        private void txtNombreCliente_TextChanged(object sender, EventArgs e)
+        {
+            habilitaServicio();
+
+        }
+
+        public void habilitaServicio() {
+            rdPrenda.Enabled = true;
+            rdServicio.Enabled = true;
+            btnAddPrenda.Enabled = true;
+            nroCantidad.Enabled = true;
+            cmbDefecto.Enabled = true;
+            btnColor.Enabled = true;
+        
+        }
+
+        private void txtNombrePrenda_TextChanged(object sender, EventArgs e)
+        {
+            habilitaServicio();
+            btnAdd.Enabled = true;
+        }
+
+        private void dgvOrden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btnQuitar.Enabled = true;
+        }
       
     }
 }
