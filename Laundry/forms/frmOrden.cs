@@ -153,7 +153,8 @@ namespace Lavanderia.forms
         {
             lblPendiente.Visible = true;
             txtPendiente.Visible = true;
-            txtPago.Text = "";
+            txtPago.Enabled = true;
+            txtPago.Text = "0.00";
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
@@ -166,7 +167,9 @@ namespace Lavanderia.forms
         private void txtPago_TextChanged(object sender, EventArgs e)
         {
               if (!string.IsNullOrWhiteSpace(txtPago.Text)) {
+     
             txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+                 
               }
         }
 
@@ -177,7 +180,8 @@ namespace Lavanderia.forms
 
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-            v.soloNumeros(e);
+          
+v.soloNumeros(e);
         }
 
       
@@ -195,6 +199,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = true;
             cmbDefecto.Enabled = true;
             btnColor.Enabled = true;
+            dgvOrden.Enabled = true;
         
         }
 
@@ -217,19 +222,37 @@ namespace Lavanderia.forms
             if (selectedRowCount > 0)
             {
 
-
                 for (int i = 0; i < selectedRowCount; i++)
                 {
                     totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["Column5"].Value.ToString());
                     dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index); 
                 }
 
-                
-
             }
             totalOrden=(totalOrden - totalDescontar);         
             txtTotal.Text = "S/." + totalOrden;
             btnQuitar.Enabled = false;
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            rdParcial.Enabled = true;
+            rdTotal.Enabled = true;
+        }
+
+        private void txtPago_Leave(object sender, EventArgs e)
+        {
+            if ((totalOrden - Convert.ToDecimal(txtPago.Text)) > 0)
+            {
+                txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+                btnGuardar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("El monto sobrepasa el total de la orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPendiente.Text = "0.0"; 
+                txtPago.Focus();
+            }
         }
       
     }

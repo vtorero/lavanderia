@@ -37,10 +37,20 @@ namespace Lavanderia.forms.busquedas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            enviaDatos();
+        }
+
+        private void enviaDatos() {
+
             int pos;
             pos = dgvPrendas.CurrentRow.Index;
             enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value));
             this.Close();
+        }
+
+        private void dgvPrendas_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            enviaDatos();
         }
     }
 }

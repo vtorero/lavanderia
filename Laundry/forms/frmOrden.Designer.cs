@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -46,13 +46,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtHoraEntrega = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.dtFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPendiente = new System.Windows.Forms.TextBox();
             this.lblPendiente = new System.Windows.Forms.Label();
             this.txtPago = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelMontoPagar = new System.Windows.Forms.Label();
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.txtIdOrden = new System.Windows.Forms.TextBox();
@@ -218,13 +218,13 @@
             // 
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.dtHoraEntrega);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.dtFechaEntrega);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtPendiente);
             this.groupBox2.Controls.Add(this.lblPendiente);
             this.groupBox2.Controls.Add(this.txtPago);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.labelMontoPagar);
             this.groupBox2.Controls.Add(this.rdParcial);
             this.groupBox2.Controls.Add(this.rdTotal);
             this.groupBox2.Location = new System.Drawing.Point(7, 186);
@@ -257,18 +257,19 @@
             this.dtHoraEntrega.TabIndex = 9;
             this.dtHoraEntrega.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // button3
+            // btnGuardar
             // 
-            this.button3.Image = global::Lavanderia.Properties.Resources.Overlay_preferences;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(316, 191);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 55);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "&Guardar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Image = global::Lavanderia.Properties.Resources.Overlay_preferences;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.Location = new System.Drawing.Point(316, 191);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(98, 55);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "&Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button3_Click);
             // 
             // dtFechaEntrega
             // 
@@ -308,25 +309,28 @@
             // 
             // txtPago
             // 
+            this.txtPago.Enabled = false;
             this.txtPago.Location = new System.Drawing.Point(233, 82);
             this.txtPago.Name = "txtPago";
             this.txtPago.Size = new System.Drawing.Size(100, 22);
             this.txtPago.TabIndex = 3;
             this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
             this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
+            this.txtPago.Leave += new System.EventHandler(this.txtPago_Leave);
             // 
-            // label8
+            // labelMontoPagar
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(112, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 16);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Monto Recibido:";
+            this.labelMontoPagar.AutoSize = true;
+            this.labelMontoPagar.Location = new System.Drawing.Point(112, 86);
+            this.labelMontoPagar.Name = "labelMontoPagar";
+            this.labelMontoPagar.Size = new System.Drawing.Size(98, 16);
+            this.labelMontoPagar.TabIndex = 2;
+            this.labelMontoPagar.Text = "Monto a pagar:";
             // 
             // rdParcial
             // 
             this.rdParcial.AutoSize = true;
+            this.rdParcial.Enabled = false;
             this.rdParcial.Location = new System.Drawing.Point(258, 42);
             this.rdParcial.Name = "rdParcial";
             this.rdParcial.Size = new System.Drawing.Size(104, 20);
@@ -338,6 +342,7 @@
             // rdTotal
             // 
             this.rdTotal.AutoSize = true;
+            this.rdTotal.Enabled = false;
             this.rdTotal.Location = new System.Drawing.Point(95, 42);
             this.rdTotal.Name = "rdTotal";
             this.rdTotal.Size = new System.Drawing.Size(93, 20);
@@ -467,10 +472,13 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(106, 21);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
             this.txtTotal.TabIndex = 3;
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // label9
             // 
@@ -535,14 +543,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -551,12 +559,13 @@
             this.Column2,
             this.Column4,
             this.Column5});
+            this.dgvOrden.Enabled = false;
             this.dgvOrden.Location = new System.Drawing.Point(6, 34);
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrden.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(501, 134);
@@ -589,18 +598,18 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column4.HeaderText = "Precio";
             this.Column4.Name = "Column4";
             this.Column4.Width = 55;
             // 
             // Column5
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             // 
@@ -812,10 +821,10 @@
         private System.Windows.Forms.TextBox txtPendiente;
         private System.Windows.Forms.Label lblPendiente;
         private System.Windows.Forms.TextBox txtPago;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelMontoPagar;
         private System.Windows.Forms.RadioButton rdParcial;
         private System.Windows.Forms.RadioButton rdTotal;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DateTimePicker dtHoraEntrega;
         private System.Windows.Forms.Label label12;
     }

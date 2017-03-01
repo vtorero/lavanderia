@@ -62,6 +62,7 @@
             this.dgvPrendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPrendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrendas.Location = new System.Drawing.Point(12, 96);
+            this.dgvPrendas.MultiSelect = false;
             this.dgvPrendas.Name = "dgvPrendas";
             this.dgvPrendas.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -69,6 +70,7 @@
             this.dgvPrendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrendas.Size = new System.Drawing.Size(351, 248);
             this.dgvPrendas.TabIndex = 6;
+            this.dgvPrendas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvPrendas_MouseDoubleClick);
             // 
             // groupBox1
             // 

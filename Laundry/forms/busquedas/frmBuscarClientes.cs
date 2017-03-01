@@ -23,23 +23,22 @@ namespace Lavanderia.forms.busquedas
      
         private void dgvClientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int pos; 
+            enviaDatos();
+            
+        }
+
+        private void enviaDatos() {
+            int pos;
             pos = dgvClientes.CurrentRow.Index;
             enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
-            /*txtNombres.Text = Convert.ToString(dgvClientes[1, pos].Value);
-            txtDNI.Text = Convert.ToString(dgvClientes[2, pos].Value);*/
             this.Close();
-            
+        
+        
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int pos;
-            pos = dgvClientes.CurrentRow.Index;
-            enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
-            /*txtNombres.Text = Convert.ToString(dgvClientes[1, pos].Value);
-            txtDNI.Text = Convert.ToString(dgvClientes[2, pos].Value);*/
-            this.Close();
+            enviaDatos();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
