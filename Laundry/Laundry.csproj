@@ -165,6 +165,7 @@
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\Orden.cs" />
+    <Compile Include="Models\OrdenLinea.cs" />
     <Compile Include="Models\Prenda.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Usuario.cs" />

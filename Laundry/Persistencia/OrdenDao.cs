@@ -14,11 +14,25 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Orden orden)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `cualesmi_lavanderia`.`Orden` (`idCliente`, `fechaEntrega`, `totalOrden`,`idUsuario`, `Observacion`, `estado`, `tipoPago`) VALUES ({0},'{1}',{2},{3},'{4}', {5}, {6});",
+            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `Orden` (`idCliente`, `fechaEntrega`, `totalOrden`,`idUsuario`, `Observacion`, `estado`, `tipoPago`) VALUES ({0},'{1}',{2},{3},'{4}', {5}, {6});",
                 orden.idCliente,orden.fechaEntrega,orden.totalOrden,orden.idUsuario,orden.observacion,orden.estado,orden.tipoPago), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
-            return retorno;
+            return ultimo_id();
+            
         }
+
+
+        public static int AgregarLinea(OrdenLinea ordenlinea)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `OrdenLinea` (`idOrden`, `item`, `idPrenda`,`Descripcion`, `cantidad`, `precio`,`defecto`, `colorPrenda`, `total`,`estado`) VALUES ({0},{1},{2},'{3}',{4},{5},'{6}','{7}',{8},{9});",
+              ordenlinea.idOrden, ordenlinea.Item, ordenlinea.idPrenda, ordenlinea.Descripcion,ordenlinea.Cantidad, ordenlinea.Precio, ordenlinea.Defecto,ordenlinea.Colores,ordenlinea.Total,ordenlinea.Estado), BdComun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return ultimo_id();
+        }
+
+
+
 
         public static int ultimo_id()
         {
@@ -34,7 +48,7 @@ namespace Lavanderia.Persistencia
                 
             }
 
-            return id+1;
+            return id;
         }
 
     }

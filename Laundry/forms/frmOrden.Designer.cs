@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -72,12 +72,6 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,6 +84,16 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.lblObs = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -216,6 +220,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblObs);
+            this.groupBox2.Controls.Add(this.txtObservacion);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.dtHoraEntrega);
             this.groupBox2.Controls.Add(this.btnGuardar);
@@ -239,7 +245,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 220);
+            this.label12.Location = new System.Drawing.Point(63, 250);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 16);
             this.label12.TabIndex = 10;
@@ -249,7 +255,7 @@
             // 
             this.dtHoraEntrega.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dtHoraEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraEntrega.Location = new System.Drawing.Point(150, 219);
+            this.dtHoraEntrega.Location = new System.Drawing.Point(193, 249);
             this.dtHoraEntrega.Name = "dtHoraEntrega";
             this.dtHoraEntrega.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtHoraEntrega.ShowUpDown = true;
@@ -262,7 +268,7 @@
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Lavanderia.Properties.Resources.Overlay_preferences;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.Location = new System.Drawing.Point(316, 191);
+            this.btnGuardar.Location = new System.Drawing.Point(317, 220);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 55);
             this.btnGuardar.TabIndex = 8;
@@ -275,7 +281,7 @@
             // 
             this.dtFechaEntrega.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             this.dtFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaEntrega.Location = new System.Drawing.Point(150, 191);
+            this.dtFechaEntrega.Location = new System.Drawing.Point(193, 221);
             this.dtFechaEntrega.Name = "dtFechaEntrega";
             this.dtFechaEntrega.Size = new System.Drawing.Size(109, 22);
             this.dtFechaEntrega.TabIndex = 7;
@@ -283,7 +289,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 194);
+            this.label13.Location = new System.Drawing.Point(61, 224);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 16);
             this.label13.TabIndex = 6;
@@ -543,75 +549,35 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
-            this.Column1,
-            this.Column3,
-            this.Column2,
-            this.Column4,
-            this.Column5});
+            this.clNumero,
+            this.clPrenda,
+            this.clDescripcion,
+            this.clCantidad,
+            this.clPrecio,
+            this.clTotal,
+            this.clDefecto,
+            this.clColores});
             this.dgvOrden.Enabled = false;
             this.dgvOrden.Location = new System.Drawing.Point(6, 34);
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvOrden.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(501, 134);
             this.dgvOrden.TabIndex = 0;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Nro";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Descripción";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 180;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cantidad";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column4.HeaderText = "Precio";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 55;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
             // 
             // label6
             // 
@@ -737,6 +703,74 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
             // 
+            // clNumero
+            // 
+            this.clNumero.HeaderText = "Nro";
+            this.clNumero.Name = "clNumero";
+            this.clNumero.Width = 50;
+            // 
+            // clPrenda
+            // 
+            this.clPrenda.HeaderText = "Id";
+            this.clPrenda.Name = "clPrenda";
+            this.clPrenda.Width = 50;
+            // 
+            // clDescripcion
+            // 
+            this.clDescripcion.HeaderText = "Descripción";
+            this.clDescripcion.Name = "clDescripcion";
+            this.clDescripcion.Width = 180;
+            // 
+            // clCantidad
+            // 
+            this.clCantidad.HeaderText = "Cantidad";
+            this.clCantidad.Name = "clCantidad";
+            this.clCantidad.Width = 60;
+            // 
+            // clPrecio
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clPrecio.HeaderText = "Precio";
+            this.clPrecio.Name = "clPrecio";
+            this.clPrecio.Width = 55;
+            // 
+            // clTotal
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clTotal.HeaderText = "Total";
+            this.clTotal.Name = "clTotal";
+            // 
+            // clDefecto
+            // 
+            this.clDefecto.HeaderText = "Defecto";
+            this.clDefecto.Name = "clDefecto";
+            // 
+            // clColores
+            // 
+            this.clColores.HeaderText = "Colores";
+            this.clColores.Name = "clColores";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(115, 160);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(288, 43);
+            this.txtObservacion.TabIndex = 11;
+            // 
+            // lblObs
+            // 
+            this.lblObs.AutoSize = true;
+            this.lblObs.Location = new System.Drawing.Point(68, 175);
+            this.lblObs.Name = "lblObs";
+            this.lblObs.Size = new System.Drawing.Size(36, 16);
+            this.lblObs.TabIndex = 12;
+            this.lblObs.Text = "Obs:";
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -799,12 +833,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dgvOrden;
         private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label LblId;
         private System.Windows.Forms.NumericUpDown nroCantidad;
         private System.Windows.Forms.Label label7;
@@ -827,5 +855,15 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DateTimePicker dtHoraEntrega;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDefecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clColores;
+        private System.Windows.Forms.Label lblObs;
+        private System.Windows.Forms.TextBox txtObservacion;
     }
 }

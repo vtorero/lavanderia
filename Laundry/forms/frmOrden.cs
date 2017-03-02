@@ -18,8 +18,7 @@ namespace Lavanderia.forms
     {
         int i = 1;
         Validacion v = new Validacion();
-         //decimal igv = 18;
-          decimal totalOrden = 0;
+        decimal totalOrden = 0;
         public frmOrden()
         {
             InitializeComponent();
@@ -66,16 +65,19 @@ namespace Lavanderia.forms
         {
             if(nroCantidad.Value>0){
                
-            string id, detalle;
+            string id, detalle,defecto,colores;
             id = LblId.Text;
             detalle = txtNombrePrenda.Text;
             decimal cantidad, precio, total;
            
             cantidad = nroCantidad.Value;
             precio = Convert.ToDecimal(txtPrecio.Text);
+            defecto = cmbDefecto.Text;
+            colores = txtcolores.Text;
             total = cantidad * precio;
 
-            dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total);
+
+            dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total,defecto,colores);
             i = i + 1;
             totalOrden += Decimal.Round(total,2);
             txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
@@ -93,10 +95,12 @@ namespace Lavanderia.forms
             txtPrecio.Text = "";
             nroCantidad.Value = 0;
             cmbDefecto.Text = "Defecto";
+            txtcolores.Text = "";
             btnAdd.Enabled = false;
             nroCantidad.Enabled = false;
             cmbDefecto.Enabled = false;
             btnColor.Enabled = false;
+            
                 
 
         }
@@ -135,17 +139,60 @@ namespace Lavanderia.forms
         private void button3_Click(object sender, EventArgs e)
         {
             Orden ord = new Orden();
-
+            int tipo_pago = 0;
+            if (rdTotal.Checked) {
+                tipo_pago = 1;
+            }
+            if (rdParcial.Checked) {
+                tipo_pago = 2;
+            }
+           
+            int status = 0;
             string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0,10);
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega =s+ " "+h ;
             ord.totalOrden = Convert.ToDecimal(txtPago.Text);
             ord.idUsuario = 1;
-            ord.observacion = "Texto de prueba";
-            ord.estado = 1;
-            ord.tipoPago = 1;
-            OrdenDao.Agregar(ord);
+            ord.observacion = txtObservacion.Text;
+            ord.estado = 0;
+            ord.tipoPago = tipo_pago;
+            status=OrdenDao.Agregar(ord);
+
+            if (status > 0)
+            {
+                try
+                {
+                    foreach (DataGridViewRow data in dgvOrden.Rows)
+                    {
+
+                        OrdenLinea ordline = new OrdenLinea();
+                        ordline.idOrden = status;
+                        ordline.Item = Convert.ToInt32(data.Cells["clNumero"].Value);
+                        ordline.idPrenda = Convert.ToInt32(data.Cells["clPrenda"].Value);
+                        ordline.Descripcion = data.Cells["clDescripcion"].Value.ToString();
+                        ordline.Cantidad = Convert.ToInt32(data.Cells["clCantidad"].Value);
+                        ordline.Precio = Convert.ToDecimal(data.Cells["clPrecio"].Value);
+                        ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
+                        ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
+                        ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
+                        ordline.Estado = 0;
+
+                        OrdenDao.AgregarLinea(ordline);
+                         
+
+                    }
+                }
+                catch (Exception )
+                {
+                   
+
+                }
+
+                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+           
 
         }
 

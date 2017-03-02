@@ -101,7 +101,7 @@ namespace Lavanderia.forms
             pos = dgvClientes.CurrentRow.Index;
             string id=Convert.ToString(dgvClientes[0, pos].Value);
              
-             DialogResult result = MessageBox.Show("Eliminar al cliente: " + id ,"Confirmar",MessageBoxButtons.YesNo);
+             DialogResult result = MessageBox.Show("Eliminar al cliente: " + id +"?" ,"Confirmar",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
              if (result == DialogResult.Yes)
              {
                  ClienteDao.Eliminar(Convert.ToInt32(id));
@@ -150,7 +150,7 @@ namespace Lavanderia.forms
                 dgvClientes.Columns[1].HeaderText = "Nombres";
                 dgvClientes.Columns[1].Width = 180;
                 dgvClientes.Columns[2].Width = 90;
-                dgvClientes.Columns[3].Width = 110;
+                dgvClientes.Columns[3].Width = 160;
             
         }
     }
