@@ -139,6 +139,7 @@ namespace Lavanderia.forms
         private void button3_Click(object sender, EventArgs e)
         {
             Orden ord = new Orden();
+            Pago pago = new Pago();
             int tipo_pago = 0;
             if (rdTotal.Checked) {
                 tipo_pago = 1;
@@ -161,6 +162,18 @@ namespace Lavanderia.forms
 
             if (status > 0)
             {
+                if (tipo_pago == 1) {
+
+                    pago.idOrden = status;
+                    pago.Pago1 = Convert.ToDecimal(txtPago.Text);
+                    pago.Pago2 = 0;
+                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                    pago.TipoPago = tipo_pago;
+                   // pago.fechaPago = DateTime.Now("yyyy-MM-dd");
+
+                
+                }
+
                 try
                 {
                     foreach (DataGridViewRow data in dgvOrden.Rows)
@@ -182,6 +195,9 @@ namespace Lavanderia.forms
                          
 
                     }
+
+
+
                 }
                 catch (Exception )
                 {
@@ -201,14 +217,17 @@ namespace Lavanderia.forms
             lblPendiente.Visible = true;
             txtPendiente.Visible = true;
             txtPago.Enabled = true;
+            txtObservacion.Enabled = true;
             txtPago.Text = "0.00";
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
         {
+
             lblPendiente.Visible = false;
             txtPendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
+            txtObservacion.Enabled = true;
             btnGuardar.Enabled = true;
         }
 
@@ -221,10 +240,7 @@ namespace Lavanderia.forms
               }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -286,6 +302,7 @@ v.soloNumeros(e);
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
+          
         }
 
         private void txtPago_Leave(object sender, EventArgs e)
