@@ -166,12 +166,14 @@
     </Compile>
     <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\OrdenLinea.cs" />
+    <Compile Include="Models\Pago.cs" />
     <Compile Include="Models\Prenda.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\ClienteDao.cs" />
     <Compile Include="Persistencia\ColorDao.cs" />
     <Compile Include="Persistencia\OrdenDao.cs" />
+    <Compile Include="Persistencia\PagoDao.cs" />
     <Compile Include="Persistencia\PrendaDao.cs" />
     <Compile Include="Persistencia\ServicioDao.cs" />
     <Compile Include="Persistencia\UsuarioDao.cs" />
