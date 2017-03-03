@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblObs = new System.Windows.Forms.Label();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtHoraEntrega = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -72,6 +74,14 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
+            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,16 +94,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtObservacion = new System.Windows.Forms.TextBox();
-            this.lblObs = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,6 +144,7 @@
             this.lblCodigoCliente.Name = "lblCodigoCliente";
             this.lblCodigoCliente.Size = new System.Drawing.Size(0, 16);
             this.lblCodigoCliente.TabIndex = 5;
+            this.lblCodigoCliente.Visible = false;
             // 
             // txtTelefono
             // 
@@ -242,6 +243,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
             // 
+            // lblObs
+            // 
+            this.lblObs.AutoSize = true;
+            this.lblObs.Location = new System.Drawing.Point(68, 175);
+            this.lblObs.Name = "lblObs";
+            this.lblObs.Size = new System.Drawing.Size(36, 16);
+            this.lblObs.TabIndex = 12;
+            this.lblObs.Text = "Obs:";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Enabled = false;
+            this.txtObservacion.Location = new System.Drawing.Point(115, 160);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(288, 43);
+            this.txtObservacion.TabIndex = 11;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -261,7 +280,6 @@
             this.dtHoraEntrega.ShowUpDown = true;
             this.dtHoraEntrega.Size = new System.Drawing.Size(109, 22);
             this.dtHoraEntrega.TabIndex = 9;
-         
             // 
             // btnGuardar
             // 
@@ -549,14 +567,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -572,12 +590,63 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(501, 134);
             this.dgvOrden.TabIndex = 0;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
+            // 
+            // clNumero
+            // 
+            this.clNumero.HeaderText = "Nro";
+            this.clNumero.Name = "clNumero";
+            this.clNumero.Width = 50;
+            // 
+            // clPrenda
+            // 
+            this.clPrenda.HeaderText = "Id";
+            this.clPrenda.Name = "clPrenda";
+            this.clPrenda.Width = 50;
+            // 
+            // clDescripcion
+            // 
+            this.clDescripcion.HeaderText = "Descripción";
+            this.clDescripcion.Name = "clDescripcion";
+            this.clDescripcion.Width = 180;
+            // 
+            // clCantidad
+            // 
+            this.clCantidad.HeaderText = "Cantidad";
+            this.clCantidad.Name = "clCantidad";
+            this.clCantidad.Width = 60;
+            // 
+            // clPrecio
+            // 
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle14;
+            this.clPrecio.HeaderText = "Precio";
+            this.clPrecio.Name = "clPrecio";
+            this.clPrecio.Width = 55;
+            // 
+            // clTotal
+            // 
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle15;
+            this.clTotal.HeaderText = "Total";
+            this.clTotal.Name = "clTotal";
+            // 
+            // clDefecto
+            // 
+            this.clDefecto.HeaderText = "Defecto";
+            this.clDefecto.Name = "clDefecto";
+            // 
+            // clColores
+            // 
+            this.clColores.HeaderText = "Colores";
+            this.clColores.Name = "clColores";
             // 
             // label6
             // 
@@ -626,19 +695,19 @@
             this.rdServicio.TabIndex = 8;
             this.rdServicio.Text = "Servicio";
             this.rdServicio.UseVisualStyleBackColor = true;
+            this.rdServicio.CheckedChanged += new System.EventHandler(this.rdServicio_CheckedChanged);
             // 
             // rdPrenda
             // 
             this.rdPrenda.AutoSize = true;
-            this.rdPrenda.Checked = true;
             this.rdPrenda.Enabled = false;
             this.rdPrenda.Location = new System.Drawing.Point(96, 30);
             this.rdPrenda.Name = "rdPrenda";
             this.rdPrenda.Size = new System.Drawing.Size(70, 20);
             this.rdPrenda.TabIndex = 7;
-            this.rdPrenda.TabStop = true;
             this.rdPrenda.Text = "Prenda";
             this.rdPrenda.UseVisualStyleBackColor = true;
+            this.rdPrenda.CheckedChanged += new System.EventHandler(this.rdPrenda_CheckedChanged);
             // 
             // btnAddPrenda
             // 
@@ -702,75 +771,6 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
-            // 
-            // clNumero
-            // 
-            this.clNumero.HeaderText = "Nro";
-            this.clNumero.Name = "clNumero";
-            this.clNumero.Width = 50;
-            // 
-            // clPrenda
-            // 
-            this.clPrenda.HeaderText = "Id";
-            this.clPrenda.Name = "clPrenda";
-            this.clPrenda.Width = 50;
-            // 
-            // clDescripcion
-            // 
-            this.clDescripcion.HeaderText = "Descripción";
-            this.clDescripcion.Name = "clDescripcion";
-            this.clDescripcion.Width = 180;
-            // 
-            // clCantidad
-            // 
-            this.clCantidad.HeaderText = "Cantidad";
-            this.clCantidad.Name = "clCantidad";
-            this.clCantidad.Width = 60;
-            // 
-            // clPrecio
-            // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clPrecio.HeaderText = "Precio";
-            this.clPrecio.Name = "clPrecio";
-            this.clPrecio.Width = 55;
-            // 
-            // clTotal
-            // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
-            this.clTotal.HeaderText = "Total";
-            this.clTotal.Name = "clTotal";
-            // 
-            // clDefecto
-            // 
-            this.clDefecto.HeaderText = "Defecto";
-            this.clDefecto.Name = "clDefecto";
-            // 
-            // clColores
-            // 
-            this.clColores.HeaderText = "Colores";
-            this.clColores.Name = "clColores";
-            // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Enabled = false;
-            this.txtObservacion.Location = new System.Drawing.Point(115, 160);
-            this.txtObservacion.Multiline = true;
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(288, 43);
-            this.txtObservacion.TabIndex = 11;
-            // 
-            // lblObs
-            // 
-            this.lblObs.AutoSize = true;
-            this.lblObs.Location = new System.Drawing.Point(68, 175);
-            this.lblObs.Name = "lblObs";
-            this.lblObs.Size = new System.Drawing.Size(36, 16);
-            this.lblObs.TabIndex = 12;
-            this.lblObs.Text = "Obs:";
             // 
             // frmOrden
             // 

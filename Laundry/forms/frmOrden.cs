@@ -164,14 +164,37 @@ namespace Lavanderia.forms
             {
                 if (tipo_pago == 1) {
 
+                    DateTime Hoy = DateTime.Now;
+                    string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
+
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = 0;
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     pago.TipoPago = tipo_pago;
-                   // pago.fechaPago = DateTime.Now("yyyy-MM-dd");
+                    pago.Estado = 0;
+                    pago.fechaPago = fecha_actual;
+                    pago.fechaActualizado = fecha_actual;
+                    PagoDao.Agregar(pago);
+            
+                }
 
-                
+                if (tipo_pago == 2)
+                {
+
+                    DateTime Hoy = DateTime.Now;
+                    string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
+
+                    pago.idOrden = status;
+                    pago.Pago1 = Convert.ToDecimal(txtPago.Text);
+                    pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
+                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                    pago.TipoPago = tipo_pago;
+                    pago.Estado = 0;
+                    pago.fechaPago = fecha_actual;
+                    pago.fechaActualizado = fecha_actual;
+                    PagoDao.Agregar(pago);
+
                 }
 
                 try
@@ -206,6 +229,9 @@ namespace Lavanderia.forms
                 }
 
                 MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                desHabilitaServicio();
+                rdPrenda.Enabled = false;
+                rdServicio.Enabled = false;
             }
             
            
@@ -252,25 +278,52 @@ v.soloNumeros(e);
 
         private void txtNombreCliente_TextChanged(object sender, EventArgs e)
         {
-            habilitaServicio();
-
+            rdPrenda.Enabled = true;
+            rdServicio.Enabled = true;
         }
 
         public void habilitaServicio() {
-            rdPrenda.Enabled = true;
-            rdServicio.Enabled = true;
+          
             btnAddPrenda.Enabled = true;
             nroCantidad.Enabled = true;
             cmbDefecto.Enabled = true;
             btnColor.Enabled = true;
             dgvOrden.Enabled = true;
+            
         
         }
+
+        public void desHabilitaServicio()
+        {
+            rdPrenda.Enabled = false;
+            rdServicio.Enabled = false;
+            btnAddPrenda.Enabled = false;
+            nroCantidad.Enabled = false;
+            cmbDefecto.Enabled = false;
+            btnColor.Enabled = false;
+            txtPendiente.Enabled = false;
+            txtPago.Text = "";
+            txtPago.Enabled = false;
+            txtObservacion.Text = "";
+            txtObservacion.Enabled = false;
+            txtTotal.Text = "";
+            dgvOrden.Rows.Clear();
+            dgvOrden.Enabled = false;
+            txtNombreCliente.Text = "";
+            txtDni.Text = "";
+            txtTelefono.Text = "";
+            
+
+
+
+        }
+
 
         private void txtNombrePrenda_TextChanged(object sender, EventArgs e)
         {
             habilitaServicio();
             btnAdd.Enabled = true;
+            
         }
 
         private void dgvOrden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -318,6 +371,16 @@ v.soloNumeros(e);
                 txtPendiente.Text = "0.0"; 
                 txtPago.Focus();
             }
+        }
+
+        private void rdPrenda_CheckedChanged(object sender, EventArgs e)
+        {
+            btnAddPrenda.Enabled = true;
+        }
+
+        private void rdServicio_CheckedChanged(object sender, EventArgs e)
+        {
+            btnAddPrenda.Enabled = true;
         }
       
     }

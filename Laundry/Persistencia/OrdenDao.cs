@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -24,10 +25,21 @@ namespace Lavanderia.Persistencia
 
         public static int AgregarLinea(OrdenLinea ordenlinea)
         {
-            int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `OrdenLinea` (`idOrden`, `item`, `idPrenda`,`Descripcion`, `cantidad`, `precio`,`defecto`, `colorPrenda`, `total`,`estado`) VALUES ({0},{1},{2},'{3}',{4},{5},'{6}','{7}',{8},{9});",
-              ordenlinea.idOrden, ordenlinea.Item, ordenlinea.idPrenda, ordenlinea.Descripcion,ordenlinea.Cantidad, ordenlinea.Precio, ordenlinea.Defecto,ordenlinea.Colores,ordenlinea.Total,ordenlinea.Estado), BdComun.ObtenerConexion());
-            retorno = comando.ExecuteNonQuery();
+           
+            MySqlCommand cmd = new MySqlCommand("addLineaOrden", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("PidOrden", ordenlinea.idOrden));
+            cmd.Parameters.Add(new MySqlParameter("PidPrenda", ordenlinea.idPrenda));
+            cmd.Parameters.Add(new MySqlParameter("Pitem", ordenlinea.Item));
+            cmd.Parameters.Add(new MySqlParameter("Pdescripcion", ordenlinea.Descripcion));
+            cmd.Parameters.Add(new MySqlParameter("Pcantidad", ordenlinea.Cantidad));
+            cmd.Parameters.Add(new MySqlParameter("Pprecio", ordenlinea.Precio));
+            cmd.Parameters.Add(new MySqlParameter("Pdefecto", ordenlinea.Defecto));
+            cmd.Parameters.Add(new MySqlParameter("Pcolor", ordenlinea.Colores));
+            cmd.Parameters.Add(new MySqlParameter("Ptotal", ordenlinea.Total));
+            cmd.Parameters.Add(new MySqlParameter("Pestado", ordenlinea.Estado));
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
             return ultimo_id();
         }
 
@@ -38,16 +50,14 @@ namespace Lavanderia.Persistencia
         {
 
             int id=0;
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT max(idOrden)  FROM Orden"), BdComun.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
-            while (_reader.Read())
+            MySqlCommand cmd= new MySqlCommand("ultimoIdOrden", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+              while (dr.Read())
             {
-
-                id = _reader.GetInt32(0);
-                
+                id = Convert.ToInt32(dr["ultimoid"]);
             }
-
+              cmd.Connection.Close();
             return id;
         }
 
