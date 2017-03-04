@@ -72,7 +72,7 @@ namespace Lavanderia.forms
            
             cantidad = nroCantidad.Value;
             precio = Convert.ToDecimal(txtPrecio.Text);
-            defecto = cmbDefecto.Text;
+            defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
             colores = txtcolores.Text;
             total = cantidad * precio;
 
@@ -94,7 +94,7 @@ namespace Lavanderia.forms
             txtNombrePrenda.Text = "";
             txtPrecio.Text = "";
             nroCantidad.Value = 0;
-            cmbDefecto.Text = "Defecto";
+            cmbDefecto.Text = "Seleccionar";
             txtcolores.Text = "";
             btnAdd.Enabled = false;
             nroCantidad.Enabled = false;
@@ -230,10 +230,8 @@ namespace Lavanderia.forms
 
                 MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 desHabilitaServicio();
-                rdPrenda.Enabled = false;
-                rdServicio.Enabled = false;
+               
             }
-            
            
 
         }
@@ -245,6 +243,9 @@ namespace Lavanderia.forms
             txtPago.Enabled = true;
             txtObservacion.Enabled = true;
             txtPago.Text = "0.00";
+            dtFechaEntrega.Enabled = true;
+            dtHoraEntrega.Enabled = true;
+            btnGuardar.Enabled = true;
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
@@ -254,7 +255,8 @@ namespace Lavanderia.forms
             txtPendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
             txtObservacion.Enabled = true;
-            btnGuardar.Enabled = true;
+            dtFechaEntrega.Enabled = true;
+            dtHoraEntrega.Enabled = true;
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -312,9 +314,22 @@ v.soloNumeros(e);
             txtNombreCliente.Text = "";
             txtDni.Text = "";
             txtTelefono.Text = "";
+            rdParcial.Checked = false;
+            rdParcial.Enabled = false;
+            rdTotal.Checked = false;
+            rdTotal.Enabled = false;
+            rdPrenda.Enabled = false;
+            rdServicio.Enabled = false;
+            dtFechaEntrega.Enabled = false;
+            dtHoraEntrega.Enabled = false;
+            txtPago.Enabled = false;
+            lblPendiente.Visible = false;
+            txtPendiente.Text = "0.00";
+            txtPendiente.Visible = false;
+            lblSimbolopendiente.Visible = false;
+            txtObservacion.Enabled = false;
+            btnGuardar.Enabled = false;
             
-
-
 
         }
 
@@ -341,7 +356,7 @@ v.soloNumeros(e);
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-                    totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["Column5"].Value.ToString());
+                    totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString());
                     dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index); 
                 }
 
@@ -363,7 +378,7 @@ v.soloNumeros(e);
             if ((totalOrden - Convert.ToDecimal(txtPago.Text)) > 0)
             {
                 txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
-                btnGuardar.Enabled = true;
+               
             }
             else
             {
@@ -381,6 +396,11 @@ v.soloNumeros(e);
         private void rdServicio_CheckedChanged(object sender, EventArgs e)
         {
             btnAddPrenda.Enabled = true;
+        }
+
+        private void rdTotal_CheckedChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Enabled = true;
         }
       
     }

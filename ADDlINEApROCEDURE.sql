@@ -16,8 +16,13 @@ BEGIN
 INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,total,estado)
 VALUES(PidOrden,PidPrenda,Pitem,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Ptotal,Pestado);
 END $$
-
+DELIMITER $$
 CREATE PROCEDURE ultimoIdOrden()
 BEGIN
-SELECT MAX(idOrden) FROM Orden;
-END;
+SELECT MAX(idOrden) as ultimoid FROM Orden;
+END $$
+DELIMITER $$
+CREATE PROCEDURE clientesAll()
+BEGIN
+SELECT * FROM Cliente order by idCliente asc;
+END $$

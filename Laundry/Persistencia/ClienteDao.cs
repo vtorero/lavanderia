@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -40,19 +41,20 @@ namespace Lavanderia.Persistencia
         {
             List<Cliente> _lista = new List<Cliente>();
 
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM Cliente order by idCliente asc"), BdComun.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
+            MySqlCommand cmd= new MySqlCommand("clientesAll", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+           
 
-            while (_reader.Read())
+            while (dr.Read())
             {
-                Cliente cliente= new Cliente();
-                cliente.idCliente = _reader.GetInt32(0);
-                cliente.Nombres= _reader.GetString(1);
-                cliente.DNI = _reader.GetString(2);
-                cliente.Email = _reader.GetString(3);
-                cliente.Dirección= _reader.GetString(4);
-                cliente.Teléfono = _reader.GetString(5);
+            Cliente cliente= new Cliente();
+                cliente.idCliente = Convert.ToInt32(dr["idCliente"]);
+                cliente.Nombres= Convert.ToString(dr["nombreCliente"]);
+                cliente.DNI = Convert.ToString(dr["dniCliente"]);
+                cliente.Email = Convert.ToString(dr["correoCliente"]);
+                cliente.Dirección= Convert.ToString(dr["direccionCliente"]);
+                cliente.Teléfono = Convert.ToString(dr["telefonoCliente"]);
                 _lista.Add(cliente);
             }
 
