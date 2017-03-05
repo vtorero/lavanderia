@@ -389,7 +389,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PrendasRow AddPrendasRow(string idPrenda, string NombrePrenda, string DescripcionPrenda, string PrecioServicio) {
+            public PrendasRow AddPrendasRow(string idPrenda, string NombrePrenda, string DescripcionPrenda, int PrecioServicio) {
                 PrendasRow rowPrendasRow = ((PrendasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idPrenda,
@@ -433,8 +433,10 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnNombrePrenda);
                 this.columnDescripcionPrenda = new global::System.Data.DataColumn("DescripcionPrenda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcionPrenda);
-                this.columnPrecioServicio = new global::System.Data.DataColumn("PrecioServicio", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPrecioServicio = new global::System.Data.DataColumn("PrecioServicio", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecioServicio);
+                this.columnPrecioServicio.AutoIncrementSeed = -1;
+                this.columnPrecioServicio.AutoIncrementStep = -1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -625,10 +627,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PrecioServicio {
+            public int PrecioServicio {
                 get {
                     try {
-                        return ((string)(this[this.tablePrendas.PrecioServicioColumn]));
+                        return ((int)(this[this.tablePrendas.PrecioServicioColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'PrecioServicio\' de la tabla \'Prendas\' es DBNull.", e);

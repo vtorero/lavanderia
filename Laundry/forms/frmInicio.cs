@@ -120,7 +120,9 @@ namespace Lavanderia.forms
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
          "SELECT idPrenda, NombrePrenda, DescripcionPrenda, PrecioServicio FROM Prenda"), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
+         
             myadap.Fill(ds, "Prendas");
+
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crPrendas.rpt");
 
             cryrep.SetDataSource(ds);
@@ -136,6 +138,14 @@ namespace Lavanderia.forms
             childForm.MdiParent = this;
             childForm.Text = "Orden de Servicio";
             childForm.toolStripStatusLabel1.Text = this.searchToolStripMenuItem.Text;
+            childForm.Show();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmEntregas();
+            childForm.MdiParent = this;
+            childForm.Text = "Entrega de Ordenes";
             childForm.Show();
         }
 

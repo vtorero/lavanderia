@@ -44,6 +44,35 @@ namespace Lavanderia.Persistencia
         }
 
 
+        public static List<OrdenClientes> buscarOrden(string nombre,string dni, string fechainicio,string fechafin)
+        {
+            List<OrdenClientes> _lista = new List<OrdenClientes>();
+            MySqlCommand cmd = new MySqlCommand("buscarOrdenes", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("nombreCliente", nombre));
+            cmd.Parameters.Add(new MySqlParameter("dniCliente", dni));
+            cmd.Parameters.Add(new MySqlParameter("fechaInicio", fechainicio));
+            cmd.Parameters.Add(new MySqlParameter("fechaFin", fechafin));
+           
+            MySqlDataReader dr = cmd.ExecuteReader();
+           
+            while (dr.Read())
+            {
+            OrdenClientes ordencliente= new OrdenClientes();
+                ordencliente.idOrden= Convert.ToInt32(dr["idOrden"]);
+                ordencliente.idCliente= Convert.ToInt32(dr["idCliente"]);
+                ordencliente.nombreCliente= Convert.ToString(dr["nombreCliente"]);
+                ordencliente.dniCliente = Convert.ToString(dr["dniCliente"]);
+                ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
+                ordencliente.Monto= Convert.ToDecimal(dr["totalOrden"]);
+               _lista.Add(ordencliente);
+            }
+            cmd.Connection.Close();
+           
+            return _lista;
+        }
+
+
 
 
         public static int ultimo_id()

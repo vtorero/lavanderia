@@ -117,6 +117,12 @@
     <Compile Include="forms\frmColor.Designer.cs">
       <DependentUpon>frmColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmEntregas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmEntregas.Designer.cs">
+      <DependentUpon>frmEntregas.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,7 @@
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\Orden.cs" />
+    <Compile Include="Models\OrdenClientes.cs" />
     <Compile Include="Models\OrdenLinea.cs" />
     <Compile Include="Models\Pago.cs" />
     <Compile Include="Models\Prenda.cs" />
@@ -203,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmColor.resx">
       <DependentUpon>frmColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmEntregas.resx">
+      <DependentUpon>frmEntregas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>

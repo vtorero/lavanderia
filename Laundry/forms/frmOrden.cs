@@ -239,6 +239,7 @@ namespace Lavanderia.forms
         private void rdParcial_CheckedChanged(object sender, EventArgs e)
         {
             lblPendiente.Visible = true;
+            lblSimbolopendiente.Visible = true;
             txtPendiente.Visible = true;
             txtPago.Enabled = true;
             txtObservacion.Enabled = true;
@@ -253,6 +254,7 @@ namespace Lavanderia.forms
 
             lblPendiente.Visible = false;
             txtPendiente.Visible = false;
+            lblSimbolopendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
@@ -328,6 +330,7 @@ v.soloNumeros(e);
             txtPendiente.Visible = false;
             lblSimbolopendiente.Visible = false;
             txtObservacion.Enabled = false;
+            btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
             
 
