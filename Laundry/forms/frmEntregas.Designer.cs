@@ -39,9 +39,9 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtIdCliente = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,11 @@
             // 
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Location = new System.Drawing.Point(28, 122);
+            this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.RowHeadersVisible = false;
+            this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenes.Size = new System.Drawing.Size(747, 292);
             this.dgvOrdenes.TabIndex = 0;
             // 
@@ -146,12 +150,15 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // txtDni
+            // txtIdCliente
             // 
-            this.txtDni.Location = new System.Drawing.Point(360, 16);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 20);
-            this.txtDni.TabIndex = 12;
+            this.txtIdCliente.AutoSize = true;
+            this.txtIdCliente.Location = new System.Drawing.Point(360, 46);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(58, 13);
+            this.txtIdCliente.TabIndex = 14;
+            this.txtIdCliente.Text = "txtidCliente";
+            this.txtIdCliente.Visible = false;
             // 
             // label1
             // 
@@ -162,15 +169,12 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Dni:";
             // 
-            // txtIdCliente
+            // txtDni
             // 
-            this.txtIdCliente.AutoSize = true;
-            this.txtIdCliente.Location = new System.Drawing.Point(360, 46);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(58, 13);
-            this.txtIdCliente.TabIndex = 14;
-            this.txtIdCliente.Text = "txtidCliente";
-            this.txtIdCliente.Visible = false;
+            this.txtDni.Location = new System.Drawing.Point(360, 16);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 20);
+            this.txtDni.TabIndex = 12;
             // 
             // frmEntregas
             // 
