@@ -20,8 +20,21 @@ namespace Lavanderia.forms
         }
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
+
         {
-            dgvOrdenes.DataSource = OrdenDao.buscarOrden(txtCliente.Text, txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd")+" 23:59:59");
+           dgvOrdenes.DataSource = OrdenDao.buscarOrden("%"+txtCliente.Text+"%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59");
+           dgvOrdenes.Columns[0].HeaderText = "Código";
+           dgvOrdenes.Columns[0].Width = 50;
+           dgvOrdenes.Columns[1].Visible = false;
+           dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
+           dgvOrdenes.Columns[2].Width = 250;
+           dgvOrdenes.Columns[3].HeaderText = "DNI";
+           dgvOrdenes.Columns[3].Width = 100;
+           dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
+           dgvOrdenes.Columns[4].Width = 180;
+           dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
+           dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
+           dgvOrdenes.Columns[5].Width = 100;
         }
 
         public void ejecutar(string id, string nombre, string dni, string telefono)
