@@ -21,21 +21,21 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE ultimoIdOrden()
 BEGIN
-SELECT MAX(idOrden) as ultimoid FROM Orden;
+SELECT MAX(idOrden) AS ultimoid FROM Orden;
 END $$
 DELIMITER $$
 CREATE PROCEDURE clientesAll()
 BEGIN
-SELECT * FROM Cliente order by idCliente asc;
+SELECT * FROM Cliente ORDER BY idCliente ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
-IN nombreCliente varchar(200),
-in dniCliente varchar(8),
-fechaInicio varchar(20),
-fechaFin varchar(20)
+IN nombreCliente VARCHAR(200),
+IN dniCliente VARCHAR(8),
+fechaInicio VARCHAR(20),
+fechaFin VARCHAR(20)
 )
 BEGIN
-SELECT * FROM Orden o inner join Cliente c on o.idCliente=c.idCliente
-WHERE (fechaCreado between fechaInicio and fechaFin) or (c.dniCliente=dniCliente);
+SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
 END $$
