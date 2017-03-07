@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -94,6 +94,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.chkFactura = new System.Windows.Forms.CheckBox();
+            this.lbligv = new System.Windows.Forms.Label();
+            this.TXTIGV = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -398,6 +401,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.TXTIGV);
+            this.groupBox4.Controls.Add(this.lbligv);
+            this.groupBox4.Controls.Add(this.chkFactura);
             this.groupBox4.Controls.Add(this.btnColor);
             this.groupBox4.Controls.Add(this.txtcolores);
             this.groupBox4.Controls.Add(this.label11);
@@ -564,14 +570,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -587,8 +593,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(501, 134);
             this.dgvOrden.TabIndex = 0;
@@ -620,18 +626,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -769,6 +775,37 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
             // 
+            // chkFactura
+            // 
+            this.chkFactura.AutoSize = true;
+            this.chkFactura.Enabled = false;
+            this.chkFactura.Location = new System.Drawing.Point(22, 390);
+            this.chkFactura.Name = "chkFactura";
+            this.chkFactura.Size = new System.Drawing.Size(72, 20);
+            this.chkFactura.TabIndex = 25;
+            this.chkFactura.Text = "Factura";
+            this.chkFactura.UseVisualStyleBackColor = true;
+            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
+            // 
+            // lbligv
+            // 
+            this.lbligv.AutoSize = true;
+            this.lbligv.Location = new System.Drawing.Point(136, 413);
+            this.lbligv.Name = "lbligv";
+            this.lbligv.Size = new System.Drawing.Size(39, 16);
+            this.lbligv.TabIndex = 26;
+            this.lbligv.Text = "I.G.V:";
+            this.lbligv.Visible = false;
+            // 
+            // TXTIGV
+            // 
+            this.TXTIGV.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.TXTIGV.Location = new System.Drawing.Point(195, 410);
+            this.TXTIGV.Name = "TXTIGV";
+            this.TXTIGV.Size = new System.Drawing.Size(105, 22);
+            this.TXTIGV.TabIndex = 27;
+            this.TXTIGV.Visible = false;
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -862,5 +899,8 @@
         private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label lblSimbolopendiente;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chkFactura;
+        private System.Windows.Forms.Label lbligv;
+        private System.Windows.Forms.TextBox TXTIGV;
     }
 }

@@ -373,6 +373,7 @@ v.soloNumeros(e);
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
+            //chkFactura.Enabled = true;
           
         }
 
@@ -404,6 +405,30 @@ v.soloNumeros(e);
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
+        }
+
+        private void chkFactura_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkFactura.Checked)
+            {
+                grpTotal.Left = 98;
+                grpTotal.Width = 440;
+                label9.Left = 235;
+                txtTotal.Left = 326;
+                lbligv.Visible = true;
+                TXTIGV.Visible = true;
+
+            }
+            else {
+                lbligv.Visible = false;
+                TXTIGV.Visible = false;
+                grpTotal.Left = 318;
+                grpTotal.Width = 220;
+                label9.Left = 15;
+                txtTotal.Left = 106;
+
+            
+            }
         }
       
     }
