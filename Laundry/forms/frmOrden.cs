@@ -80,7 +80,7 @@ namespace Lavanderia.forms
             dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total,defecto,colores);
             i = i + 1;
             totalOrden += Decimal.Round(total,2);
-            txtTotal.Text = "S/." + Convert.ToString(Decimal.Round(totalOrden,2));
+            txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden,2));
             //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
             restablecer(); 
             }else{
@@ -365,7 +365,7 @@ v.soloNumeros(e);
 
             }
             totalOrden=(totalOrden - totalDescontar);         
-            txtTotal.Text = "S/." + totalOrden;
+            txtTotal.Text =  Convert.ToString(totalOrden);
             btnQuitar.Enabled = false;
         }
 
@@ -373,7 +373,7 @@ v.soloNumeros(e);
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
-            //chkFactura.Enabled = true;
+            chkFactura.Enabled = true;
           
         }
 
@@ -417,6 +417,12 @@ v.soloNumeros(e);
                 txtTotal.Left = 326;
                 lbligv.Visible = true;
                 TXTIGV.Visible = true;
+                decimal total1 = Convert.ToDecimal(txtTotal.Text);
+                decimal igv=18;
+                decimal total2 =(total1 * igv)/100;
+                decimal totalgeneral=total1 + total2;
+                TXTIGV.Text = Convert.ToString(total2);
+                txtTotal.Text = Convert.ToString(totalgeneral);
 
             }
             else {
