@@ -60,6 +60,9 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TXTIGV = new System.Windows.Forms.TextBox();
+            this.lbligv = new System.Windows.Forms.Label();
+            this.chkFactura = new System.Windows.Forms.CheckBox();
             this.btnColor = new System.Windows.Forms.Button();
             this.txtcolores = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -94,9 +97,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.chkFactura = new System.Windows.Forms.CheckBox();
-            this.lbligv = new System.Windows.Forms.Label();
-            this.TXTIGV = new System.Windows.Forms.TextBox();
+            this.txtIg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -221,8 +222,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtIg);
             this.groupBox2.Controls.Add(this.lblSimbolopendiente);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.chkFactura);
             this.groupBox2.Controls.Add(this.lblObs);
             this.groupBox2.Controls.Add(this.txtObservacion);
             this.groupBox2.Controls.Add(this.label12);
@@ -403,7 +406,6 @@
             // 
             this.groupBox4.Controls.Add(this.TXTIGV);
             this.groupBox4.Controls.Add(this.lbligv);
-            this.groupBox4.Controls.Add(this.chkFactura);
             this.groupBox4.Controls.Add(this.btnColor);
             this.groupBox4.Controls.Add(this.txtcolores);
             this.groupBox4.Controls.Add(this.label11);
@@ -431,6 +433,38 @@
             this.groupBox4.Size = new System.Drawing.Size(556, 495);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
+            // 
+            // TXTIGV
+            // 
+            this.TXTIGV.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.TXTIGV.Enabled = false;
+            this.TXTIGV.Location = new System.Drawing.Point(195, 410);
+            this.TXTIGV.Name = "TXTIGV";
+            this.TXTIGV.Size = new System.Drawing.Size(105, 22);
+            this.TXTIGV.TabIndex = 27;
+            this.TXTIGV.Visible = false;
+            // 
+            // lbligv
+            // 
+            this.lbligv.AutoSize = true;
+            this.lbligv.Location = new System.Drawing.Point(136, 413);
+            this.lbligv.Name = "lbligv";
+            this.lbligv.Size = new System.Drawing.Size(39, 16);
+            this.lbligv.TabIndex = 26;
+            this.lbligv.Text = "I.G.V:";
+            this.lbligv.Visible = false;
+            // 
+            // chkFactura
+            // 
+            this.chkFactura.AutoSize = true;
+            this.chkFactura.Enabled = false;
+            this.chkFactura.Location = new System.Drawing.Point(354, 43);
+            this.chkFactura.Name = "chkFactura";
+            this.chkFactura.Size = new System.Drawing.Size(72, 20);
+            this.chkFactura.TabIndex = 25;
+            this.chkFactura.Text = "Factura";
+            this.chkFactura.UseVisualStyleBackColor = true;
+            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
             // 
             // btnColor
             // 
@@ -775,36 +809,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
             // 
-            // chkFactura
+            // txtIg
             // 
-            this.chkFactura.AutoSize = true;
-            this.chkFactura.Enabled = false;
-            this.chkFactura.Location = new System.Drawing.Point(22, 390);
-            this.chkFactura.Name = "chkFactura";
-            this.chkFactura.Size = new System.Drawing.Size(72, 20);
-            this.chkFactura.TabIndex = 25;
-            this.chkFactura.Text = "Factura";
-            this.chkFactura.UseVisualStyleBackColor = true;
-            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
-            // 
-            // lbligv
-            // 
-            this.lbligv.AutoSize = true;
-            this.lbligv.Location = new System.Drawing.Point(136, 413);
-            this.lbligv.Name = "lbligv";
-            this.lbligv.Size = new System.Drawing.Size(39, 16);
-            this.lbligv.TabIndex = 26;
-            this.lbligv.Text = "I.G.V:";
-            this.lbligv.Visible = false;
-            // 
-            // TXTIGV
-            // 
-            this.TXTIGV.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.TXTIGV.Location = new System.Drawing.Point(195, 410);
-            this.TXTIGV.Name = "TXTIGV";
-            this.TXTIGV.Size = new System.Drawing.Size(105, 22);
-            this.TXTIGV.TabIndex = 27;
-            this.TXTIGV.Visible = false;
+            this.txtIg.AutoSize = true;
+            this.txtIg.Location = new System.Drawing.Point(351, 85);
+            this.txtIg.Name = "txtIg";
+            this.txtIg.Size = new System.Drawing.Size(0, 16);
+            this.txtIg.TabIndex = 26;
+            this.txtIg.Visible = false;
             // 
             // frmOrden
             // 
@@ -902,5 +914,6 @@
         private System.Windows.Forms.CheckBox chkFactura;
         private System.Windows.Forms.Label lbligv;
         private System.Windows.Forms.TextBox TXTIGV;
+        private System.Windows.Forms.Label txtIg;
     }
 }

@@ -19,7 +19,7 @@ namespace Lavanderia.forms
         int i = 1;
         Validacion v = new Validacion();
         decimal totalOrden = 0;
-        public frmOrden()
+         public frmOrden()
         {
             InitializeComponent();
         }
@@ -409,29 +409,25 @@ v.soloNumeros(e);
 
         private void chkFactura_CheckStateChanged(object sender, EventArgs e)
         {
-            if (chkFactura.Checked)
+            decimal tigv= Decimal.Round(totalOrden *(18/100),2);
+             if (chkFactura.Checked)
             {
-                grpTotal.Left = 98;
-                grpTotal.Width = 440;
-                label9.Left = 235;
-                txtTotal.Left = 326;
-                lbligv.Visible = true;
-                TXTIGV.Visible = true;
-                decimal total1 = Convert.ToDecimal(txtTotal.Text);
-                decimal igv=18;
-                decimal total2 =(total1 * igv)/100;
-                decimal totalgeneral=total1 + total2;
-                TXTIGV.Text = Convert.ToString(total2);
-                txtTotal.Text = Convert.ToString(totalgeneral);
+                txtIg.Visible = true;
+                txtIg.Text = Convert.ToString(tigv);
+
+                txtPago.Text = Convert.ToString(totalOrden + tigv);
 
             }
             else {
+                txtIg.Visible = false;
+                txtPago.Text = Convert.ToString(totalOrden - tigv);
                 lbligv.Visible = false;
                 TXTIGV.Visible = false;
                 grpTotal.Left = 318;
                 grpTotal.Width = 220;
                 label9.Left = 15;
                 txtTotal.Left = 106;
+                txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden, 2));
 
             
             }
