@@ -141,13 +141,20 @@ namespace Lavanderia.forms
             Orden ord = new Orden();
             Pago pago = new Pago();
             int tipo_pago = 0;
+            int tipo_doc = 0;
             if (rdTotal.Checked) {
                 tipo_pago = 1;
             }
             if (rdParcial.Checked) {
                 tipo_pago = 2;
             }
+
+            if (chkFactura.Checked)
+            {
+                tipo_pago = 1;
+            }
            
+
             int status = 0;
             string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0,10);
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
@@ -172,6 +179,8 @@ namespace Lavanderia.forms
                     pago.Pago2 = 0;
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     pago.TipoPago = tipo_pago;
+                    pago.TipoDocumento = tipo_doc;
+                    pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
                     pago.fechaPago = fecha_actual;
                     pago.fechaActualizado = fecha_actual;
@@ -190,6 +199,8 @@ namespace Lavanderia.forms
                     pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     pago.TipoPago = tipo_pago;
+                    pago.TipoDocumento = tipo_doc;
+                    pago.Igv = pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
                     pago.fechaPago = fecha_actual;
                     pago.fechaActualizado = fecha_actual;
@@ -247,6 +258,10 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
+            chkFactura.Enabled = false;
+            txtIg.Visible = false;
+     
+        
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
@@ -259,6 +274,7 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
+            chkFactura.Enabled = true;
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -373,7 +389,7 @@ v.soloNumeros(e);
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
-            chkFactura.Enabled = true;
+            
           
         }
 
@@ -409,18 +425,22 @@ v.soloNumeros(e);
 
         private void chkFactura_CheckStateChanged(object sender, EventArgs e)
         {
-            decimal tigv= Decimal.Round(totalOrden *(18/100),2);
+            
              if (chkFactura.Checked)
             {
+                decimal igv = Decimal.Round((totalOrden * 18) / 100, 2);    
+                MessageBox.Show("" + igv);
                 txtIg.Visible = true;
-                txtIg.Text = Convert.ToString(tigv);
+                txtIg.Text = Convert.ToString(igv);
 
-                txtPago.Text = Convert.ToString(totalOrden + tigv);
+                txtPago.Text = Convert.ToString(totalOrden + igv);
 
             }
             else {
                 txtIg.Visible = false;
-                txtPago.Text = Convert.ToString(totalOrden - tigv);
+                decimal quitar = Convert.ToDecimal(txtIg.Text);
+                decimal t = Convert.ToDecimal(txtPago.Text);
+                txtPago.Text = Convert.ToString(t- quitar);
                 lbligv.Visible = false;
                 TXTIGV.Visible = false;
                 grpTotal.Left = 318;

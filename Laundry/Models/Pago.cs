@@ -15,13 +15,15 @@ namespace Lavanderia.Models
         public decimal Pago2{ get; set; }
         public decimal  PagoTotal{ get; set; }
         public int TipoPago { get; set; }
+        public int TipoDocumento { get; set; }
+        public decimal Igv { get; set; }
         public int Estado{ get; set; }
         public string fechaPago { get; set; }
         public string fechaActualizado {get; set;}
 
          public Pago() { }
 
-        public Pago(int idpago, int idorden, decimal pago1, decimal pago2, decimal pagototal,int tipopago,int estado,string fechapago,string fechaactualizado)
+        public Pago(int idpago, int idorden, decimal pago1, decimal pago2, decimal pagototal,int tipopago,int tipodocumento,decimal igv, int estado,string fechapago,string fechaactualizado)
         {
             this.idPago = idpago;
             this.idOrden = idorden;
@@ -29,6 +31,8 @@ namespace Lavanderia.Models
             this.Pago2 = pago2;
             this.PagoTotal = pagototal;
             this.TipoPago = tipopago;
+            this.TipoDocumento = tipodocumento;
+            this.Igv = igv;
             this.Estado = estado;
             this.fechaPago = fechapago;
             this.fechaActualizado=fechaactualizado;

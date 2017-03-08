@@ -72,10 +72,7 @@ namespace Lavanderia.forms.busquedas
             enviad(sb.ToString());
             this.Close();
         
-            /*int pos;
-            pos = dgvPrendas.CurrentRow.Index;
-            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value));
-            this.Close();*/
+         
         }
     }
 }

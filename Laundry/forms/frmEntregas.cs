@@ -14,6 +14,7 @@ namespace Lavanderia.forms
 {
     public partial class frmEntregas : Form
     {
+        int pos;
         public frmEntregas()
         {
             InitializeComponent();
@@ -35,6 +36,9 @@ namespace Lavanderia.forms
            dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
            dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
            dgvOrdenes.Columns[5].Width = 100;
+           dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
+           dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
+           dgvOrdenes.Columns[6].Width = 100;
         }
 
         public void ejecutar(string id, string nombre, string dni, string telefono)
@@ -50,6 +54,15 @@ namespace Lavanderia.forms
             frmBuscarCliente childForm = new frmBuscarCliente();
             childForm.enviado += new frmBuscarCliente.enviar(ejecutar);
             childForm.ShowDialog();
+        }
+
+        private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            pos = dgvOrdenes.CurrentRow.Index;
+            txtMonto.Text = Convert.ToString(dgvOrdenes[5, pos].Value);
+            txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
+           
+
         }
     }
 }

@@ -126,6 +126,7 @@ namespace Lavanderia.forms
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crPrendas.rpt");
 
             cryrep.SetDataSource(ds);
+            
             frmReporte rt = new frmReporte();
             rt.Text = "Reporte de prendas";
             rt.crystalReportViewer1.ReportSource = cryrep;
