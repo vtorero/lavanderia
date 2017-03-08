@@ -35,10 +35,12 @@ namespace Lavanderia.forms
            dgvOrdenes.Columns[4].Width = 200;
            dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
            dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[5].Width = 100;
+           dgvOrdenes.Columns[5].Width = 50;
            dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[6].Width = 100;
+           dgvOrdenes.Columns[6].Width = 50;
+           dgvOrdenes.Columns[7].HeaderText = "Tipo.";
+           dgvOrdenes.Columns[7].Visible = false;
         }
 
         public void ejecutar(string id, string nombre, string dni, string telefono)
@@ -59,8 +61,18 @@ namespace Lavanderia.forms
         private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             pos = dgvOrdenes.CurrentRow.Index;
+            
             txtMonto.Text = Convert.ToString(dgvOrdenes[5, pos].Value);
-            txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
+            if (Convert.ToInt32(dgvOrdenes[7, pos].Value) == 2)
+            {
+                txtDebe.Visible = true;
+                txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
+            }
+            else {
+                txtDebe.Visible = false;
+                txtDebe.Text = Convert.ToString(0);
+            }
+
            
 
         }

@@ -66,6 +66,7 @@ namespace Lavanderia.Persistencia
                 ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
                 ordencliente.Monto= Convert.ToDecimal(dr["totalOrden"]);
                 ordencliente.MontoPendiente= Convert.ToDecimal(dr["pago2"]);
+                ordencliente.TipoPago = Convert.ToInt32(dr["tipoPago"]);
                _lista.Add(ordencliente);
             }
             cmd.Connection.Close();

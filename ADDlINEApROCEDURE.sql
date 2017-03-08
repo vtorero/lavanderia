@@ -36,6 +36,6 @@ fechaInicio VARCHAR(20),
 fechaFin VARCHAR(20)
 )
 BEGIN
-SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente
+SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
 WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
 END $$

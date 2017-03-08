@@ -234,6 +234,7 @@
             this.txtDebe.Name = "txtDebe";
             this.txtDebe.Size = new System.Drawing.Size(81, 20);
             this.txtDebe.TabIndex = 3;
+            this.txtDebe.Visible = false;
             // 
             // label4
             // 

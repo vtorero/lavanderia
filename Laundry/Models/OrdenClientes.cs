@@ -15,6 +15,7 @@ namespace Lavanderia.Models
         public string fechaCreado { get; set; }
         public decimal Monto { get; set; }
         public decimal MontoPendiente { get; set; }
+        public int TipoPago { get; set; }
         /*public decimal MontoTotal{ get; set; }*/
        
     
@@ -22,7 +23,7 @@ namespace Lavanderia.Models
 
      public OrdenClientes(
          int idorden, int idcliente, string nombrecliente, string dnicliente,string fechacreado,
-         decimal monto, decimal montopendiente/*,decimal montototal*/)
+         decimal monto, decimal montopendiente,int tipopago/*,decimal montototal*/)
         {
             this.idOrden=idorden;
             this.idCliente = idcliente;
@@ -31,6 +32,7 @@ namespace Lavanderia.Models
             this.fechaCreado = fechacreado;
             this.Monto = monto;
             this.MontoPendiente= montopendiente;
+            this.TipoPago = tipopago;
             /*this.MontoTotal= montototal;*/
             
         }
