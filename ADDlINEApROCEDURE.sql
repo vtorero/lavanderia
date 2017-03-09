@@ -2,6 +2,7 @@ DROP PROCEDURE IF EXISTS addLineaOrden;
 DROP PROCEDURE IF EXISTS ultimoIdOrden; 
 DROP PROCEDURE IF EXISTS clientesAll;	
 DROP PROCEDURE IF EXISTS buscarOrdenes;	
+DROP PROCEDURE IF EXISTS entregaOrden;	
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,
@@ -37,5 +38,14 @@ fechaFin VARCHAR(20)
 )
 BEGIN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
-WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.Estado=0) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
+END $$
+DELIMITER $$
+CREATE PROCEDURE entregaOrden(
+IN id INT
+)
+BEGIN
+UPDATE Pago SET Estado=1,fechaActualizado=NOW() WHERE idOrden=id;
+UPDATE Orden SET estado=2 WHERE idOrden=id;
+UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 END $$

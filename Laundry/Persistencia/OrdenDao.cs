@@ -43,6 +43,14 @@ namespace Lavanderia.Persistencia
             return ultimo_id();
         }
 
+        public static int entregaOrden(int id) {
+            int retorno=1;
+            MySqlCommand cmd = new MySqlCommand("entregaOrden", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("id", id));
+            cmd.ExecuteReader();
+            return retorno;
+        }
 
         public static List<OrdenClientes> buscarOrden(string nombre,string dni, string fechainicio,string fechafin)
         {

@@ -43,13 +43,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMonto = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtDebe = new System.Windows.Forms.TextBox();
+            this.lblsimdebe = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDebe = new System.Windows.Forms.TextBox();
+            this.lblDebe = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,12 +111,13 @@
             // 
             // btnEntregar
             // 
-            this.btnEntregar.Location = new System.Drawing.Point(838, 432);
+            this.btnEntregar.Location = new System.Drawing.Point(27, 142);
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(135, 38);
             this.btnEntregar.TabIndex = 8;
             this.btnEntregar.Text = "&Entregar";
             this.btnEntregar.UseVisualStyleBackColor = true;
+            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
             // 
             // dtFechaInicial
             // 
@@ -144,7 +146,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtDni);
@@ -189,85 +190,100 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.btnEntregar);
+            this.groupBox2.Controls.Add(this.txtCodigo);
+            this.groupBox2.Controls.Add(this.lblsimdebe);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtDebe);
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.lblDebe);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMonto);
             this.groupBox2.Location = new System.Drawing.Point(794, 115);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(179, 299);
+            this.groupBox2.Size = new System.Drawing.Size(179, 207);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
-            // txtMonto
+            // lblsimdebe
             // 
-            this.txtMonto.Enabled = false;
-            this.txtMonto.Location = new System.Drawing.Point(81, 19);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(81, 20);
-            this.txtMonto.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Monto:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Debe:";
-            // 
-            // txtDebe
-            // 
-            this.txtDebe.Enabled = false;
-            this.txtDebe.Location = new System.Drawing.Point(81, 52);
-            this.txtDebe.Name = "txtDebe";
-            this.txtDebe.Size = new System.Drawing.Size(81, 20);
-            this.txtDebe.TabIndex = 3;
-            this.txtDebe.Visible = false;
+            this.lblsimdebe.AutoSize = true;
+            this.lblsimdebe.Location = new System.Drawing.Point(57, 94);
+            this.lblsimdebe.Name = "lblsimdebe";
+            this.lblsimdebe.Size = new System.Drawing.Size(22, 13);
+            this.lblsimdebe.TabIndex = 5;
+            this.lblsimdebe.Text = "S/.";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 22);
+            this.label4.Location = new System.Drawing.Point(56, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "S/.";
             // 
-            // label5
+            // txtDebe
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "S/.";
+            this.txtDebe.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtDebe.Enabled = false;
+            this.txtDebe.Location = new System.Drawing.Point(81, 91);
+            this.txtDebe.Name = "txtDebe";
+            this.txtDebe.Size = new System.Drawing.Size(81, 20);
+            this.txtDebe.TabIndex = 3;
+            this.txtDebe.Visible = false;
             // 
-            // textBox2
+            // lblDebe
             // 
-            this.textBox2.Location = new System.Drawing.Point(48, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 15;
+            this.lblDebe.AutoSize = true;
+            this.lblDebe.Location = new System.Drawing.Point(14, 91);
+            this.lblDebe.Name = "lblDebe";
+            this.lblDebe.Size = new System.Drawing.Size(36, 13);
+            this.lblDebe.TabIndex = 2;
+            this.lblDebe.Text = "Debe:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Monto:";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtMonto.Enabled = false;
+            this.txtMonto.Location = new System.Drawing.Point(81, 58);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(81, 20);
+            this.txtMonto.TabIndex = 0;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(81, 19);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(81, 20);
+            this.txtCodigo.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Código:";
             // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 482);
+            this.ClientSize = new System.Drawing.Size(997, 439);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnEntregar);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -298,12 +314,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblsimdebe;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDebe;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDebe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMonto;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

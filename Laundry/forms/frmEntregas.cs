@@ -21,26 +21,8 @@ namespace Lavanderia.forms
         }
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
-
         {
-           dgvOrdenes.DataSource = OrdenDao.buscarOrden("%"+txtCliente.Text+"%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59");
-           dgvOrdenes.Columns[0].HeaderText = "Código";
-           dgvOrdenes.Columns[0].Width = 100;
-           dgvOrdenes.Columns[1].Visible = false;
-           dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-           dgvOrdenes.Columns[2].Width = 250;
-           dgvOrdenes.Columns[3].HeaderText = "DNI";
-           dgvOrdenes.Columns[3].Width = 100;
-           dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
-           dgvOrdenes.Columns[4].Width = 200;
-           dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
-           dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[5].Width = 50;
-           dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
-           dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[6].Width = 50;
-           dgvOrdenes.Columns[7].HeaderText = "Tipo.";
-           dgvOrdenes.Columns[7].Visible = false;
+            llenarDatos();
         }
 
         public void ejecutar(string id, string nombre, string dni, string telefono)
@@ -48,7 +30,28 @@ namespace Lavanderia.forms
             txtCliente.Text = nombre;
             txtDni.Text = dni;
             txtIdCliente.Text = id;
-            
+
+        }
+
+        private void llenarDatos() {
+            dgvOrdenes.DataSource = OrdenDao.buscarOrden("%" + txtCliente.Text + "%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59");
+            dgvOrdenes.Columns[0].HeaderText = "Código";
+            dgvOrdenes.Columns[0].Width = 100;
+            dgvOrdenes.Columns[1].Visible = false;
+            dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
+            dgvOrdenes.Columns[2].Width = 250;
+            dgvOrdenes.Columns[3].HeaderText = "DNI";
+            dgvOrdenes.Columns[3].Width = 100;
+            dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
+            dgvOrdenes.Columns[4].Width = 200;
+            dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[5].Width = 50;
+            dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[6].Width = 50;
+            dgvOrdenes.Columns[7].HeaderText = "Tipo";
+            dgvOrdenes.Columns[7].Visible = false;
         }
 
         private void btnAddPrenda_Click(object sender, EventArgs e)
@@ -61,20 +64,37 @@ namespace Lavanderia.forms
         private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             pos = dgvOrdenes.CurrentRow.Index;
-            
+
             txtMonto.Text = Convert.ToString(dgvOrdenes[5, pos].Value);
             if (Convert.ToInt32(dgvOrdenes[7, pos].Value) == 2)
             {
+                txtCodigo.Text = Convert.ToString(dgvOrdenes[0, pos].Value);
                 txtDebe.Visible = true;
+                lblDebe.Visible = true;
+                lblsimdebe.Visible = true;
                 txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
             }
-            else {
+            else
+            {
+                txtCodigo.Text = Convert.ToString(dgvOrdenes[0, pos].Value);
                 txtDebe.Visible = false;
+                lblDebe.Visible = false;
+                lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
             }
 
-           
+
 
         }
+
+        private void btnEntregar_Click(object sender, EventArgs e)
+        {
+            int re = 0;
+            re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text));
+            llenarDatos();
+            MessageBox.Show("Orden Nro: " + txtCodigo.Text + " actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+       }
     }
-}
+    
