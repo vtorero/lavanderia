@@ -170,6 +170,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\dsVentas.cs">
+      <DependentUpon>dsVentas.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\dsVentas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsVentas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\OrdenClientes.cs" />
     <Compile Include="Models\OrdenLinea.cs" />
@@ -190,6 +199,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crPrendas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crVentas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crVentas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="util\Validacion.cs" />
@@ -246,6 +261,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crVentas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crVentas.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </None>
@@ -256,6 +275,17 @@
     </None>
     <None Include="Models\DsPrendas.xss">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsVentas.xsc">
+      <DependentUpon>dsVentas.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsVentas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVentas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsVentas.xss">
+      <DependentUpon>dsVentas.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
