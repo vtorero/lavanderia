@@ -6,14 +6,14 @@ DROP PROCEDURE IF EXISTS entregaOrden;
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,
-IN PidPrenda INT, 
 IN Pitem INT, 
+IN PidPrenda INT, 
 IN Pdescripcion VARCHAR(200),
 IN Pcantidad INT,
-IN Pprecio DECIMAL,
+IN Pprecio DECIMAL(10,2),
  IN Pdefecto VARCHAR(200),
  IN Pcolor VARCHAR(200),
- IN Ptotal DECIMAL,
+ IN Ptotal DECIMAL(10,2),
  IN Pestado INT)
 BEGIN
 INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,total,estado)
@@ -49,3 +49,7 @@ UPDATE Pago SET Estado=1,fechaActualizado=NOW() WHERE idOrden=id;
 UPDATE Orden SET estado=2 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 END $$
+
+---reportes---
+
+SELECT YEAR(o.`fechaCreado`), MONTHNAME(o.`fechaCreado`) ,DAYOFMONTH(o.`fechaCreado`) ,SUM(o.`totalOrden`) FROM Orden o GROUP BY 1,2,3;

@@ -44,8 +44,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtIg = new System.Windows.Forms.Label();
             this.lblSimbolopendiente = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.chkFactura = new System.Windows.Forms.CheckBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,7 +64,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TXTIGV = new System.Windows.Forms.TextBox();
             this.lbligv = new System.Windows.Forms.Label();
-            this.chkFactura = new System.Windows.Forms.CheckBox();
             this.btnColor = new System.Windows.Forms.Button();
             this.txtcolores = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,7 +98,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtIg = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -248,6 +249,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
             // 
+            // txtIg
+            // 
+            this.txtIg.AutoSize = true;
+            this.txtIg.Location = new System.Drawing.Point(351, 85);
+            this.txtIg.Name = "txtIg";
+            this.txtIg.Size = new System.Drawing.Size(0, 16);
+            this.txtIg.TabIndex = 26;
+            this.txtIg.Visible = false;
+            // 
             // lblSimbolopendiente
             // 
             this.lblSimbolopendiente.AutoSize = true;
@@ -266,6 +276,19 @@
             this.label8.Size = new System.Drawing.Size(24, 16);
             this.label8.TabIndex = 13;
             this.label8.Text = "S/.";
+            // 
+            // chkFactura
+            // 
+            this.chkFactura.AutoSize = true;
+            this.chkFactura.Enabled = false;
+            this.chkFactura.Location = new System.Drawing.Point(354, 43);
+            this.chkFactura.Name = "chkFactura";
+            this.chkFactura.Size = new System.Drawing.Size(72, 20);
+            this.chkFactura.TabIndex = 25;
+            this.chkFactura.Text = "Factura";
+            this.chkFactura.UseVisualStyleBackColor = true;
+            this.chkFactura.Visible = false;
+            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
             // 
             // lblObs
             // 
@@ -454,18 +477,6 @@
             this.lbligv.Text = "I.G.V:";
             this.lbligv.Visible = false;
             // 
-            // chkFactura
-            // 
-            this.chkFactura.AutoSize = true;
-            this.chkFactura.Enabled = false;
-            this.chkFactura.Location = new System.Drawing.Point(354, 43);
-            this.chkFactura.Name = "chkFactura";
-            this.chkFactura.Size = new System.Drawing.Size(72, 20);
-            this.chkFactura.TabIndex = 25;
-            this.chkFactura.Text = "Factura";
-            this.chkFactura.UseVisualStyleBackColor = true;
-            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
-            // 
             // btnColor
             // 
             this.btnColor.Enabled = false;
@@ -523,6 +534,7 @@
             // 
             // grpTotal
             // 
+            this.grpTotal.Controls.Add(this.label14);
             this.grpTotal.Controls.Add(this.txtTotal);
             this.grpTotal.Controls.Add(this.label9);
             this.grpTotal.Location = new System.Drawing.Point(318, 389);
@@ -535,16 +547,16 @@
             // 
             this.txtTotal.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(106, 21);
+            this.txtTotal.Location = new System.Drawing.Point(120, 21);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtTotal.Size = new System.Drawing.Size(88, 22);
             this.txtTotal.TabIndex = 3;
             this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 24);
+            this.label9.Location = new System.Drawing.Point(7, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 16);
             this.label9.TabIndex = 1;
@@ -809,14 +821,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
             // 
-            // txtIg
+            // label14
             // 
-            this.txtIg.AutoSize = true;
-            this.txtIg.Location = new System.Drawing.Point(351, 85);
-            this.txtIg.Name = "txtIg";
-            this.txtIg.Size = new System.Drawing.Size(0, 16);
-            this.txtIg.TabIndex = 26;
-            this.txtIg.Visible = false;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(93, 24);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(24, 16);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "S/.";
             // 
             // frmOrden
             // 
@@ -915,5 +927,6 @@
         private System.Windows.Forms.Label lbligv;
         private System.Windows.Forms.TextBox TXTIGV;
         private System.Windows.Forms.Label txtIg;
+        private System.Windows.Forms.Label label14;
     }
 }

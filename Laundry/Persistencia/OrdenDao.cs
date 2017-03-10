@@ -29,8 +29,8 @@ namespace Lavanderia.Persistencia
             MySqlCommand cmd = new MySqlCommand("addLineaOrden", BdComun.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("PidOrden", ordenlinea.idOrden));
-            cmd.Parameters.Add(new MySqlParameter("PidPrenda", ordenlinea.idPrenda));
             cmd.Parameters.Add(new MySqlParameter("Pitem", ordenlinea.Item));
+            cmd.Parameters.Add(new MySqlParameter("PidPrenda", ordenlinea.idPrenda));
             cmd.Parameters.Add(new MySqlParameter("Pdescripcion", ordenlinea.Descripcion));
             cmd.Parameters.Add(new MySqlParameter("Pcantidad", ordenlinea.Cantidad));
             cmd.Parameters.Add(new MySqlParameter("Pprecio", ordenlinea.Precio));

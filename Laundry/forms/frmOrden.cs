@@ -11,6 +11,7 @@ using Lavanderia.forms.busquedas;
 using Lavanderia.Persistencia;
 using Lavanderia.Models;
 using Lavanderia.util;
+using System.Globalization;
 
 namespace Lavanderia.forms
 {
@@ -69,12 +70,11 @@ namespace Lavanderia.forms
             id = LblId.Text;
             detalle = txtNombrePrenda.Text;
             decimal cantidad, precio, total;
-           
             cantidad = nroCantidad.Value;
-            precio = Convert.ToDecimal(txtPrecio.Text);
+            precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
             defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
             colores = txtcolores.Text;
-            total = cantidad * precio;
+            total = Decimal.Round((cantidad * precio),2);
 
 
             dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total,defecto,colores);
@@ -100,9 +100,8 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = false;
             cmbDefecto.Enabled = false;
             btnColor.Enabled = false;
-            
+            i = 1;
                 
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -160,7 +159,7 @@ namespace Lavanderia.forms
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega =s+ " "+h ;
-            ord.totalOrden = Convert.ToDecimal(txtPago.Text);
+            ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text)); ;
             ord.idUsuario = 1;
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
@@ -180,7 +179,7 @@ namespace Lavanderia.forms
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     pago.TipoPago = tipo_pago;
                     pago.TipoDocumento = tipo_doc;
-                    pago.Igv = Convert.ToDecimal(txtIg.Text);
+                    //pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
                     pago.fechaPago = fecha_actual;
                     pago.fechaActualizado = fecha_actual;
@@ -197,10 +196,10 @@ namespace Lavanderia.forms
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
-                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                    pago.PagoTotal = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
                     pago.TipoPago = tipo_pago;
                     pago.TipoDocumento = tipo_doc;
-                    pago.Igv = pago.Igv = Convert.ToDecimal(txtIg.Text);
+                    //pago.Igv = pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
                     pago.fechaPago = fecha_actual;
                     pago.fechaActualizado = fecha_actual;
@@ -219,7 +218,7 @@ namespace Lavanderia.forms
                         ordline.idPrenda = Convert.ToInt32(data.Cells["clPrenda"].Value);
                         ordline.Descripcion = data.Cells["clDescripcion"].Value.ToString();
                         ordline.Cantidad = Convert.ToInt32(data.Cells["clCantidad"].Value);
-                        ordline.Precio = Convert.ToDecimal(data.Cells["clPrecio"].Value);
+                        ordline.Precio = Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2);
                         ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
                         ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
@@ -348,6 +347,7 @@ v.soloNumeros(e);
             txtObservacion.Enabled = false;
             btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
+            totalOrden = 0;
             
 
         }

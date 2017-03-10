@@ -54,7 +54,7 @@ namespace Lavanderia.Persistencia
                 prenda.idPrenda= _reader.GetInt32(0);
                 prenda.NombrePrenda = _reader.GetString(1);
                 prenda.Descripcion = _reader.GetString(2);
-                prenda.precioServicio = _reader.GetFloat(3);
+                prenda.precioServicio = _reader.GetDecimal(3);
                 
          _lista.Add(prenda);
             }
@@ -74,7 +74,7 @@ namespace Lavanderia.Persistencia
                 Prenda prenda = new Prenda();
                 prenda.idPrenda= _reader.GetInt32(0);
                 prenda.NombrePrenda = _reader.GetString(1);
-                prenda.precioServicio= _reader.GetFloat(3);
+                prenda.precioServicio= _reader.GetDecimal(3);
                 _lista.Add(prenda);
             }
 
