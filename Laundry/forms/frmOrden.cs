@@ -20,6 +20,8 @@ namespace Lavanderia.forms
     public partial class frmOrden : Form
     {
         int i = 1;
+        int idOrdenPrint = 0;
+        
         Validacion v = new Validacion();
         decimal totalOrden = 0;
          public frmOrden()
@@ -162,7 +164,7 @@ namespace Lavanderia.forms
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega =s+ " "+h ;
             ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text)); ;
-            ord.idUsuario = 1;
+            ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text); 
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
@@ -241,7 +243,8 @@ namespace Lavanderia.forms
                 }
 
                 MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                desHabilitaServicio();
+                idOrdenPrint = status;
+                  desHabilitaServicio();
                 btnImprimir.Enabled = true;
                
             }
@@ -461,7 +464,7 @@ v.soloNumeros(e);
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden=70"), BdComun.ObtenerConexion());
+         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds,"Ticket");
@@ -474,6 +477,11 @@ v.soloNumeros(e);
             rt.Text = "Ticket";
             rt.crystalReportViewer1.ReportSource = cryrep;
             rt.Show();﻿
+        }
+
+        private void frmOrden_Load(object sender, EventArgs e)
+        {
+
         }
       
     }
