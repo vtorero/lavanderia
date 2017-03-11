@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtIg = new System.Windows.Forms.Label();
             this.lblSimbolopendiente = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -99,7 +100,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -250,6 +250,18 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.Location = new System.Drawing.Point(354, 204);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(89, 54);
+            this.btnImprimir.TabIndex = 27;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // txtIg
             // 
@@ -626,14 +638,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -649,8 +661,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -682,18 +694,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle38.Format = "C2";
-            dataGridViewCellStyle38.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle39.Format = "C2";
-            dataGridViewCellStyle39.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -830,18 +842,6 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.Location = new System.Drawing.Point(354, 204);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(89, 54);
-            this.btnImprimir.TabIndex = 27;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
             // 
             // frmOrden
             // 

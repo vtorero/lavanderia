@@ -120,10 +120,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnImprimir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABhSURBVDhPY6Aa+Pbt239SMFQbAoAEnZyciMJ4DYDZgAtT
-        3wBskvgwuhqS/I6OUQxAp4nBKAaQgwexASAxbBibOrAB6IrQxWAYmxw0NUAATBE+jKEJGSCbjA9DlVMD
-        MDAAAHEZITvkfuaRAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAGFJREFUOE9joBr49u3bf1IwVBsCgASdnJyIwngNgNmAC1PfAGyS+DC6GpL8jo5R
+        DECnicEoBpCDB7EBIDFsGJs6sAHoitDFYBibHDQ1QABMET6MoQkZIJuMD0OVUwMwMAAAcRkhO+R+5pEA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnSrcCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

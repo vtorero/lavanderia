@@ -170,6 +170,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\dsTicket.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTicket.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\dsVentas.cs">
       <DependentUpon>dsVentas.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -199,6 +204,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crPrendas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crTicket.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crTicket.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\crVentas.cs">
@@ -261,6 +272,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crTicket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crTicket.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crVentas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crVentas.cs</LastGenOutput>
@@ -275,6 +290,17 @@
     </None>
     <None Include="Models\DsPrendas.xss">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsTicket.xsc">
+      <DependentUpon>dsTicket.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsTicket.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTicket.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsTicket.xss">
+      <DependentUpon>dsTicket.xsd</DependentUpon>
     </None>
     <None Include="Models\dsVentas.xsc">
       <DependentUpon>dsVentas.xsd</DependentUpon>

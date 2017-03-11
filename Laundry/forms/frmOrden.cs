@@ -12,6 +12,8 @@ using Lavanderia.Persistencia;
 using Lavanderia.Models;
 using Lavanderia.util;
 using System.Globalization;
+using CrystalDecisions.CrystalReports.Engine;
+using MySql.Data.MySqlClient;
 
 namespace Lavanderia.forms
 {
@@ -453,6 +455,25 @@ v.soloNumeros(e);
 
             
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ReportDocument cryrep = new ReportDocument();
+            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
+         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden=70"), BdComun.ObtenerConexion());
+            DataSet ds = new DataSet();
+
+            myadap.Fill(ds,"Ticket");
+
+            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");
+
+            cryrep.SetDataSource(ds);
+
+            frmReporte rt = new frmReporte();
+            rt.Text = "Ticket";
+            rt.crystalReportViewer1.ReportSource = cryrep;
+            rt.Show();﻿
         }
       
     }
