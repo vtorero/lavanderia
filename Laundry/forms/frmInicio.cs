@@ -154,7 +154,7 @@ namespace Lavanderia.forms
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT YEAR(o.`fechaCreado`) AS ano, MONTHNAME(o.`fechaCreado`) AS mes ,DAYOFMONTH(o.`fechaCreado`) AS dia ,SUM(o.`totalOrden`) AS total FROM Orden o GROUP BY 3 ORDER BY 2;"), BdComun.ObtenerConexion());
+         "SELECT YEAR(o.`fechaCreado`) AS ano, MONTHNAME(o.`fechaCreado`) AS mes ,DAYOFMONTH(o.`fechaCreado`) AS dia ,SUM(o.`totalOrden`) AS total FROM Orden o GROUP BY 3 ORDER BY 2,3;"), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds, "Ventas");

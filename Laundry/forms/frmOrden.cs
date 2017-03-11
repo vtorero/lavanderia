@@ -248,6 +248,7 @@ namespace Lavanderia.forms
 
         private void rdParcial_CheckedChanged(object sender, EventArgs e)
         {
+            lblMontopagar.Text = "Adelanto";
             lblPendiente.Visible = true;
             lblSimbolopendiente.Visible = true;
             txtPendiente.Visible = true;
@@ -265,7 +266,7 @@ namespace Lavanderia.forms
 
         private void rdTotal_Click(object sender, EventArgs e)
         {
-
+            lblMontopagar.Text = "Monto";
             lblPendiente.Visible = false;
             txtPendiente.Visible = false;
             lblSimbolopendiente.Visible = false;
