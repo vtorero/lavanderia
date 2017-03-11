@@ -93,7 +93,7 @@ namespace Lavanderia.forms
             {
                 prenda.NombrePrenda = txtNombre.Text.Trim();
                 prenda.Descripcion = txtDescripcion.Text.Trim();
-                prenda.precioServicio = Decimal.Round(Decimal.Parse(txtPrecio.Text.Trim()),2);
+                prenda.precioServicio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
 
 
                 if (btnGuardar.Text.Equals("&Registrar"))

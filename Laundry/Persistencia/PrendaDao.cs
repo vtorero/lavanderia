@@ -13,7 +13,7 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Prenda prenda)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio) values ('{0}','{1}','{2}')",
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio) values ('{0}','{1}',{2})",
                 prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             return retorno;
