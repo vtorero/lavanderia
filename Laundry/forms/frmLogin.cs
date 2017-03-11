@@ -35,7 +35,10 @@ namespace Lavanderia.forms
                     StatusBar mainStatusBar = new StatusBar();
                     frmInicio childForm = new frmInicio();
                     if (result.tipoUsuario == 1)
-                    childForm.mnuAdmUsuarios.Visible = true;
+                    {
+                        childForm.mnuAdmUsuarios.Visible = true;
+                        childForm.optionsToolStripMenuItem.Visible = true;
+                    }
                     childForm.searchToolStripMenuItem.Text = Convert.ToString(result.idUsuario);
                     mainStatusBar.Panels.Add("t_usuario");
                     mainStatusBar.Panels.Add("Usuario");
