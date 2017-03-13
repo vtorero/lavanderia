@@ -169,6 +169,7 @@ namespace Lavanderia.forms
             rt.Show();﻿
         }
 
+     
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

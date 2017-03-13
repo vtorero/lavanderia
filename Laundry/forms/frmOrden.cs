@@ -479,10 +479,40 @@ v.soloNumeros(e);
             rt.Show();﻿
         }
 
-        private void frmOrden_Load(object sender, EventArgs e)
-        {
+        private void fillPrendas() {
+            
+             MySqlDataReader _reader =  PrendaDao.fillPrenda();
+             cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
+             cmbPrenda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+             AutoCompleteStringCollection datos = new AutoCompleteStringCollection();
+             while (_reader.Read())
+             {
+                 string name = _reader.GetString("nombrePrenda");
+                 datos.Add(name);
+            }
+
+            cmbPrenda.AutoCompleteCustomSource =  datos;
 
         }
+
+       
+        private void frmOrden_Load(object sender, EventArgs e)
+        {
+            fillPrendas();
+        }
+
+        private void cmbPrenda_TextChanged(object sender, EventArgs e)
+        {
+            MySqlDataReader _reader = PrendaDao.fillPrendaSearch(cmbPrenda.Text);
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("nombrePrenda");
+                cmbPrenda.Items.Add(name);
+            }
+
+        }
+
+    
       
     }
 }

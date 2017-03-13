@@ -39,6 +39,20 @@ namespace Lavanderia.Persistencia
             return retorno;
         }
 
+        public static MySqlDataReader fillPrenda() {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+             "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio FROM Prenda order by idPrenda"), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            return _reader;
+        }
+
+        public static MySqlDataReader fillPrendaSearch(string criterio)
+        {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+             "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio FROM Prenda where nombrePrenda ='{0}'",criterio), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            return _reader;
+        }
 
         public static List<Prenda> Listar()
         {
