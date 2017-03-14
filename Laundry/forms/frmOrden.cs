@@ -554,6 +554,17 @@ v.soloNumeros(e);
             }
         }
 
+        private void cmbPrenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbPrenda.Text.ToUpper();
+                nroCantidad.Focus();
+            }
+        }
+
+      
+
        
 
         
