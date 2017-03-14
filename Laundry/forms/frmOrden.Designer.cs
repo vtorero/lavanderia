@@ -178,7 +178,7 @@
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(45, 28);
-            this.btnSrcCliente.TabIndex = 4;
+            this.btnSrcCliente.TabIndex = 1;
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
@@ -298,11 +298,10 @@
             this.chkFactura.Enabled = false;
             this.chkFactura.Location = new System.Drawing.Point(354, 26);
             this.chkFactura.Name = "chkFactura";
-            this.chkFactura.Size = new System.Drawing.Size(72, 20);
+            this.chkFactura.Size = new System.Drawing.Size(54, 20);
             this.chkFactura.TabIndex = 25;
-            this.chkFactura.Text = "Factura";
+            this.chkFactura.Text = "Visa";
             this.chkFactura.UseVisualStyleBackColor = true;
-            this.chkFactura.Visible = false;
             this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
             // 
             // lblObs
@@ -422,7 +421,7 @@
             this.rdParcial.Location = new System.Drawing.Point(233, 25);
             this.rdParcial.Name = "rdParcial";
             this.rdParcial.Size = new System.Drawing.Size(104, 20);
-            this.rdParcial.TabIndex = 1;
+            this.rdParcial.TabIndex = 10;
             this.rdParcial.Text = "Pago Parcial";
             this.rdParcial.UseVisualStyleBackColor = true;
             this.rdParcial.CheckedChanged += new System.EventHandler(this.rdParcial_CheckedChanged);
@@ -434,7 +433,7 @@
             this.rdTotal.Location = new System.Drawing.Point(95, 25);
             this.rdTotal.Name = "rdTotal";
             this.rdTotal.Size = new System.Drawing.Size(93, 20);
-            this.rdTotal.TabIndex = 0;
+            this.rdTotal.TabIndex = 9;
             this.rdTotal.Text = "Pago Total";
             this.rdTotal.UseVisualStyleBackColor = true;
             this.rdTotal.CheckedChanged += new System.EventHandler(this.rdTotal_CheckedChanged);
@@ -482,7 +481,7 @@
             this.cmbPrenda.Location = new System.Drawing.Point(115, 51);
             this.cmbPrenda.Name = "cmbPrenda";
             this.cmbPrenda.Size = new System.Drawing.Size(279, 24);
-            this.cmbPrenda.TabIndex = 28;
+            this.cmbPrenda.TabIndex = 4;
             this.cmbPrenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbPrenda_KeyDown);
             this.cmbPrenda.Leave += new System.EventHandler(this.cmbPrenda_Leave);
             this.cmbPrenda.MouseLeave += new System.EventHandler(this.cmbPrenda_MouseLeave);
@@ -510,7 +509,7 @@
             // btnColor
             // 
             this.btnColor.Enabled = false;
-            this.btnColor.Location = new System.Drawing.Point(336, 156);
+            this.btnColor.Location = new System.Drawing.Point(372, 156);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(22, 23);
             this.btnColor.TabIndex = 24;
@@ -524,8 +523,8 @@
             this.txtcolores.Enabled = false;
             this.txtcolores.Location = new System.Drawing.Point(115, 157);
             this.txtcolores.Name = "txtcolores";
-            this.txtcolores.Size = new System.Drawing.Size(216, 22);
-            this.txtcolores.TabIndex = 23;
+            this.txtcolores.Size = new System.Drawing.Size(251, 22);
+            this.txtcolores.TabIndex = 7;
             // 
             // label11
             // 
@@ -559,7 +558,7 @@
             this.cmbDefecto.Location = new System.Drawing.Point(261, 121);
             this.cmbDefecto.Name = "cmbDefecto";
             this.cmbDefecto.Size = new System.Drawing.Size(133, 24);
-            this.cmbDefecto.TabIndex = 20;
+            this.cmbDefecto.TabIndex = 6;
             this.cmbDefecto.Text = "Seleccionar";
             // 
             // grpTotal
@@ -608,7 +607,7 @@
             this.nroCantidad.Location = new System.Drawing.Point(115, 122);
             this.nroCantidad.Name = "nroCantidad";
             this.nroCantidad.Size = new System.Drawing.Size(59, 22);
-            this.nroCantidad.TabIndex = 17;
+            this.nroCantidad.TabIndex = 5;
             this.nroCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -624,11 +623,11 @@
             // 
             this.LblId.AutoSize = true;
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
-            this.LblId.Location = new System.Drawing.Point(404, 51);
+            this.LblId.Location = new System.Drawing.Point(404, 54);
             this.LblId.Name = "LblId";
-            this.LblId.Size = new System.Drawing.Size(44, 16);
+            this.LblId.Size = new System.Drawing.Size(31, 16);
             this.LblId.TabIndex = 15;
-            this.LblId.Text = "wwww";
+            this.LblId.Text = "cod";
             this.LblId.Visible = false;
             // 
             // btnQuitar
@@ -636,7 +635,7 @@
             this.btnQuitar.AutoSize = true;
             this.btnQuitar.Enabled = false;
             this.btnQuitar.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
-            this.btnQuitar.Location = new System.Drawing.Point(438, 162);
+            this.btnQuitar.Location = new System.Drawing.Point(482, 132);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(49, 41);
             this.btnQuitar.TabIndex = 14;
@@ -753,7 +752,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(115, 87);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(70, 24);
+            this.txtPrecio.Size = new System.Drawing.Size(59, 24);
             this.txtPrecio.TabIndex = 11;
             // 
             // label5
@@ -778,10 +777,10 @@
             // 
             this.rdServicio.AutoSize = true;
             this.rdServicio.Enabled = false;
-            this.rdServicio.Location = new System.Drawing.Point(195, 10);
+            this.rdServicio.Location = new System.Drawing.Point(200, 21);
             this.rdServicio.Name = "rdServicio";
             this.rdServicio.Size = new System.Drawing.Size(132, 20);
-            this.rdServicio.TabIndex = 8;
+            this.rdServicio.TabIndex = 3;
             this.rdServicio.Text = "Al Peso y promos";
             this.rdServicio.UseVisualStyleBackColor = true;
             this.rdServicio.CheckedChanged += new System.EventHandler(this.rdServicio_CheckedChanged);
@@ -790,10 +789,10 @@
             // 
             this.rdPrenda.AutoSize = true;
             this.rdPrenda.Enabled = false;
-            this.rdPrenda.Location = new System.Drawing.Point(112, 10);
+            this.rdPrenda.Location = new System.Drawing.Point(117, 21);
             this.rdPrenda.Name = "rdPrenda";
             this.rdPrenda.Size = new System.Drawing.Size(73, 20);
-            this.rdPrenda.TabIndex = 7;
+            this.rdPrenda.TabIndex = 2;
             this.rdPrenda.Text = "Al Seco";
             this.rdPrenda.UseVisualStyleBackColor = true;
             this.rdPrenda.CheckedChanged += new System.EventHandler(this.rdPrenda_CheckedChanged);
@@ -803,7 +802,7 @@
             this.btnAddPrenda.Enabled = false;
             this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(403, 22);
+            this.btnAddPrenda.Location = new System.Drawing.Point(396, 22);
             this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrenda.Name = "btnAddPrenda";
             this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
@@ -818,11 +817,11 @@
             this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = global::Lavanderia.Properties.Resources.plush;
-            this.btnAdd.Location = new System.Drawing.Point(383, 162);
+            this.btnAdd.Location = new System.Drawing.Point(423, 132);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(52, 41);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -845,7 +844,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 14);
+            this.label3.Location = new System.Drawing.Point(33, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
