@@ -141,6 +141,7 @@
             this.MaximizeBox = false;
             this.Name = "frmBuscarCliente";
             this.Text = "Buscar Cliente";
+            this.Load += new System.EventHandler(this.frmBuscarCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

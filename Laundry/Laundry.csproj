@@ -123,6 +123,10 @@
     <Compile Include="forms\frmEntregas.Designer.cs">
       <DependentUpon>frmEntregas.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmImprimir.cs" />
+    <Compile Include="forms\frmImprimir.Designer.cs">
+      <DependentUpon>frmImprimir.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmEntregas.resx">
       <DependentUpon>frmEntregas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmImprimir.resx">
+      <DependentUpon>frmImprimir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
