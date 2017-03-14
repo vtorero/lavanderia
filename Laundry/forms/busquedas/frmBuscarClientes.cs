@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.Persistencia;
+using Lavanderia.util;
 
 namespace Lavanderia.forms.busquedas
 {
@@ -44,7 +45,7 @@ namespace Lavanderia.forms.busquedas
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            dgvClientes.DataSource = ClienteDao.Buscar(txtNombres.Text, txtDni.Text);
+            dgvClientes.DataSource = ClienteDao.Buscar(txtNombres.Text, txtDni.Text,varGlobales.sessionUsuario);
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.Columns[0].HeaderText = "Código";
             dgvClientes.Columns[0].Width = 50;

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
 using System.Data;
-
+using Lavanderia.util;
 namespace Lavanderia.Persistencia
 {
     class ClienteDao
@@ -43,6 +43,7 @@ namespace Lavanderia.Persistencia
 
             MySqlCommand cmd= new MySqlCommand("clientesAll", BdComun.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("idUsuario", varGlobales.sessionUsuario));
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
            
 
@@ -61,12 +62,12 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
-        public static List<Cliente> Buscar(string nombre,string dni)
+        public static List<Cliente> Buscar(string nombre,string dni,int usuarioCreador)
         {
             List<Cliente> _lista = new List<Cliente>();
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT idCliente,nombreCliente,dniCliente,correoCliente,telefonoCliente FROM Cliente where nombreCliente like '%{0}%' and dniCliente like '%{1}%'",nombre,dni), BdComun.ObtenerConexion());
+           "SELECT idCliente,nombreCliente,dniCliente,correoCliente,telefonoCliente FROM Cliente where nombreCliente like '%{0}%' and dniCliente like '%{1}%' and usuarioCreador={2}",nombre,dni,usuarioCreador), BdComun.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
 while (_reader.Read())
             {
