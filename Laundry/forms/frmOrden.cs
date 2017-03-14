@@ -54,7 +54,7 @@ namespace Lavanderia.forms
         public void ejecutar2(string id, string nombre, decimal precio)
         {
             LblId.Text = id;
-            txtNombrePrenda.Text = nombre;
+            //txtNombrePrenda.Text = nombre;
             txtPrecio.Text = Convert.ToString(Decimal.Round(precio,2));
         }
 
@@ -72,7 +72,7 @@ namespace Lavanderia.forms
                
             string id, detalle,defecto,colores;
             id = LblId.Text;
-            detalle = txtNombrePrenda.Text;
+            detalle = cmbPrenda.Text;
             decimal cantidad, precio, total;
             cantidad = nroCantidad.Value;
             precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
@@ -95,7 +95,10 @@ namespace Lavanderia.forms
         }
 
         public void restablecer() {
-            txtNombrePrenda.Text = "";
+            //txtNombrePrenda.Text = "";
+            cmbPrenda.Enabled = false;
+            cmbPrenda.Text = "";
+            rdPrenda.Checked = false;
             txtPrecio.Text = "";
             nroCantidad.Value = 0;
             cmbDefecto.Text = "Seleccionar";
@@ -417,7 +420,10 @@ v.soloNumeros(e);
 
         private void rdPrenda_CheckedChanged(object sender, EventArgs e)
         {
-            btnAddPrenda.Enabled = true;
+            //btnAddPrenda.Enabled = true;
+            cmbPrenda.Enabled = true;
+            nroCantidad.Enabled = true;
+
         }
 
         private void rdServicio_CheckedChanged(object sender, EventArgs e)
@@ -495,22 +501,66 @@ v.soloNumeros(e);
 
         }
 
-       
         private void frmOrden_Load(object sender, EventArgs e)
         {
             fillPrendas();
+            
         }
 
-        private void cmbPrenda_TextChanged(object sender, EventArgs e)
+        
+
+      
+       
+       
+        private void cmbPrenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                MySqlDataReader _reader = PrendaDao.fillPrendaSearch(cmbPrenda.Text);
+                while (_reader.Read())
+                {
+                    string name = _reader.GetString("idPrenda");
+                    MessageBox.Show(name);
+                    LblId.Text = name;
+                }
+            }
+        }
+
+      
+
+        private void cmbPrenda_Leave(object sender, EventArgs e)
         {
             MySqlDataReader _reader = PrendaDao.fillPrendaSearch(cmbPrenda.Text);
             while (_reader.Read())
             {
-                string name = _reader.GetString("nombrePrenda");
-                cmbPrenda.Items.Add(name);
+                string name = _reader.GetString("idPrenda");
+                txtPrecio.Text = Convert.ToString(Decimal.Round(_reader.GetDecimal("precioServicio"), 2));
+                LblId.Text = name;
             }
 
+            habilitaServicio();
+            btnAdd.Enabled = true;
         }
+
+        private void cmbPrenda_MouseLeave(object sender, EventArgs e)
+        {
+            MySqlDataReader _reader = PrendaDao.fillPrendaSearch(cmbPrenda.Text);
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("idPrenda");
+
+                LblId.Text = name;
+            }
+        }
+
+       
+
+        
+
+       
+
+    
 
     
       

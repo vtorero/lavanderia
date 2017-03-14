@@ -119,5 +119,15 @@ namespace Lavanderia.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UseCaseDiagramFile_usecasediagram_13447 {
+            get {
+                object obj = ResourceManager.GetObject("UseCaseDiagramFile_usecasediagram_13447", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

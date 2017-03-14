@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lavanderia.util;
 
 namespace Lavanderia.forms
 {
@@ -25,7 +26,7 @@ namespace Lavanderia.forms
         {
             Form childForm = new frmPrendas();
             childForm.MdiParent = this;
-            childForm.Text = "Mantenimiento de Prendas";
+            childForm.Text = "Mantenimiento de Prendas :" + varGlobales.sessionUsuario;
             childForm.Show();
         }
 
@@ -182,6 +183,14 @@ namespace Lavanderia.forms
             childForm.MdiParent = this;
             childForm.Text = "Imprimir Ticket";
             childForm.Show();*/
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+                       Form childForm = new frmClientes();
+            childForm.MdiParent = this;
+            childForm.Text = "Mantenimiento de Clientes";
+            childForm.Show();
         }
 
     

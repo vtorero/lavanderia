@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -99,7 +99,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -466,7 +465,6 @@
             this.groupBox4.Controls.Add(this.btnAddPrenda);
             this.groupBox4.Controls.Add(this.btnAdd);
             this.groupBox4.Controls.Add(this.statusStrip1);
-            this.groupBox4.Controls.Add(this.txtNombrePrenda);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Location = new System.Drawing.Point(514, 15);
             this.groupBox4.Name = "groupBox4";
@@ -478,12 +476,15 @@
             // 
             this.cmbPrenda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbPrenda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbPrenda.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cmbPrenda.Enabled = false;
             this.cmbPrenda.FormattingEnabled = true;
-            this.cmbPrenda.Location = new System.Drawing.Point(136, 28);
+            this.cmbPrenda.Location = new System.Drawing.Point(115, 51);
             this.cmbPrenda.Name = "cmbPrenda";
-            this.cmbPrenda.Size = new System.Drawing.Size(191, 24);
+            this.cmbPrenda.Size = new System.Drawing.Size(279, 24);
             this.cmbPrenda.TabIndex = 28;
-            this.cmbPrenda.TextChanged += new System.EventHandler(this.cmbPrenda_TextChanged);
+            this.cmbPrenda.Leave += new System.EventHandler(this.cmbPrenda_Leave);
+            this.cmbPrenda.MouseLeave += new System.EventHandler(this.cmbPrenda_MouseLeave);
             // 
             // TXTIGV
             // 
@@ -621,11 +622,12 @@
             // LblId
             // 
             this.LblId.AutoSize = true;
-            this.LblId.Location = new System.Drawing.Point(333, 29);
+            this.LblId.BackColor = System.Drawing.SystemColors.Window;
+            this.LblId.Location = new System.Drawing.Point(404, 51);
             this.LblId.Name = "LblId";
-            this.LblId.Size = new System.Drawing.Size(0, 16);
+            this.LblId.Size = new System.Drawing.Size(44, 16);
             this.LblId.TabIndex = 15;
-            this.LblId.Visible = false;
+            this.LblId.Text = "wwww";
             // 
             // btnQuitar
             // 
@@ -652,14 +654,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -675,8 +677,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -708,18 +710,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle11.Format = "C2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -799,12 +801,13 @@
             this.btnAddPrenda.Enabled = false;
             this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(426, 55);
+            this.btnAddPrenda.Location = new System.Drawing.Point(403, 22);
             this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrenda.Name = "btnAddPrenda";
             this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
             this.btnAddPrenda.TabIndex = 6;
             this.btnAddPrenda.UseVisualStyleBackColor = true;
+            this.btnAddPrenda.Visible = false;
             this.btnAddPrenda.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
@@ -837,17 +840,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // txtNombrePrenda
-            // 
-            this.txtNombrePrenda.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtNombrePrenda.Enabled = false;
-            this.txtNombrePrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombrePrenda.Location = new System.Drawing.Point(115, 55);
-            this.txtNombrePrenda.Name = "txtNombrePrenda";
-            this.txtNombrePrenda.Size = new System.Drawing.Size(304, 24);
-            this.txtNombrePrenda.TabIndex = 1;
-            this.txtNombrePrenda.TextChanged += new System.EventHandler(this.txtNombrePrenda_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -861,7 +853,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 761);
+            this.ClientSize = new System.Drawing.Size(1265, 741);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -903,7 +895,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label lblCodigoCliente;
-        private System.Windows.Forms.TextBox txtNombrePrenda;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;

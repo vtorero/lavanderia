@@ -219,6 +219,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="util\Validacion.cs" />
+    <Compile Include="util\varGlobales.cs" />
     <EmbeddedResource Include="forms\busquedas\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +352,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\UseCaseDiagramFile_usecasediagram_13447.ico" />
     <None Include="Resources\Overlay_preferences.ico" />
     <None Include="Resources\Annotate_Disabled.ico" />
     <None Include="Resources\FeatureNotAvailable_5734_12x12_16x.ico" />

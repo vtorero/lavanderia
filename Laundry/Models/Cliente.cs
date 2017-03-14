@@ -14,12 +14,13 @@ namespace Lavanderia.Models
         public string Email{ get; set; }
         public string Dirección { get; set; }
         public string Teléfono { get; set; }
+        public int usuarioCreador { get; set; }
 
 
 
         public Cliente() { }
 
-        public Cliente(int idCliente, string NombreC, string dni, string correo,string direccion,string telefono)
+        public Cliente(int idCliente, string NombreC, string dni, string correo,string direccion,string telefono,int usuario)
         {
             this.idCliente = idCliente;
             this.Nombres = NombreC;
@@ -27,6 +28,7 @@ namespace Lavanderia.Models
             this.Email= correo;
             this.Dirección= direccion;
             this.Teléfono= telefono;
+            this.usuarioCreador = usuario;
             
         }
     }

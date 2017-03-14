@@ -14,15 +14,15 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Cliente cliente)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Cliente (nombreCliente, dniCliente, correoCliente,direccionCliente,telefonoCliente) values ('{0}','{1}','{2}','{3}','{4}')",
-                cliente.Nombres, cliente.DNI, cliente.Email,cliente.Dirección,cliente.Teléfono), BdComun.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Cliente (nombreCliente, dniCliente, correoCliente,direccionCliente,telefonoCliente,usuarioCreador) values ('{0}','{1}','{2}','{3}','{4}',{5})",
+                cliente.Nombres, cliente.DNI, cliente.Email,cliente.Dirección,cliente.Teléfono,cliente.usuarioCreador), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
 
         public static int Modificar(Cliente cliente) {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente='{5}'"
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente='{6}'"
             , cliente.Nombres, cliente.DNI, cliente.Email, cliente.Dirección, cliente.Teléfono, cliente.idCliente), BdComun.ObtenerConexion());
             retorno= comando.ExecuteNonQuery();
             return retorno;
