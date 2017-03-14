@@ -35,7 +35,6 @@ D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarServicio.res
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmClientes.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmColor.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmEntregas.resources
-D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmImprimir.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmInicio.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmLogin.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmOrden.resources

@@ -169,6 +169,7 @@ namespace Lavanderia.forms
             rt.Show();﻿
         }
 
+     
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -177,10 +178,10 @@ namespace Lavanderia.forms
         private void imprimirTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            frmImprimir childForm = new frmImprimir();
+            /*frmImprimir childForm = new frmImprimir();
             childForm.MdiParent = this;
             childForm.Text = "Imprimir Ticket";
-            childForm.Show();
+            childForm.Show();*/
         }
 
     

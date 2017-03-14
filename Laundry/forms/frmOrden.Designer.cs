@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbPrenda = new System.Windows.Forms.ComboBox();
             this.TXTIGV = new System.Windows.Forms.TextBox();
             this.lbligv = new System.Windows.Forms.Label();
             this.btnColor = new System.Windows.Forms.Button();
@@ -442,6 +443,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cmbPrenda);
             this.groupBox4.Controls.Add(this.TXTIGV);
             this.groupBox4.Controls.Add(this.lbligv);
             this.groupBox4.Controls.Add(this.btnColor);
@@ -471,6 +473,17 @@
             this.groupBox4.Size = new System.Drawing.Size(725, 495);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
+            // 
+            // cmbPrenda
+            // 
+            this.cmbPrenda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPrenda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbPrenda.FormattingEnabled = true;
+            this.cmbPrenda.Location = new System.Drawing.Point(136, 28);
+            this.cmbPrenda.Name = "cmbPrenda";
+            this.cmbPrenda.Size = new System.Drawing.Size(191, 24);
+            this.cmbPrenda.TabIndex = 28;
+            this.cmbPrenda.TextChanged += new System.EventHandler(this.cmbPrenda_TextChanged);
             // 
             // TXTIGV
             // 
@@ -639,14 +652,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -662,8 +675,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -695,18 +708,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -761,7 +774,7 @@
             // 
             this.rdServicio.AutoSize = true;
             this.rdServicio.Enabled = false;
-            this.rdServicio.Location = new System.Drawing.Point(181, 29);
+            this.rdServicio.Location = new System.Drawing.Point(195, 10);
             this.rdServicio.Name = "rdServicio";
             this.rdServicio.Size = new System.Drawing.Size(132, 20);
             this.rdServicio.TabIndex = 8;
@@ -773,7 +786,7 @@
             // 
             this.rdPrenda.AutoSize = true;
             this.rdPrenda.Enabled = false;
-            this.rdPrenda.Location = new System.Drawing.Point(96, 30);
+            this.rdPrenda.Location = new System.Drawing.Point(112, 10);
             this.rdPrenda.Name = "rdPrenda";
             this.rdPrenda.Size = new System.Drawing.Size(73, 20);
             this.rdPrenda.TabIndex = 7;
@@ -838,7 +851,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 34);
+            this.label3.Location = new System.Drawing.Point(28, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
@@ -945,5 +958,6 @@
         private System.Windows.Forms.Label txtIg;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.ComboBox cmbPrenda;
     }
 }
