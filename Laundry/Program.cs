@@ -17,7 +17,7 @@ namespace Lavanderia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Lavanderia.forms.frmInicio());
+            Application.Run(new Lavanderia.forms.frmLogin());
         }
     }
 }

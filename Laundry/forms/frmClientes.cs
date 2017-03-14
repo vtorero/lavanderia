@@ -32,16 +32,14 @@ namespace Lavanderia.forms
             string msj = "";
 
 
-            if ((!string.IsNullOrWhiteSpace(txtNombres.Text)) 
-                && (!string.IsNullOrWhiteSpace(txtDNI.Text))
-                && (!string.IsNullOrWhiteSpace(txtDNI.Text))
-                )
+            if ((!string.IsNullOrWhiteSpace(txtNombres.Text)))
             {
                 cliente.Nombres= txtNombres.Text.Trim();
                 cliente.DNI= txtDNI.Text.Trim();
                 cliente.Email= txtEmail.Text.Trim();
                 cliente.Dirección= txtDireccion.Text.Trim();
                 cliente.Teléfono=txtTelefono.Text.Trim();
+                cliente.usuarioCreador = varGlobales.sessionUsuario;
 
                 if(btnGuardar.Text.Equals("&Registrar")){
                  msj="Cliente registrado con Exito!!";

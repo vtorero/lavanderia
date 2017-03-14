@@ -25,9 +25,9 @@ BEGIN
 SELECT MAX(idOrden) AS ultimoid FROM Orden;
 END $$
 DELIMITER $$
-CREATE PROCEDURE clientesAll()
+CREATE PROCEDURE clientesAll(in  idUsuario int)
 BEGIN
-SELECT * FROM Cliente ORDER BY idCliente ASC;
+SELECT * FROM Cliente where usuarioCreador=idUsuario ORDER BY idCliente ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
@@ -46,7 +46,7 @@ IN id INT
 )
 BEGIN
 UPDATE Pago SET Estado=1,fechaActualizado=NOW() WHERE idOrden=id;
-UPDATE Orden SET estado=2 WHERE idOrden=id;
+UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 END $$
 
