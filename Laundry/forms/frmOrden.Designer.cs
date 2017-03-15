@@ -48,7 +48,7 @@
             this.txtIg = new System.Windows.Forms.Label();
             this.lblSimbolopendiente = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.chkFactura = new System.Windows.Forms.CheckBox();
+            this.chkVisa = new System.Windows.Forms.CheckBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -228,7 +228,7 @@
             this.groupBox2.Controls.Add(this.txtIg);
             this.groupBox2.Controls.Add(this.lblSimbolopendiente);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.chkFactura);
+            this.groupBox2.Controls.Add(this.chkVisa);
             this.groupBox2.Controls.Add(this.lblObs);
             this.groupBox2.Controls.Add(this.txtObservacion);
             this.groupBox2.Controls.Add(this.label12);
@@ -292,17 +292,17 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "S/.";
             // 
-            // chkFactura
+            // chkVisa
             // 
-            this.chkFactura.AutoSize = true;
-            this.chkFactura.Enabled = false;
-            this.chkFactura.Location = new System.Drawing.Point(354, 26);
-            this.chkFactura.Name = "chkFactura";
-            this.chkFactura.Size = new System.Drawing.Size(54, 20);
-            this.chkFactura.TabIndex = 25;
-            this.chkFactura.Text = "Visa";
-            this.chkFactura.UseVisualStyleBackColor = true;
-            this.chkFactura.CheckStateChanged += new System.EventHandler(this.chkFactura_CheckStateChanged);
+            this.chkVisa.AutoSize = true;
+            this.chkVisa.Enabled = false;
+            this.chkVisa.Location = new System.Drawing.Point(354, 26);
+            this.chkVisa.Name = "chkVisa";
+            this.chkVisa.Size = new System.Drawing.Size(54, 20);
+            this.chkVisa.TabIndex = 25;
+            this.chkVisa.Text = "Visa";
+            this.chkVisa.UseVisualStyleBackColor = true;
+
             // 
             // lblObs
             // 
@@ -945,7 +945,7 @@
         private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label lblSimbolopendiente;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox chkFactura;
+        private System.Windows.Forms.CheckBox chkVisa;
         private System.Windows.Forms.Label lbligv;
         private System.Windows.Forms.TextBox TXTIGV;
         private System.Windows.Forms.Label txtIg;

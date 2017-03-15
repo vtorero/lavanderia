@@ -147,6 +147,7 @@ namespace Lavanderia.forms
             Orden ord = new Orden();
             Pago pago = new Pago();
             int tipo_pago = 0;
+            int tipo_pago1 = 0;
             int tipo_doc = 0;
             if (rdTotal.Checked) {
                 tipo_pago = 1;
@@ -155,9 +156,9 @@ namespace Lavanderia.forms
                 tipo_pago = 2;
             }
 
-            if (chkFactura.Checked)
+            if (chkVisa.Checked)
             {
-                tipo_pago = 1;
+                tipo_pago1 = 1;
             }
            
 
@@ -185,6 +186,7 @@ namespace Lavanderia.forms
                     pago.Pago2 = 0;
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     pago.TipoPago = tipo_pago;
+                    pago.TipoPago1 = tipo_pago1;
                     pago.TipoDocumento = tipo_doc;
                     //pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
@@ -267,7 +269,6 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
-            chkFactura.Enabled = false;
             txtIg.Visible = false;
      
         
@@ -283,7 +284,7 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
-            chkFactura.Enabled = true;
+            chkVisa.Enabled = true;
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -435,11 +436,11 @@ v.soloNumeros(e);
         {
             btnGuardar.Enabled = true;
         }
-
+        /*
         private void chkFactura_CheckStateChanged(object sender, EventArgs e)
         {
             
-             if (chkFactura.Checked)
+             if (chkVisa.Checked)
             {
                 decimal igv = Decimal.Round((totalOrden * 18) / 100, 2);    
                 MessageBox.Show("" + igv);
@@ -464,7 +465,7 @@ v.soloNumeros(e);
 
             
             }
-        }
+        }*/
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {

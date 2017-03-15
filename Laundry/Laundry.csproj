@@ -123,7 +123,9 @@
     <Compile Include="forms\frmEntregas.Designer.cs">
       <DependentUpon>frmEntregas.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmImprimir.cs" />
+    <Compile Include="forms\frmImprimir.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmImprimir.Designer.cs">
       <DependentUpon>frmImprimir.cs</DependentUpon>
     </Compile>
