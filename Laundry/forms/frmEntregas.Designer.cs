@@ -43,14 +43,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblsimdebe = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDebe = new System.Windows.Forms.TextBox();
             this.lblDebe = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.chkVisa = new System.Windows.Forms.CheckBox();
+            this.txtObs = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,9 +114,9 @@
             // 
             // btnEntregar
             // 
-            this.btnEntregar.Location = new System.Drawing.Point(27, 142);
+            this.btnEntregar.Location = new System.Drawing.Point(122, 220);
             this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(135, 38);
+            this.btnEntregar.Size = new System.Drawing.Size(103, 38);
             this.btnEntregar.TabIndex = 8;
             this.btnEntregar.Text = "&Entregar";
             this.btnEntregar.UseVisualStyleBackColor = true;
@@ -190,6 +193,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txtObs);
+            this.groupBox2.Controls.Add(this.chkVisa);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnEntregar);
             this.groupBox2.Controls.Add(this.txtCodigo);
@@ -201,9 +207,27 @@
             this.groupBox2.Controls.Add(this.txtMonto);
             this.groupBox2.Location = new System.Drawing.Point(794, 115);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(179, 207);
+            this.groupBox2.Size = new System.Drawing.Size(281, 299);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Código:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(81, 19);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(81, 20);
+            this.txtCodigo.TabIndex = 6;
             // 
             // lblsimdebe
             // 
@@ -260,29 +284,39 @@
             this.txtMonto.Size = new System.Drawing.Size(81, 20);
             this.txtMonto.TabIndex = 0;
             // 
-            // txtCodigo
+            // chkVisa
             // 
-            this.txtCodigo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(81, 19);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(81, 20);
-            this.txtCodigo.TabIndex = 6;
+            this.chkVisa.AutoSize = true;
+            this.chkVisa.Location = new System.Drawing.Point(179, 93);
+            this.chkVisa.Name = "chkVisa";
+            this.chkVisa.Size = new System.Drawing.Size(46, 17);
+            this.chkVisa.TabIndex = 9;
+            this.chkVisa.Text = "Visa";
+            this.chkVisa.UseVisualStyleBackColor = true;
+            this.chkVisa.Visible = false;
             // 
-            // label6
+            // txtObs
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Código:";
+            this.txtObs.Location = new System.Drawing.Point(17, 154);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(208, 42);
+            this.txtObs.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Observaciones:";
             // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 439);
+            this.ClientSize = new System.Drawing.Size(1087, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.groupBox1);
@@ -322,5 +356,8 @@
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtObs;
+        private System.Windows.Forms.CheckBox chkVisa;
     }
 }

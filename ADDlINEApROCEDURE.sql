@@ -25,9 +25,9 @@ BEGIN
 SELECT MAX(idOrden) AS ultimoid FROM Orden;
 END $$
 DELIMITER $$
-CREATE PROCEDURE clientesAll(in  idUsuario int)
+CREATE PROCEDURE clientesAll(IN  idUsuario INT)
 BEGIN
-SELECT * FROM Cliente where usuarioCreador=idUsuario ORDER BY idCliente ASC;
+SELECT * FROM Cliente WHERE usuarioCreador=idUsuario ORDER BY idCliente ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
@@ -42,14 +42,16 @@ WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.Estado=0) AND (c.dniCl
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(
-IN id INT
+IN id INT,
+IN tipopago2 INT,
+IN obs VARCHAR(200)
 )
 BEGIN
-UPDATE Pago SET Estado=1,fechaActualizado=NOW() WHERE idOrden=id;
+UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NOW() WHERE idOrden=id;
 UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 END $$
 
----reportes---
+/*---reportes---
 
-SELECT YEAR(o.`fechaCreado`), MONTHNAME(o.`fechaCreado`) ,DAYOFMONTH(o.`fechaCreado`) ,SUM(o.`totalOrden`) FROM Orden o GROUP BY 1,2,3;
+SELECT YEAR(o.`fechaCreado`), MONTHNAME(o.`fechaCreado`) ,DAYOFMONTH(o.`fechaCreado`) ,SUM(o.`totalOrden`) FROM Orden o GROUP BY 1,2,3;*/

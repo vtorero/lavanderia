@@ -73,6 +73,7 @@ namespace Lavanderia.forms
                 lblDebe.Visible = true;
                 lblsimdebe.Visible = true;
                 txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
+                chkVisa.Visible = true;
             }
             else
             {
@@ -89,9 +90,18 @@ namespace Lavanderia.forms
 
         private void btnEntregar_Click(object sender, EventArgs e)
         {
+            int pago2=0;
+            if (chkVisa.Checked)
+                pago2 = 1;
             int re = 0;
-            re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text));
+            re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text),pago2,txtObs.Text);
             llenarDatos();
+            chkVisa.Visible = false;
+            txtMonto.Text = "0.00";
+            txtDebe.Text = "0.00";
+            txtDebe.Visible = false;
+            lblDebe.Visible = false;
+            lblsimdebe.Visible = false;
             MessageBox.Show("Orden Nro: " + txtCodigo.Text + " actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
