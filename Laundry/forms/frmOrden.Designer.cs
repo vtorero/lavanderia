@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -63,6 +63,8 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkColores = new System.Windows.Forms.CheckedListBox();
+            this.chkDefecto = new System.Windows.Forms.CheckedListBox();
             this.cmbPrenda = new System.Windows.Forms.ComboBox();
             this.TXTIGV = new System.Windows.Forms.TextBox();
             this.lbligv = new System.Windows.Forms.Label();
@@ -99,8 +101,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
-            this.chkDefecto = new System.Windows.Forms.CheckedListBox();
-            this.chkColores = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -472,6 +472,34 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             // 
+            // chkColores
+            // 
+            this.chkColores.CheckOnClick = true;
+            this.chkColores.Enabled = false;
+            this.chkColores.FormattingEnabled = true;
+            this.chkColores.Location = new System.Drawing.Point(321, 103);
+            this.chkColores.Name = "chkColores";
+            this.chkColores.Size = new System.Drawing.Size(120, 89);
+            this.chkColores.TabIndex = 29;
+            // 
+            // chkDefecto
+            // 
+            this.chkDefecto.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.chkDefecto.CheckOnClick = true;
+            this.chkDefecto.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chkDefecto.Enabled = false;
+            this.chkDefecto.FormattingEnabled = true;
+            this.chkDefecto.Items.AddRange(new object[] {
+            "Roto",
+            "Manchado",
+            "Descolorido",
+            "Rasgado",
+            "Gastado"});
+            this.chkDefecto.Location = new System.Drawing.Point(200, 103);
+            this.chkDefecto.Name = "chkDefecto";
+            this.chkDefecto.Size = new System.Drawing.Size(109, 89);
+            this.chkDefecto.TabIndex = 28;
+            // 
             // cmbPrenda
             // 
             this.cmbPrenda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -510,12 +538,13 @@
             // btnColor
             // 
             this.btnColor.Enabled = false;
-            this.btnColor.Location = new System.Drawing.Point(680, 54);
+            this.btnColor.Location = new System.Drawing.Point(578, 21);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(22, 23);
             this.btnColor.TabIndex = 24;
             this.btnColor.Text = "...";
             this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Visible = false;
             this.btnColor.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // txtcolores
@@ -524,8 +553,9 @@
             this.txtcolores.Enabled = false;
             this.txtcolores.Location = new System.Drawing.Point(457, 23);
             this.txtcolores.Name = "txtcolores";
-            this.txtcolores.Size = new System.Drawing.Size(251, 22);
+            this.txtcolores.Size = new System.Drawing.Size(114, 22);
             this.txtcolores.TabIndex = 7;
+            this.txtcolores.Visible = false;
             // 
             // label11
             // 
@@ -639,14 +669,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -662,8 +692,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -695,18 +725,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle19.Format = "C2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -833,33 +863,6 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
-            // 
-            // chkDefecto
-            // 
-            this.chkDefecto.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.chkDefecto.CheckOnClick = true;
-            this.chkDefecto.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chkDefecto.Enabled = false;
-            this.chkDefecto.FormattingEnabled = true;
-            this.chkDefecto.Items.AddRange(new object[] {
-            "Roto",
-            "Manchado",
-            "Descolorido",
-            "Rasgado",
-            "Gastado"});
-            this.chkDefecto.Location = new System.Drawing.Point(200, 103);
-            this.chkDefecto.Name = "chkDefecto";
-            this.chkDefecto.Size = new System.Drawing.Size(109, 89);
-            this.chkDefecto.TabIndex = 28;
-            // 
-            // chkColores
-            // 
-            this.chkColores.CheckOnClick = true;
-            this.chkColores.FormattingEnabled = true;
-            this.chkColores.Location = new System.Drawing.Point(321, 103);
-            this.chkColores.Name = "chkColores";
-            this.chkColores.Size = new System.Drawing.Size(120, 89);
-            this.chkColores.TabIndex = 29;
             // 
             // frmOrden
             // 

@@ -511,8 +511,7 @@ v.soloNumeros(e);
             _lista = ColorDao.Listar();
 
             foreach(Lavanderia.Models.Color item in _lista){
-
-                
+     
                 chkColores.Items.Add(item.nombreColor);
                 
             }
