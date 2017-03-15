@@ -82,6 +82,7 @@ namespace Lavanderia.forms
                 lblDebe.Visible = false;
                 lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
+                chkVisa.Visible = false;
             }
 
 

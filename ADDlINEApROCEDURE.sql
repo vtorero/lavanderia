@@ -3,6 +3,7 @@ DROP PROCEDURE IF EXISTS ultimoIdOrden;
 DROP PROCEDURE IF EXISTS clientesAll;	
 DROP PROCEDURE IF EXISTS buscarOrdenes;	
 DROP PROCEDURE IF EXISTS entregaOrden;	
+DROP PROCEDURE IF EXISTS coloresAll;
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,
@@ -28,6 +29,11 @@ DELIMITER $$
 CREATE PROCEDURE clientesAll(IN  idUsuario INT)
 BEGIN
 SELECT * FROM Cliente WHERE usuarioCreador=idUsuario ORDER BY idCliente ASC;
+END $$
+DELIMITER $$
+CREATE PROCEDURE coloresAll()
+BEGIN
+SELECT * FROM Color ORDER BY nombreColor ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(

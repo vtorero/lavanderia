@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -42,17 +43,16 @@ namespace Lavanderia.Persistencia
         {
             List<Color> _lista = new List<Color>();
 
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM Color order by idColor"), BdComun.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
+            MySqlCommand _comando = new MySqlCommand("coloresAll", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
 
             while (_reader.Read())
             {
                 Color color = new Color();
-
-                color.idColor= _reader.GetInt32(0);
-                color.nombreColor= _reader.GetString(1);
-                color.valorColor= _reader.GetString(2);
+                color.idColor = Convert.ToInt32(_reader["idColor"]);
+                color.nombreColor = Convert.ToString(_reader["nombreColor"]);
+                color.valorColor = Convert.ToString(_reader["valorColor"]);
                 
 
                 _lista.Add(color);

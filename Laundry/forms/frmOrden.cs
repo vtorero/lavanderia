@@ -29,10 +29,7 @@ namespace Lavanderia.forms
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
@@ -76,8 +73,17 @@ namespace Lavanderia.forms
             decimal cantidad, precio, total;
             cantidad = nroCantidad.Value;
             precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
-            defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
-            colores = txtcolores.Text;
+            //defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
+            defecto = "";
+            colores = "";
+
+            foreach (Object def in chkDefecto.CheckedItems) {
+                defecto += def.ToString()+",";
+            }
+            foreach (Object col in chkColores.CheckedItems) {
+                colores += col.ToString() + ",";
+            }
+                
             total = Decimal.Round((cantidad * precio),2);
 
 
@@ -95,17 +101,17 @@ namespace Lavanderia.forms
         }
 
         public void restablecer() {
-            //txtNombrePrenda.Text = "";
+            
             cmbPrenda.Enabled = false;
             cmbPrenda.Text = "";
             rdPrenda.Checked = false;
             txtPrecio.Text = "";
             nroCantidad.Value = 0;
-            cmbDefecto.Text = "Seleccionar";
+            chkDefecto.ClearSelected();
             txtcolores.Text = "";
             btnAdd.Enabled = false;
             nroCantidad.Enabled = false;
-            cmbDefecto.Enabled = false;
+            chkDefecto.Enabled = false;
             btnColor.Enabled = false;
             i = 1;
                 
@@ -316,7 +322,7 @@ v.soloNumeros(e);
           
             btnAddPrenda.Enabled = true;
             nroCantidad.Enabled = true;
-            cmbDefecto.Enabled = true;
+            chkDefecto.Enabled = true;
             btnColor.Enabled = true;
             dgvOrden.Enabled = true;
             
@@ -329,7 +335,7 @@ v.soloNumeros(e);
             rdServicio.Enabled = false;
             btnAddPrenda.Enabled = false;
             nroCantidad.Enabled = false;
-            cmbDefecto.Enabled = false;
+            chkDefecto.Enabled = false;
             btnColor.Enabled = false;
             txtPendiente.Enabled = false;
             txtPago.Text = "";
@@ -496,15 +502,28 @@ v.soloNumeros(e);
              {
                  string name = _reader.GetString("nombrePrenda");
                  datos.Add(name);
+                
             }
 
             cmbPrenda.AutoCompleteCustomSource =  datos;
+
+            List<Lavanderia.Models.Color> _lista = new List<Lavanderia.Models.Color>();
+            _lista = ColorDao.Listar();
+
+            foreach(Lavanderia.Models.Color item in _lista){
+
+                
+                chkColores.Items.Add(item.nombreColor);
+                
+            }
 
         }
 
         private void frmOrden_Load(object sender, EventArgs e)
         {
             fillPrendas();
+
+            
             
         }
 
