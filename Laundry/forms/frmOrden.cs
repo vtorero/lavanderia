@@ -111,10 +111,10 @@ namespace Lavanderia.forms
             cmbPrenda.Enabled = false;
             cmbServicios.Enabled = false;
             cmbPrenda.Text = "";
+            cmbServicios.Text = "";
             rdPrenda.Checked = false;
             txtPrecio.Text = "";
-         
-            nroCantidad.Value = nroCantidad.Minimum;
+          nroCantidad.Value = nroCantidad.Minimum;
            
             foreach (int w in chkDefecto.CheckedIndices)
             {
@@ -445,29 +445,10 @@ namespace Lavanderia.forms
             }
         }
 
-        private void rdPrenda_CheckedChanged(object sender, EventArgs e)
-        {
-
-            cmbPrenda.Enabled = true;
-            nroCantidad.Enabled = true;
-            cmbPrenda.Visible = true;
-            cmbServicios.Visible = false;
-            labelCantidad.Text = "Cantidad";
-            nroCantidad.Minimum = 1;
-            nroCantidad.Value = 1;
-
-
-
-        }
-
+    
         private void rdServicio_CheckedChanged(object sender, EventArgs e)
         {
-            cmbPrenda.Visible = false;
-            cmbServicios.Visible = true;
-            nroCantidad.Value = 2;
-            nroCantidad.Minimum = 2;
-            nroCantidad.Enabled = true;
-            labelCantidad.Text = "Peso";
+            
         }
 
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
@@ -627,7 +608,7 @@ namespace Lavanderia.forms
 
         private void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
             Object selectedItem = cmbServicios.SelectedItem;
 
             MySqlDataReader _reader = ServicioDao.fillServicioSearch(selectedItem.ToString());
@@ -651,6 +632,30 @@ namespace Lavanderia.forms
                 labelOferta.Visible = false;
             }
         }
+
+        private void rdPrenda_Click(object sender, EventArgs e)
+        {
+            cmbPrenda.Enabled = true;
+            nroCantidad.Enabled = true;
+            cmbPrenda.Visible = true;
+            cmbServicios.Visible = false;
+            labelCantidad.Text = "Cantidad";
+            nroCantidad.Minimum = 1;
+            nroCantidad.Value = 1;
+        }
+
+        private void rdServicio_Click(object sender, EventArgs e)
+        {
+            cmbPrenda.Visible = false;
+            cmbServicios.Visible = true;
+            cmbServicios.Enabled = true;
+            nroCantidad.Value = 2;
+            nroCantidad.Minimum = 2;
+            nroCantidad.Enabled = true;
+            labelCantidad.Text = "Peso";
+        }
+
+       
     }
 }
       
