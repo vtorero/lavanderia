@@ -53,9 +53,10 @@ namespace Lavanderia.forms.busquedas
             dgvClientes.Columns[1].HeaderText = "Nombres";
             dgvClientes.Columns[1].Width = 200;
             dgvClientes.Columns[2].Width = 70;
-            dgvClientes.Columns[5].Width = 70;
+           
             dgvClientes.Columns[3].Visible = false;
             dgvClientes.Columns[4].Visible = false;
+          dgvClientes.Columns[6].Visible = false;
         }
 
         private void frmBuscarCliente_Load(object sender, EventArgs e)
@@ -69,9 +70,9 @@ namespace Lavanderia.forms.busquedas
             dgvClientes.Columns[1].HeaderText = "Nombres";
             dgvClientes.Columns[1].Width = 200;
             dgvClientes.Columns[2].Width = 70;
-            dgvClientes.Columns[5].Width = 70;
             dgvClientes.Columns[3].Visible = false;
             dgvClientes.Columns[4].Visible = false;
+            dgvClientes.Columns[6].Visible = false;
         }
 
   

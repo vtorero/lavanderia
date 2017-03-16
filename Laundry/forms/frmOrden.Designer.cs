@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -63,13 +63,12 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.chkColores = new System.Windows.Forms.CheckedListBox();
             this.chkDefecto = new System.Windows.Forms.CheckedListBox();
             this.cmbPrenda = new System.Windows.Forms.ComboBox();
             this.TXTIGV = new System.Windows.Forms.TextBox();
             this.lbligv = new System.Windows.Forms.Label();
-            this.btnColor = new System.Windows.Forms.Button();
-            this.txtcolores = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.grpTotal = new System.Windows.Forms.GroupBox();
@@ -77,7 +76,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.nroCantidad = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelCantidad = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -96,11 +95,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.rdServicio = new System.Windows.Forms.RadioButton();
             this.rdPrenda = new System.Windows.Forms.RadioButton();
-            this.btnAddPrenda = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbServicios = new System.Windows.Forms.ComboBox();
+            this.labelOferta = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,6 +116,7 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -123,6 +124,7 @@
             this.groupBox1.Size = new System.Drawing.Size(484, 495);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cliente y Pagos";
             // 
             // groupBox3
             // 
@@ -134,19 +136,19 @@
             this.groupBox3.Controls.Add(this.lblCliente);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(7, 22);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(460, 157);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos Cliente";
             // 
             // lblCodigoCliente
             // 
             this.lblCodigoCliente.AutoSize = true;
             this.lblCodigoCliente.Location = new System.Drawing.Point(212, 57);
             this.lblCodigoCliente.Name = "lblCodigoCliente";
-            this.lblCodigoCliente.Size = new System.Drawing.Size(0, 16);
+            this.lblCodigoCliente.Size = new System.Drawing.Size(0, 18);
             this.lblCodigoCliente.TabIndex = 5;
             this.lblCodigoCliente.Visible = false;
             // 
@@ -156,7 +158,7 @@
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(96, 88);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(134, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(134, 24);
             this.txtTelefono.TabIndex = 3;
             // 
             // txtNombreCliente
@@ -167,7 +169,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(96, 22);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(342, 22);
+            this.txtNombreCliente.Size = new System.Drawing.Size(323, 22);
             this.txtNombreCliente.TabIndex = 3;
             this.txtNombreCliente.TextChanged += new System.EventHandler(this.txtNombreCliente_TextChanged);
             // 
@@ -175,7 +177,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSrcCliente.Image")));
-            this.btnSrcCliente.Location = new System.Drawing.Point(393, 81);
+            this.btnSrcCliente.Location = new System.Drawing.Point(374, 84);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(45, 28);
@@ -189,7 +191,7 @@
             this.txtDni.Enabled = false;
             this.txtDni.Location = new System.Drawing.Point(96, 54);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(110, 22);
+            this.txtDni.Size = new System.Drawing.Size(110, 24);
             this.txtDni.TabIndex = 2;
             // 
             // lblCliente
@@ -441,18 +443,19 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.labelOferta);
+            this.groupBox4.Controls.Add(this.cmbServicios);
+            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.chkColores);
             this.groupBox4.Controls.Add(this.chkDefecto);
             this.groupBox4.Controls.Add(this.cmbPrenda);
             this.groupBox4.Controls.Add(this.TXTIGV);
             this.groupBox4.Controls.Add(this.lbligv);
-            this.groupBox4.Controls.Add(this.btnColor);
-            this.groupBox4.Controls.Add(this.txtcolores);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.grpTotal);
             this.groupBox4.Controls.Add(this.nroCantidad);
-            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.labelCantidad);
             this.groupBox4.Controls.Add(this.LblId);
             this.groupBox4.Controls.Add(this.btnQuitar);
             this.groupBox4.Controls.Add(this.groupBox5);
@@ -462,7 +465,6 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.rdServicio);
             this.groupBox4.Controls.Add(this.rdPrenda);
-            this.groupBox4.Controls.Add(this.btnAddPrenda);
             this.groupBox4.Controls.Add(this.btnAdd);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Controls.Add(this.label3);
@@ -471,9 +473,20 @@
             this.groupBox4.Size = new System.Drawing.Size(725, 495);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Detalle del servicio";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(320, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(43, 16);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Color:";
             // 
             // chkColores
             // 
+            this.chkColores.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.chkColores.CheckOnClick = true;
             this.chkColores.Enabled = false;
             this.chkColores.FormattingEnabled = true;
@@ -509,7 +522,7 @@
             this.cmbPrenda.FormattingEnabled = true;
             this.cmbPrenda.Location = new System.Drawing.Point(115, 51);
             this.cmbPrenda.Name = "cmbPrenda";
-            this.cmbPrenda.Size = new System.Drawing.Size(279, 24);
+            this.cmbPrenda.Size = new System.Drawing.Size(217, 24);
             this.cmbPrenda.TabIndex = 4;
             this.cmbPrenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbPrenda_KeyDown);
             this.cmbPrenda.Leave += new System.EventHandler(this.cmbPrenda_Leave);
@@ -535,28 +548,6 @@
             this.lbligv.Text = "I.G.V:";
             this.lbligv.Visible = false;
             // 
-            // btnColor
-            // 
-            this.btnColor.Enabled = false;
-            this.btnColor.Location = new System.Drawing.Point(578, 21);
-            this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(22, 23);
-            this.btnColor.TabIndex = 24;
-            this.btnColor.Text = "...";
-            this.btnColor.UseVisualStyleBackColor = true;
-            this.btnColor.Visible = false;
-            this.btnColor.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // txtcolores
-            // 
-            this.txtcolores.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtcolores.Enabled = false;
-            this.txtcolores.Location = new System.Drawing.Point(457, 23);
-            this.txtcolores.Name = "txtcolores";
-            this.txtcolores.Size = new System.Drawing.Size(114, 22);
-            this.txtcolores.TabIndex = 7;
-            this.txtcolores.Visible = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -569,7 +560,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(197, 89);
+            this.label10.Location = new System.Drawing.Point(202, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 16);
             this.label10.TabIndex = 21;
@@ -617,27 +608,35 @@
             // nroCantidad
             // 
             this.nroCantidad.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nroCantidad.DecimalPlaces = 2;
             this.nroCantidad.Enabled = false;
+            this.nroCantidad.InterceptArrowKeys = false;
             this.nroCantidad.Location = new System.Drawing.Point(115, 122);
+            this.nroCantidad.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nroCantidad.Name = "nroCantidad";
             this.nroCantidad.Size = new System.Drawing.Size(59, 22);
             this.nroCantidad.TabIndex = 5;
             this.nroCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nroCantidad.ValueChanged += new System.EventHandler(this.nroCantidad_ValueChanged);
             // 
-            // label7
+            // labelCantidad
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 16);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Cantidad:";
+            this.labelCantidad.AutoSize = true;
+            this.labelCantidad.Location = new System.Drawing.Point(28, 122);
+            this.labelCantidad.Name = "labelCantidad";
+            this.labelCantidad.Size = new System.Drawing.Size(65, 16);
+            this.labelCantidad.TabIndex = 16;
+            this.labelCantidad.Text = "Cantidad:";
             // 
             // LblId
             // 
             this.LblId.AutoSize = true;
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
-            this.LblId.Location = new System.Drawing.Point(400, 54);
+            this.LblId.Location = new System.Drawing.Point(349, 54);
             this.LblId.Name = "LblId";
             this.LblId.Size = new System.Drawing.Size(31, 16);
             this.LblId.TabIndex = 15;
@@ -665,18 +664,17 @@
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalle";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -692,8 +690,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -725,18 +723,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -791,11 +789,11 @@
             // 
             this.rdServicio.AutoSize = true;
             this.rdServicio.Enabled = false;
-            this.rdServicio.Location = new System.Drawing.Point(200, 21);
+            this.rdServicio.Location = new System.Drawing.Point(214, 22);
             this.rdServicio.Name = "rdServicio";
             this.rdServicio.Size = new System.Drawing.Size(132, 20);
             this.rdServicio.TabIndex = 3;
-            this.rdServicio.Text = "Al Peso y promos";
+            this.rdServicio.Text = "Al Agua y promos";
             this.rdServicio.UseVisualStyleBackColor = true;
             this.rdServicio.CheckedChanged += new System.EventHandler(this.rdServicio_CheckedChanged);
             // 
@@ -803,27 +801,13 @@
             // 
             this.rdPrenda.AutoSize = true;
             this.rdPrenda.Enabled = false;
-            this.rdPrenda.Location = new System.Drawing.Point(117, 21);
+            this.rdPrenda.Location = new System.Drawing.Point(117, 22);
             this.rdPrenda.Name = "rdPrenda";
             this.rdPrenda.Size = new System.Drawing.Size(73, 20);
             this.rdPrenda.TabIndex = 2;
             this.rdPrenda.Text = "Al Seco";
             this.rdPrenda.UseVisualStyleBackColor = true;
             this.rdPrenda.CheckedChanged += new System.EventHandler(this.rdPrenda_CheckedChanged);
-            // 
-            // btnAddPrenda
-            // 
-            this.btnAddPrenda.Enabled = false;
-            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(396, 22);
-            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
-            this.btnAddPrenda.TabIndex = 6;
-            this.btnAddPrenda.UseVisualStyleBackColor = true;
-            this.btnAddPrenda.Visible = false;
-            this.btnAddPrenda.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
             // 
@@ -863,6 +847,29 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
+            // 
+            // cmbServicios
+            // 
+            this.cmbServicios.FormattingEnabled = true;
+            this.cmbServicios.Location = new System.Drawing.Point(115, 51);
+            this.cmbServicios.Name = "cmbServicios";
+            this.cmbServicios.Size = new System.Drawing.Size(194, 24);
+            this.cmbServicios.TabIndex = 31;
+            this.cmbServicios.Visible = false;
+            this.cmbServicios.SelectedIndexChanged += new System.EventHandler(this.cmbServicios_SelectedIndexChanged);
+            // 
+            // labelOferta
+            // 
+            this.labelOferta.AutoSize = true;
+            this.labelOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOferta.ForeColor = System.Drawing.Color.Blue;
+            this.labelOferta.Location = new System.Drawing.Point(40, 150);
+            this.labelOferta.Name = "labelOferta";
+            this.labelOferta.Size = new System.Drawing.Size(116, 16);
+            this.labelOferta.TabIndex = 32;
+            this.labelOferta.Text = "Descuento 1 Kg";
+            this.labelOferta.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelOferta.Visible = false;
             // 
             // frmOrden
             // 
@@ -917,7 +924,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.RadioButton rdServicio;
         private System.Windows.Forms.RadioButton rdPrenda;
-        private System.Windows.Forms.Button btnAddPrenda;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -927,12 +933,10 @@
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Label LblId;
         private System.Windows.Forms.NumericUpDown nroCantidad;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelCantidad;
         private System.Windows.Forms.GroupBox grpTotal;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnColor;
-        private System.Windows.Forms.TextBox txtcolores;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtFechaEntrega;
@@ -967,5 +971,8 @@
         private System.Windows.Forms.ComboBox cmbPrenda;
         private System.Windows.Forms.CheckedListBox chkDefecto;
         private System.Windows.Forms.CheckedListBox chkColores;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmbServicios;
+        private System.Windows.Forms.Label labelOferta;
     }
 }

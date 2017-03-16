@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -43,7 +44,7 @@ namespace Lavanderia.Persistencia
             List<Servicio> _lista = new List<Servicio>();
 
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM Servicio"), BdComun.ObtenerConexion());
+           "SELECT * FROM Servicio ORDER BY nombreServicio"), BdComun.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
 
             while (_reader.Read())
@@ -56,6 +57,22 @@ namespace Lavanderia.Persistencia
             }
 
             return _lista;
+        }
+
+        public static MySqlDataReader fillServicio()
+        {
+            MySqlCommand _comando = new MySqlCommand("serviciosAll", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            return _reader;
+        }
+
+        public static MySqlDataReader fillServicioSearch(string criterio)
+        {
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+             "SELECT idServicio, nombreServicio, precioServicio FROM Servicio where nombreServicio = '{0}'", criterio), BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            return _reader;
         }
 
         public static List<Servicio> Buscar(string nombre)

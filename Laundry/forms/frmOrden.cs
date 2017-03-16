@@ -21,100 +21,118 @@ namespace Lavanderia.forms
     {
         int i = 1;
         int idOrdenPrint = 0;
-        
+
         Validacion v = new Validacion();
         decimal totalOrden = 0;
-         public frmOrden()
+        public frmOrden()
         {
             InitializeComponent();
         }
 
-     
+
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
             frmBuscarCliente childForm = new frmBuscarCliente();
-           childForm.enviado+=new frmBuscarCliente.enviar(ejecutar);
-              childForm.ShowDialog();
-             
+            childForm.enviado += new frmBuscarCliente.enviar(ejecutar);
+            childForm.ShowDialog();
+
         }
 
-        public void ejecutar(string id,string nombre,string dni,string telefono)
+        public void ejecutar(string id, string nombre, string dni, string telefono)
         {
             txtNombreCliente.Text = nombre;
             txtDni.Text = dni;
             lblCodigoCliente.Text = id;
-            txtTelefono.Text=telefono;
-            
+            txtTelefono.Text = telefono;
+
         }
 
         public void ejecutar2(string id, string nombre, decimal precio)
         {
             LblId.Text = id;
             //txtNombrePrenda.Text = nombre;
-            txtPrecio.Text = Convert.ToString(Decimal.Round(precio,2));
+            txtPrecio.Text = Convert.ToString(Decimal.Round(precio, 2));
         }
 
         public void ejecutar3(string colores)
         {
-            
-            txtcolores.Text = colores;
-            
+
+
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(nroCantidad.Value>0){
-               
-            string id, detalle,defecto,colores;
-            id = LblId.Text;
-            detalle = cmbPrenda.Text;
-            decimal cantidad, precio, total;
-            cantidad = nroCantidad.Value;
-            precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
-            //defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
-            defecto = "";
-            colores = "";
+            if (nroCantidad.Value > 0)
+            {
 
-            foreach (Object def in chkDefecto.CheckedItems) {
-                defecto += def.ToString()+",";
+                string id, detalle, defecto, colores;
+                id = LblId.Text;
+                detalle = (rdPrenda.Checked) ? cmbPrenda.Text : cmbServicios.Text;
+                decimal cantidad, precio, total;
+                cantidad = nroCantidad.Value;
+                precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text), 2);
+                //defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
+                defecto = "";
+                colores = "";
+
+                foreach (Object def in chkDefecto.CheckedItems)
+                {
+                    defecto += def.ToString() + ",";
+                }
+                foreach (Object col in chkColores.CheckedItems)
+                {
+                    colores += col.ToString() + ",";
+                }
+
+                total = Decimal.Round((cantidad * precio), 2);
+
+
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores);
+                i = i + 1;
+                totalOrden += Decimal.Round(total, 2);
+                txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden, 2));
+                //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
+                restablecer();
             }
-            foreach (Object col in chkColores.CheckedItems) {
-                colores += col.ToString() + ",";
-            }
-                
-            total = Decimal.Round((cantidad * precio),2);
+            else
+            {
+                MessageBox.Show("Debe indicar el nro de prendas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-
-            dgvOrden.Rows.Add(i,id,detalle,cantidad,precio,total,defecto,colores);
-            i = i + 1;
-            totalOrden += Decimal.Round(total,2);
-            txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden,2));
-            //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
-            restablecer(); 
-            }else{
-            MessageBox.Show("Debe indicar el nro de prendas","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            
             }
 
         }
 
-        public void restablecer() {
-            
+        public void restablecer()
+        {
+
             cmbPrenda.Enabled = false;
+            cmbServicios.Enabled = false;
             cmbPrenda.Text = "";
             rdPrenda.Checked = false;
             txtPrecio.Text = "";
-            nroCantidad.Value = 0;
-            chkDefecto.ClearSelected();
-            txtcolores.Text = "";
+         
+            nroCantidad.Value = nroCantidad.Minimum;
+           
+            foreach (int w in chkDefecto.CheckedIndices)
+            {
+                chkDefecto.SetItemCheckState(w, CheckState.Unchecked);
+            }
+            foreach (int e in chkColores.CheckedIndices)
+            {
+                chkColores.SetItemCheckState(e, CheckState.Unchecked);
+            }
+
+
             btnAdd.Enabled = false;
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
-            btnColor.Enabled = false;
+            chkColores.Enabled = false;
+
             i = 1;
-                
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,16 +148,13 @@ namespace Lavanderia.forms
                 frmBuscarServicio childForm = new frmBuscarServicio();
                 childForm.enviado += new frmBuscarServicio.enviar(ejecutar2);
                 childForm.ShowDialog();
-                
+
             }
 
-            
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
 
         }
+
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -155,10 +170,12 @@ namespace Lavanderia.forms
             int tipo_pago = 0;
             int tipo_pago1 = 0;
             int tipo_doc = 0;
-            if (rdTotal.Checked) {
+            if (rdTotal.Checked)
+            {
                 tipo_pago = 1;
             }
-            if (rdParcial.Checked) {
+            if (rdParcial.Checked)
+            {
                 tipo_pago = 2;
             }
 
@@ -166,23 +183,24 @@ namespace Lavanderia.forms
             {
                 tipo_pago1 = 1;
             }
-           
+
 
             int status = 0;
-            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0,10);
+            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0, 10);
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
-            ord.fechaEntrega =s+ " "+h ;
+            ord.fechaEntrega = s + " " + h;
             ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text)); ;
-            ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text); 
+            ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text);
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
-            status=OrdenDao.Agregar(ord);
+            status = OrdenDao.Agregar(ord);
 
             if (status > 0)
             {
-                if (tipo_pago == 1) {
+                if (tipo_pago == 1)
+                {
 
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
@@ -199,7 +217,7 @@ namespace Lavanderia.forms
                     pago.fechaPago = fecha_actual;
                     pago.fechaActualizado = fecha_actual;
                     PagoDao.Agregar(pago);
-            
+
                 }
 
                 if (tipo_pago == 2)
@@ -233,33 +251,33 @@ namespace Lavanderia.forms
                         ordline.idPrenda = Convert.ToInt32(data.Cells["clPrenda"].Value);
                         ordline.Descripcion = data.Cells["clDescripcion"].Value.ToString();
                         ordline.Cantidad = Convert.ToInt32(data.Cells["clCantidad"].Value);
-                        ordline.Precio = Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2);
+                        ordline.Precio = Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2);
                         ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
                         ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
                         ordline.Estado = 0;
 
                         OrdenDao.AgregarLinea(ordline);
-                         
+
 
                     }
 
 
 
                 }
-                catch (Exception )
+                catch (Exception)
                 {
-                   
+
 
                 }
 
                 MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 idOrdenPrint = status;
-                  desHabilitaServicio();
+                desHabilitaServicio();
                 btnImprimir.Enabled = true;
-               
+
             }
-           
+
 
         }
 
@@ -276,8 +294,8 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
             txtIg.Visible = false;
-     
-        
+
+
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
@@ -295,22 +313,23 @@ namespace Lavanderia.forms
 
         private void txtPago_TextChanged(object sender, EventArgs e)
         {
-              if (!string.IsNullOrWhiteSpace(txtPago.Text)) {
-     
-            txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
-                 
-              }
+            if (!string.IsNullOrWhiteSpace(txtPago.Text))
+            {
+
+                txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+
+            }
         }
 
-      
+
 
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
-v.soloNumeros(e);
+
+            v.soloNumeros(e);
         }
 
-      
+
 
         private void txtNombreCliente_TextChanged(object sender, EventArgs e)
         {
@@ -318,25 +337,26 @@ v.soloNumeros(e);
             rdServicio.Enabled = true;
         }
 
-        public void habilitaServicio() {
-          
-            btnAddPrenda.Enabled = true;
+        public void habilitaServicio()
+        {
+
+
             nroCantidad.Enabled = true;
             chkDefecto.Enabled = true;
-            btnColor.Enabled = true;
+            chkColores.Enabled = true;
+
             dgvOrden.Enabled = true;
-            
-        
+
+
         }
 
         public void desHabilitaServicio()
         {
             rdPrenda.Enabled = false;
             rdServicio.Enabled = false;
-            btnAddPrenda.Enabled = false;
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
-            btnColor.Enabled = false;
+            chkColores.Enabled = false;
             txtPendiente.Enabled = false;
             txtPago.Text = "";
             txtPago.Enabled = false;
@@ -365,7 +385,7 @@ v.soloNumeros(e);
             btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
             totalOrden = 0;
-            
+
 
         }
 
@@ -373,8 +393,8 @@ v.soloNumeros(e);
         private void txtNombrePrenda_TextChanged(object sender, EventArgs e)
         {
             habilitaServicio();
-            btnAdd.Enabled = true;
-            
+            //btnAdd.Enabled = true;
+
         }
 
         private void dgvOrden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -384,7 +404,7 @@ v.soloNumeros(e);
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            decimal totalDescontar=0;
+            decimal totalDescontar = 0;
             Int32 selectedRowCount = dgvOrden.Rows.GetRowCount(DataGridViewElementStates.Selected);
 
             if (selectedRowCount > 0)
@@ -393,12 +413,12 @@ v.soloNumeros(e);
                 for (int i = 0; i < selectedRowCount; i++)
                 {
                     totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString());
-                    dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index); 
+                    dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index);
                 }
 
             }
-            totalOrden=(totalOrden - totalDescontar);         
-            txtTotal.Text =  Convert.ToString(totalOrden);
+            totalOrden = (totalOrden - totalDescontar);
+            txtTotal.Text = Convert.ToString(totalOrden);
             btnQuitar.Enabled = false;
         }
 
@@ -406,8 +426,8 @@ v.soloNumeros(e);
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
-            
-          
+
+
         }
 
         private void txtPago_Leave(object sender, EventArgs e)
@@ -415,27 +435,39 @@ v.soloNumeros(e);
             if ((totalOrden - Convert.ToDecimal(txtPago.Text)) > 0)
             {
                 txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
-               
+
             }
             else
             {
                 MessageBox.Show("El monto sobrepasa el total de la orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPendiente.Text = "0.0"; 
+                txtPendiente.Text = "0.0";
                 txtPago.Focus();
             }
         }
 
         private void rdPrenda_CheckedChanged(object sender, EventArgs e)
         {
-            //btnAddPrenda.Enabled = true;
+
             cmbPrenda.Enabled = true;
             nroCantidad.Enabled = true;
+            cmbPrenda.Visible = true;
+            cmbServicios.Visible = false;
+            labelCantidad.Text = "Cantidad";
+            nroCantidad.Minimum = 1;
+            nroCantidad.Value = 1;
+
+
 
         }
 
         private void rdServicio_CheckedChanged(object sender, EventArgs e)
         {
-            btnAddPrenda.Enabled = true;
+            cmbPrenda.Visible = false;
+            cmbServicios.Visible = true;
+            nroCantidad.Value = 2;
+            nroCantidad.Minimum = 2;
+            nroCantidad.Enabled = true;
+            labelCantidad.Text = "Peso";
         }
 
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
@@ -480,7 +512,7 @@ v.soloNumeros(e);
          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
-            myadap.Fill(ds,"Ticket");
+            myadap.Fill(ds, "Ticket");
 
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");
 
@@ -492,28 +524,39 @@ v.soloNumeros(e);
             rt.Show();﻿
         }
 
-        private void fillPrendas() {
-            
-             MySqlDataReader _reader =  PrendaDao.fillPrenda();
-             cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
-             cmbPrenda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-             AutoCompleteStringCollection datos = new AutoCompleteStringCollection();
-             while (_reader.Read())
-             {
-                 string name = _reader.GetString("nombrePrenda");
-                 datos.Add(name);
-                
-            }
+        private void fillPrendas()
+        {
 
-            cmbPrenda.AutoCompleteCustomSource =  datos;
+            MySqlDataReader _reader = PrendaDao.fillPrenda();
+            cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbPrenda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            AutoCompleteStringCollection datos = new AutoCompleteStringCollection();
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("nombrePrenda");
+                datos.Add(name);
+
+            }
+            cmbPrenda.AutoCompleteCustomSource = datos;
+
 
             List<Lavanderia.Models.Color> _lista = new List<Lavanderia.Models.Color>();
             _lista = ColorDao.Listar();
 
-            foreach(Lavanderia.Models.Color item in _lista){
-     
+            foreach (Lavanderia.Models.Color item in _lista)
+            {
+
                 chkColores.Items.Add(item.nombreColor);
-                
+
+            }
+            MySqlDataReader _readerS = ServicioDao.fillServicio();
+            while (_readerS.Read())
+            {
+                string name = _readerS.GetString("nombreServicio");
+                string id = _readerS.GetString("idServicio");
+                cmbServicios.Items.Add(name);
+                cmbServicios.DisplayMember = name;
+                cmbServicios.ValueMember = id;
             }
 
         }
@@ -522,15 +565,15 @@ v.soloNumeros(e);
         {
             fillPrendas();
 
-            
-            
+
+
         }
 
-        
 
-      
-       
-       
+
+
+
+
         private void cmbPrenda_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -546,7 +589,7 @@ v.soloNumeros(e);
             }
         }
 
-      
+
 
         private void cmbPrenda_Leave(object sender, EventArgs e)
         {
@@ -582,17 +625,34 @@ v.soloNumeros(e);
             }
         }
 
-      
+        private void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-       
+            Object selectedItem = cmbServicios.SelectedItem;
 
-        
+            MySqlDataReader _reader = ServicioDao.fillServicioSearch(selectedItem.ToString());
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("idServicio");
+                txtPrecio.Text = Convert.ToString(Decimal.Round(_reader.GetDecimal("precioServicio"), 2));
+                LblId.Text = name;
+            }
+            habilitaServicio();
+            btnAdd.Enabled = true;
+        }
 
-       
-
-    
-
-    
-      
+        private void nroCantidad_ValueChanged(object sender, EventArgs e)
+        {
+            if (rdServicio.Checked && nroCantidad.Value > 5)
+            {
+                labelOferta.Visible = true;
+            }
+            else {
+                labelOferta.Visible = false;
+            }
+        }
     }
 }
+      
+   
+
