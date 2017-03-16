@@ -39,6 +39,15 @@ namespace Lavanderia.Persistencia
             return retorno;
         }
 
+        public static MySqlDataReader fillColor()
+        {
+
+            MySqlCommand _comando = new MySqlCommand("coloresAll", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            return _reader;
+        }
+
         public static List<Color> Listar()
         {
             List<Color> _lista = new List<Color>();

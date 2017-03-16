@@ -520,16 +520,13 @@ namespace Lavanderia.forms
             }
             cmbPrenda.AutoCompleteCustomSource = datos;
 
-
-            List<Lavanderia.Models.Color> _lista = new List<Lavanderia.Models.Color>();
-            _lista = ColorDao.Listar();
-
-            foreach (Lavanderia.Models.Color item in _lista)
+            MySqlDataReader _readerC = ColorDao.fillColor();
+            while (_readerC.Read())
             {
-
-                chkColores.Items.Add(item.nombreColor);
+                chkColores.Items.Add(_readerC.GetString("nombreColor"));
 
             }
+
             MySqlDataReader _readerS = ServicioDao.fillServicio();
             while (_readerS.Read())
             {
