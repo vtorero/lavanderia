@@ -93,7 +93,7 @@ IN nombre VARCHAR(100)
 BEGIN
 DECLARE cantidad INT;
 SELECT COUNT(*) INTO cantidad FROM Marca WHERE nombreMarca=nombre;
-IF (cantidad<1) THEN
+IF (cantidad<1 AND nombre<>NULL) THEN
 INSERT INTO Marca (nombreMarca) VALUES(nombre);
 END IF;
 END $$

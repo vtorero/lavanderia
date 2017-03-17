@@ -385,7 +385,7 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = false;
             btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
-            totalOrden = 0;
+            totalOrden =0;
 
 
         }
