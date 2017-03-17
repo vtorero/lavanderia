@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -40,10 +41,34 @@ namespace Lavanderia.Persistencia
         }
 
         public static MySqlDataReader fillPrenda() {
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-             "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio FROM Prenda order by idPrenda"), BdComun.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
+
+            MySqlCommand _comando = new MySqlCommand("prendasAll",BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
             return _reader;
+
+        }
+
+        public static MySqlDataReader fillMarca()
+        {
+
+            MySqlCommand _comando = new MySqlCommand("marcasAll", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            return _reader;
+
+        }
+
+
+        public static int agregarMarca(string nombre)
+        {
+
+            MySqlCommand cmd = new MySqlCommand("insertaMarca", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("nombre", nombre));
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+            return 1;
         }
 
         public static MySqlDataReader fillPrendaSearch(string criterio)

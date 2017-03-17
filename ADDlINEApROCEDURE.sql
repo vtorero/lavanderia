@@ -5,6 +5,10 @@ DROP PROCEDURE IF EXISTS buscarOrdenes;
 DROP PROCEDURE IF EXISTS entregaOrden;	
 DROP PROCEDURE IF EXISTS coloresAll;
 DROP PROCEDURE IF EXISTS serviciosAll;
+DROP PROCEDURE IF EXISTS prendasSearch;
+DROP PROCEDURE IF EXISTS prendasAll;
+DROP PROCEDURE IF EXISTS marcasAll;
+DROP PROCEDURE IF EXISTS insertaMarca;
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,
@@ -42,6 +46,17 @@ BEGIN
 SELECT * FROM Servicio ORDER BY nombreServicio ASC;
 END $$
 DELIMITER $$
+CREATE PROCEDURE prendasAll()
+BEGIN
+SELECT * FROM Prenda ORDER BY nombrePrenda ASC;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE marcasAll()
+BEGIN
+SELECT * FROM Marca ORDER BY nombreMarca ASC;
+END $$
+DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
 IN nombreCliente VARCHAR(200),
 IN dniCliente VARCHAR(8),
@@ -51,6 +66,13 @@ fechaFin VARCHAR(20)
 BEGIN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
 WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.Estado=0) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
+END $$
+DELIMITER $$
+CREATE PROCEDURE prendasSearch(
+IN criterio VARCHAR(200)
+)
+BEGIN
+SELECT * FROM Prenda WHERE nombrePrenda=criterio;
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(
@@ -63,6 +85,19 @@ UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NO
 UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE insertaMarca(
+IN nombre VARCHAR(100)
+)
+BEGIN
+DECLARE cantidad INT;
+SELECT COUNT(*) INTO cantidad FROM Marca WHERE nombreMarca=nombre;
+IF (cantidad<1) THEN
+INSERT INTO Marca (nombreMarca) VALUES(nombre);
+END IF;
+END $$
+
 
 /*---reportes---
 

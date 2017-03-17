@@ -74,7 +74,7 @@ namespace Lavanderia.forms
                 decimal cantidad, precio, total;
                 cantidad = nroCantidad.Value;
                 precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text), 2);
-                //defecto = (cmbDefecto.Text.Equals("Seleccionar")) ? "Sin Defectos" : cmbDefecto.Text;
+                
                 defecto = "";
                 colores = "";
 
@@ -92,7 +92,8 @@ namespace Lavanderia.forms
 
                 dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores);
                 i = i + 1;
-                totalOrden += Decimal.Round(total, 2);
+                totalOrden += Decimal.Round(total,2);
+                PrendaDao.agregarMarca(cmbMarca.Text);
                 txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden, 2));
                 //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
                 restablecer();
@@ -446,10 +447,7 @@ namespace Lavanderia.forms
         }
 
     
-        private void rdServicio_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
         {
@@ -505,6 +503,36 @@ namespace Lavanderia.forms
             rt.Show();﻿
         }
 
+
+        private void fillMarcas() {
+
+            MySqlDataReader _reader = PrendaDao.fillMarca();
+            cmbMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            AutoCompleteStringCollection datosM = new AutoCompleteStringCollection();
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("nombreMarca");
+                datosM.Add(name);
+
+            }
+            cmbMarca.AutoCompleteCustomSource = datosM;
+        
+        }
+
+        private void fillServicio() {
+            MySqlDataReader _readerS = ServicioDao.fillServicio();
+            while (_readerS.Read())
+            {
+                string name = _readerS.GetString("nombreServicio");
+                string id = _readerS.GetString("idServicio");
+                cmbServicios.Items.Add(name);
+                cmbServicios.DisplayMember = name;
+                cmbServicios.ValueMember = id;
+            }
+        
+        }
+
         private void fillPrendas()
         {
 
@@ -527,22 +555,14 @@ namespace Lavanderia.forms
 
             }
 
-            MySqlDataReader _readerS = ServicioDao.fillServicio();
-            while (_readerS.Read())
-            {
-                string name = _readerS.GetString("nombreServicio");
-                string id = _readerS.GetString("idServicio");
-                cmbServicios.Items.Add(name);
-                cmbServicios.DisplayMember = name;
-                cmbServicios.ValueMember = id;
-            }
+      
 
         }
 
         private void frmOrden_Load(object sender, EventArgs e)
         {
-            fillPrendas();
-
+            //fillPrendas();
+          
 
 
         }
@@ -639,6 +659,8 @@ namespace Lavanderia.forms
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;
+            fillMarcas();
+            fillPrendas();
         }
 
         private void rdServicio_Click(object sender, EventArgs e)
@@ -650,7 +672,10 @@ namespace Lavanderia.forms
             nroCantidad.Minimum = 2;
             nroCantidad.Enabled = true;
             labelCantidad.Text = "Peso";
+            fillServicio();
         }
+
+     
 
        
     }

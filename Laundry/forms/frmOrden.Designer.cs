@@ -63,6 +63,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.labelOferta = new System.Windows.Forms.Label();
             this.cmbServicios = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -100,6 +101,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -442,6 +444,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cmbMarca);
             this.groupBox4.Controls.Add(this.labelOferta);
             this.groupBox4.Controls.Add(this.cmbServicios);
             this.groupBox4.Controls.Add(this.label15);
@@ -454,7 +458,6 @@
             this.groupBox4.Controls.Add(this.grpTotal);
             this.groupBox4.Controls.Add(this.nroCantidad);
             this.groupBox4.Controls.Add(this.labelCantidad);
-            this.groupBox4.Controls.Add(this.LblId);
             this.groupBox4.Controls.Add(this.btnQuitar);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.label6);
@@ -466,6 +469,7 @@
             this.groupBox4.Controls.Add(this.btnAdd);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.LblId);
             this.groupBox4.Location = new System.Drawing.Point(514, 15);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(725, 495);
@@ -473,12 +477,20 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle del servicio";
             // 
+            // cmbMarca
+            // 
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(318, 106);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(121, 24);
+            this.cmbMarca.TabIndex = 33;
+            // 
             // labelOferta
             // 
             this.labelOferta.AutoSize = true;
             this.labelOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOferta.ForeColor = System.Drawing.Color.Blue;
-            this.labelOferta.Location = new System.Drawing.Point(40, 150);
+            this.labelOferta.Location = new System.Drawing.Point(498, 81);
             this.labelOferta.Name = "labelOferta";
             this.labelOferta.Size = new System.Drawing.Size(116, 16);
             this.labelOferta.TabIndex = 32;
@@ -499,7 +511,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(320, 86);
+            this.label15.Location = new System.Drawing.Point(171, 86);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(43, 16);
             this.label15.TabIndex = 30;
@@ -511,7 +523,7 @@
             this.chkColores.CheckOnClick = true;
             this.chkColores.Enabled = false;
             this.chkColores.FormattingEnabled = true;
-            this.chkColores.Location = new System.Drawing.Point(321, 103);
+            this.chkColores.Location = new System.Drawing.Point(174, 103);
             this.chkColores.Name = "chkColores";
             this.chkColores.Size = new System.Drawing.Size(120, 89);
             this.chkColores.TabIndex = 29;
@@ -529,7 +541,7 @@
             "Descolorido",
             "Rasgado",
             "Gastado"});
-            this.chkDefecto.Location = new System.Drawing.Point(200, 103);
+            this.chkDefecto.Location = new System.Drawing.Point(36, 103);
             this.chkDefecto.Name = "chkDefecto";
             this.chkDefecto.Size = new System.Drawing.Size(109, 89);
             this.chkDefecto.TabIndex = 28;
@@ -553,7 +565,7 @@
             // 
             this.TXTIGV.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.TXTIGV.Enabled = false;
-            this.TXTIGV.Location = new System.Drawing.Point(352, 419);
+            this.TXTIGV.Location = new System.Drawing.Point(352, 439);
             this.TXTIGV.Name = "TXTIGV";
             this.TXTIGV.Size = new System.Drawing.Size(105, 22);
             this.TXTIGV.TabIndex = 27;
@@ -572,7 +584,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(202, 86);
+            this.label10.Location = new System.Drawing.Point(42, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 16);
             this.label10.TabIndex = 21;
@@ -583,16 +595,16 @@
             this.grpTotal.Controls.Add(this.label14);
             this.grpTotal.Controls.Add(this.txtTotal);
             this.grpTotal.Controls.Add(this.label9);
-            this.grpTotal.Location = new System.Drawing.Point(482, 404);
+            this.grpTotal.Location = new System.Drawing.Point(482, 418);
             this.grpTotal.Name = "grpTotal";
-            this.grpTotal.Size = new System.Drawing.Size(220, 57);
+            this.grpTotal.Size = new System.Drawing.Size(220, 43);
             this.grpTotal.TabIndex = 18;
             this.grpTotal.TabStop = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(93, 24);
+            this.label14.Location = new System.Drawing.Point(94, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(24, 16);
             this.label14.TabIndex = 4;
@@ -602,7 +614,7 @@
             // 
             this.txtTotal.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(120, 21);
+            this.txtTotal.Location = new System.Drawing.Point(123, 12);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(88, 22);
             this.txtTotal.TabIndex = 3;
@@ -611,7 +623,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 24);
+            this.label9.Location = new System.Drawing.Point(6, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 16);
             this.label9.TabIndex = 1;
@@ -623,7 +635,7 @@
             this.nroCantidad.DecimalPlaces = 2;
             this.nroCantidad.Enabled = false;
             this.nroCantidad.InterceptArrowKeys = false;
-            this.nroCantidad.Location = new System.Drawing.Point(115, 122);
+            this.nroCantidad.Location = new System.Drawing.Point(555, 52);
             this.nroCantidad.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -638,7 +650,7 @@
             // labelCantidad
             // 
             this.labelCantidad.AutoSize = true;
-            this.labelCantidad.Location = new System.Drawing.Point(28, 122);
+            this.labelCantidad.Location = new System.Drawing.Point(484, 56);
             this.labelCantidad.Name = "labelCantidad";
             this.labelCantidad.Size = new System.Drawing.Size(65, 16);
             this.labelCantidad.TabIndex = 16;
@@ -660,7 +672,7 @@
             this.btnQuitar.AutoSize = true;
             this.btnQuitar.Enabled = false;
             this.btnQuitar.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
-            this.btnQuitar.Location = new System.Drawing.Point(567, 186);
+            this.btnQuitar.Location = new System.Drawing.Point(551, 151);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(49, 41);
             this.btnQuitar.TabIndex = 14;
@@ -670,9 +682,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dgvOrden);
-            this.groupBox5.Location = new System.Drawing.Point(17, 233);
+            this.groupBox5.Location = new System.Drawing.Point(17, 251);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(691, 165);
+            this.groupBox5.Size = new System.Drawing.Size(691, 164);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalle";
@@ -763,7 +775,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(85, 92);
+            this.label6.Location = new System.Drawing.Point(389, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 16);
             this.label6.TabIndex = 12;
@@ -774,7 +786,7 @@
             this.txtPrecio.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(115, 87);
+            this.txtPrecio.Location = new System.Drawing.Point(419, 51);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(59, 24);
             this.txtPrecio.TabIndex = 11;
@@ -782,7 +794,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 92);
+            this.label5.Location = new System.Drawing.Point(338, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 16);
             this.label5.TabIndex = 10;
@@ -801,22 +813,24 @@
             // 
             this.rdServicio.AutoSize = true;
             this.rdServicio.Enabled = false;
-            this.rdServicio.Location = new System.Drawing.Point(214, 22);
+            this.rdServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdServicio.Location = new System.Drawing.Point(255, 19);
             this.rdServicio.Name = "rdServicio";
-            this.rdServicio.Size = new System.Drawing.Size(132, 20);
+            this.rdServicio.Size = new System.Drawing.Size(158, 22);
             this.rdServicio.TabIndex = 3;
             this.rdServicio.Text = "Al Agua y promos";
             this.rdServicio.UseVisualStyleBackColor = true;
-            this.rdServicio.CheckedChanged += new System.EventHandler(this.rdServicio_CheckedChanged);
+         
             this.rdServicio.Click += new System.EventHandler(this.rdServicio_Click);
             // 
             // rdPrenda
             // 
             this.rdPrenda.AutoSize = true;
             this.rdPrenda.Enabled = false;
-            this.rdPrenda.Location = new System.Drawing.Point(117, 22);
+            this.rdPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdPrenda.Location = new System.Drawing.Point(115, 19);
             this.rdPrenda.Name = "rdPrenda";
-            this.rdPrenda.Size = new System.Drawing.Size(73, 20);
+            this.rdPrenda.Size = new System.Drawing.Size(84, 22);
             this.rdPrenda.TabIndex = 2;
             this.rdPrenda.Text = "Al Seco";
             this.rdPrenda.UseVisualStyleBackColor = true;
@@ -828,7 +842,7 @@
             this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = global::Lavanderia.Properties.Resources.plush;
-            this.btnAdd.Location = new System.Drawing.Point(508, 185);
+            this.btnAdd.Location = new System.Drawing.Point(482, 151);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(52, 41);
@@ -855,11 +869,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 25);
+            this.label3.Location = new System.Drawing.Point(28, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tipo:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(331, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Marca:";
             // 
             // frmOrden
             // 
@@ -963,5 +986,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmbServicios;
         private System.Windows.Forms.Label labelOferta;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.Label label7;
     }
 }
