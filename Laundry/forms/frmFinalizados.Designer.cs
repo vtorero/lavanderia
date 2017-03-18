@@ -34,13 +34,13 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.btnSrcCliente = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
+            this.btnAddPrenda = new System.Windows.Forms.Button();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
-            this.btnSrcCliente = new System.Windows.Forms.Button();
-            this.btnAddPrenda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +97,18 @@
             this.dtFechaFin.Size = new System.Drawing.Size(103, 20);
             this.dtFechaFin.TabIndex = 11;
             // 
+            // btnSrcCliente
+            // 
+            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
+            this.btnSrcCliente.Location = new System.Drawing.Point(626, 11);
+            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSrcCliente.Name = "btnSrcCliente";
+            this.btnSrcCliente.Size = new System.Drawing.Size(95, 71);
+            this.btnSrcCliente.TabIndex = 5;
+            this.btnSrcCliente.UseVisualStyleBackColor = true;
+            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
+            // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
@@ -113,6 +125,17 @@
             this.dtFechaInicial.Name = "dtFechaInicial";
             this.dtFechaInicial.Size = new System.Drawing.Size(109, 20);
             this.dtFechaInicial.TabIndex = 9;
+            // 
+            // btnAddPrenda
+            // 
+            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
+            this.btnAddPrenda.Location = new System.Drawing.Point(563, 11);
+            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPrenda.Name = "btnAddPrenda";
+            this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
+            this.btnAddPrenda.TabIndex = 7;
+            this.btnAddPrenda.UseVisualStyleBackColor = true;
             // 
             // txtCliente
             // 
@@ -139,37 +162,14 @@
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(832, 292);
+            this.dgvOrdenes.Size = new System.Drawing.Size(747, 292);
             this.dgvOrdenes.TabIndex = 14;
-            // 
-            // btnSrcCliente
-            // 
-            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(626, 11);
-            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSrcCliente.Name = "btnSrcCliente";
-            this.btnSrcCliente.Size = new System.Drawing.Size(95, 71);
-            this.btnSrcCliente.TabIndex = 5;
-            this.btnSrcCliente.UseVisualStyleBackColor = true;
-            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
-            // 
-            // btnAddPrenda
-            // 
-            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(563, 11);
-            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
-            this.btnAddPrenda.TabIndex = 7;
-            this.btnAddPrenda.UseVisualStyleBackColor = true;
             // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 448);
+            this.ClientSize = new System.Drawing.Size(780, 421);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvOrdenes);
             this.Name = "frmFinalizados";

@@ -43,6 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtObs = new System.Windows.Forms.TextBox();
+            this.chkVisa = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblsimdebe = new System.Windows.Forms.Label();
@@ -51,9 +54,6 @@
             this.lblDebe = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.chkVisa = new System.Windows.Forms.CheckBox();
-            this.txtObs = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,7 +68,7 @@
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(747, 292);
+            this.dgvOrdenes.Size = new System.Drawing.Size(687, 292);
             this.dgvOrdenes.TabIndex = 0;
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
             // 
@@ -114,7 +114,7 @@
             // 
             // btnEntregar
             // 
-            this.btnEntregar.Location = new System.Drawing.Point(122, 220);
+            this.btnEntregar.Location = new System.Drawing.Point(21, 219);
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(103, 38);
             this.btnEntregar.TabIndex = 8;
@@ -205,11 +205,39 @@
             this.groupBox2.Controls.Add(this.lblDebe);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMonto);
-            this.groupBox2.Location = new System.Drawing.Point(794, 115);
+            this.groupBox2.Location = new System.Drawing.Point(730, 122);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(281, 299);
+            this.groupBox2.Size = new System.Drawing.Size(238, 299);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Observaciones:";
+            // 
+            // txtObs
+            // 
+            this.txtObs.Location = new System.Drawing.Point(17, 154);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(208, 42);
+            this.txtObs.TabIndex = 10;
+            // 
+            // chkVisa
+            // 
+            this.chkVisa.AutoSize = true;
+            this.chkVisa.Location = new System.Drawing.Point(179, 93);
+            this.chkVisa.Name = "chkVisa";
+            this.chkVisa.Size = new System.Drawing.Size(46, 17);
+            this.chkVisa.TabIndex = 9;
+            this.chkVisa.Text = "Visa";
+            this.chkVisa.UseVisualStyleBackColor = true;
+            this.chkVisa.Visible = false;
             // 
             // label6
             // 
@@ -284,39 +312,11 @@
             this.txtMonto.Size = new System.Drawing.Size(81, 20);
             this.txtMonto.TabIndex = 0;
             // 
-            // chkVisa
-            // 
-            this.chkVisa.AutoSize = true;
-            this.chkVisa.Location = new System.Drawing.Point(179, 93);
-            this.chkVisa.Name = "chkVisa";
-            this.chkVisa.Size = new System.Drawing.Size(46, 17);
-            this.chkVisa.TabIndex = 9;
-            this.chkVisa.Text = "Visa";
-            this.chkVisa.UseVisualStyleBackColor = true;
-            this.chkVisa.Visible = false;
-            // 
-            // txtObs
-            // 
-            this.txtObs.Location = new System.Drawing.Point(17, 154);
-            this.txtObs.Multiline = true;
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(208, 42);
-            this.txtObs.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Observaciones:";
-            // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 450);
+            this.ClientSize = new System.Drawing.Size(994, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.groupBox1);
