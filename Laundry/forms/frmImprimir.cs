@@ -23,7 +23,7 @@ namespace Lavanderia.forms
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden={0}", Convert.ToInt32(txtTicket.Text)), BdComun.ObtenerConexion());
+         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden={0}", txtTicket.Text), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds, "Ticket");

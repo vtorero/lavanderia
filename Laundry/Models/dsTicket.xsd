@@ -12,7 +12,7 @@
   <xs:element name="dsTicket" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsTicket" msprop:Generator_UserDSName="dsTicket">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Ticket" msprop:Generator_TableClassName="TicketDataTable" msprop:Generator_TableVarName="tableTicket" msprop:Generator_TablePropName="Ticket" msprop:Generator_RowDeletingName="TicketRowDeleting" msprop:Generator_RowChangingName="TicketRowChanging" msprop:Generator_RowEvHandlerName="TicketRowChangeEventHandler" msprop:Generator_RowDeletedName="TicketRowDeleted" msprop:Generator_UserTableName="Ticket" msprop:Generator_RowChangedName="TicketRowChanged" msprop:Generator_RowEvArgName="TicketRowChangeEvent" msprop:Generator_RowClassName="TicketRow">
+        <xs:element name="Ticket" msprop:Generator_TableClassName="TicketDataTable" msprop:Generator_TableVarName="tableTicket" msprop:Generator_RowChangedName="TicketRowChanged" msprop:Generator_TablePropName="Ticket" msprop:Generator_RowDeletingName="TicketRowDeleting" msprop:Generator_RowChangingName="TicketRowChanging" msprop:Generator_RowEvHandlerName="TicketRowChangeEventHandler" msprop:Generator_RowDeletedName="TicketRowDeleted" msprop:Generator_RowClassName="TicketRow" msprop:Generator_UserTableName="Ticket" msprop:Generator_RowEvArgName="TicketRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idOrden" msprop:Generator_ColumnVarNameInTable="columnidOrden" msprop:Generator_ColumnPropNameInRow="idOrden" msprop:Generator_ColumnPropNameInTable="idOrdenColumn" msprop:Generator_UserColumnName="idOrden" type="xs:string" minOccurs="0" />
@@ -25,6 +25,9 @@
               <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:string" minOccurs="0" />
               <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+              <xs:element name="colorPrenda" msprop:Generator_ColumnVarNameInTable="columncolorPrenda" msprop:Generator_ColumnPropNameInRow="colorPrenda" msprop:Generator_ColumnPropNameInTable="colorPrendaColumn" msprop:Generator_UserColumnName="colorPrenda" type="xs:string" minOccurs="0" />
+              <xs:element name="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_UserColumnName="marca" type="xs:string" minOccurs="0" />
+              <xs:element name="defecto" msprop:Generator_ColumnVarNameInTable="columndefecto" msprop:Generator_ColumnPropNameInRow="defecto" msprop:Generator_ColumnPropNameInTable="defectoColumn" msprop:Generator_UserColumnName="defecto" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

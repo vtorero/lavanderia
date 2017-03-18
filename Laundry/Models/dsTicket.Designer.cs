@@ -299,6 +299,12 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columntotal;
             
+            private global::System.Data.DataColumn columncolorPrenda;
+            
+            private global::System.Data.DataColumn columnmarca;
+            
+            private global::System.Data.DataColumn columndefecto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TicketDataTable() {
@@ -414,6 +420,30 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn colorPrendaColumn {
+                get {
+                    return this.columncolorPrenda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn marcaColumn {
+                get {
+                    return this.columnmarca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn defectoColumn {
+                get {
+                    return this.columndefecto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +479,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TicketRow AddTicketRow(string idOrden, string dniCliente, string nombreCliente, string fechaCreado, string fechaEntrega, string totalOrden, string cantidad, string precio, string descripcion, string total) {
+            public TicketRow AddTicketRow(string idOrden, string dniCliente, string nombreCliente, string fechaCreado, string fechaEntrega, string totalOrden, string cantidad, string precio, string descripcion, string total, string colorPrenda, string marca, string defecto) {
                 TicketRow rowTicketRow = ((TicketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -461,7 +491,10 @@ namespace Lavanderia.Models {
                         cantidad,
                         precio,
                         descripcion,
-                        total};
+                        total,
+                        colorPrenda,
+                        marca,
+                        defecto};
                 rowTicketRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTicketRow);
                 return rowTicketRow;
@@ -494,6 +527,9 @@ namespace Lavanderia.Models {
                 this.columnprecio = base.Columns["precio"];
                 this.columndescripcion = base.Columns["descripcion"];
                 this.columntotal = base.Columns["total"];
+                this.columncolorPrenda = base.Columns["colorPrenda"];
+                this.columnmarca = base.Columns["marca"];
+                this.columndefecto = base.Columns["defecto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,6 +555,12 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columndescripcion);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
+                this.columncolorPrenda = new global::System.Data.DataColumn("colorPrenda", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolorPrenda);
+                this.columnmarca = new global::System.Data.DataColumn("marca", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmarca);
+                this.columndefecto = new global::System.Data.DataColumn("defecto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndefecto);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -821,6 +863,54 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string colorPrenda {
+                get {
+                    try {
+                        return ((string)(this[this.tableTicket.colorPrendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'colorPrenda\' de la tabla \'Ticket\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTicket.colorPrendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string marca {
+                get {
+                    try {
+                        return ((string)(this[this.tableTicket.marcaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'marca\' de la tabla \'Ticket\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTicket.marcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string defecto {
+                get {
+                    try {
+                        return ((string)(this[this.tableTicket.defectoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'defecto\' de la tabla \'Ticket\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTicket.defectoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidOrdenNull() {
                 return this.IsNull(this.tableTicket.idOrdenColumn);
             }
@@ -937,6 +1027,42 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettotalNull() {
                 this[this.tableTicket.totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscolorPrendaNull() {
+                return this.IsNull(this.tableTicket.colorPrendaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcolorPrendaNull() {
+                this[this.tableTicket.colorPrendaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmarcaNull() {
+                return this.IsNull(this.tableTicket.marcaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmarcaNull() {
+                this[this.tableTicket.marcaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdefectoNull() {
+                return this.IsNull(this.tableTicket.defectoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdefectoNull() {
+                this[this.tableTicket.defectoColumn] = global::System.Convert.DBNull;
             }
         }
         
