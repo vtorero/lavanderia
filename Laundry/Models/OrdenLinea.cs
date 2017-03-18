@@ -16,12 +16,13 @@ namespace Lavanderia.Models
         public decimal Precio { get; set; }
         public string Defecto { get; set; }
         public string  Colores { get; set; }
+        public string Marca { get; set; }
         public decimal Total { get; set; }
         public int Estado { get; set; }
       
         public OrdenLinea() { }
     
-           public OrdenLinea(int idorden, int item, int idprenda,string descripcion, int cantidad,string defecto,decimal precio,string colores,decimal total,int estado)
+           public OrdenLinea(int idorden, int item, int idprenda,string descripcion, int cantidad,string defecto,decimal precio,string colores,string marca,decimal total,int estado)
         {
             this.idOrden=idorden;
             this.Item = item;
@@ -31,6 +32,7 @@ namespace Lavanderia.Models
             this.Precio = precio;
             this.Defecto = defecto;
             this.Colores = colores;
+            this.Marca = marca;
             this.Total= total;
             this.Estado = estado;
 

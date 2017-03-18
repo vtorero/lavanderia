@@ -29,17 +29,38 @@ namespace Lavanderia.forms.busquedas
         }
 
         private void enviaDatos() {
-            int pos;
+            int pos=0;
             pos = dgvClientes.CurrentRow.Index;
-            enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
-            this.Close();
+            if (pos != 0)
+            {
+                enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
+                this.Close();
+            }
+            else {
+                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Stop);
+            
+            }
         
         
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            enviaDatos();
+            int pos = 0;
+            pos = dgvClientes.CurrentRow.Index;
+            Int32 selectedRowCount =
+       dgvClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+        
+            {
+                enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Stop);
+
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -74,6 +95,8 @@ namespace Lavanderia.forms.busquedas
             dgvClientes.Columns[4].Visible = false;
             dgvClientes.Columns[6].Visible = false;
         }
+
+       
 
   
 

@@ -83,14 +83,6 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
-            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -102,6 +94,15 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLmarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -488,6 +489,7 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.Enabled = false;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(318, 106);
             this.cmbMarca.Name = "cmbMarca";
@@ -706,7 +708,8 @@
             this.clPrecio,
             this.clTotal,
             this.clDefecto,
-            this.clColores});
+            this.clColores,
+            this.cLmarca});
             this.dgvOrden.Enabled = false;
             this.dgvOrden.Location = new System.Drawing.Point(6, 21);
             this.dgvOrden.MultiSelect = false;
@@ -718,57 +721,6 @@
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
-            // 
-            // clNumero
-            // 
-            this.clNumero.HeaderText = "Nro";
-            this.clNumero.Name = "clNumero";
-            this.clNumero.Width = 50;
-            // 
-            // clPrenda
-            // 
-            this.clPrenda.HeaderText = "Id";
-            this.clPrenda.Name = "clPrenda";
-            this.clPrenda.Width = 50;
-            // 
-            // clDescripcion
-            // 
-            this.clDescripcion.HeaderText = "Descripción";
-            this.clDescripcion.Name = "clDescripcion";
-            this.clDescripcion.Width = 180;
-            // 
-            // clCantidad
-            // 
-            this.clCantidad.HeaderText = "Cantidad";
-            this.clCantidad.Name = "clCantidad";
-            this.clCantidad.Width = 60;
-            // 
-            // clPrecio
-            // 
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
-            this.clPrecio.HeaderText = "Precio";
-            this.clPrecio.Name = "clPrecio";
-            this.clPrecio.Width = 55;
-            // 
-            // clTotal
-            // 
-            dataGridViewCellStyle11.Format = "C2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clTotal.HeaderText = "Total";
-            this.clTotal.Name = "clTotal";
-            // 
-            // clDefecto
-            // 
-            this.clDefecto.HeaderText = "Defecto";
-            this.clDefecto.Name = "clDefecto";
-            // 
-            // clColores
-            // 
-            this.clColores.HeaderText = "Colores";
-            this.clColores.Name = "clColores";
             // 
             // label6
             // 
@@ -814,9 +766,9 @@
             this.rdServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdServicio.Location = new System.Drawing.Point(255, 19);
             this.rdServicio.Name = "rdServicio";
-            this.rdServicio.Size = new System.Drawing.Size(158, 22);
+            this.rdServicio.Size = new System.Drawing.Size(82, 22);
             this.rdServicio.TabIndex = 3;
-            this.rdServicio.Text = "Al Agua y promos";
+            this.rdServicio.Text = "Al Agua";
             this.rdServicio.UseVisualStyleBackColor = true;
             this.rdServicio.Click += new System.EventHandler(this.rdServicio_Click);
             // 
@@ -882,6 +834,62 @@
             this.LblId.TabIndex = 15;
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
+            // 
+            // clNumero
+            // 
+            this.clNumero.HeaderText = "Nro";
+            this.clNumero.Name = "clNumero";
+            this.clNumero.Width = 50;
+            // 
+            // clPrenda
+            // 
+            this.clPrenda.HeaderText = "Id";
+            this.clPrenda.Name = "clPrenda";
+            this.clPrenda.Width = 50;
+            // 
+            // clDescripcion
+            // 
+            this.clDescripcion.HeaderText = "Descripción";
+            this.clDescripcion.Name = "clDescripcion";
+            this.clDescripcion.Width = 180;
+            // 
+            // clCantidad
+            // 
+            this.clCantidad.HeaderText = "Cantidad";
+            this.clCantidad.Name = "clCantidad";
+            this.clCantidad.Width = 60;
+            // 
+            // clPrecio
+            // 
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clPrecio.HeaderText = "Precio";
+            this.clPrecio.Name = "clPrecio";
+            this.clPrecio.Width = 55;
+            // 
+            // clTotal
+            // 
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clTotal.HeaderText = "Total";
+            this.clTotal.Name = "clTotal";
+            // 
+            // clDefecto
+            // 
+            this.clDefecto.HeaderText = "Defecto";
+            this.clDefecto.Name = "clDefecto";
+            // 
+            // clColores
+            // 
+            this.clColores.HeaderText = "Colores";
+            this.clColores.Name = "clColores";
+            // 
+            // cLmarca
+            // 
+            this.cLmarca.HeaderText = "Marca";
+            this.cLmarca.Name = "cLmarca";
             // 
             // frmOrden
             // 
@@ -960,14 +968,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DateTimePicker dtHoraEntrega;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPrenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDefecto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clColores;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label lblSimbolopendiente;
@@ -986,5 +986,14 @@
         private System.Windows.Forms.Label labelOferta;
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDefecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clColores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLmarca;
     }
 }

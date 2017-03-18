@@ -19,16 +19,17 @@ IN Pcantidad INT,
 IN Pprecio DECIMAL(10,2),
  IN Pdefecto VARCHAR(200),
  IN Pcolor VARCHAR(200),
+IN Pmarca varchar(100),
  IN Ptotal DECIMAL(10,2),
  IN Pestado INT)
 BEGIN
-INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,total,estado)
-VALUES(PidOrden,PidPrenda,Pitem,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Ptotal,Pestado);
+INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,marca,total,estado)
+VALUES(PidOrden,PidPrenda,Pitem,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Pestado);
 END $$
 DELIMITER $$
-CREATE PROCEDURE ultimoIdOrden()
+CREATE PROCEDURE ultimoIdOrden(in usuario int)
 BEGIN
-SELECT MAX(idOrden) AS ultimoid FROM Orden;
+SELECT MAX(idOrden) AS ultimoid FROM Orden where idUsuario=usuario;
 END $$
 DELIMITER $$
 CREATE PROCEDURE clientesAll(IN  idUsuario INT)

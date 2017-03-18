@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Lavanderia.Models;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Lavanderia.util;
 
 namespace Lavanderia.Persistencia
 {
@@ -36,6 +37,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("Pprecio", ordenlinea.Precio));
             cmd.Parameters.Add(new MySqlParameter("Pdefecto", ordenlinea.Defecto));
             cmd.Parameters.Add(new MySqlParameter("Pcolor", ordenlinea.Colores));
+            cmd.Parameters.Add(new MySqlParameter("Pmarca", ordenlinea.Marca));
             cmd.Parameters.Add(new MySqlParameter("Ptotal", ordenlinea.Total));
             cmd.Parameters.Add(new MySqlParameter("Pestado", ordenlinea.Estado));
             cmd.ExecuteNonQuery();
@@ -93,6 +95,7 @@ namespace Lavanderia.Persistencia
             int id=0;
             MySqlCommand cmd= new MySqlCommand("ultimoIdOrden", BdComun.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("usuario",varGlobales.sessionUsuario));
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
               while (dr.Read())
             {

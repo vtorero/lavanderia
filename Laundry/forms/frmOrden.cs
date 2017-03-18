@@ -68,11 +68,12 @@ namespace Lavanderia.forms
             if (nroCantidad.Value > 0)
             {
 
-                string id, detalle, defecto, colores;
+                string id, detalle, defecto, colores,marca;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? cmbPrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
                 cantidad = nroCantidad.Value;
+                marca = cmbMarca.Text;
                 precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text), 2);
                 
                 defecto = "";
@@ -90,13 +91,15 @@ namespace Lavanderia.forms
                 total = Decimal.Round((cantidad * precio), 2);
 
 
-                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores);
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores,marca);
                 i = i + 1;
                 totalOrden += Decimal.Round(total,2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
                 txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden, 2));
                 //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
                 restablecer();
+                cantidad=0;
+                total=0;
             }
             else
             {
@@ -111,6 +114,8 @@ namespace Lavanderia.forms
 
             cmbPrenda.Enabled = false;
             cmbServicios.Enabled = false;
+            cmbMarca.Enabled = false;
+            cmbMarca.Text = "";
             cmbPrenda.Text = "";
             cmbServicios.Text = "";
             rdPrenda.Checked = false;
@@ -256,6 +261,7 @@ namespace Lavanderia.forms
                         ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
                         ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
+                        ordline.Marca = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Estado = 0;
 
                         OrdenDao.AgregarLinea(ordline);
@@ -562,8 +568,10 @@ namespace Lavanderia.forms
         private void frmOrden_Load(object sender, EventArgs e)
         {
             //fillPrendas();
-          
-
+            DateTime today = DateTime.Now;
+            DateTime answer = today.AddDays(4);
+            dtFechaEntrega.Value = answer;
+            dtHoraEntrega.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 18, 0, 0);
 
         }
 
@@ -631,7 +639,9 @@ namespace Lavanderia.forms
             MySqlDataReader _reader = ServicioDao.fillServicioSearch(selectedItem.ToString());
             while (_reader.Read())
             {
+
                 string name = _reader.GetString("idServicio");
+                nroCantidad.Minimum = _reader.GetInt32("cantidadMinima");
                 txtPrecio.Text = Convert.ToString(Decimal.Round(_reader.GetDecimal("precioServicio"), 2));
                 LblId.Text = name;
             }
@@ -656,6 +666,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = true;
             cmbPrenda.Visible = true;
             cmbServicios.Visible = false;
+            cmbMarca.Enabled = true;
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;
@@ -668,6 +679,7 @@ namespace Lavanderia.forms
             cmbPrenda.Visible = false;
             cmbServicios.Visible = true;
             cmbServicios.Enabled = true;
+            cmbMarca.Enabled = false;
             nroCantidad.Value = 2;
             nroCantidad.Minimum = 2;
             nroCantidad.Enabled = true;
