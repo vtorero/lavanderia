@@ -16,8 +16,8 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Orden orden)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `Orden` (`idCliente`, `fechaEntrega`, `totalOrden`,`idUsuario`, `Observacion`, `estado`, `tipoPago`) VALUES ({0},'{1}',{2},{3},'{4}', {5}, {6});",
-                orden.idCliente,orden.fechaEntrega,orden.totalOrden,orden.idUsuario,orden.observacion,orden.estado,orden.tipoPago), BdComun.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `Orden` (`idCliente`, `fechaEntrega`, `totalOrden`,`idUsuario`, `Observacion`, `estado`, `tipoPago`,`aplicaDscto`) VALUES ({0},'{1}',{2},{3},'{4}', {5}, {6},{7});",
+                orden.idCliente,orden.fechaEntrega,orden.totalOrden,orden.idUsuario,orden.observacion,orden.estado,orden.tipoPago,orden.Descuento), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             return ultimo_id();
             
@@ -40,6 +40,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("Pmarca", ordenlinea.Marca));
             cmd.Parameters.Add(new MySqlParameter("Ptotal", ordenlinea.Total));
             cmd.Parameters.Add(new MySqlParameter("Pestado", ordenlinea.Estado));
+            
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             return ultimo_id();
@@ -61,6 +62,7 @@ namespace Lavanderia.Persistencia
             List<OrdenClientes> _lista = new List<OrdenClientes>();
             MySqlCommand cmd = new MySqlCommand("buscarOrdenes", BdComun.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("usuario", varGlobales.sessionUsuario));
             cmd.Parameters.Add(new MySqlParameter("nombreCliente", nombre));
             cmd.Parameters.Add(new MySqlParameter("dniCliente", dni));
             cmd.Parameters.Add(new MySqlParameter("fechaInicio", fechainicio));

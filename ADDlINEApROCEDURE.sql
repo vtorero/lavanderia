@@ -59,6 +59,7 @@ SELECT * FROM Marca ORDER BY nombreMarca ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
+IN usuario int,
 IN nombreCliente VARCHAR(200),
 IN dniCliente VARCHAR(8),
 fechaInicio VARCHAR(20),
@@ -66,7 +67,7 @@ fechaFin VARCHAR(20)
 )
 BEGIN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
-WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.Estado=0) AND (c.dniCliente=dniCliente OR c.nombreCliente LIKE nombreCliente);
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=0 AND o.idUsuario=usuario) and (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
 END $$
 DELIMITER $$
 CREATE PROCEDURE prendasSearch(

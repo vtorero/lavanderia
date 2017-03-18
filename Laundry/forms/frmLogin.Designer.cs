@@ -36,6 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbBase = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(175, 34);
+            this.label1.Location = new System.Drawing.Point(193, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 0;
@@ -54,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(175, 81);
+            this.label2.Location = new System.Drawing.Point(183, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 1;
@@ -81,6 +83,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbBase);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnIngresar);
@@ -90,14 +94,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(19, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 205);
+            this.groupBox1.Size = new System.Drawing.Size(493, 226);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Lavanderia.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 161);
             this.pictureBox1.TabIndex = 6;
@@ -105,7 +109,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(336, 137);
+            this.btnCancelar.Location = new System.Drawing.Point(336, 159);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(141, 52);
             this.btnCancelar.TabIndex = 5;
@@ -115,13 +119,34 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(187, 137);
+            this.btnIngresar.Location = new System.Drawing.Point(187, 159);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(143, 52);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "&Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(152, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Base de Datos:";
+            // 
+            // cmbBase
+            // 
+            this.cmbBase.FormattingEnabled = true;
+            this.cmbBase.Items.AddRange(new object[] {
+            "Producción",
+            "Test"});
+            this.cmbBase.Location = new System.Drawing.Point(263, 122);
+            this.cmbBase.Name = "cmbBase";
+            this.cmbBase.Size = new System.Drawing.Size(171, 21);
+            this.cmbBase.TabIndex = 8;
             // 
             // frmLogin
             // 
@@ -150,5 +175,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbBase;
+        private System.Windows.Forms.Label label3;
     }
 }

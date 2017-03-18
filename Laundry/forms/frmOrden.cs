@@ -24,6 +24,7 @@ namespace Lavanderia.forms
 
         Validacion v = new Validacion();
         decimal totalOrden = 0;
+        int dscto = 0;
         public frmOrden()
         {
             InitializeComponent();
@@ -90,8 +91,16 @@ namespace Lavanderia.forms
 
                 total = Decimal.Round((cantidad * precio), 2);
 
+                if (chkDscto.Checked)
+                {
+                    total = (total - precio);
+                    detalle = detalle + " Dscto + 5k";
+                    dscto = 1;
 
+                }
                 dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores,marca);
+
+               
                 i = i + 1;
                 totalOrden += Decimal.Round(total,2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
@@ -99,6 +108,8 @@ namespace Lavanderia.forms
                 //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
                 restablecer();
                 cantidad=0;
+                chkDscto.Checked = false;
+                
                 total=0;
             }
             else
@@ -136,6 +147,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
             chkColores.Enabled = false;
+            
 
             i = 1;
 
@@ -201,6 +213,7 @@ namespace Lavanderia.forms
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
+            ord.Descuento = dscto;
             status = OrdenDao.Agregar(ord);
 
             if (status > 0)
@@ -282,6 +295,7 @@ namespace Lavanderia.forms
                 idOrdenPrint = status;
                 desHabilitaServicio();
                 btnImprimir.Enabled = true;
+                dscto = 0;
 
             }
 
@@ -312,6 +326,7 @@ namespace Lavanderia.forms
             txtPendiente.Visible = false;
             lblSimbolopendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
+            txtPago.Enabled = false;
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
@@ -433,6 +448,7 @@ namespace Lavanderia.forms
         {
             rdParcial.Enabled = true;
             rdTotal.Enabled = true;
+            txtPago.Text = txtTotal.Text;
 
 
         }
@@ -527,6 +543,7 @@ namespace Lavanderia.forms
         }
 
         private void fillServicio() {
+            cmbServicios.Items.Clear();
             MySqlDataReader _readerS = ServicioDao.fillServicio();
             while (_readerS.Read())
             {
@@ -609,6 +626,7 @@ namespace Lavanderia.forms
 
             habilitaServicio();
             btnAdd.Enabled = true;
+            fillMarcas();
         }
 
         private void cmbPrenda_MouseLeave(object sender, EventArgs e)
@@ -647,6 +665,7 @@ namespace Lavanderia.forms
             }
             habilitaServicio();
             btnAdd.Enabled = true;
+            fillMarcas();
         }
 
         private void nroCantidad_ValueChanged(object sender, EventArgs e)
@@ -654,9 +673,11 @@ namespace Lavanderia.forms
             if (rdServicio.Checked && nroCantidad.Value > 5)
             {
                 labelOferta.Visible = true;
+                chkDscto.Visible = true;
             }
             else {
                 labelOferta.Visible = false;
+                chkDscto.Visible = false;
             }
         }
 
@@ -670,8 +691,7 @@ namespace Lavanderia.forms
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;
-            fillMarcas();
-            fillPrendas();
+             fillPrendas();
         }
 
         private void rdServicio_Click(object sender, EventArgs e)

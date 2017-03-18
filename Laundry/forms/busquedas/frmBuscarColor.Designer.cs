@@ -144,6 +144,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmBuscarColor";
             this.Text = "Buscar Color";
+            this.Load += new System.EventHandler(this.frmBuscarColor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColores)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

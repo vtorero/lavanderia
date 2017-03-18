@@ -9,5 +9,6 @@ namespace Lavanderia.util
     public class varGlobales
     {
         public static int sessionUsuario;
+        public static string baseDeDatos;
     }
 }

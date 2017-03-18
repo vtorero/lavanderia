@@ -29,15 +29,20 @@ namespace Lavanderia.forms.busquedas
         }
 
         private void enviaDatos() {
-            int pos=0;
-            pos = dgvClientes.CurrentRow.Index;
-            if (pos != 0)
+            int pos = 0;
+            
+
+            Int32 selectedRowCount =
+       dgvClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+            if (selectedRowCount > 0)
             {
+                pos = dgvClientes.CurrentRow.Index;
                 enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
                 this.Close();
             }
             else {
-                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Stop);
+                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             
             }
         
@@ -47,18 +52,22 @@ namespace Lavanderia.forms.busquedas
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int pos = 0;
-            pos = dgvClientes.CurrentRow.Index;
+            
+            
             Int32 selectedRowCount =
        dgvClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
+           
             if (selectedRowCount > 0)
-        
+                    
             {
+                pos = dgvClientes.CurrentRow.Index;               
                 enviado(Convert.ToString(dgvClientes[0, pos].Value), Convert.ToString(dgvClientes[1, pos].Value), Convert.ToString(dgvClientes[2, pos].Value), Convert.ToString(dgvClientes[5, pos].Value));
+                
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Stop);
+                MessageBox.Show("Debe seleccionar un cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
             }
         }
@@ -94,6 +103,7 @@ namespace Lavanderia.forms.busquedas
             dgvClientes.Columns[3].Visible = false;
             dgvClientes.Columns[4].Visible = false;
             dgvClientes.Columns[6].Visible = false;
+            dgvClientes.ClearSelection();
         }
 
        

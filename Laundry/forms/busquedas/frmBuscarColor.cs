@@ -74,5 +74,10 @@ namespace Lavanderia.forms.busquedas
         
          
         }
+
+        private void frmBuscarColor_Load(object sender, EventArgs e)
+        {
+            txtNombres.Focus();
+        }
     }
 }

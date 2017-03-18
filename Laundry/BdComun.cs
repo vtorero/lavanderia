@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Lavanderia.util;
 
 namespace Lavanderia
 {
@@ -11,9 +12,12 @@ namespace Lavanderia
     {
         public static MySqlConnection ObtenerConexion()
         {
-            MySqlConnection conectar = new MySqlConnection("server=67.23.231.144; database=cualesmi_lavan_test; Uid=cualesmi_web; pwd=vji2002;");
-            conectar.Open();
+           
+                MySqlConnection conectar = new MySqlConnection("server=67.23.231.144; database=" + varGlobales.baseDeDatos + "; Uid=cualesmi_web; pwd=vji2002;");
+                conectar.Open();
                 return conectar;
+       
+           
           
         }
     }

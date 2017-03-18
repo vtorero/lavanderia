@@ -17,10 +17,11 @@ namespace Lavanderia.Models
         public string observacion { get; set; }
         public int estado { get; set; }
         public int tipoPago { get; set;}
+        public int Descuento { get; set; } 
 
         public Orden() { }
 
-        public Orden(int idorden, int idcliente, string fechaentrega, decimal totalorden,string fechacreado,int idusuario,string Observacion,int Estado,int tipopago)
+        public Orden(int idorden, int idcliente, string fechaentrega, decimal totalorden,string fechacreado,int idusuario,string Observacion,int Estado,int tipopago,int descuento)
         {
             this.idOrden=idorden;
             this.idCliente = idcliente;
@@ -31,6 +32,7 @@ namespace Lavanderia.Models
             this.observacion = Observacion;
             this.estado = Estado;
             this.tipoPago = tipopago;
+            this.Descuento = descuento;
             
         }
 
