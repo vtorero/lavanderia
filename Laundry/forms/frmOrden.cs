@@ -707,6 +707,11 @@ namespace Lavanderia.forms
             fillServicio();
         }
 
+        private void cmbMarca_Leave(object sender, EventArgs e)
+        {
+            cmbMarca.Text.ToUpper();
+        }
+
      
 
        

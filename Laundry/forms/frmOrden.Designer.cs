@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkDscto = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.labelOferta = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.chkDscto = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -480,6 +480,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle del servicio";
             // 
+            // chkDscto
+            // 
+            this.chkDscto.AutoSize = true;
+            this.chkDscto.Location = new System.Drawing.Point(597, 81);
+            this.chkDscto.Name = "chkDscto";
+            this.chkDscto.Size = new System.Drawing.Size(68, 20);
+            this.chkDscto.TabIndex = 35;
+            this.chkDscto.Text = "Activar";
+            this.chkDscto.UseVisualStyleBackColor = true;
+            this.chkDscto.Visible = false;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -493,10 +504,11 @@
             // 
             this.cmbMarca.Enabled = false;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(318, 106);
+            this.cmbMarca.Location = new System.Drawing.Point(318, 108);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 24);
             this.cmbMarca.TabIndex = 33;
+            this.cmbMarca.Leave += new System.EventHandler(this.cmbMarca_Leave);
             // 
             // labelOferta
             // 
@@ -536,7 +548,7 @@
             this.chkColores.CheckOnClick = true;
             this.chkColores.Enabled = false;
             this.chkColores.FormattingEnabled = true;
-            this.chkColores.Location = new System.Drawing.Point(174, 103);
+            this.chkColores.Location = new System.Drawing.Point(174, 107);
             this.chkColores.Name = "chkColores";
             this.chkColores.Size = new System.Drawing.Size(120, 89);
             this.chkColores.TabIndex = 29;
@@ -554,7 +566,7 @@
             "Descolorido",
             "Rasgado",
             "Gastado"});
-            this.chkDefecto.Location = new System.Drawing.Point(36, 103);
+            this.chkDefecto.Location = new System.Drawing.Point(36, 107);
             this.chkDefecto.Name = "chkDefecto";
             this.chkDefecto.Size = new System.Drawing.Size(109, 89);
             this.chkDefecto.TabIndex = 28;
@@ -693,14 +705,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -717,8 +729,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -750,18 +762,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -893,17 +905,6 @@
             this.LblId.TabIndex = 15;
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
-            // 
-            // chkDscto
-            // 
-            this.chkDscto.AutoSize = true;
-            this.chkDscto.Location = new System.Drawing.Point(597, 81);
-            this.chkDscto.Name = "chkDscto";
-            this.chkDscto.Size = new System.Drawing.Size(68, 20);
-            this.chkDscto.TabIndex = 35;
-            this.chkDscto.Text = "Activar";
-            this.chkDscto.UseVisualStyleBackColor = true;
-            this.chkDscto.Visible = false;
             // 
             // frmOrden
             // 
