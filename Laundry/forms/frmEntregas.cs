@@ -34,7 +34,7 @@ namespace Lavanderia.forms
         }
 
         private void llenarDatos() {
-            dgvOrdenes.DataSource = OrdenDao.buscarOrden("%" + txtCliente.Text + "%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59");
+            dgvOrdenes.DataSource = OrdenDao.buscarOrden("%" + txtCliente.Text + "%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59",0);
             dgvOrdenes.Columns[0].HeaderText = "Código";
             dgvOrdenes.Columns[0].Width = 100;
             dgvOrdenes.Columns[1].Visible = false;

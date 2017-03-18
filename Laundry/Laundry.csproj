@@ -123,6 +123,12 @@
     <Compile Include="forms\frmEntregas.Designer.cs">
       <DependentUpon>frmEntregas.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmFinalizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFinalizados.Designer.cs">
+      <DependentUpon>frmFinalizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmImprimir.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     <EmbeddedResource Include="forms\frmEntregas.resx">
       <DependentUpon>frmEntregas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFinalizados.resx">
+      <DependentUpon>frmFinalizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmImprimir.resx">
       <DependentUpon>frmImprimir.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,6 +370,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\treeup.ico" />
+    <None Include="Resources\Arrow.png" />
+    <None Include="Resources\WindowsGroups_7309.ico" />
     <None Include="Resources\UseCaseDiagramFile_usecasediagram_13447.ico" />
     <None Include="Resources\Overlay_preferences.ico" />
     <None Include="Resources\Annotate_Disabled.ico" />

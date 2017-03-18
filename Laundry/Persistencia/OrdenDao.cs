@@ -57,7 +57,7 @@ namespace Lavanderia.Persistencia
             return retorno;
         }
 
-        public static List<OrdenClientes> buscarOrden(string nombre,string dni, string fechainicio,string fechafin)
+        public static List<OrdenClientes> buscarOrden(string nombre,string dni, string fechainicio,string fechafin,int estado)
         {
             List<OrdenClientes> _lista = new List<OrdenClientes>();
             MySqlCommand cmd = new MySqlCommand("buscarOrdenes", BdComun.ObtenerConexion());
@@ -67,6 +67,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("dniCliente", dni));
             cmd.Parameters.Add(new MySqlParameter("fechaInicio", fechainicio));
             cmd.Parameters.Add(new MySqlParameter("fechaFin", fechafin));
+            cmd.Parameters.Add(new MySqlParameter("estado", estado));
            
             MySqlDataReader dr = cmd.ExecuteReader();
            

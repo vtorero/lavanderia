@@ -193,6 +193,14 @@ namespace Lavanderia.forms
             childForm.Show();
         }
 
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmFinalizados();
+            childForm.MdiParent = this;
+            childForm.Text = " Ordenes finalizadas";
+            childForm.Show();
+        }
+
     
    
     }

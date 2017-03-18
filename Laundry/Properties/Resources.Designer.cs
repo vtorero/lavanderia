@@ -73,6 +73,16 @@ namespace Lavanderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arrow {
+            get {
+                object obj = ResourceManager.GetObject("Arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FeatureNotAvailable_5734_12x12_16x {
             get {
                 object obj = ResourceManager.GetObject("FeatureNotAvailable_5734_12x12_16x", resourceCulture);
@@ -123,9 +133,29 @@ namespace Lavanderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap treeup {
+            get {
+                object obj = ResourceManager.GetObject("treeup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UseCaseDiagramFile_usecasediagram_13447 {
             get {
                 object obj = ResourceManager.GetObject("UseCaseDiagramFile_usecasediagram_13447", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WindowsGroups_7309 {
+            get {
+                object obj = ResourceManager.GetObject("WindowsGroups_7309", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
