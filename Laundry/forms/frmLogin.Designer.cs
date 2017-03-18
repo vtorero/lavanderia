@@ -33,11 +33,11 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbBase = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,18 +98,9 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Lavanderia.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(124, 161);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(336, 159);
+            this.btnCancelar.Location = new System.Drawing.Point(336, 137);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(141, 52);
             this.btnCancelar.TabIndex = 5;
@@ -119,7 +110,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(187, 159);
+            this.btnIngresar.Location = new System.Drawing.Point(186, 137);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(143, 52);
             this.btnIngresar.TabIndex = 4;
@@ -136,6 +127,7 @@
             this.label3.Size = new System.Drawing.Size(110, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Base de Datos:";
+            this.label3.Visible = false;
             // 
             // cmbBase
             // 
@@ -147,6 +139,16 @@
             this.cmbBase.Name = "cmbBase";
             this.cmbBase.Size = new System.Drawing.Size(171, 21);
             this.cmbBase.TabIndex = 8;
+            this.cmbBase.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Lavanderia.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(124, 161);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 

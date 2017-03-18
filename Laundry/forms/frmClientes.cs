@@ -149,6 +149,7 @@ namespace Lavanderia.forms
                 dgvClientes.Columns[1].Width = 180;
                 dgvClientes.Columns[2].Width = 90;
                 dgvClientes.Columns[3].Width = 160;
+                dgvClientes.Columns[6].Visible = false;
             
         }
     }

@@ -33,14 +33,15 @@ namespace Lavanderia.forms
             if (!string.IsNullOrWhiteSpace(txtUsuario.Text) && (!string.IsNullOrWhiteSpace(txtPassword.Text)))
             {
                 Usuario result;
-                if (cmbBase.Text.Equals("Producción"))
+                if (cmbBase.Text.Equals("zzz"))
                 {
-                    varGlobales.baseDeDatos = "cualesmi_lavanderia";
+                    varGlobales.baseDeDatos = "cualesmi_lavan_test";
 
                 }
                 else
                 {
-                    varGlobales.baseDeDatos = "cualesmi_lavan_test";
+                    varGlobales.baseDeDatos = "cualesmi_lavanderia";
+                    
                 }
                 try
                 {
