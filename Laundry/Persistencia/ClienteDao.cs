@@ -22,7 +22,7 @@ namespace Lavanderia.Persistencia
 
         public static int Modificar(Cliente cliente) {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente='{6}'"
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente={5}"
             , cliente.Nombres, cliente.DNI, cliente.Email, cliente.Dirección, cliente.Teléfono, cliente.idCliente), BdComun.ObtenerConexion());
             retorno= comando.ExecuteNonQuery();
             return retorno;
