@@ -24,7 +24,7 @@ IN Pmarca varchar(100),
  IN Pestado INT)
 BEGIN
 INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,marca,total,estado)
-VALUES(PidOrden,PidPrenda,Pitem,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Pestado);
+VALUES(PidOrden,Pitem,PidPrenda,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Pestado);
 END $$
 DELIMITER $$
 CREATE PROCEDURE ultimoIdOrden(in usuario int)

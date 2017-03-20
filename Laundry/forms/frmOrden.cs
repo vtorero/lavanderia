@@ -99,9 +99,7 @@ namespace Lavanderia.forms
 
                 }
                 dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores,marca);
-
-               
-                i = i + 1;
+                 i = i + 1;
                 totalOrden += Decimal.Round(total,2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
                 txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden, 2));
@@ -130,6 +128,9 @@ namespace Lavanderia.forms
             cmbPrenda.Text = "";
             cmbServicios.Text = "";
             rdPrenda.Checked = false;
+            rdServicio.Checked = false;
+            chkVisa.Checked = false;
+            chkVisa.Enabled = false;
             txtPrecio.Text = "";
           nroCantidad.Value = nroCantidad.Minimum;
            
@@ -147,10 +148,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
             chkColores.Enabled = false;
-            
-
-            i = 1;
-
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -274,7 +272,7 @@ namespace Lavanderia.forms
                         ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
                         ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
-                        ordline.Marca = Convert.ToString(data.Cells["clDefecto"].Value);
+                        ordline.Marca = Convert.ToString(data.Cells["cLmarca"].Value);
                         ordline.Estado = 0;
 
                         OrdenDao.AgregarLinea(ordline);
@@ -296,6 +294,7 @@ namespace Lavanderia.forms
                 desHabilitaServicio();
                 btnImprimir.Enabled = true;
                 dscto = 0;
+                i = 1;
 
             }
 
@@ -588,7 +587,7 @@ namespace Lavanderia.forms
             DateTime today = DateTime.Now;
             DateTime answer = today.AddDays(4);
             dtFechaEntrega.Value = answer;
-            dtHoraEntrega.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 18, 0, 0);
+            dtHoraEntrega.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 6, 0, 0);
 
         }
 
