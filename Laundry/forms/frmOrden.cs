@@ -68,7 +68,7 @@ namespace Lavanderia.forms
         {
             if (nroCantidad.Value > 0)
             {
-
+                int tipoServ=0;
                 string id, detalle, defecto, colores,marca;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? cmbPrenda.Text : cmbServicios.Text;
@@ -80,6 +80,8 @@ namespace Lavanderia.forms
                 defecto = "";
                 colores = "";
 
+                if (rdPrenda.Checked) { tipoServ = 1; }
+                if (rdServicio.Checked) { tipoServ = 2; }
                 foreach (Object def in chkDefecto.CheckedItems)
                 {
                     defecto += def.ToString() + ",";
@@ -98,7 +100,7 @@ namespace Lavanderia.forms
                     dscto = 1;
 
                 }
-                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores,marca);
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores,marca,tipoServ);
                  i = i + 1;
                 totalOrden += Decimal.Round(total,2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
@@ -273,6 +275,7 @@ namespace Lavanderia.forms
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);
                         ordline.Total = Convert.ToDecimal(data.Cells["clTotal"].Value);
                         ordline.Marca = Convert.ToString(data.Cells["cLmarca"].Value);
+                        ordline.TipoServicio = Convert.ToInt32(data.Cells["clTipo"].Value);
                         ordline.Estado = 0;
 
                         OrdenDao.AgregarLinea(ordline);
@@ -305,6 +308,7 @@ namespace Lavanderia.forms
         {
             lblMontopagar.Text = "Adelanto";
             lblPendiente.Visible = true;
+            chkVisa.Enabled = true;
             lblSimbolopendiente.Visible = true;
             txtPendiente.Visible = true;
             txtPago.Enabled = true;

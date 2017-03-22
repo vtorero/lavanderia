@@ -1,4 +1,5 @@
 DROP PROCEDURE IF EXISTS addLineaOrden; 
+DROP PROCEDURE IF EXISTS addOrden; 
 DROP PROCEDURE IF EXISTS ultimoIdOrden; 
 DROP PROCEDURE IF EXISTS clientesAll;	
 DROP PROCEDURE IF EXISTS buscarOrdenes;	
@@ -10,6 +11,24 @@ DROP PROCEDURE IF EXISTS prendasAll;
 DROP PROCEDURE IF EXISTS marcasAll;
 DROP PROCEDURE IF EXISTS insertaMarca;
 DELIMITER $$
+CREATE PROCEDURE addOrden(
+IN PidCliente int,
+IN PfechaEntrega varchar(60),
+in PtotalOrden decimal(10,2),
+in PidUsuario int,
+in Pobservacion varchar(200),
+in Pestado int,
+in PtipoPago int,
+in Pdscto int,
+out ultimoId int)
+BEGIN
+START TRANSACTION;
+INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto) VALUES 
+(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto);
+select LAST_INSERT_ID() into ultimoId;
+commit;
+END $$
+DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,
 IN Pitem INT, 
@@ -20,11 +39,14 @@ IN Pprecio DECIMAL(10,2),
  IN Pdefecto VARCHAR(200),
  IN Pcolor VARCHAR(200),
 IN Pmarca varchar(100),
+IN Ptipo int,
  IN Ptotal DECIMAL(10,2),
  IN Pestado INT)
 BEGIN
-INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,marca,total,estado)
-VALUES(PidOrden,Pitem,PidPrenda,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Pestado);
+START TRANSACTION;
+INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,marca,total,tipoServicio,estado)
+VALUES(PidOrden,Pitem,PidPrenda,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Ptipo,Pestado);
+COMMIT;
 END $$
 DELIMITER $$
 CREATE PROCEDURE ultimoIdOrden(in usuario int)
@@ -84,9 +106,11 @@ IN tipopago2 INT,
 IN obs VARCHAR(200)
 )
 BEGIN
+START TRANSACTION;
 UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NOW() WHERE idOrden=id;
 UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
+COMMIT;
 END $$
 
 DELIMITER $$

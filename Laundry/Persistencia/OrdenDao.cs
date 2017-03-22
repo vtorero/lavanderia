@@ -15,12 +15,38 @@ namespace Lavanderia.Persistencia
 
         public static int Agregar(Orden orden)
         {
+ 
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO `Orden` (`idCliente`, `fechaEntrega`, `totalOrden`,`idUsuario`, `Observacion`, `estado`, `tipoPago`,`aplicaDscto`) VALUES ({0},'{1}',{2},{3},'{4}', {5}, {6},{7});",
-                orden.idCliente,orden.fechaEntrega,orden.totalOrden,orden.idUsuario,orden.observacion,orden.estado,orden.tipoPago,orden.Descuento), BdComun.ObtenerConexion());
-            retorno = comando.ExecuteNonQuery();
-            return ultimo_id();
+            MySqlCommand cmd = new MySqlCommand("addOrden", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("PidCliente", orden.idCliente));
+            cmd.Parameters.Add(new MySqlParameter("PfechaEntrega", orden.fechaEntrega));
+            cmd.Parameters.Add(new MySqlParameter("PtotalOrden", orden.totalOrden));
+            cmd.Parameters.Add(new MySqlParameter("PidUsuario", orden.idUsuario));
+            cmd.Parameters.Add(new MySqlParameter("Pobservacion", orden.observacion));
+            cmd.Parameters.Add(new MySqlParameter("Pestado", orden.estado));
+            cmd.Parameters.Add(new MySqlParameter("PtipoPago", orden.tipoPago));
+            cmd.Parameters.Add(new MySqlParameter("Pdscto", orden.Descuento));
+            cmd.Parameters.Add(new MySqlParameter("ultimoId", MySqlDbType.Int64));
+            cmd.Parameters["ultimoId"].Direction = ParameterDirection.Output;
+           
+            try
+        {
+
+        cmd.ExecuteNonQuery(); // insert second row for update
+            return  Convert.ToInt32(cmd.Parameters["ultimoId"].Value);
+                }
+                catch (MySqlException ex)
+                {
+                    return 0;
+                }
+                finally
+                {
+                     cmd.Connection.Close();
+                }
             
+          
+          
         }
 
 
@@ -39,6 +65,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("Pcolor", ordenlinea.Colores));
             cmd.Parameters.Add(new MySqlParameter("Pmarca", ordenlinea.Marca));
             cmd.Parameters.Add(new MySqlParameter("Ptotal", ordenlinea.Total));
+            cmd.Parameters.Add(new MySqlParameter("Ptipo", ordenlinea.TipoServicio));
             cmd.Parameters.Add(new MySqlParameter("Pestado", ordenlinea.Estado));
             
             cmd.ExecuteNonQuery();
