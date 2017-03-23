@@ -12,21 +12,21 @@ DROP PROCEDURE IF EXISTS marcasAll;
 DROP PROCEDURE IF EXISTS insertaMarca;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
-IN PidCliente int,
-IN PfechaEntrega varchar(60),
-in PtotalOrden decimal(10,2),
-in PidUsuario int,
-in Pobservacion varchar(200),
-in Pestado int,
-in PtipoPago int,
-in Pdscto int,
-out ultimoId int)
+IN PidCliente INT,
+IN PfechaEntrega VARCHAR(60),
+IN PtotalOrden DECIMAL(10,2),
+IN PidUsuario INT,
+IN Pobservacion VARCHAR(200),
+IN Pestado INT,
+IN PtipoPago INT,
+IN Pdscto INT,
+OUT ultimoId INT)
 BEGIN
 START TRANSACTION;
 INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto) VALUES 
 (PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto);
-select LAST_INSERT_ID() into ultimoId;
-commit;
+SELECT LAST_INSERT_ID() INTO ultimoId;
+COMMIT;
 END $$
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
@@ -38,9 +38,9 @@ IN Pcantidad INT,
 IN Pprecio DECIMAL(10,2),
  IN Pdefecto VARCHAR(200),
  IN Pcolor VARCHAR(200),
-IN Pmarca varchar(100),
-IN Ptipo int,
+IN Pmarca VARCHAR(100),
  IN Ptotal DECIMAL(10,2),
+ IN Ptipo INT,
  IN Pestado INT)
 BEGIN
 START TRANSACTION;
@@ -49,9 +49,9 @@ VALUES(PidOrden,Pitem,PidPrenda,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,P
 COMMIT;
 END $$
 DELIMITER $$
-CREATE PROCEDURE ultimoIdOrden(in usuario int)
+CREATE PROCEDURE ultimoIdOrden(IN usuario INT)
 BEGIN
-SELECT MAX(idOrden) AS ultimoid FROM Orden where idUsuario=usuario;
+SELECT MAX(idOrden) AS ultimoid FROM Orden WHERE idUsuario=usuario;
 END $$
 DELIMITER $$
 CREATE PROCEDURE clientesAll(IN  idUsuario INT)
@@ -77,27 +77,27 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE marcasAll()
 BEGIN
-SELECT * FROM Marca ORDER BY nombreMarca ASC;
+SELECT idMarca,`nombreMarca` FROM Marca ORDER BY nombreMarca ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE buscarOrdenes(
-IN usuario int,
+IN usuario INT,
 IN nombreCliente VARCHAR(200),
 IN dniCliente VARCHAR(8),
 fechaInicio VARCHAR(20),
 fechaFin VARCHAR(20),
-IN estado int
+IN estado INT
 )
 BEGIN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
-WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) and (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
 END $$
 DELIMITER $$
 CREATE PROCEDURE prendasSearch(
 IN criterio VARCHAR(200)
 )
 BEGIN
-SELECT * FROM Prenda WHERE nombrePrenda=criterio;
+SELECT `idPrenda`,`nombrePrenda`,`precioServicio` FROM Prenda WHERE nombrePrenda=criterio;
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(

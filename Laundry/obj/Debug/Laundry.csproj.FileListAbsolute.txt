@@ -50,3 +50,4 @@ D:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 D:\lavanderia\Laundry\obj\Debug\Laundry.exe
 D:\lavanderia\Laundry\obj\Debug\Laundry.pdb
 >>>>>>> 2b4a7a168dd58c9f2b11071481b3c3fb536a3c8f
+D:\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
