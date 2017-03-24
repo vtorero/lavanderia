@@ -94,10 +94,10 @@ WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.id
 END $$
 DELIMITER $$
 CREATE PROCEDURE prendasSearch(
-IN criterio VARCHAR(200)
+IN criterio VARCHAR(100)
 )
 BEGIN
-SELECT * FROM Prenda WHERE nombrePrenda=criterio;
+SELECT idPrenda,nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(

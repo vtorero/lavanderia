@@ -73,10 +73,16 @@ namespace Lavanderia.Persistencia
 
         public static MySqlDataReader fillPrendaSearch(string criterio)
         {
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-             "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio FROM Prenda where nombrePrenda LIKE '{0}%' order by nombrePrenda",criterio), BdComun.ObtenerConexion());
+            int id = 0;
+            MySqlCommand _comando = new MySqlCommand("prendasSearch", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.Parameters.Add(new MySqlParameter("criterio", criterio));
+
             MySqlDataReader _reader = _comando.ExecuteReader();
+
+
             return _reader;
+       
         }
 
         public static List<Prenda> Listar()

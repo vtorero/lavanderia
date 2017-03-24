@@ -600,21 +600,7 @@ namespace Lavanderia.forms
 
 
 
-        private void cmbPrenda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-
-                MySqlDataReader _reader = PrendaDao.fillPrendaSearch(cmbPrenda.Text);
-                while (_reader.Read())
-                {
-                    string name = _reader.GetString("idPrenda");
-                    MessageBox.Show(name);
-                    LblId.Text = name;
-                }
-            }
-        }
-
+  
 
 
         private void cmbPrenda_Leave(object sender, EventArgs e)

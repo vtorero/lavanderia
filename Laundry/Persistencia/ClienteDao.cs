@@ -58,7 +58,7 @@ namespace Lavanderia.Persistencia
                 cliente.Teléfono = Convert.ToString(dr["telefonoCliente"]);
                 _lista.Add(cliente);
             }
-
+            cmd.Connection.Close();
             return _lista;
         }
 
