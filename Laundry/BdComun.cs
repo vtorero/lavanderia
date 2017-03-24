@@ -13,12 +13,10 @@ namespace Lavanderia
         public static MySqlConnection ObtenerConexion()
         {
            
-                MySqlConnection conectar = new MySqlConnection("server=67.23.231.144; database=" + varGlobales.baseDeDatos + "; Uid=cualesmi_web; pwd=vji2002;");
-                              conectar.Open();
-                                return conectar;
+                MySqlConnection conectar = new MySqlConnection("server=cualesmiip.pe;database="+varGlobales.baseDeDatos+";Uid=cualesmi_web;pwd=vji2002;");
+                conectar.Open();
+                 return conectar;
        
-           
-          
         }
     }
 }
