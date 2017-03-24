@@ -280,10 +280,7 @@ namespace Lavanderia.forms
 
                         OrdenDao.AgregarLinea(ordline);
 
-
                     }
-
-
 
                 }
                 catch (Exception)

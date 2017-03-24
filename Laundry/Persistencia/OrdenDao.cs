@@ -16,7 +16,7 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Orden orden)
         {
  
-            int retorno = 0;
+      
             MySqlCommand cmd = new MySqlCommand("addOrden", BdComun.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("PidCliente", orden.idCliente));

@@ -912,7 +912,6 @@
             // 
             this.clTipo.HeaderText = "Tipo";
             this.clTipo.Name = "clTipo";
-            this.clTipo.Visible = false;
             // 
             // frmOrden
             // 
