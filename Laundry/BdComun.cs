@@ -14,8 +14,8 @@ namespace Lavanderia
         {
            
                 MySqlConnection conectar = new MySqlConnection("server=67.23.231.144; database=" + varGlobales.baseDeDatos + "; Uid=cualesmi_web; pwd=vji2002;");
-                conectar.Open();
-                return conectar;
+                              conectar.Open();
+                                return conectar;
        
            
           
