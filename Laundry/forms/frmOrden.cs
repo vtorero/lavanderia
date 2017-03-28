@@ -250,6 +250,7 @@ namespace Lavanderia.forms
                     pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
                     pago.PagoTotal = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
                     pago.TipoPago = tipo_pago;
+                    pago.TipoPago1 = tipo_pago1;
                     pago.TipoDocumento = tipo_doc;
                     //pago.Igv = pago.Igv = Convert.ToDecimal(txtIg.Text);
                     pago.Estado = 0;
