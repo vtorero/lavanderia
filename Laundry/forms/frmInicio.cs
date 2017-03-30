@@ -201,6 +201,29 @@ namespace Lavanderia.forms
             childForm.Show();
         }
 
+        private void cierreCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportDocument cryrep = new ReportDocument();
+            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
+         "SELECT al.tipoServicio,al.idOrden,sum(al.precio*al.cantidad) total from (SELECT l.tipoServicio,o.idOrden,l.precio,l.cantidad,total FROM Orden o inner join OrdenLinea l on o.idOrden=l.idOrden inner join Pago p on o.idOrden=p.idOrden where p.tipoPago in(1) and tipoPago1=0 and tipoPago2=0) al where al.tipoServicio=1 group by al.idOrden;"), BdComun.ObtenerConexion());
+            DataSet ds = new DataSet();
+
+
+
+            myadap.Fill(ds, "sdAlseco");
+           
+
+            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crCierre.rpt");
+
+            cryrep.SetDataSource(ds);
+           
+
+            frmReporte rt = new frmReporte();
+            rt.Text = "Reporte de Cierre al Seco";
+            rt.crystalReportViewer1.ReportSource = cryrep;
+            rt.Show();﻿
+        }
+
     
    
     }

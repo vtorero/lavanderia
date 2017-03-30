@@ -173,6 +173,20 @@
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\dsAlpeso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAlpeso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsAlseco.cs">
+      <DependentUpon>dsAlseco.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\dsAlseco.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAlseco.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\DsPrendas.cs">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -212,6 +226,12 @@
     <Compile Include="Persistencia\UsuarioDao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\crCierre.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crCierre.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\crPrendas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -287,6 +307,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\crCierre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crCierre.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crPrendas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
@@ -299,6 +323,28 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crVentas.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Models\dsAlpeso.xsc">
+      <DependentUpon>dsAlpeso.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsAlpeso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAlpeso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsAlpeso.xss">
+      <DependentUpon>dsAlpeso.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsAlseco.xsc">
+      <DependentUpon>dsAlseco.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsAlseco.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAlseco.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsAlseco.xss">
+      <DependentUpon>dsAlseco.xsd</DependentUpon>
+    </None>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </None>

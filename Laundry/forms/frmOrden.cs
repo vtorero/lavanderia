@@ -52,7 +52,7 @@ namespace Lavanderia.forms
         public void ejecutar2(string id, string nombre, decimal precio)
         {
             LblId.Text = id;
-            //txtNombrePrenda.Text = nombre;
+            txtNombrePrenda.Text = nombre;
             txtPrecio.Text = Convert.ToString(Decimal.Round(precio, 2));
         }
 
@@ -71,7 +71,7 @@ namespace Lavanderia.forms
                 int tipoServ=0;
                 string id, detalle, defecto, colores,marca;
                 id = LblId.Text;
-                detalle = (rdPrenda.Checked) ? cmbPrenda.Text : cmbServicios.Text;
+                detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
                 cantidad = nroCantidad.Value;
                 marca = cmbMarca.Text;
@@ -123,7 +123,10 @@ namespace Lavanderia.forms
         public void restablecer()
         {
 
-            cmbPrenda.Enabled = false;
+            txtNombrePrenda.Enabled = false;
+            txtNombrePrenda.Text = "";
+            btnBuscaprenda.Enabled = false;
+            btnBuscaprenda.Visible = false;
             cmbServicios.Enabled = false;
             cmbMarca.Enabled = false;
             cmbMarca.Text = "";
@@ -407,6 +410,7 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = false;
             btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
+            btnImprimir.Enabled = false;
             totalOrden =0;
 
 
@@ -557,10 +561,10 @@ namespace Lavanderia.forms
         
         }
 
-        private void fillPrendas()
+        private void fillColores()
         {
 
-            MySqlDataReader _reader = PrendaDao.fillPrenda();
+            /*MySqlDataReader _reader = PrendaDao.fillPrenda();
             cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbPrenda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             AutoCompleteStringCollection datos = new AutoCompleteStringCollection();
@@ -571,7 +575,7 @@ namespace Lavanderia.forms
 
             }
             cmbPrenda.AutoCompleteCustomSource = datos;
-
+            */
             MySqlDataReader _readerC = ColorDao.fillColor();
             while (_readerC.Read())
             {
@@ -585,12 +589,12 @@ namespace Lavanderia.forms
 
         private void frmOrden_Load(object sender, EventArgs e)
         {
-            //fillPrendas();
+            fillMarcas();
+            fillColores();
             DateTime today = DateTime.Now;
             DateTime answer = today.AddDays(4);
             dtFechaEntrega.Value = answer;
-            dtHoraEntrega.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 6, 0, 0);
-
+            dtHoraEntrega.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 18, 0, 0);
         }
 
 
@@ -652,7 +656,7 @@ namespace Lavanderia.forms
             }
             habilitaServicio();
             btnAdd.Enabled = true;
-            fillMarcas();
+            
         }
 
         private void nroCantidad_ValueChanged(object sender, EventArgs e)
@@ -670,20 +674,24 @@ namespace Lavanderia.forms
 
         private void rdPrenda_Click(object sender, EventArgs e)
         {
-            cmbPrenda.Enabled = true;
+            //cmbPrenda.Enabled = true;
+            txtNombrePrenda.Visible = true;
+            btnBuscaprenda.Visible = true;
+            btnBuscaprenda.Enabled = true;
             nroCantidad.Enabled = true;
-            cmbPrenda.Visible = true;
+            //cmbPrenda.Visible = true;
             cmbServicios.Visible = false;
             cmbMarca.Enabled = true;
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;
-             fillPrendas();
+             //fillPrendas();
         }
 
         private void rdServicio_Click(object sender, EventArgs e)
         {
-            cmbPrenda.Visible = false;
+            txtNombrePrenda.Visible = false;
+            btnBuscaprenda.Visible = false;
             cmbServicios.Visible = true;
             cmbServicios.Enabled = true;
             cmbMarca.Enabled = false;
@@ -698,6 +706,22 @@ namespace Lavanderia.forms
         {
             cmbMarca.Text.ToUpper();
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            frmBuscarPrendas childForm = new frmBuscarPrendas();
+            childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
+            childForm.ShowDialog();
+        }
+
+        private void txtNombrePrenda_TextChanged_1(object sender, EventArgs e)
+        {
+            habilitaServicio();
+            btnAdd.Enabled = true;
+            
+        }
+
+ 
 
      
 

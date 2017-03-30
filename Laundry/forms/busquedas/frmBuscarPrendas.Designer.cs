@@ -122,6 +122,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmBuscarPrendas";
             this.Text = "Buscar Prendas";
+            this.Load += new System.EventHandler(this.frmBuscarPrendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrendas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

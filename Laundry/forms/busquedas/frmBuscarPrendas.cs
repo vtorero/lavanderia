@@ -52,5 +52,19 @@ namespace Lavanderia.forms.busquedas
         {
             enviaDatos();
         }
+
+        private void frmBuscarPrendas_Load(object sender, EventArgs e)
+        {
+            dgvPrendas.DataSource = PrendaDao.Listar();
+            dgvPrendas.RowHeadersVisible = false;
+            dgvPrendas.Columns[0].HeaderText = "Código";
+            dgvPrendas.Columns[0].Width = 50;
+            dgvPrendas.Columns[1].HeaderText = "Nombres";
+            dgvPrendas.Columns[1].Width = 190;
+            dgvPrendas.Columns[2].Visible = false;
+            dgvPrendas.Columns[3].HeaderText = "Precio";
+            dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
+            dgvPrendas.Columns[3].Width = 100;
+        }
     }
 }
