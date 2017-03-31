@@ -279,6 +279,8 @@ namespace Lavanderia.Models {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class alPesoDataTable : global::System.Data.TypedTableBase<alPesoRow> {
             
+            private global::System.Data.DataColumn columntipoServicio;
+            
             private global::System.Data.DataColumn columnidOrden;
             
             private global::System.Data.DataColumn columntotal;
@@ -314,6 +316,14 @@ namespace Lavanderia.Models {
             protected alPesoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoServicioColumn {
+                get {
+                    return this.columntipoServicio;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -369,9 +379,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public alPesoRow AddalPesoRow(string idOrden, double total) {
+            public alPesoRow AddalPesoRow(string tipoServicio, string idOrden, double total) {
                 alPesoRow rowalPesoRow = ((alPesoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        tipoServicio,
                         idOrden,
                         total};
                 rowalPesoRow.ItemArray = columnValuesArray;
@@ -396,6 +407,7 @@ namespace Lavanderia.Models {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columntipoServicio = base.Columns["tipoServicio"];
                 this.columnidOrden = base.Columns["idOrden"];
                 this.columntotal = base.Columns["total"];
             }
@@ -403,6 +415,8 @@ namespace Lavanderia.Models {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columntipoServicio = new global::System.Data.DataColumn("tipoServicio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipoServicio);
                 this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidOrden);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(double), null, global::System.Data.MappingType.Element);
@@ -549,6 +563,22 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipoServicio {
+                get {
+                    try {
+                        return ((string)(this[this.tablealPeso.tipoServicioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipoServicio\' de la tabla \'alPeso\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablealPeso.tipoServicioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string idOrden {
                 get {
                     try {
@@ -577,6 +607,18 @@ namespace Lavanderia.Models {
                 set {
                     this[this.tablealPeso.totalColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoServicioNull() {
+                return this.IsNull(this.tablealPeso.tipoServicioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoServicioNull() {
+                this[this.tablealPeso.tipoServicioColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

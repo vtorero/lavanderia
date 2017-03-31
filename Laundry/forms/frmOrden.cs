@@ -676,7 +676,7 @@ namespace Lavanderia.forms
         {
             //cmbPrenda.Enabled = true;
             txtNombrePrenda.Visible = true;
-            btnBuscaprenda.Visible = true;
+           // btnBuscaprenda.Visible = true;
             btnBuscaprenda.Enabled = true;
             nroCantidad.Enabled = true;
             //cmbPrenda.Visible = true;
@@ -685,6 +685,10 @@ namespace Lavanderia.forms
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;
+
+            frmBuscarPrendas childForm = new frmBuscarPrendas();
+            childForm.enviado += new frmBuscarPrendas.enviar(ejecutar2);
+            childForm.ShowDialog();
              //fillPrendas();
         }
 

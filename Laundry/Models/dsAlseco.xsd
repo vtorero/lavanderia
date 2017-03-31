@@ -16,6 +16,10 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idOrden" msprop:Generator_ColumnVarNameInTable="columnidOrden" msprop:Generator_ColumnPropNameInRow="idOrden" msprop:Generator_ColumnPropNameInTable="idOrdenColumn" msprop:Generator_UserColumnName="idOrden" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaCreado" msprop:Generator_ColumnVarNameInTable="columnfechaCreado" msprop:Generator_ColumnPropNameInRow="fechaCreado" msprop:Generator_ColumnPropNameInTable="fechaCreadoColumn" msprop:Generator_UserColumnName="fechaCreado" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="pago1" msprop:Generator_ColumnVarNameInTable="columnpago1" msprop:Generator_ColumnPropNameInRow="pago1" msprop:Generator_ColumnPropNameInTable="pago1Column" msprop:Generator_UserColumnName="pago1" type="xs:double" minOccurs="0" />
+              <xs:element name="pago2" msprop:Generator_ColumnVarNameInTable="columnpago2" msprop:Generator_ColumnPropNameInRow="pago2" msprop:Generator_ColumnPropNameInTable="pago2Column" msprop:Generator_UserColumnName="pago2" type="xs:double" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

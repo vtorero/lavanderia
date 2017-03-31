@@ -281,6 +281,14 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnidOrden;
             
+            private global::System.Data.DataColumn columnfechaCreado;
+            
+            private global::System.Data.DataColumn columntipo;
+            
+            private global::System.Data.DataColumn columnpago1;
+            
+            private global::System.Data.DataColumn columnpago2;
+            
             private global::System.Data.DataColumn columntotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -321,6 +329,38 @@ namespace Lavanderia.Models {
             public global::System.Data.DataColumn idOrdenColumn {
                 get {
                     return this.columnidOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaCreadoColumn {
+                get {
+                    return this.columnfechaCreado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoColumn {
+                get {
+                    return this.columntipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pago1Column {
+                get {
+                    return this.columnpago1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pago2Column {
+                get {
+                    return this.columnpago2;
                 }
             }
             
@@ -369,10 +409,14 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sdAlsecoRow AddsdAlsecoRow(string idOrden, double total) {
+            public sdAlsecoRow AddsdAlsecoRow(string idOrden, string fechaCreado, string tipo, double pago1, double pago2, double total) {
                 sdAlsecoRow rowsdAlsecoRow = ((sdAlsecoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
+                        fechaCreado,
+                        tipo,
+                        pago1,
+                        pago2,
                         total};
                 rowsdAlsecoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsdAlsecoRow);
@@ -397,6 +441,10 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnidOrden = base.Columns["idOrden"];
+                this.columnfechaCreado = base.Columns["fechaCreado"];
+                this.columntipo = base.Columns["tipo"];
+                this.columnpago1 = base.Columns["pago1"];
+                this.columnpago2 = base.Columns["pago2"];
                 this.columntotal = base.Columns["total"];
             }
             
@@ -405,6 +453,14 @@ namespace Lavanderia.Models {
             private void InitClass() {
                 this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidOrden);
+                this.columnfechaCreado = new global::System.Data.DataColumn("fechaCreado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaCreado);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
+                this.columnpago1 = new global::System.Data.DataColumn("pago1", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpago1);
+                this.columnpago2 = new global::System.Data.DataColumn("pago2", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpago2);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
             }
@@ -565,6 +621,70 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fechaCreado {
+                get {
+                    try {
+                        return ((string)(this[this.tablesdAlseco.fechaCreadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaCreado\' de la tabla \'sdAlseco\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesdAlseco.fechaCreadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tablesdAlseco.tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo\' de la tabla \'sdAlseco\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesdAlseco.tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pago1 {
+                get {
+                    try {
+                        return ((double)(this[this.tablesdAlseco.pago1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago1\' de la tabla \'sdAlseco\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesdAlseco.pago1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pago2 {
+                get {
+                    try {
+                        return ((double)(this[this.tablesdAlseco.pago2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago2\' de la tabla \'sdAlseco\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesdAlseco.pago2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public double total {
                 get {
                     try {
@@ -589,6 +709,54 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetidOrdenNull() {
                 this[this.tablesdAlseco.idOrdenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaCreadoNull() {
+                return this.IsNull(this.tablesdAlseco.fechaCreadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaCreadoNull() {
+                this[this.tablesdAlseco.fechaCreadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoNull() {
+                return this.IsNull(this.tablesdAlseco.tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoNull() {
+                this[this.tablesdAlseco.tipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispago1Null() {
+                return this.IsNull(this.tablesdAlseco.pago1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpago1Null() {
+                this[this.tablesdAlseco.pago1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispago2Null() {
+                return this.IsNull(this.tablesdAlseco.pago2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpago2Null() {
+                this[this.tablesdAlseco.pago2Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

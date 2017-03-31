@@ -205,7 +205,7 @@ namespace Lavanderia.forms
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT al.tipoServicio,al.idOrden,sum(al.precio*al.cantidad) total from (SELECT l.tipoServicio,o.idOrden,l.precio,l.cantidad,total FROM Orden o inner join OrdenLinea l on o.idOrden=l.idOrden inner join Pago p on o.idOrden=p.idOrden where p.tipoPago in(1) and tipoPago1=0 and tipoPago2=0) al where al.tipoServicio=1 group by al.idOrden;"), BdComun.ObtenerConexion());
+         "SELECT al.idOrden,al.fechaCreado,if(al.tipoServicio=1, 'Al seco','Al Peso') tipo,al.pago1,al.pago2,(al.precio*al.cantidad) total from (SELECT l.tipoServicio,o.idOrden,o.fechaCreado,l.precio,l.cantidad,total,p.pago1,p.pago2 FROM Orden o inner join OrdenLinea l on o.idOrden=l.idOrden inner join Pago p on o.idOrden=p.idOrden where p.tipoPago in(1,2) and tipoPago1 in(0,1) and tipoPago2 in (0,1)) al where al.tipoServicio in(1,2);"), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
 
