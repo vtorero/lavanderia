@@ -165,6 +165,12 @@
     <Compile Include="forms\frmReporte.Designer.cs">
       <DependentUpon>frmReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmReporteDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReporteDia.Designer.cs">
+      <DependentUpon>frmReporteDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmReporte.resx">
       <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReporteDia.resx">
+      <DependentUpon>frmReporteDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmServicio.resx">
       <DependentUpon>frmServicio.cs</DependentUpon>

@@ -97,11 +97,7 @@ CREATE PROCEDURE prendasSearch(
 IN criterio VARCHAR(100)
 )
 BEGIN
-<<<<<<< HEAD
 SELECT idPrenda,nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
-=======
-SELECT `idPrenda`,`nombrePrenda`,`precioServicio` FROM Prenda WHERE nombrePrenda=criterio;
->>>>>>> 75648e1471e15e273c42b8e8ebf44547ee6044e9
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(

@@ -40,7 +40,7 @@ namespace Lavanderia.forms
                 }
                 else
                 {
-                    varGlobales.baseDeDatos = "cualesmi_lavanderia";
+                    varGlobales.baseDeDatos = "lavanderia";
                     
                 }
                 try
