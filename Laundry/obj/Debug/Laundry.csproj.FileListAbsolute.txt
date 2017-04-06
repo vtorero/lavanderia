@@ -43,9 +43,9 @@ D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmLogin.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmOrden.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmPrendas.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmReporte.resources
-D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmReporteDia.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmServicio.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 D:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 D:\lavanderia\Laundry\obj\Debug\Laundry.exe
 D:\lavanderia\Laundry\obj\Debug\Laundry.pdb
+D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmCierre.resources

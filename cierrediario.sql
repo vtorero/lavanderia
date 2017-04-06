@@ -1,0 +1,3 @@
+select pg.idOrden,c.nombreCliente,o.fechaCreado,o.idUsuario, u.sucursal,pg.pago1,if(tipoPago1=0,'Efectivo','Visa') modoPago from (select * from Pago where fechaPago between '2017-04-04 00:00:00' and '2017-04-05 23:00:00') pg
+inner join Orden o on o.idOrden=pg.idOrden and tipoPago1 in(0,1) inner join usuario u on o.idUsuario=u.id
+inner join Cliente c on o.idCliente=c.idCliente and u.id=1 order by modoPago
