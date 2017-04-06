@@ -214,6 +214,7 @@
             // 
             // txtNombres
             // 
+            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombres.Location = new System.Drawing.Point(100, 45);
             this.txtNombres.MaxLength = 300;
             this.txtNombres.Name = "txtNombres";

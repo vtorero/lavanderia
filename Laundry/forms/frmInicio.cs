@@ -187,7 +187,7 @@ namespace Lavanderia.forms
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-                       Form childForm = new frmClientes();
+            Form childForm = new frmClientes();
             childForm.MdiParent = this;
             childForm.Text = "Mantenimiento de Clientes";
             childForm.Show();
@@ -222,6 +222,14 @@ namespace Lavanderia.forms
             rt.Text = "Reporte de Cierre al Seco";
             rt.crystalReportViewer1.ReportSource = cryrep;
             rt.Show();﻿
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmCierre();
+            childForm.MdiParent = this;
+            childForm.Text = "Reporte de Cierre";
+            childForm.Show();
         }
 
     
