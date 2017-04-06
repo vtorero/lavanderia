@@ -105,6 +105,12 @@
     <Compile Include="forms\busquedas\frmBuscarServicio.Designer.cs">
       <DependentUpon>frmBuscarServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCierre.Designer.cs">
+      <DependentUpon>frmCierre.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,12 +171,6 @@
     <Compile Include="forms\frmReporte.Designer.cs">
       <DependentUpon>frmReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmReporteDia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmReporteDia.Designer.cs">
-      <DependentUpon>frmReporteDia.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +192,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAlseco.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsCierreDiario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCierreDiario.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\DsPrendas.cs">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
@@ -270,6 +275,9 @@
     <EmbeddedResource Include="forms\busquedas\frmBuscarServicio.resx">
       <DependentUpon>frmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCierre.resx">
+      <DependentUpon>frmCierre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,9 +307,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmReporte.resx">
       <DependentUpon>frmReporte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmReporteDia.resx">
-      <DependentUpon>frmReporteDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmServicio.resx">
       <DependentUpon>frmServicio.cs</DependentUpon>
@@ -353,6 +358,17 @@
     </None>
     <None Include="Models\dsAlseco.xss">
       <DependentUpon>dsAlseco.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsCierreDiario.xsc">
+      <DependentUpon>dsCierreDiario.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsCierreDiario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCierreDiario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsCierreDiario.xss">
+      <DependentUpon>dsCierreDiario.xsd</DependentUpon>
     </None>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
@@ -425,6 +441,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\calculator1.ico" />
+    <None Include="Resources\printer.ico" />
     <None Include="Resources\treeup.ico" />
     <None Include="Resources\Arrow.png" />
     <None Include="Resources\WindowsGroups_7309.ico" />

@@ -152,5 +152,6 @@ namespace Lavanderia.forms
                 dgvClientes.Columns[6].Visible = false;
             
         }
+
     }
 }
