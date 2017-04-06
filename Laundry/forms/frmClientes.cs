@@ -64,7 +64,7 @@ namespace Lavanderia.forms
 
                 MessageBox.Show(msj, "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvClientes.DataSource = ClienteDao.Listar();
-                tabControl1.SelectedTab = tabPage2;
+               /// tabControl1.SelectedTab = tabPage2;
                 btnGuardar.Text = "&Registrar";
                 resetValores();
             }
