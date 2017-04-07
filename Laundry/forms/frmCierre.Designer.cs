@@ -33,8 +33,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSrcCliente = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdPagos = new System.Windows.Forms.RadioButton();
+            this.rdPendientes = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dtFechaFin
@@ -81,36 +81,37 @@
             this.btnSrcCliente.Size = new System.Drawing.Size(73, 64);
             this.btnSrcCliente.TabIndex = 12;
             this.btnSrcCliente.UseVisualStyleBackColor = true;
+            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
-            // radioButton1
+            // rdPagos
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(70, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdPagos.AutoSize = true;
+            this.rdPagos.Location = new System.Drawing.Point(70, 12);
+            this.rdPagos.Name = "rdPagos";
+            this.rdPagos.Size = new System.Drawing.Size(67, 17);
+            this.rdPagos.TabIndex = 17;
+            this.rdPagos.TabStop = true;
+            this.rdPagos.Text = "Entregas";
+            this.rdPagos.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdPendientes
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(196, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdPendientes.AutoSize = true;
+            this.rdPendientes.Location = new System.Drawing.Point(196, 12);
+            this.rdPendientes.Name = "rdPendientes";
+            this.rdPendientes.Size = new System.Drawing.Size(64, 17);
+            this.rdPendientes.TabIndex = 18;
+            this.rdPendientes.TabStop = true;
+            this.rdPendientes.Text = "Recojos";
+            this.rdPendientes.UseVisualStyleBackColor = true;
             // 
             // frmCierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 143);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(453, 164);
+            this.Controls.Add(this.rdPendientes);
+            this.Controls.Add(this.rdPagos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtFechaFin);
@@ -130,7 +131,7 @@
         private System.Windows.Forms.DateTimePicker dtFechaInicial;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdPagos;
+        private System.Windows.Forms.RadioButton rdPendientes;
     }
 }
