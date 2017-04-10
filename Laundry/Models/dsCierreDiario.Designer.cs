@@ -289,9 +289,11 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnsucursal;
             
-            private global::System.Data.DataColumn columnpago1;
+            private global::System.Data.DataColumn columnpago;
             
             private global::System.Data.DataColumn columnmodoPago;
+            
+            private global::System.Data.DataColumn columnMovimiento;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -368,9 +370,9 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pago1Column {
+            public global::System.Data.DataColumn pagoColumn {
                 get {
-                    return this.columnpago1;
+                    return this.columnpago;
                 }
             }
             
@@ -379,6 +381,14 @@ namespace Lavanderia.Models {
             public global::System.Data.DataColumn modoPagoColumn {
                 get {
                     return this.columnmodoPago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MovimientoColumn {
+                get {
+                    return this.columnMovimiento;
                 }
             }
             
@@ -419,7 +429,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsCierrePagosRow AdddsCierrePagosRow(string idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago1, string modoPago) {
+            public dsCierrePagosRow AdddsCierrePagosRow(string idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento) {
                 dsCierrePagosRow rowdsCierrePagosRow = ((dsCierrePagosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -427,8 +437,9 @@ namespace Lavanderia.Models {
                         fechaCreado,
                         idUsuario,
                         sucursal,
-                        pago1,
-                        modoPago};
+                        pago,
+                        modoPago,
+                        Movimiento};
                 rowdsCierrePagosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCierrePagosRow);
                 return rowdsCierrePagosRow;
@@ -456,8 +467,9 @@ namespace Lavanderia.Models {
                 this.columnfechaCreado = base.Columns["fechaCreado"];
                 this.columnidUsuario = base.Columns["idUsuario"];
                 this.columnsucursal = base.Columns["sucursal"];
-                this.columnpago1 = base.Columns["pago1"];
+                this.columnpago = base.Columns["pago"];
                 this.columnmodoPago = base.Columns["modoPago"];
+                this.columnMovimiento = base.Columns["Movimiento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -473,10 +485,12 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnidUsuario);
                 this.columnsucursal = new global::System.Data.DataColumn("sucursal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsucursal);
-                this.columnpago1 = new global::System.Data.DataColumn("pago1", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpago1);
+                this.columnpago = new global::System.Data.DataColumn("pago", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpago);
                 this.columnmodoPago = new global::System.Data.DataColumn("modoPago", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmodoPago);
+                this.columnMovimiento = new global::System.Data.DataColumn("Movimiento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMovimiento);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -699,17 +713,17 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double pago1 {
+            public double pago {
                 get {
                     try {
-                        return ((double)(this[this.tabledsCierrePagos.pago1Column]));
+                        return ((double)(this[this.tabledsCierrePagos.pagoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago1\' de la tabla \'dsCierrePagos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago\' de la tabla \'dsCierrePagos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCierrePagos.pago1Column] = value;
+                    this[this.tabledsCierrePagos.pagoColumn] = value;
                 }
             }
             
@@ -726,6 +740,22 @@ namespace Lavanderia.Models {
                 }
                 set {
                     this[this.tabledsCierrePagos.modoPagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Movimiento {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCierrePagos.MovimientoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Movimiento\' de la tabla \'dsCierrePagos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCierrePagos.MovimientoColumn] = value;
                 }
             }
             
@@ -791,14 +821,14 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ispago1Null() {
-                return this.IsNull(this.tabledsCierrePagos.pago1Column);
+            public bool IspagoNull() {
+                return this.IsNull(this.tabledsCierrePagos.pagoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setpago1Null() {
-                this[this.tabledsCierrePagos.pago1Column] = global::System.Convert.DBNull;
+            public void SetpagoNull() {
+                this[this.tabledsCierrePagos.pagoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -811,6 +841,18 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetmodoPagoNull() {
                 this[this.tabledsCierrePagos.modoPagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMovimientoNull() {
+                return this.IsNull(this.tabledsCierrePagos.MovimientoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMovimientoNull() {
+                this[this.tabledsCierrePagos.MovimientoColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -33,14 +33,12 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSrcCliente = new System.Windows.Forms.Button();
-            this.rdPagos = new System.Windows.Forms.RadioButton();
-            this.rdPendientes = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dtFechaFin
             // 
             this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaFin.Location = new System.Drawing.Point(172, 98);
+            this.dtFechaFin.Location = new System.Drawing.Point(172, 99);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(109, 20);
             this.dtFechaFin.TabIndex = 14;
@@ -48,7 +46,7 @@
             // dtFechaInicial
             // 
             this.dtFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaInicial.Location = new System.Drawing.Point(172, 55);
+            this.dtFechaInicial.Location = new System.Drawing.Point(172, 36);
             this.dtFechaInicial.Name = "dtFechaInicial";
             this.dtFechaInicial.Size = new System.Drawing.Size(109, 20);
             this.dtFechaInicial.TabIndex = 13;
@@ -56,7 +54,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(67, 56);
+            this.lblFecha.Location = new System.Drawing.Point(67, 42);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(67, 13);
             this.lblFecha.TabIndex = 15;
@@ -75,7 +73,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.printer;
-            this.btnSrcCliente.Location = new System.Drawing.Point(331, 55);
+            this.btnSrcCliente.Location = new System.Drawing.Point(334, 42);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(73, 64);
@@ -83,35 +81,11 @@
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
-            // rdPagos
-            // 
-            this.rdPagos.AutoSize = true;
-            this.rdPagos.Location = new System.Drawing.Point(70, 12);
-            this.rdPagos.Name = "rdPagos";
-            this.rdPagos.Size = new System.Drawing.Size(67, 17);
-            this.rdPagos.TabIndex = 17;
-            this.rdPagos.TabStop = true;
-            this.rdPagos.Text = "Entregas";
-            this.rdPagos.UseVisualStyleBackColor = true;
-            // 
-            // rdPendientes
-            // 
-            this.rdPendientes.AutoSize = true;
-            this.rdPendientes.Location = new System.Drawing.Point(196, 12);
-            this.rdPendientes.Name = "rdPendientes";
-            this.rdPendientes.Size = new System.Drawing.Size(64, 17);
-            this.rdPendientes.TabIndex = 18;
-            this.rdPendientes.TabStop = true;
-            this.rdPendientes.Text = "Recojos";
-            this.rdPendientes.UseVisualStyleBackColor = true;
-            // 
             // frmCierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 164);
-            this.Controls.Add(this.rdPendientes);
-            this.Controls.Add(this.rdPagos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtFechaFin);
@@ -131,7 +105,5 @@
         private System.Windows.Forms.DateTimePicker dtFechaInicial;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rdPagos;
-        private System.Windows.Forms.RadioButton rdPendientes;
     }
 }
