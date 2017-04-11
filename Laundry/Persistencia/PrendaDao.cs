@@ -73,7 +73,7 @@ namespace Lavanderia.Persistencia
 
         public static MySqlDataReader fillPrendaSearch(string criterio)
         {
-            int id = 0;
+            
             MySqlCommand _comando = new MySqlCommand("prendasSearch", BdComun.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.Parameters.Add(new MySqlParameter("criterio", criterio));

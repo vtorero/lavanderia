@@ -46,7 +46,7 @@
             // dtFechaInicial
             // 
             this.dtFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaInicial.Location = new System.Drawing.Point(172, 36);
+            this.dtFechaInicial.Location = new System.Drawing.Point(172, 55);
             this.dtFechaInicial.Name = "dtFechaInicial";
             this.dtFechaInicial.Size = new System.Drawing.Size(109, 20);
             this.dtFechaInicial.TabIndex = 13;
@@ -54,7 +54,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(67, 42);
+            this.lblFecha.Location = new System.Drawing.Point(67, 55);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(67, 13);
             this.lblFecha.TabIndex = 15;
@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 104);
+            this.label1.Location = new System.Drawing.Point(67, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 16;
@@ -73,7 +73,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.printer;
-            this.btnSrcCliente.Location = new System.Drawing.Point(334, 42);
+            this.btnSrcCliente.Location = new System.Drawing.Point(350, 55);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(73, 64);

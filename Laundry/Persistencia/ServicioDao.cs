@@ -67,6 +67,15 @@ namespace Lavanderia.Persistencia
             return _reader;
         }
 
+        public static MySqlDataReader fillSucursales()
+        {
+            MySqlCommand _comando = new MySqlCommand("SELECT id, sucursal FROM usuario where id<> 1 order by sucursal", BdComun.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            return _reader;
+        }
+
+
+
         public static MySqlDataReader fillServicioSearch(string criterio)
         {
             MySqlCommand _comando = new MySqlCommand(String.Format(
