@@ -31,7 +31,7 @@ namespace Lavanderia.forms
                 s +=  "'"+ chKSucursal.CheckedItems[x].ToString() + "',";
             }
             s = s.TrimEnd(',');
-            MessageBox.Show(s);
+        
 
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
