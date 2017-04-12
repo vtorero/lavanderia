@@ -49,5 +49,25 @@ ReportDocument cryrep = new ReportDocument();
             rt.Show();﻿
 
         }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaFin_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaInicial_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

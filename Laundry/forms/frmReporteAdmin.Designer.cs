@@ -45,7 +45,6 @@
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Fecha fin:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblFecha
             // 
@@ -55,7 +54,6 @@
             this.lblFecha.Size = new System.Drawing.Size(67, 13);
             this.lblFecha.TabIndex = 20;
             this.lblFecha.Text = "Fecha inicio:";
-            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // dtFechaFin
             // 
@@ -64,7 +62,6 @@
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(109, 20);
             this.dtFechaFin.TabIndex = 19;
-            this.dtFechaFin.ValueChanged += new System.EventHandler(this.dtFechaFin_ValueChanged);
             // 
             // dtFechaInicial
             // 
@@ -73,7 +70,6 @@
             this.dtFechaInicial.Name = "dtFechaInicial";
             this.dtFechaInicial.Size = new System.Drawing.Size(109, 20);
             this.dtFechaInicial.TabIndex = 18;
-            this.dtFechaInicial.ValueChanged += new System.EventHandler(this.dtFechaInicial_ValueChanged);
             // 
             // btnSrcCliente
             // 
@@ -89,6 +85,7 @@
             // 
             // chKSucursal
             // 
+            this.chKSucursal.CheckOnClick = true;
             this.chKSucursal.FormattingEnabled = true;
             this.chKSucursal.Location = new System.Drawing.Point(50, 48);
             this.chKSucursal.Name = "chKSucursal";
@@ -108,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 189);
+            this.ClientSize = new System.Drawing.Size(625, 197);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chKSucursal);
             this.Controls.Add(this.label1);
