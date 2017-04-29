@@ -116,6 +116,30 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<OrdenLinea> consultarOrden(int id)
+        {
+            List<OrdenLinea> _lista = new List<OrdenLinea>();
+            MySqlCommand cmd = new MySqlCommand("consultaOrden", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("id", id));
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                OrdenLinea   ordenlinea = new OrdenLinea();
+                ordenlinea.idOrden = Convert.ToInt32(dr["idOrden"]);
+                ordenlinea.Descripcion = Convert.ToString(dr["descripcion"]);
+                ordenlinea.Cantidad = Convert.ToInt32(dr["cantidad"]);
+                ordenlinea.Precio = Convert.ToDecimal(dr["precio"]);
+                ordenlinea.Colores = Convert.ToString(dr["colorPrenda"]);
+                ordenlinea.Marca = Convert.ToString(dr["marca"]);
+                ordenlinea.Defecto = Convert.ToString(dr["defecto"]);
+                _lista.Add(ordenlinea);
+            }
+            cmd.Connection.Close();
+
+            return _lista;
+        }
 
 
 
