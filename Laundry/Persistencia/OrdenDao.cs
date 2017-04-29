@@ -128,12 +128,14 @@ namespace Lavanderia.Persistencia
             {
                 OrdenLinea   ordenlinea = new OrdenLinea();
                 ordenlinea.idOrden = Convert.ToInt32(dr["idOrden"]);
+                ordenlinea.Item = Convert.ToInt32(dr["item"]);
                 ordenlinea.Descripcion = Convert.ToString(dr["descripcion"]);
                 ordenlinea.Cantidad = Convert.ToInt32(dr["cantidad"]);
                 ordenlinea.Precio = Convert.ToDecimal(dr["precio"]);
                 ordenlinea.Colores = Convert.ToString(dr["colorPrenda"]);
                 ordenlinea.Marca = Convert.ToString(dr["marca"]);
                 ordenlinea.Defecto = Convert.ToString(dr["defecto"]);
+                ordenlinea.Total = Convert.ToDecimal(dr["total"]);
                 _lista.Add(ordenlinea);
             }
             cmd.Connection.Close();

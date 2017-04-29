@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntregas));
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
-            this.btnSrcCliente = new System.Windows.Forms.Button();
-            this.btnAddPrenda = new System.Windows.Forms.Button();
-            this.btnEntregar = new System.Windows.Forms.Button();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -55,21 +51,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.btnEntregar = new System.Windows.Forms.Button();
+            this.btnSrcCliente = new System.Windows.Forms.Button();
+            this.btnAddPrenda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvOrdenes
             // 
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenes.Location = new System.Drawing.Point(28, 122);
+            this.dgvOrdenes.Location = new System.Drawing.Point(28, 105);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(687, 163);
+            this.dgvOrdenes.Size = new System.Drawing.Size(687, 180);
             this.dgvOrdenes.TabIndex = 0;
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
             // 
@@ -88,40 +90,6 @@
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(160, 20);
             this.txtCliente.TabIndex = 2;
-            // 
-            // btnSrcCliente
-            // 
-            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(626, 14);
-            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSrcCliente.Name = "btnSrcCliente";
-            this.btnSrcCliente.Size = new System.Drawing.Size(95, 71);
-            this.btnSrcCliente.TabIndex = 5;
-            this.btnSrcCliente.UseVisualStyleBackColor = true;
-            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
-            // 
-            // btnAddPrenda
-            // 
-            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(473, 14);
-            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
-            this.btnAddPrenda.TabIndex = 7;
-            this.btnAddPrenda.UseVisualStyleBackColor = true;
-            this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
-            // 
-            // btnEntregar
-            // 
-            this.btnEntregar.Location = new System.Drawing.Point(143, 203);
-            this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(103, 38);
-            this.btnEntregar.TabIndex = 8;
-            this.btnEntregar.Text = "&Entregar";
-            this.btnEntregar.UseVisualStyleBackColor = true;
-            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
             // 
             // dtFechaInicial
             // 
@@ -162,7 +130,7 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Location = new System.Drawing.Point(29, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(746, 99);
+            this.groupBox1.Size = new System.Drawing.Size(698, 78);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -206,16 +174,16 @@
             this.groupBox2.Controls.Add(this.lblDebe);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMonto);
-            this.groupBox2.Location = new System.Drawing.Point(730, 122);
+            this.groupBox2.Location = new System.Drawing.Point(730, 96);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 258);
+            this.groupBox2.Size = new System.Drawing.Size(252, 209);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 125);
+            this.label3.Location = new System.Drawing.Point(15, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 11;
@@ -223,16 +191,16 @@
             // 
             // txtObs
             // 
-            this.txtObs.Location = new System.Drawing.Point(17, 154);
+            this.txtObs.Location = new System.Drawing.Point(18, 114);
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(229, 42);
+            this.txtObs.Size = new System.Drawing.Size(220, 42);
             this.txtObs.TabIndex = 10;
             // 
             // chkVisa
             // 
             this.chkVisa.AutoSize = true;
-            this.chkVisa.Location = new System.Drawing.Point(180, 93);
+            this.chkVisa.Location = new System.Drawing.Point(181, 19);
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.Size = new System.Drawing.Size(46, 17);
             this.chkVisa.TabIndex = 9;
@@ -261,7 +229,7 @@
             // lblsimdebe
             // 
             this.lblsimdebe.AutoSize = true;
-            this.lblsimdebe.Location = new System.Drawing.Point(57, 94);
+            this.lblsimdebe.Location = new System.Drawing.Point(57, 77);
             this.lblsimdebe.Name = "lblsimdebe";
             this.lblsimdebe.Size = new System.Drawing.Size(22, 13);
             this.lblsimdebe.TabIndex = 5;
@@ -270,7 +238,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 61);
+            this.label4.Location = new System.Drawing.Point(56, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 4;
@@ -280,7 +248,7 @@
             // 
             this.txtDebe.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtDebe.Enabled = false;
-            this.txtDebe.Location = new System.Drawing.Point(81, 90);
+            this.txtDebe.Location = new System.Drawing.Point(81, 73);
             this.txtDebe.Name = "txtDebe";
             this.txtDebe.Size = new System.Drawing.Size(81, 20);
             this.txtDebe.TabIndex = 3;
@@ -289,7 +257,7 @@
             // lblDebe
             // 
             this.lblDebe.AutoSize = true;
-            this.lblDebe.Location = new System.Drawing.Point(14, 91);
+            this.lblDebe.Location = new System.Drawing.Point(14, 73);
             this.lblDebe.Name = "lblDebe";
             this.lblDebe.Size = new System.Drawing.Size(36, 13);
             this.lblDebe.TabIndex = 2;
@@ -298,7 +266,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 62);
+            this.label2.Location = new System.Drawing.Point(12, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -308,19 +276,68 @@
             // 
             this.txtMonto.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtMonto.Enabled = false;
-            this.txtMonto.Location = new System.Drawing.Point(81, 56);
+            this.txtMonto.Location = new System.Drawing.Point(81, 46);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(81, 20);
             this.txtMonto.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(23, 311);
+            this.groupBox3.Controls.Add(this.dgvDetalles);
+            this.groupBox3.Location = new System.Drawing.Point(12, 311);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(691, 174);
+            this.groupBox3.Size = new System.Drawing.Size(970, 174);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle de la Orden";
+            // 
+            // dgvDetalles
+            // 
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(17, 19);
+            this.dgvDetalles.MultiSelect = false;
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.RowHeadersVisible = false;
+            this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalles.Size = new System.Drawing.Size(925, 149);
+            this.dgvDetalles.TabIndex = 1;
+            // 
+            // btnEntregar
+            // 
+            this.btnEntregar.Image = global::Lavanderia.Properties.Resources._112_Tick_Green;
+            this.btnEntregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEntregar.Location = new System.Drawing.Point(20, 165);
+            this.btnEntregar.Name = "btnEntregar";
+            this.btnEntregar.Size = new System.Drawing.Size(164, 38);
+            this.btnEntregar.TabIndex = 8;
+            this.btnEntregar.Text = "&Entregar Pedido";
+            this.btnEntregar.UseVisualStyleBackColor = true;
+            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
+            // 
+            // btnSrcCliente
+            // 
+            this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
+            this.btnSrcCliente.Location = new System.Drawing.Point(597, 15);
+            this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSrcCliente.Name = "btnSrcCliente";
+            this.btnSrcCliente.Size = new System.Drawing.Size(73, 40);
+            this.btnSrcCliente.TabIndex = 5;
+            this.btnSrcCliente.UseVisualStyleBackColor = true;
+            this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
+            // 
+            // btnAddPrenda
+            // 
+            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPrenda.Location = new System.Drawing.Point(407, 14);
+            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPrenda.Name = "btnAddPrenda";
+            this.btnAddPrenda.Size = new System.Drawing.Size(24, 24);
+            this.btnAddPrenda.TabIndex = 7;
+            this.btnAddPrenda.Text = "....";
+            this.btnAddPrenda.UseVisualStyleBackColor = true;
+            this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
             // 
             // frmEntregas
             // 
@@ -339,6 +356,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,5 +390,6 @@
         private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.CheckBox chkVisa;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvDetalles;
     }
 }

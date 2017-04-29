@@ -54,6 +54,26 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[7].Visible = false;
         }
 
+        private void llenarDetalles(int id)
+        {
+            dgvDetalles.DataSource = OrdenDao.consultarOrden(id);
+            dgvDetalles.Columns[0].HeaderText = "Código";
+              dgvDetalles.Columns[2].Visible = false;
+              dgvDetalles.Columns[5].DefaultCellStyle.Format = "C2";
+              dgvDetalles.Columns[9].DefaultCellStyle.Format = "C2";
+              dgvDetalles.Columns[10].Visible = false;
+              dgvDetalles.Columns[11].Visible = false;
+              
+              /*dgvDetalles.Columns[2].HeaderText = "Nombre cliente";
+              dgvDetalles.Columns[2].Width = 250;
+              dgvDetalles.Columns[3].HeaderText = "DNI";
+              dgvDetalles.Columns[3].Visible = false;
+              dgvDetalles.Columns[4].HeaderText = "Fecha Orden";
+              dgvDetalles.Columns[4].Width = 200;
+              dgvDetalles.Columns[5].HeaderText = "Monto Orden";*/
+            
+        }
+
         private void btnAddPrenda_Click(object sender, EventArgs e)
         {
             frmBuscarCliente childForm = new frmBuscarCliente();
@@ -74,6 +94,7 @@ namespace Lavanderia.forms
                 lblsimdebe.Visible = true;
                 txtDebe.Text = Convert.ToString(dgvOrdenes[6, pos].Value);
                 chkVisa.Visible = true;
+                llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             }
             else
             {
@@ -83,6 +104,7 @@ namespace Lavanderia.forms
                 lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
                 chkVisa.Visible = false;
+                llenarDetalles(Convert.ToInt32(dgvOrdenes[0,pos].Value));
             }
 
 
@@ -97,6 +119,7 @@ namespace Lavanderia.forms
             int re = 0;
             re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text),pago2,txtObs.Text);
             llenarDatos();
+            llenarDetalles(0);
             chkVisa.Visible = false;
             txtMonto.Text = "0.00";
             txtDebe.Text = "0.00";

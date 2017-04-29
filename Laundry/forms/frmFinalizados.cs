@@ -14,14 +14,30 @@ namespace Lavanderia.forms
 {
     public partial class frmFinalizados : Form
     {
+        int pos = 0;
         public frmFinalizados()
         {
             InitializeComponent();
+           
         }
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
             llenarDatos();
+        }
+
+        private void llenarDetalles(int id)
+        {
+            dgvDetalles.DataSource = OrdenDao.consultarOrden(id);
+            dgvDetalles.Columns[0].HeaderText = "Código";
+            dgvDetalles.Columns[2].Visible = false;
+            dgvDetalles.Columns[5].DefaultCellStyle.Format = "C2";
+            dgvDetalles.Columns[9].DefaultCellStyle.Format = "C2";
+            dgvDetalles.Columns[10].Visible = false;
+            dgvDetalles.Columns[11].Visible = false;
+
+          
+
         }
 
         private void llenarDatos()
@@ -38,12 +54,19 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[4].Width = 200;
             dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
             dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[5].Width = 50;
+            dgvOrdenes.Columns[5].Width = 100;
             dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
             dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[6].Visible = false;
             dgvOrdenes.Columns[6].Width = 50;
             dgvOrdenes.Columns[7].HeaderText = "Tipo";
             dgvOrdenes.Columns[7].Visible = false;
+        }
+
+        private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            pos = dgvOrdenes.CurrentRow.Index;
+            llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
         }
     }
 }

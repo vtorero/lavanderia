@@ -63,6 +63,16 @@ namespace Lavanderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _112_Tick_Green {
+            get {
+                object obj = ResourceManager.GetObject("112_Tick_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Annotate_Disabled {
             get {
                 object obj = ResourceManager.GetObject("Annotate_Disabled", resourceCulture);

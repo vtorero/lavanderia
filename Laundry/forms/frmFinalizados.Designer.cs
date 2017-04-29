@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFinalizados));
             this.txtIdCliente = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -41,8 +40,12 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdCliente
@@ -85,7 +88,7 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Location = new System.Drawing.Point(13, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(746, 99);
+            this.groupBox1.Size = new System.Drawing.Size(746, 75);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
@@ -104,7 +107,7 @@
             this.btnSrcCliente.Location = new System.Drawing.Point(626, 11);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
-            this.btnSrcCliente.Size = new System.Drawing.Size(95, 71);
+            this.btnSrcCliente.Size = new System.Drawing.Size(93, 45);
             this.btnSrcCliente.TabIndex = 5;
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
@@ -129,12 +132,12 @@
             // btnAddPrenda
             // 
             this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrenda.Image")));
-            this.btnAddPrenda.Location = new System.Drawing.Point(563, 11);
+            this.btnAddPrenda.Location = new System.Drawing.Point(557, 11);
             this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(45, 24);
+            this.btnAddPrenda.Size = new System.Drawing.Size(29, 24);
             this.btnAddPrenda.TabIndex = 7;
+            this.btnAddPrenda.Text = "...";
             this.btnAddPrenda.UseVisualStyleBackColor = true;
             // 
             // txtCliente
@@ -156,20 +159,44 @@
             // dgvOrdenes
             // 
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenes.Location = new System.Drawing.Point(12, 120);
+            this.dgvOrdenes.Location = new System.Drawing.Point(12, 100);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(747, 292);
+            this.dgvOrdenes.Size = new System.Drawing.Size(776, 156);
             this.dgvOrdenes.TabIndex = 14;
+            this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvDetalles);
+            this.groupBox3.Location = new System.Drawing.Point(8, 265);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(936, 219);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Detalle de la Orden";
+            // 
+            // dgvDetalles
+            // 
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(9, 19);
+            this.dgvDetalles.MultiSelect = false;
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.RowHeadersVisible = false;
+            this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalles.Size = new System.Drawing.Size(908, 180);
+            this.dgvDetalles.TabIndex = 1;
             // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 421);
+            this.ClientSize = new System.Drawing.Size(990, 510);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvOrdenes);
             this.Name = "frmFinalizados";
@@ -177,6 +204,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,5 +224,7 @@
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.DataGridView dgvOrdenes;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvDetalles;
     }
 }

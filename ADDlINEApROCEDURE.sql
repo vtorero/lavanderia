@@ -10,6 +10,7 @@ DROP PROCEDURE IF EXISTS prendasSearch;
 DROP PROCEDURE IF EXISTS prendasAll;
 DROP PROCEDURE IF EXISTS marcasAll;
 DROP PROCEDURE IF EXISTS insertaMarca;
+DROP PROCEDURE IF EXISTS consultaOrden;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -91,6 +92,13 @@ IN estado INT
 BEGIN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
 WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
+END $$
+DELIMITER $$
+CREATE PROCEDURE consultaOrden(
+IN id INT
+)
+BEGIN
+SELECT o.idOrden,l.item,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2 FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join Pago p on o.idOrden=p.idOrden inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden=id;
 END $$
 DELIMITER $$
 CREATE PROCEDURE prendasSearch(
