@@ -97,7 +97,7 @@ CREATE PROCEDURE prendasSearch(
 IN criterio VARCHAR(100)
 )
 BEGIN
-SELECT idPrenda,nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
+SELECT idPrenda,upper(nombrePrenda) as nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(
