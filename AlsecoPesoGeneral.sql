@@ -15,7 +15,7 @@ INNER JOIN `ordenlinea` ol ON o.idOrden=ol.idOrden
 INNER JOIN `cliente` c ON o.`idCliente`=c.`idCliente` 
 INNER JOIN `usuario` u ON U.`id`=O.`idUsuario` 
  INNER JOIN Pago p ON o.idOrden=p.idOrden WHERE p.tipoPago IN(1) AND tipoPago1 IN(0,1) AND tipoPago2 IN (0,1)) al WHERE 
-al.fechaCreado BETWEEN '2017-04-25 00:00:00' AND '2017-04-25 23:59:59' AND 
+al.fechaCreado BETWEEN '2017-04-26 00:00:00' AND '2017-04-26 23:59:59' AND 
  al.tipoServicio IN(1,2) UNION
 SELECT al.idOrden,al.nombreCliente,al.fechaCreado,IF(al.tipoServicio=1, 'Al seco','Al Peso') tipo, al.pago1,al.pago2,(al.pago1) total,al.modoPago,al.tipoPago FROM 
  (SELECT l.`item`,l.tipoServicio,o.idOrden,c.`nombreCliente`,o.fechaCreado,l.precio,l.cantidad,total,p.pago1,p.pago2,IF(tipoPago1=0,'Efectivo','Visa') modoPago,o.`tipoPago` FROM Orden o INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden 

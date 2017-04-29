@@ -41,15 +41,15 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
             dgvOrdenes.Columns[2].Width = 250;
             dgvOrdenes.Columns[3].HeaderText = "DNI";
-            dgvOrdenes.Columns[3].Width = 100;
+            dgvOrdenes.Columns[3].Visible = false;
             dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
             dgvOrdenes.Columns[4].Width = 200;
             dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
             dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[5].Width = 50;
+            dgvOrdenes.Columns[5].Width = 70;
             dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
             dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[6].Width = 50;
+            dgvOrdenes.Columns[6].Width = 70;
             dgvOrdenes.Columns[7].HeaderText = "Tipo";
             dgvOrdenes.Columns[7].Visible = false;
         }
