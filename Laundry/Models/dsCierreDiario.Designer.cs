@@ -429,7 +429,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsCierrePagosRow AdddsCierrePagosRow(string idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento) {
+            public dsCierrePagosRow AdddsCierrePagosRow(int idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento) {
                 dsCierrePagosRow rowdsCierrePagosRow = ((dsCierrePagosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -475,7 +475,7 @@ namespace Lavanderia.Models {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidOrden);
                 this.columnnombreCliente = new global::System.Data.DataColumn("nombreCliente", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreCliente);
@@ -633,10 +633,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idOrden {
+            public int idOrden {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCierrePagos.idOrdenColumn]));
+                        return ((int)(this[this.tabledsCierrePagos.idOrdenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'idOrden\' de la tabla \'dsCierrePagos\' es DBNull.", e);

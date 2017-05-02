@@ -25,6 +25,9 @@ D:\laundry\Laundry\Laundry\obj\Debug\Laundry.exe
 D:\laundry\Laundry\Laundry\obj\Debug\Laundry.pdb
 D:\laundry\Laundry\Laundry\obj\Debug\WindowsFormsApplication1.forms.frmLogin.resources
 D:\laundry\Laundry\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
+D:\lavanderia\Laundry\bin\Debug\Laundry.exe
+D:\lavanderia\Laundry\bin\Debug\Laundry.exe.config
+D:\lavanderia\Laundry\bin\Debug\Laundry.pdb
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarCliente.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarColor.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarPrendas.resources
@@ -44,9 +47,6 @@ D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmReporteAdmin.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmServicio.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 D:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
-D:\lavanderia\Laundry\bin\Debug\Laundry.exe.config
-D:\lavanderia\Laundry\bin\Debug\Laundry.exe
-D:\lavanderia\Laundry\bin\Debug\Laundry.pdb
 D:\lavanderia\Laundry\obj\Debug\Laundry.exe
 D:\lavanderia\Laundry\obj\Debug\Laundry.pdb
 D:\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
