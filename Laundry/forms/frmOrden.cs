@@ -273,7 +273,7 @@ namespace Lavanderia.forms
                         ordline.Item = Convert.ToInt32(data.Cells["clNumero"].Value);
                         ordline.idPrenda = Convert.ToInt32(data.Cells["clPrenda"].Value);
                         ordline.Descripcion = data.Cells["clDescripcion"].Value.ToString();
-                        ordline.Cantidad = Convert.ToInt32(data.Cells["clCantidad"].Value);
+                        ordline.Cantidad = Convert.ToDecimal(data.Cells["clCantidad"].Value);
                         ordline.Precio = Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2);
                         ordline.Defecto = Convert.ToString(data.Cells["clDefecto"].Value);
                         ordline.Colores = Convert.ToString(data.Cells["clColores"].Value);

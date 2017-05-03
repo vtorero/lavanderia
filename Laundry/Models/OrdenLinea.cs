@@ -12,7 +12,7 @@ namespace Lavanderia.Models
         public int Item { get; set; }
         public int idPrenda{ get; set; }
         public string Descripcion{ get; set; }
-        public int Cantidad { get; set; }
+        public decimal Cantidad { get; set; }
         public decimal Precio { get; set; }
         public string Defecto { get; set; }
         public string  Colores { get; set; }
@@ -23,7 +23,7 @@ namespace Lavanderia.Models
       
         public OrdenLinea() { }
     
-           public OrdenLinea(int idorden, int item, int idprenda,string descripcion, int cantidad,string defecto,decimal precio,string colores,string marca,decimal total,int tiposervicio,int estado)
+           public OrdenLinea(int idorden, int item, int idprenda,string descripcion, decimal cantidad,string defecto,decimal precio,string colores,string marca,decimal total,int tiposervicio,int estado)
         {
             this.idOrden=idorden;
             this.Item = item;
