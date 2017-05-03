@@ -517,7 +517,7 @@ namespace Lavanderia.forms
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2 FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join Pago p on o.idOrden=p.idOrden inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
+         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds,"Ticket");
