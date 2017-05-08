@@ -38,7 +38,7 @@
             // dtFechaFin
             // 
             this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaFin.Location = new System.Drawing.Point(172, 99);
+            this.dtFechaFin.Location = new System.Drawing.Point(160, 93);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(109, 20);
             this.dtFechaFin.TabIndex = 14;
@@ -47,7 +47,7 @@
             // dtFechaInicial
             // 
             this.dtFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaInicial.Location = new System.Drawing.Point(172, 55);
+            this.dtFechaInicial.Location = new System.Drawing.Point(160, 34);
             this.dtFechaInicial.Name = "dtFechaInicial";
             this.dtFechaInicial.Size = new System.Drawing.Size(109, 20);
             this.dtFechaInicial.TabIndex = 13;
@@ -56,7 +56,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(67, 55);
+            this.lblFecha.Location = new System.Drawing.Point(54, 34);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(67, 13);
             this.lblFecha.TabIndex = 15;
@@ -66,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 105);
+            this.label1.Location = new System.Drawing.Point(54, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 16;
