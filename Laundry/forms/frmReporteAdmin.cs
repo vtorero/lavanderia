@@ -35,13 +35,20 @@ namespace Lavanderia.forms
             if (s != "")
             {
                 ReportDocument cryrep = new ReportDocument();
-                MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-             " (SELECT pg.idOrden,c.nombreCliente,o.fechaCreado,o.idUsuario, u.sucursal,pg.pago1 AS pago,IF(tipoPago1=0,'Efectivo','Visa') modoPago,IF(o.Estado=0,'Entrega','Recojo') Movimiento FROM (SELECT * FROM Pago WHERE fechaPago BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' "
-             + " AND pago1>0) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(1) AND o.`estado`=0 INNER JOIN usuario u ON o.idUsuario=u.id " +
-              " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ") ORDER BY modoPago) UNION " +
-    "(SELECT pg.idOrden,c.nombreCliente,pg.fechaActualizado AS fechaCreado,o.idUsuario, u.sucursal,pg.pago2 AS pago,IF(pg.tipoPago1=0,'Efectivo','Visa') modoPago,IF(o.Estado=0,'Entrega','Recojo') Movimiento FROM (SELECT * FROM Pago WHERE fechaActualizado BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
-    " ) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(2) AND o.`estado` in(0,1) INNER JOIN usuario u ON o.idUsuario=u.id " +
-    " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ") ORDER BY modoPago) ORDER BY modopago,idOrden;"), BdComun.ObtenerConexion());
+                MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("(SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,o.fechaCreado,o.idUsuario, u.sucursal,pg.pago1 AS pago," +
+" IF(tipoPago1=0,'EFECTIVO','TARJETA') modoPago,IF(o.Estado=0,'ENTREGA','RECOJO') Movimiento FROM " +
+" (SELECT * FROM Pago WHERE fechaPago BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
+" AND pago1>0) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(1) AND o.`estado`=0 INNER JOIN usuario u ON o.idUsuario=u.id " +
+" INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ") ORDER BY modoPago) UNION ALL " +
+" (SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,pg.fechaActualizado AS fechaCreado,o.idUsuario, u.sucursal,pg.pago1 AS pago,IF(pg.tipoPago2=0,'EFECTIVO','TARJETA') modoPago," +
+" IF(o.Estado=0,'ENTREGA','RECOJO') Movimiento FROM (SELECT * FROM Pago WHERE fechaPago BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
+ " ) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(2) AND o.`estado` IN(0,1) INNER JOIN usuario u ON o.idUsuario=u.id " +
+  " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND  u.sucursal IN(" + s + ") ORDER BY modoPago) " +
+            "UNION ALL " +
+" (SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,pg.fechaActualizado AS fechaCreado,o.idUsuario, u.sucursal, pg.pago2 AS pago ,IF(pg.tipoPago2=0,'EFECTIVO','TARJETA') modoPago, " +
+" IF(o.Estado=0,'ENTREGA','RECOJO') Movimiento FROM (SELECT * FROM Pago WHERE fechaActualizado BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
+ " ) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(2) AND o.`estado` IN(1) INNER JOIN usuario u ON o.idUsuario=u.id " +
+  " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ")  ORDER BY modoPago) ORDER BY modopago,idOrden"), BdComun.ObtenerConexion());
                 DataSet ds = new DataSet();
 
 
