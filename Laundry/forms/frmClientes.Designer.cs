@@ -50,6 +50,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.txtcriterio = new System.Windows.Forms.TextBox();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -62,7 +64,7 @@
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Location = new System.Drawing.Point(19, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 357);
+            this.groupBox1.Size = new System.Drawing.Size(727, 406);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -74,7 +76,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(691, 333);
+            this.tabControl1.Size = new System.Drawing.Size(691, 384);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -98,7 +100,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(683, 302);
+            this.tabPage1.Size = new System.Drawing.Size(683, 353);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mantenimiento";
             // 
@@ -234,13 +236,15 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_buscar);
+            this.tabPage2.Controls.Add(this.txtcriterio);
             this.tabPage2.Controls.Add(this.btnEliminar);
             this.tabPage2.Controls.Add(this.btnEditar);
             this.tabPage2.Controls.Add(this.dgvClientes);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(683, 302);
+            this.tabPage2.Size = new System.Drawing.Size(683, 353);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Listado";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -248,7 +252,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(491, 248);
+            this.btnEliminar.Location = new System.Drawing.Point(479, 300);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(165, 35);
             this.btnEliminar.TabIndex = 2;
@@ -259,7 +263,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(308, 248);
+            this.btnEditar.Location = new System.Drawing.Point(308, 300);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(165, 35);
             this.btnEditar.TabIndex = 1;
@@ -278,21 +282,38 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(14, 16);
+            this.dgvClientes.Location = new System.Drawing.Point(14, 54);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(642, 226);
+            this.dgvClientes.Size = new System.Drawing.Size(642, 240);
             this.dgvClientes.TabIndex = 0;
+            // 
+            // txtcriterio
+            // 
+            this.txtcriterio.Location = new System.Drawing.Point(16, 19);
+            this.txtcriterio.Name = "txtcriterio";
+            this.txtcriterio.Size = new System.Drawing.Size(217, 24);
+            this.txtcriterio.TabIndex = 3;
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Location = new System.Drawing.Point(239, 19);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscar.TabIndex = 4;
+            this.btn_buscar.Text = "&Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 391);
+            this.ClientSize = new System.Drawing.Size(757, 442);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmClientes";
@@ -302,6 +323,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 
@@ -329,5 +351,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtIDcliente;
         private System.Windows.Forms.Label LblId;
+        private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.TextBox txtcriterio;
     }
 }

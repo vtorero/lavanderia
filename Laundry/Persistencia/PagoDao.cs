@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -18,5 +19,16 @@ namespace Lavanderia.Persistencia
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
+
+        public static MySqlDataReader consultaPago(int id)
+        {
+            MySqlCommand _comando = new MySqlCommand("consultaPago", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.Parameters.Add(new MySqlParameter("id", id));
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            return _reader;
+        }
+
+
     }
 }

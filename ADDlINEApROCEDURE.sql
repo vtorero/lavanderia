@@ -11,6 +11,7 @@ DROP PROCEDURE IF EXISTS prendasAll;
 DROP PROCEDURE IF EXISTS marcasAll;
 DROP PROCEDURE IF EXISTS insertaMarca;
 DROP PROCEDURE IF EXISTS consultaOrden;
+DROP PROCEDURE IF EXISTS consultaPago;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -90,22 +91,39 @@ fechaFin VARCHAR(20),
 IN estado INT
 )
 BEGIN
+IF(usuario<>1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
 WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
+END IF;
+IF(usuario=1) THEN
+SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente);
+END IF;
 END $$
 DELIMITER $$
 CREATE PROCEDURE consultaOrden(
 IN id INT
 )
 BEGIN
-SELECT o.idOrden,l.item,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2 FROM Orden o inner join Cliente c on o.idCliente=c.idCliente inner join Pago p on o.idOrden=p.idOrden inner join OrdenLinea l on o.idOrden=l.idOrden where o.idOrden=id;
+SELECT o.idOrden,l.item,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,p.tipoPago,p.tipoPago1,p.tipoPago2 FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden WHERE o.idOrden=id;
+
 END $$
+DELIMITER $$
+CREATE PROCEDURE consultaPago(
+IN id INT
+)
+BEGIN
+SELECT * FROM Pago p WHERE p.idOrden=id;
+
+END $$
+
+
 DELIMITER $$
 CREATE PROCEDURE prendasSearch(
 IN criterio VARCHAR(100)
 )
 BEGIN
-SELECT idPrenda,upper(nombrePrenda) as nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
+SELECT idPrenda,UPPER(nombrePrenda) AS nombrePrenda,precioServicio FROM Prenda WHERE nombrePrenda=criterio;
 END $$
 DELIMITER $$
 CREATE PROCEDURE entregaOrden(

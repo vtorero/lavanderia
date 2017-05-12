@@ -153,5 +153,17 @@ namespace Lavanderia.forms
             
         }
 
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            dgvClientes.DataSource = ClienteDao.Buscar(txtcriterio.Text,"", varGlobales.sessionUsuario);
+            dgvClientes.Columns[0].HeaderText = "Código";
+            dgvClientes.Columns[0].Width = 75;
+            dgvClientes.Columns[1].HeaderText = "Nombres";
+            dgvClientes.Columns[1].Width = 180;
+            dgvClientes.Columns[2].Width = 90;
+            dgvClientes.Columns[3].Width = 160;
+            dgvClientes.Columns[6].Visible = false;
+        }
+
     }
 }

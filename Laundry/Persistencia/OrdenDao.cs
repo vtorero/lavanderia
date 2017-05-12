@@ -104,6 +104,7 @@ namespace Lavanderia.Persistencia
                 ordencliente.idOrden= Convert.ToInt32(dr["idOrden"]);
                 ordencliente.idCliente= Convert.ToInt32(dr["idCliente"]);
                 ordencliente.nombreCliente= Convert.ToString(dr["nombreCliente"]);
+                ordencliente.sucursal = Convert.ToString(dr["sucursal"]);
                 ordencliente.dniCliente = Convert.ToString(dr["dniCliente"]);
                 ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
                 ordencliente.Monto= Convert.ToDecimal(dr["totalOrden"]);
@@ -130,7 +131,7 @@ namespace Lavanderia.Persistencia
                 ordenlinea.idOrden = Convert.ToInt32(dr["idOrden"]);
                 ordenlinea.Item = Convert.ToInt32(dr["item"]);
                 ordenlinea.Descripcion = Convert.ToString(dr["descripcion"]);
-                ordenlinea.Cantidad = Convert.ToInt32(dr["cantidad"]);
+                ordenlinea.Cantidad = Convert.ToDecimal(dr["cantidad"]);
                 ordenlinea.Precio = Convert.ToDecimal(dr["precio"]);
                 ordenlinea.Colores = Convert.ToString(dr["colorPrenda"]);
                 ordenlinea.Marca = Convert.ToString(dr["marca"]);
