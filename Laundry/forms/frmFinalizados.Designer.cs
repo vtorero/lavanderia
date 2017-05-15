@@ -46,9 +46,10 @@
             this.rdpago1T = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grpPago2 = new System.Windows.Forms.GroupBox();
-            this.rdpago2E = new System.Windows.Forms.RadioButton();
             this.rdpago2T = new System.Windows.Forms.RadioButton();
+            this.rdpago2E = new System.Windows.Forms.RadioButton();
             this.btnCambiaModo = new System.Windows.Forms.Button();
+            this.txtIdPago = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -247,19 +248,6 @@
             this.grpPago2.Text = "Pago 2";
             this.grpPago2.Visible = false;
             // 
-            // rdpago2E
-            // 
-            this.rdpago2E.AutoSize = true;
-            this.rdpago2E.Enabled = false;
-            this.rdpago2E.Location = new System.Drawing.Point(6, 19);
-            this.rdpago2E.Name = "rdpago2E";
-            this.rdpago2E.Size = new System.Drawing.Size(64, 17);
-            this.rdpago2E.TabIndex = 18;
-            this.rdpago2E.TabStop = true;
-            this.rdpago2E.Text = "Efectivo";
-            this.rdpago2E.UseVisualStyleBackColor = true;
-            this.rdpago2E.Visible = false;
-            // 
             // rdpago2T
             // 
             this.rdpago2T.AutoSize = true;
@@ -273,6 +261,19 @@
             this.rdpago2T.UseVisualStyleBackColor = true;
             this.rdpago2T.Visible = false;
             // 
+            // rdpago2E
+            // 
+            this.rdpago2E.AutoSize = true;
+            this.rdpago2E.Enabled = false;
+            this.rdpago2E.Location = new System.Drawing.Point(6, 19);
+            this.rdpago2E.Name = "rdpago2E";
+            this.rdpago2E.Size = new System.Drawing.Size(64, 17);
+            this.rdpago2E.TabIndex = 18;
+            this.rdpago2E.TabStop = true;
+            this.rdpago2E.Text = "Efectivo";
+            this.rdpago2E.UseVisualStyleBackColor = true;
+            this.rdpago2E.Visible = false;
+            // 
             // btnCambiaModo
             // 
             this.btnCambiaModo.Enabled = false;
@@ -282,12 +283,22 @@
             this.btnCambiaModo.TabIndex = 21;
             this.btnCambiaModo.Text = "&Modificar";
             this.btnCambiaModo.UseVisualStyleBackColor = true;
+            this.btnCambiaModo.Click += new System.EventHandler(this.btnCambiaModo_Click);
+            // 
+            // txtIdPago
+            // 
+            this.txtIdPago.Location = new System.Drawing.Point(844, 61);
+            this.txtIdPago.Name = "txtIdPago";
+            this.txtIdPago.Size = new System.Drawing.Size(100, 20);
+            this.txtIdPago.TabIndex = 22;
+            this.txtIdPago.Visible = false;
             // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 510);
+            this.Controls.Add(this.txtIdPago);
             this.Controls.Add(this.btnCambiaModo);
             this.Controls.Add(this.grpPago2);
             this.Controls.Add(this.groupBox2);
@@ -306,6 +317,7 @@
             this.grpPago2.ResumeLayout(false);
             this.grpPago2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -332,5 +344,6 @@
         private System.Windows.Forms.RadioButton rdpago2T;
         private System.Windows.Forms.RadioButton rdpago2E;
         private System.Windows.Forms.Button btnCambiaModo;
+        private System.Windows.Forms.TextBox txtIdPago;
     }
 }

@@ -87,6 +87,7 @@ namespace Lavanderia.forms
                 string tipopago = _reader.GetString("tipoPago");
                 string tipopago1= _reader.GetString("tipoPago1");
                 string tipopago2 = _reader.GetString("tipoPago2");
+                txtIdPago.Text = Convert.ToString(idPago);
 
                 if (varGlobales.sessionUsuario.ToString().Equals("1")) {
                     btnCambiaModo.Enabled = true;
@@ -133,6 +134,16 @@ namespace Lavanderia.forms
                 
             }
 
+        }
+
+        private void btnCambiaModo_Click(object sender, EventArgs e)
+        {
+        int pago1 = (rdpago1E.Checked ==true) ? 0: 1 ;
+        int pago2 = (rdpago2E.Checked == true) ? 0 : 1;
+
+          PagoDao.modificaPago(Convert.ToInt32(txtIdPago.Text), pago1,pago2);
+
+          MessageBox.Show("Cambio de tipo de Pago", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
      

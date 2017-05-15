@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS marcasAll;
 DROP PROCEDURE IF EXISTS insertaMarca;
 DROP PROCEDURE IF EXISTS consultaOrden;
 DROP PROCEDURE IF EXISTS consultaPago;
+DROP PROCEDURE IF EXISTS modificaPago;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -97,7 +98,7 @@ WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.id
 END IF;
 IF(usuario=1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario
-WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado) AND (c.nombreCliente LIKE nombreCliente);
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado IN(0,1,2)) AND (c.nombreCliente LIKE nombreCliente);
 END IF;
 END $$
 DELIMITER $$
@@ -136,6 +137,19 @@ START TRANSACTION;
 UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NOW() WHERE idOrden=id;
 UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
+COMMIT;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE modificaPago(
+IN id INT,
+IN pago1 INT,
+IN pago2 INT
+
+)
+BEGIN
+START TRANSACTION;
+UPDATE Pago SET tipoPago1=pago1,tipoPago2=pago2,Observacion="cambio tipo pago",fechaActualizado=NOW() WHERE idPago=id;
 COMMIT;
 END $$
 
