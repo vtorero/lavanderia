@@ -149,7 +149,7 @@ IN pago2 INT
 )
 BEGIN
 START TRANSACTION;
-UPDATE Pago SET tipoPago1=pago1,tipoPago2=pago2,Observacion="cambio tipo pago",fechaActualizado=NOW() WHERE idPago=id;
+UPDATE Pago SET tipoPago1=pago1,tipoPago2=pago2,Observacion="cambio tipo pago" WHERE idPago=id;
 COMMIT;
 END $$
 
