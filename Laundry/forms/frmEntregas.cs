@@ -22,7 +22,12 @@ namespace Lavanderia.forms
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
+            if(txtNumero.Text.Equals("")) {
             llenarDatos();
+            }else{
+            
+                llenarDatosId(Convert.ToInt32(txtNumero.Text));
+            }
         }
 
         public void ejecutar(string id, string nombre, string dni, string telefono)
@@ -32,6 +37,30 @@ namespace Lavanderia.forms
             txtIdCliente.Text = id;
 
         }
+
+        private void llenarDatosId(int id) { 
+           
+           dgvOrdenes.DataSource = OrdenDao.buscarOrdenId(id);
+            dgvOrdenes.Columns[0].HeaderText = "Código";
+            dgvOrdenes.Columns[0].Width = 100;
+            dgvOrdenes.Columns[1].Visible = false;
+            dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
+            dgvOrdenes.Columns[2].Width = 250;
+            dgvOrdenes.Columns[3].HeaderText = "DNI";
+            dgvOrdenes.Columns[3].Visible = false;
+            dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
+            dgvOrdenes.Columns[4].Width = 200;
+            dgvOrdenes.Columns[5].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[5].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[5].Width = 70;
+            dgvOrdenes.Columns[6].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[6].Width = 70;
+            dgvOrdenes.Columns[7].HeaderText = "Tipo";
+            dgvOrdenes.Columns[7].Visible = false;
+        
+        }
+
 
         private void llenarDatos() {
             dgvOrdenes.DataSource = OrdenDao.buscarOrden("%" + txtCliente.Text + "%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59",0);

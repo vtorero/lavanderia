@@ -117,6 +117,36 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<OrdenClientes> buscarOrdenId( int id)
+        {
+            List<OrdenClientes> _lista = new List<OrdenClientes>();
+            MySqlCommand cmd = new MySqlCommand("buscarOrdenesId", BdComun.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("id", id));
+            cmd.Parameters.Add(new MySqlParameter("usuario", varGlobales.sessionUsuario));
+            
+            
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                OrdenClientes ordencliente = new OrdenClientes();
+                ordencliente.idOrden = Convert.ToInt32(dr["idOrden"]);
+                ordencliente.idCliente = Convert.ToInt32(dr["idCliente"]);
+                ordencliente.nombreCliente = Convert.ToString(dr["nombreCliente"]);
+                ordencliente.sucursal = Convert.ToString(dr["sucursal"]);
+                ordencliente.dniCliente = Convert.ToString(dr["dniCliente"]);
+                ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
+                ordencliente.Monto = Convert.ToDecimal(dr["totalOrden"]);
+                ordencliente.MontoPendiente = Convert.ToDecimal(dr["pago2"]);
+                ordencliente.TipoPago = Convert.ToInt32(dr["tipoPago"]);
+                _lista.Add(ordencliente);
+            }
+            cmd.Connection.Close();
+
+            return _lista;
+        }
+
         public static List<OrdenLinea> consultarOrden(int id)
         {
             List<OrdenLinea> _lista = new List<OrdenLinea>();
