@@ -13,6 +13,7 @@ DROP PROCEDURE IF EXISTS insertaMarca;
 DROP PROCEDURE IF EXISTS consultaOrden;
 DROP PROCEDURE IF EXISTS consultaPago;
 DROP PROCEDURE IF EXISTS modificaPago;
+DROP PROCEDURE IF EXISTS buscarOrdenesId;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -101,6 +102,16 @@ SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN
 WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado IN(0,1,2)) AND (c.nombreCliente LIKE nombreCliente);
 END IF;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE buscarOrdenesId(
+IN id INT,
+IN usuario INT
+)
+BEGIN
+SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario  WHERE o.idUsuario=usuario AND o.idOrden=id;
+END $$
+
 DELIMITER $$
 CREATE PROCEDURE consultaOrden(
 IN id INT
