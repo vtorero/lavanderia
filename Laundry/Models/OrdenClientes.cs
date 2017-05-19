@@ -14,6 +14,8 @@ namespace Lavanderia.Models
         public string dniCliente{ get; set; }
         public string sucursal { get; set; }
         public string fechaCreado { get; set; }
+        public decimal pago1 { get; set; }
+        public decimal pago2 { get; set; }
         public decimal Monto { get; set; }
         public decimal MontoPendiente { get; set; }
         public int TipoPago { get; set; }
@@ -23,7 +25,7 @@ namespace Lavanderia.Models
          public OrdenClientes() { }
 
      public OrdenClientes(
-         int idorden, int idcliente, string nombrecliente, string sucur,string dnicliente,string fechacreado,
+         int idorden, int idcliente, string nombrecliente, string sucur,string dnicliente,string fechacreado,decimal pag1,decimal pag2,
          decimal monto, decimal montopendiente,int tipopago/*,decimal montototal*/)
         {
             this.idOrden=idorden;
@@ -32,6 +34,8 @@ namespace Lavanderia.Models
             this.dniCliente=dnicliente;
             this.sucursal=sucur;
             this.fechaCreado = fechacreado;
+            this.pago1 = pag1;
+            this.pago2 = pag2;
             this.Monto = monto;
             this.MontoPendiente= montopendiente;
             this.TipoPago = tipopago;
