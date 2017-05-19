@@ -45,8 +45,7 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[0].Width = 100;
             dgvOrdenes.Columns[1].Visible = false;
             dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-            dgvOrdenes.Columns[2].Width = 250;
-            dgvOrdenes.Columns[3].HeaderText = "DNI";
+            dgvOrdenes.Columns[2].Width = 200;
             dgvOrdenes.Columns[3].Visible = false;
             dgvOrdenes.Columns[4].HeaderText = "Fecha Orden";
             dgvOrdenes.Columns[4].Width = 200;
@@ -68,20 +67,23 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[0].Width = 100;
             dgvOrdenes.Columns[1].Visible = false;
             dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-            dgvOrdenes.Columns[2].Width = 250;
-            dgvOrdenes.Columns[3].HeaderText = "DNI";
+            dgvOrdenes.Columns[2].Width = 200;
             dgvOrdenes.Columns[3].Visible = false;
             dgvOrdenes.Columns[4].HeaderText = "Sucursal";
-            dgvOrdenes.Columns[4].Width = 200;
+            dgvOrdenes.Columns[4].Width = 150;
             dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
             dgvOrdenes.Columns[5].Width = 200;
-            dgvOrdenes.Columns[6].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[6].HeaderText = "Pago 1";
             dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[6].Width = 70;
-            dgvOrdenes.Columns[7].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[7].HeaderText = "Pago 2";
+            dgvOrdenes.Columns[7].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
             dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
             dgvOrdenes.Columns[8].Width = 70;
-            dgvOrdenes.Columns[8].HeaderText = "Tipo";
+            dgvOrdenes.Columns[9].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[9].Width = 70;
+            dgvOrdenes.Columns[10].HeaderText = "Tipo";
             
         }
 
