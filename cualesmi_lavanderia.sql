@@ -1,62 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10.14
--- http://www.phpmyadmin.net
---
--- Servidor: localhost:3306
--- Tiempo de generación: 19-05-2017 a las 12:06:16
--- Versión del servidor: 5.6.33
--- Versión de PHP: 5.4.31
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de datos: `cualesmi_lavanderia`
---
-
-DELIMITER $$
---
--- Procedimientos
---
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `Cliente`
---
 
 CREATE TABLE IF NOT EXISTS `Cliente` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
@@ -14049,6 +13996,4 @@ INSERT INTO `Variable` (`idVariable`, `nombreVariable`, `valorVariable`) VALUES
 (1, 'IGV', '18'),
 (2, 'TIPO_CAMBIO', '3.23');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

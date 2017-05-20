@@ -28,15 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtIdCliente = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.btnSrcCliente = new System.Windows.Forms.Button();
+            this.btnAddPrenda = new System.Windows.Forms.Button();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.lblCliente = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
@@ -52,11 +63,6 @@
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
-            this.btnAddPrenda = new System.Windows.Forms.Button();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -66,14 +72,38 @@
             // 
             // dgvOrdenes
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenes.Location = new System.Drawing.Point(29, 140);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvOrdenes.Location = new System.Drawing.Point(29, 148);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(687, 165);
+            this.dgvOrdenes.Size = new System.Drawing.Size(814, 165);
             this.dgvOrdenes.TabIndex = 0;
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
             // 
@@ -122,6 +152,23 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(82, 16);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(127, 20);
+            this.txtNumero.TabIndex = 16;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Numero:";
+            // 
             // txtIdCliente
             // 
             this.txtIdCliente.AutoSize = true;
@@ -160,6 +207,34 @@
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
+            // btnAddPrenda
+            // 
+            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPrenda.Location = new System.Drawing.Point(406, 44);
+            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPrenda.Name = "btnAddPrenda";
+            this.btnAddPrenda.Size = new System.Drawing.Size(24, 24);
+            this.btnAddPrenda.TabIndex = 7;
+            this.btnAddPrenda.Text = "....";
+            this.btnAddPrenda.UseVisualStyleBackColor = true;
+            this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(80, 47);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(160, 20);
+            this.txtCliente.TabIndex = 2;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(19, 50);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(42, 13);
+            this.lblCliente.TabIndex = 1;
+            this.lblCliente.Text = "Cliente:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label3);
@@ -174,16 +249,16 @@
             this.groupBox2.Controls.Add(this.lblDebe);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMonto);
-            this.groupBox2.Location = new System.Drawing.Point(730, 96);
+            this.groupBox2.Location = new System.Drawing.Point(722, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 209);
+            this.groupBox2.Size = new System.Drawing.Size(345, 130);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 98);
+            this.label3.Location = new System.Drawing.Point(15, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 11;
@@ -191,16 +266,16 @@
             // 
             // txtObs
             // 
-            this.txtObs.Location = new System.Drawing.Point(18, 114);
+            this.txtObs.Location = new System.Drawing.Point(18, 84);
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(220, 42);
+            this.txtObs.Size = new System.Drawing.Size(152, 27);
             this.txtObs.TabIndex = 10;
             // 
             // chkVisa
             // 
             this.chkVisa.AutoSize = true;
-            this.chkVisa.Location = new System.Drawing.Point(181, 19);
+            this.chkVisa.Location = new System.Drawing.Point(168, 49);
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.Size = new System.Drawing.Size(46, 17);
             this.chkVisa.TabIndex = 9;
@@ -221,9 +296,9 @@
             // 
             this.btnEntregar.Image = global::Lavanderia.Properties.Resources._112_Tick_Green;
             this.btnEntregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEntregar.Location = new System.Drawing.Point(20, 165);
+            this.btnEntregar.Location = new System.Drawing.Point(176, 78);
             this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(164, 38);
+            this.btnEntregar.Size = new System.Drawing.Size(146, 34);
             this.btnEntregar.TabIndex = 8;
             this.btnEntregar.Text = "&Entregar Pedido";
             this.btnEntregar.UseVisualStyleBackColor = true;
@@ -235,13 +310,13 @@
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(81, 19);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(81, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(53, 20);
             this.txtCodigo.TabIndex = 6;
             // 
             // lblsimdebe
             // 
             this.lblsimdebe.AutoSize = true;
-            this.lblsimdebe.Location = new System.Drawing.Point(57, 77);
+            this.lblsimdebe.Location = new System.Drawing.Point(59, 51);
             this.lblsimdebe.Name = "lblsimdebe";
             this.lblsimdebe.Size = new System.Drawing.Size(22, 13);
             this.lblsimdebe.TabIndex = 5;
@@ -250,7 +325,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 49);
+            this.label4.Location = new System.Drawing.Point(188, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 4;
@@ -260,7 +335,7 @@
             // 
             this.txtDebe.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtDebe.Enabled = false;
-            this.txtDebe.Location = new System.Drawing.Point(81, 73);
+            this.txtDebe.Location = new System.Drawing.Point(81, 48);
             this.txtDebe.Name = "txtDebe";
             this.txtDebe.Size = new System.Drawing.Size(81, 20);
             this.txtDebe.TabIndex = 3;
@@ -269,7 +344,7 @@
             // lblDebe
             // 
             this.lblDebe.AutoSize = true;
-            this.lblDebe.Location = new System.Drawing.Point(14, 73);
+            this.lblDebe.Location = new System.Drawing.Point(17, 51);
             this.lblDebe.Name = "lblDebe";
             this.lblDebe.Size = new System.Drawing.Size(36, 13);
             this.lblDebe.TabIndex = 2;
@@ -278,7 +353,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 49);
+            this.label2.Location = new System.Drawing.Point(144, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -288,7 +363,7 @@
             // 
             this.txtMonto.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtMonto.Enabled = false;
-            this.txtMonto.Location = new System.Drawing.Point(81, 46);
+            this.txtMonto.Location = new System.Drawing.Point(216, 17);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(81, 20);
             this.txtMonto.TabIndex = 0;
@@ -296,74 +371,54 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvDetalles);
-            this.groupBox3.Location = new System.Drawing.Point(12, 311);
+            this.groupBox3.Location = new System.Drawing.Point(12, 324);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(970, 174);
+            this.groupBox3.Size = new System.Drawing.Size(942, 174);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle de la Orden";
             // 
             // dgvDetalles
             // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalles.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalles.Location = new System.Drawing.Point(17, 19);
             this.dgvDetalles.MultiSelect = false;
             this.dgvDetalles.Name = "dgvDetalles";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalles.RowHeadersVisible = false;
             this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(925, 149);
+            this.dgvDetalles.Size = new System.Drawing.Size(896, 149);
             this.dgvDetalles.TabIndex = 1;
-            // 
-            // btnAddPrenda
-            // 
-            this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Location = new System.Drawing.Point(406, 44);
-            this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(24, 24);
-            this.btnAddPrenda.TabIndex = 7;
-            this.btnAddPrenda.Text = "....";
-            this.btnAddPrenda.UseVisualStyleBackColor = true;
-            this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(19, 50);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(42, 13);
-            this.lblCliente.TabIndex = 1;
-            this.lblCliente.Text = "Cliente:";
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(80, 47);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(160, 20);
-            this.txtCliente.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Numero:";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(82, 16);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(127, 20);
-            this.txtNumero.TabIndex = 16;
             // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 518);
+            this.ClientSize = new System.Drawing.Size(1079, 518);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvOrdenes);
