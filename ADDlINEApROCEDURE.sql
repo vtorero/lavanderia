@@ -14,6 +14,7 @@ DROP PROCEDURE IF EXISTS consultaOrden;
 DROP PROCEDURE IF EXISTS consultaPago;
 DROP PROCEDURE IF EXISTS modificaPago;
 DROP PROCEDURE IF EXISTS buscarOrdenesId;
+DROP PROCEDURE IF EXISTS pendienteEntregas;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -32,6 +33,15 @@ INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, est
 SELECT LAST_INSERT_ID() INTO ultimoId;
 COMMIT;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE pendienteEntregas(
+IN USUARIO INT
+)
+BEGIN
+SELECT COUNT(*) total FROM Orden o WHERE SUBSTRING(o.fechaEntrega,1,10)=SUBSTRING(NOW(),1,10) AND o.`idUsuario`=USUARIO;
+END $$
+
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
 IN PidOrden INT ,

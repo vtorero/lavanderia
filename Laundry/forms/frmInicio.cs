@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.util;
+using Lavanderia.Persistencia;
 
 namespace Lavanderia.forms
 {
@@ -110,10 +111,7 @@ namespace Lavanderia.forms
             childForm.Show();
         }
 
-        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+    
 
         private void prendasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -220,6 +218,11 @@ namespace Lavanderia.forms
             childForm.Text = "Reporte de Cierre";
             childForm.Show();
         }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            label1.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
+            }
 
  
 

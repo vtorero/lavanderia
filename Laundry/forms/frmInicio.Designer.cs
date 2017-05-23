@@ -76,7 +76,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.txtaviso = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +92,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1306, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -400,10 +400,9 @@
             this.toolStripButton5});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(745, 48);
+            this.toolStrip.Size = new System.Drawing.Size(1306, 48);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
-            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
             // toolStripSeparator1
             // 
@@ -476,20 +475,22 @@
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.Visible = false;
             // 
-            // txtaviso
+            // label1
             // 
-            this.txtaviso.ForeColor = System.Drawing.Color.DarkRed;
-            this.txtaviso.Location = new System.Drawing.Point(620, 43);
-            this.txtaviso.Name = "txtaviso";
-            this.txtaviso.Size = new System.Drawing.Size(100, 20);
-            this.txtaviso.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(216, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 3;
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 558);
-            this.Controls.Add(this.txtaviso);
+            this.ClientSize = new System.Drawing.Size(1306, 558);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -498,6 +499,7 @@
             this.Name = "frmInicio";
             this.Text = "Lavandería San Isidro S.A";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -555,7 +557,7 @@
         private System.Windows.Forms.ToolStripMenuItem cierreCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.TextBox txtaviso;
+        private System.Windows.Forms.Label label1;
     }
 }
 
