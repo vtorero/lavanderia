@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.btnSrcCliente = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@
             this.rdpago2E = new System.Windows.Forms.RadioButton();
             this.btnCambiaModo = new System.Windows.Forms.Button();
             this.txtIdPago = new System.Windows.Forms.TextBox();
-            this.txtNumero = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -63,7 +63,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.AutoSize = true;
-            this.txtIdCliente.Location = new System.Drawing.Point(356, 81);
+            this.txtIdCliente.Location = new System.Drawing.Point(189, 106);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(58, 13);
             this.txtIdCliente.TabIndex = 14;
@@ -73,7 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(324, 56);
+            this.label1.Location = new System.Drawing.Point(269, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 13;
@@ -81,7 +81,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(356, 51);
+            this.txtDni.Location = new System.Drawing.Point(301, 49);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 12;
@@ -102,9 +102,25 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Location = new System.Drawing.Point(18, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(642, 132);
+            this.groupBox1.Size = new System.Drawing.Size(555, 132);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(78, 17);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(127, 20);
+            this.txtNumero.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Numero:";
             // 
             // dtFechaFin
             // 
@@ -118,7 +134,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(538, 73);
+            this.btnSrcCliente.Location = new System.Drawing.Point(356, 78);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(81, 45);
@@ -146,7 +162,7 @@
             // btnAddPrenda
             // 
             this.btnAddPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPrenda.Location = new System.Drawing.Point(463, 49);
+            this.btnAddPrenda.Location = new System.Drawing.Point(408, 47);
             this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrenda.Name = "btnAddPrenda";
             this.btnAddPrenda.Size = new System.Drawing.Size(29, 24);
@@ -158,7 +174,7 @@
             // 
             this.txtCliente.Location = new System.Drawing.Point(78, 51);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(238, 20);
+            this.txtCliente.Size = new System.Drawing.Size(185, 20);
             this.txtCliente.TabIndex = 2;
             // 
             // lblCliente
@@ -233,7 +249,7 @@
             // 
             this.groupBox2.Controls.Add(this.rdpago1T);
             this.groupBox2.Controls.Add(this.rdpago1E);
-            this.groupBox2.Location = new System.Drawing.Point(666, 11);
+            this.groupBox2.Location = new System.Drawing.Point(579, 10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(167, 49);
             this.groupBox2.TabIndex = 19;
@@ -244,7 +260,7 @@
             // 
             this.grpPago2.Controls.Add(this.rdpago2T);
             this.grpPago2.Controls.Add(this.rdpago2E);
-            this.grpPago2.Location = new System.Drawing.Point(841, 11);
+            this.grpPago2.Location = new System.Drawing.Point(749, 10);
             this.grpPago2.Name = "grpPago2";
             this.grpPago2.Size = new System.Drawing.Size(167, 47);
             this.grpPago2.TabIndex = 20;
@@ -281,7 +297,7 @@
             // btnCambiaModo
             // 
             this.btnCambiaModo.Enabled = false;
-            this.btnCambiaModo.Location = new System.Drawing.Point(749, 77);
+            this.btnCambiaModo.Location = new System.Drawing.Point(755, 72);
             this.btnCambiaModo.Name = "btnCambiaModo";
             this.btnCambiaModo.Size = new System.Drawing.Size(162, 41);
             this.btnCambiaModo.TabIndex = 21;
@@ -291,33 +307,18 @@
             // 
             // txtIdPago
             // 
-            this.txtIdPago.Location = new System.Drawing.Point(684, 88);
+            this.txtIdPago.Location = new System.Drawing.Point(597, 65);
             this.txtIdPago.Name = "txtIdPago";
             this.txtIdPago.Size = new System.Drawing.Size(52, 20);
             this.txtIdPago.TabIndex = 22;
             this.txtIdPago.Visible = false;
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(78, 17);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(127, 20);
-            this.txtNumero.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Numero:";
+            this.txtIdPago.TextChanged += new System.EventHandler(this.txtIdPago_TextChanged);
             // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 510);
+            this.ClientSize = new System.Drawing.Size(955, 510);
             this.Controls.Add(this.txtIdPago);
             this.Controls.Add(this.btnCambiaModo);
             this.Controls.Add(this.grpPago2);

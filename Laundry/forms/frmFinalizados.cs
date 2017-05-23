@@ -146,6 +146,11 @@ namespace Lavanderia.forms
           MessageBox.Show("Cambio de tipo de Pago", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void txtIdPago_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
      
     }
 }

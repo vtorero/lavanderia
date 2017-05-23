@@ -295,6 +295,10 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnMovimiento;
             
+            private global::System.Data.DataColumn columnfechaPago;
+            
+            private global::System.Data.DataColumn columnpagoTotal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dsCierrePagosDataTable() {
@@ -394,6 +398,22 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaPagoColumn {
+                get {
+                    return this.columnfechaPago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pagoTotalColumn {
+                get {
+                    return this.columnpagoTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +449,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsCierrePagosRow AdddsCierrePagosRow(int idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento) {
+            public dsCierrePagosRow AdddsCierrePagosRow(int idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento, string fechaPago, double pagoTotal) {
                 dsCierrePagosRow rowdsCierrePagosRow = ((dsCierrePagosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -439,7 +459,9 @@ namespace Lavanderia.Models {
                         sucursal,
                         pago,
                         modoPago,
-                        Movimiento};
+                        Movimiento,
+                        fechaPago,
+                        pagoTotal};
                 rowdsCierrePagosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCierrePagosRow);
                 return rowdsCierrePagosRow;
@@ -470,6 +492,8 @@ namespace Lavanderia.Models {
                 this.columnpago = base.Columns["pago"];
                 this.columnmodoPago = base.Columns["modoPago"];
                 this.columnMovimiento = base.Columns["Movimiento"];
+                this.columnfechaPago = base.Columns["fechaPago"];
+                this.columnpagoTotal = base.Columns["pagoTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +515,10 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnmodoPago);
                 this.columnMovimiento = new global::System.Data.DataColumn("Movimiento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMovimiento);
+                this.columnfechaPago = new global::System.Data.DataColumn("fechaPago", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaPago);
+                this.columnpagoTotal = new global::System.Data.DataColumn("pagoTotal", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpagoTotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -761,6 +789,38 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fechaPago {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCierrePagos.fechaPagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaPago\' de la tabla \'dsCierrePagos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCierrePagos.fechaPagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pagoTotal {
+                get {
+                    try {
+                        return ((double)(this[this.tabledsCierrePagos.pagoTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pagoTotal\' de la tabla \'dsCierrePagos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCierrePagos.pagoTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidOrdenNull() {
                 return this.IsNull(this.tabledsCierrePagos.idOrdenColumn);
             }
@@ -853,6 +913,30 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMovimientoNull() {
                 this[this.tabledsCierrePagos.MovimientoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaPagoNull() {
+                return this.IsNull(this.tabledsCierrePagos.fechaPagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaPagoNull() {
+                this[this.tabledsCierrePagos.fechaPagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspagoTotalNull() {
+                return this.IsNull(this.tabledsCierrePagos.pagoTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpagoTotalNull() {
+                this[this.tabledsCierrePagos.pagoTotalColumn] = global::System.Convert.DBNull;
             }
         }
         
