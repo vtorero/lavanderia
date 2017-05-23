@@ -25,7 +25,18 @@ namespace Lavanderia.forms
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
-            llenarDatos();
+            if (txtNumero.Text.Equals(""))
+            {
+                llenarDatos();
+                llenarDetalles(0);
+            }
+            else
+            {
+
+                llenarDatosId(Convert.ToInt32(txtNumero.Text));
+                llenarDetalles(0);
+            }
+            
         }
 
         private void llenarDetalles(int id)
@@ -46,28 +57,63 @@ namespace Lavanderia.forms
         {
             dgvOrdenes.DataSource = OrdenDao.buscarOrden("%" + txtCliente.Text + "%", txtDni.Text, dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00", dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59", 1);
             dgvOrdenes.Columns[0].HeaderText = "Código";
-            dgvOrdenes.Columns[0].Width = 100;
+            dgvOrdenes.Columns[0].Width = 50;
             dgvOrdenes.Columns[1].Visible = false;
             dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-            dgvOrdenes.Columns[2].Width = 250;
-            dgvOrdenes.Columns[3].HeaderText = "DNI";
-            dgvOrdenes.Columns[3].Width = 100;
+            dgvOrdenes.Columns[2].Width = 200;
             dgvOrdenes.Columns[3].Visible = false;
             dgvOrdenes.Columns[4].HeaderText = "Sucursal";
-            dgvOrdenes.Columns[4].Width = 80;
+            dgvOrdenes.Columns[4].Width = 100;
             dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
-            dgvOrdenes.Columns[5].Width = 150;
-            dgvOrdenes.Columns[6].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[5].Width = 120;
+            dgvOrdenes.Columns[6].HeaderText = "Pago 1";
             dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[6].Width = 100;
-            dgvOrdenes.Columns[7].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[6].Width = 70;
+            dgvOrdenes.Columns[7].HeaderText = "Pago 2";
             dgvOrdenes.Columns[7].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[7].Visible = false;
-            dgvOrdenes.Columns[7].Width = 100;
-            dgvOrdenes.Columns[8].HeaderText = "Coutas";
-           //dgvOrdenes.Columns[8].Visible = false;
+            dgvOrdenes.Columns[7].Width = 70;
+            dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[8].Width = 100;
+            dgvOrdenes.Columns[9].HeaderText = "Monto Pendiente";
+            dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[9].Width = 100;
+            dgvOrdenes.Columns[9].Visible = false;
+            dgvOrdenes.Columns[10].HeaderText = "Cuotas";
+           
        
         
+        }
+
+        private void llenarDatosId(int id)
+        {
+
+            dgvOrdenes.DataSource = OrdenDao.buscarOrdenId(id);
+            dgvOrdenes.Columns[0].HeaderText = "Código";
+            dgvOrdenes.Columns[0].Width = 50;
+            dgvOrdenes.Columns[1].Visible = false;
+            dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
+            dgvOrdenes.Columns[2].Width = 200;
+            dgvOrdenes.Columns[3].Visible = false;
+            dgvOrdenes.Columns[4].HeaderText = "Sucursal";
+            dgvOrdenes.Columns[4].Width = 100;
+            dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
+            dgvOrdenes.Columns[5].Width = 120;
+            dgvOrdenes.Columns[6].HeaderText = "Pago 1";
+            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[6].Width = 70;
+            dgvOrdenes.Columns[7].HeaderText = "Pago 2";
+            dgvOrdenes.Columns[7].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[7].Width = 70;
+            dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[8].Width = 100;
+            dgvOrdenes.Columns[9].HeaderText = "Monto Pendiente";
+            dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[9].Width = 100;
+            dgvOrdenes.Columns[9].Visible = false;
+            dgvOrdenes.Columns[10].HeaderText = "Cuotas";
+
         }
 
         private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -149,6 +195,31 @@ namespace Lavanderia.forms
         private void txtIdPago_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                if (txtNumero.Text.Equals(""))
+                {
+                    llenarDatos();
+                }
+                else
+                {
+
+                    llenarDatosId(Convert.ToInt32(txtNumero.Text));
+                }
+
+            }
+        }
+
+        private void dgvOrdenes_MouseClick(object sender, MouseEventArgs e)
+        {
+            pos = dgvOrdenes.CurrentRow.Index;
+            llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
+            llenaPago(Convert.ToInt32(dgvOrdenes[0, pos].Value));
         }
 
      

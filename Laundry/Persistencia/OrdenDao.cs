@@ -119,7 +119,7 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
-        public static List<OrdenClientes> buscarOrdenId( int id)
+        public static List<OrdenClientes> buscarOrdenId(int id)
         {
             List<OrdenClientes> _lista = new List<OrdenClientes>();
             MySqlCommand cmd = new MySqlCommand("buscarOrdenesId", BdComun.ObtenerConexion());

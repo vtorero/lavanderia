@@ -112,6 +112,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(127, 20);
             this.txtNumero.TabIndex = 18;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // label5
             // 
@@ -134,10 +135,10 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(356, 78);
+            this.btnSrcCliente.Location = new System.Drawing.Point(459, 75);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
-            this.btnSrcCliente.Size = new System.Drawing.Size(81, 45);
+            this.btnSrcCliente.Size = new System.Drawing.Size(73, 40);
             this.btnSrcCliente.TabIndex = 5;
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
@@ -197,6 +198,7 @@
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenes.Size = new System.Drawing.Size(907, 126);
             this.dgvOrdenes.TabIndex = 14;
+            this.dgvOrdenes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseClick);
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
             // 
             // groupBox3
