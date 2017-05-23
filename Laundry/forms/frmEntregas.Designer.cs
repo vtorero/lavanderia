@@ -89,7 +89,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvOrdenes.Location = new System.Drawing.Point(29, 148);
+            this.dgvOrdenes.Location = new System.Drawing.Point(29, 153);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -103,8 +103,9 @@
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(814, 165);
+            this.dgvOrdenes.Size = new System.Drawing.Size(896, 165);
             this.dgvOrdenes.TabIndex = 0;
+            this.dgvOrdenes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseClick);
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
             // 
             // dtFechaInicial
@@ -148,7 +149,7 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Location = new System.Drawing.Point(29, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(687, 111);
+            this.groupBox1.Size = new System.Drawing.Size(540, 111);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -172,7 +173,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.AutoSize = true;
-            this.txtIdCliente.Location = new System.Drawing.Point(359, 76);
+            this.txtIdCliente.Location = new System.Drawing.Point(332, 78);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(58, 13);
             this.txtIdCliente.TabIndex = 14;
@@ -190,7 +191,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(299, 46);
+            this.txtDni.Location = new System.Drawing.Point(290, 46);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 12;
@@ -199,7 +200,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(585, 54);
+            this.btnSrcCliente.Location = new System.Drawing.Point(448, 62);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(73, 40);
@@ -249,7 +250,7 @@
             this.groupBox2.Controls.Add(this.lblDebe);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtMonto);
-            this.groupBox2.Location = new System.Drawing.Point(722, 12);
+            this.groupBox2.Location = new System.Drawing.Point(580, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(345, 130);
             this.groupBox2.TabIndex = 13;
@@ -373,7 +374,7 @@
             this.groupBox3.Controls.Add(this.dgvDetalles);
             this.groupBox3.Location = new System.Drawing.Point(12, 324);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(942, 174);
+            this.groupBox3.Size = new System.Drawing.Size(930, 174);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle de la Orden";
@@ -418,7 +419,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 518);
+            this.ClientSize = new System.Drawing.Size(954, 518);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvOrdenes);

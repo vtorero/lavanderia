@@ -24,9 +24,11 @@ namespace Lavanderia.forms
         {
             if(txtNumero.Text.Equals("")) {
             llenarDatos();
+            llenarDetalles(0);
             }else{
             
                 llenarDatosId(Convert.ToInt32(txtNumero.Text));
+                llenarDetalles(0);
             }
         }
 
@@ -45,12 +47,12 @@ namespace Lavanderia.forms
            dgvOrdenes.Columns[0].Width = 50;
            dgvOrdenes.Columns[1].Visible = false;
            dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-           dgvOrdenes.Columns[2].Width = 110;
+           dgvOrdenes.Columns[2].Width = 200;
            dgvOrdenes.Columns[3].Visible = false;
            dgvOrdenes.Columns[4].HeaderText = "Sucursal";
-           dgvOrdenes.Columns[4].Width =70;
+           dgvOrdenes.Columns[4].Width = 100;
            dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
-           dgvOrdenes.Columns[5].Width = 150;
+           dgvOrdenes.Columns[5].Width = 120;
            dgvOrdenes.Columns[6].HeaderText = "Pago 1";
            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
            dgvOrdenes.Columns[6].Width = 70;
@@ -59,10 +61,10 @@ namespace Lavanderia.forms
            dgvOrdenes.Columns[7].Width = 70;
            dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
            dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[8].Width = 70;
-           dgvOrdenes.Columns[9].HeaderText = "Monto Pend.";
+           dgvOrdenes.Columns[8].Width = 100;
+           dgvOrdenes.Columns[9].HeaderText = "Monto Pendiente";
            dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
-           dgvOrdenes.Columns[9].Width = 70;
+           dgvOrdenes.Columns[9].Width = 100;
            dgvOrdenes.Columns[10].HeaderText = "Cuotas";
         
         }
@@ -74,12 +76,12 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[0].Width = 50;
             dgvOrdenes.Columns[1].Visible = false;
             dgvOrdenes.Columns[2].HeaderText = "Nombre cliente";
-            dgvOrdenes.Columns[2].Width = 120;
+            dgvOrdenes.Columns[2].Width = 200;
             dgvOrdenes.Columns[3].Visible = false;
             dgvOrdenes.Columns[4].HeaderText = "Sucursal";
             dgvOrdenes.Columns[4].Width = 100;
             dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
-            dgvOrdenes.Columns[5].Width = 110;
+            dgvOrdenes.Columns[5].Width = 120;
             dgvOrdenes.Columns[6].HeaderText = "Pago 1";
             dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
             dgvOrdenes.Columns[6].Width = 70;
@@ -88,10 +90,10 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[7].Width = 70;
             dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
             dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[8].Width = 70;
-            dgvOrdenes.Columns[9].HeaderText = "Monto Pend.";
+            dgvOrdenes.Columns[8].Width = 100;
+            dgvOrdenes.Columns[9].HeaderText = "Monto Pendiente";
             dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[9].Width = 70;
+            dgvOrdenes.Columns[9].Width = 100;
             dgvOrdenes.Columns[10].HeaderText = "Cuotas";
             
         }
@@ -123,8 +125,7 @@ namespace Lavanderia.forms
             childForm.ShowDialog();
         }
 
-        private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        private void cargaItems() {
             pos = dgvOrdenes.CurrentRow.Index;
 
             txtMonto.Text = Convert.ToString(dgvOrdenes[8, pos].Value);
@@ -146,10 +147,16 @@ namespace Lavanderia.forms
                 lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
                 chkVisa.Visible = false;
-                llenarDetalles(Convert.ToInt32(dgvOrdenes[0,pos].Value));
+                llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             }
 
+        
+        }
 
+        private void dgvOrdenes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            cargaItems();
 
         }
 
@@ -186,6 +193,11 @@ namespace Lavanderia.forms
                 }
             
             }
+        }
+
+        private void dgvOrdenes_MouseClick(object sender, MouseEventArgs e)
+        {
+            cargaItems();
         }
 
        }
