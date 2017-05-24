@@ -177,6 +177,12 @@
     <Compile Include="forms\frmReporteAdmin.Designer.cs">
       <DependentUpon>frmReporteAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmReporteDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReporteDetalle.Designer.cs">
+      <DependentUpon>frmReporteDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCierreDiario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DsDetalleOrdenes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\DsPrendas.cs">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
@@ -335,6 +346,9 @@
     <EmbeddedResource Include="forms\frmReporteAdmin.resx">
       <DependentUpon>frmReporteAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReporteDetalle.resx">
+      <DependentUpon>frmReporteDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmServicio.resx">
       <DependentUpon>frmServicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +422,17 @@
     </None>
     <None Include="Models\dsCierreDiario.xss">
       <DependentUpon>dsCierreDiario.xsd</DependentUpon>
+    </None>
+    <None Include="Models\DsDetalleOrdenes.xsc">
+      <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
+    </None>
+    <None Include="Models\DsDetalleOrdenes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsDetalleOrdenes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\DsDetalleOrdenes.xss">
+      <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
     </None>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
