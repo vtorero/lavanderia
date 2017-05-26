@@ -303,6 +303,18 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columncuotas;
             
+            private global::System.Data.DataColumn columnmarca;
+            
+            private global::System.Data.DataColumn columncolorPrenda;
+            
+            private global::System.Data.DataColumn columnpago1;
+            
+            private global::System.Data.DataColumn columnpago2;
+            
+            private global::System.Data.DataColumn columnfechaActualizado;
+            
+            private global::System.Data.DataColumn columntotalOrden;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dtDetalleOrdenesDataTable() {
@@ -434,6 +446,54 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn marcaColumn {
+                get {
+                    return this.columnmarca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn colorPrendaColumn {
+                get {
+                    return this.columncolorPrenda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pago1Column {
+                get {
+                    return this.columnpago1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pago2Column {
+                get {
+                    return this.columnpago2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaActualizadoColumn {
+                get {
+                    return this.columnfechaActualizado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn totalOrdenColumn {
+                get {
+                    return this.columntotalOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,7 +529,25 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtDetalleOrdenesRow AdddtDetalleOrdenesRow(string idOrden, string nombreCliente, string sucursal, string fechaCreado, string fechaEntrega, string nombrePrenda, double precio, double cantidad, string tipoServicio, double total, string modoPago, string cuotas) {
+            public dtDetalleOrdenesRow AdddtDetalleOrdenesRow(
+                        string idOrden, 
+                        string nombreCliente, 
+                        string sucursal, 
+                        string fechaCreado, 
+                        string fechaEntrega, 
+                        string nombrePrenda, 
+                        double precio, 
+                        double cantidad, 
+                        string tipoServicio, 
+                        double total, 
+                        string modoPago, 
+                        string cuotas, 
+                        string marca, 
+                        string colorPrenda, 
+                        string pago1, 
+                        string pago2, 
+                        string fechaActualizado, 
+                        string totalOrden) {
                 dtDetalleOrdenesRow rowdtDetalleOrdenesRow = ((dtDetalleOrdenesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -483,7 +561,13 @@ namespace Lavanderia.Models {
                         tipoServicio,
                         total,
                         modoPago,
-                        cuotas};
+                        cuotas,
+                        marca,
+                        colorPrenda,
+                        pago1,
+                        pago2,
+                        fechaActualizado,
+                        totalOrden};
                 rowdtDetalleOrdenesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtDetalleOrdenesRow);
                 return rowdtDetalleOrdenesRow;
@@ -518,6 +602,12 @@ namespace Lavanderia.Models {
                 this.columntotal = base.Columns["total"];
                 this.columnmodoPago = base.Columns["modoPago"];
                 this.columncuotas = base.Columns["cuotas"];
+                this.columnmarca = base.Columns["marca"];
+                this.columncolorPrenda = base.Columns["colorPrenda"];
+                this.columnpago1 = base.Columns["pago1"];
+                this.columnpago2 = base.Columns["pago2"];
+                this.columnfechaActualizado = base.Columns["fechaActualizado"];
+                this.columntotalOrden = base.Columns["totalOrden"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -547,6 +637,18 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnmodoPago);
                 this.columncuotas = new global::System.Data.DataColumn("cuotas", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncuotas);
+                this.columnmarca = new global::System.Data.DataColumn("marca", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmarca);
+                this.columncolorPrenda = new global::System.Data.DataColumn("colorPrenda", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolorPrenda);
+                this.columnpago1 = new global::System.Data.DataColumn("pago1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpago1);
+                this.columnpago2 = new global::System.Data.DataColumn("pago2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpago2);
+                this.columnfechaActualizado = new global::System.Data.DataColumn("fechaActualizado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaActualizado);
+                this.columntotalOrden = new global::System.Data.DataColumn("totalOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotalOrden);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -881,6 +983,103 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string marca {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.marcaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'marca\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.marcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string colorPrenda {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.colorPrendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'colorPrenda\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.colorPrendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pago1 {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.pago1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago1\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.pago1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pago2 {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.pago2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pago2\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.pago2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fechaActualizado {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.fechaActualizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaActualizado\' de la tabla \'dtDetalleOrdenes\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.fechaActualizadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string totalOrden {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDetalleOrdenes.totalOrdenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'totalOrden\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDetalleOrdenes.totalOrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidOrdenNull() {
                 return this.IsNull(this.tabledtDetalleOrdenes.idOrdenColumn);
             }
@@ -1021,6 +1220,78 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcuotasNull() {
                 this[this.tabledtDetalleOrdenes.cuotasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmarcaNull() {
+                return this.IsNull(this.tabledtDetalleOrdenes.marcaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmarcaNull() {
+                this[this.tabledtDetalleOrdenes.marcaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscolorPrendaNull() {
+                return this.IsNull(this.tabledtDetalleOrdenes.colorPrendaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcolorPrendaNull() {
+                this[this.tabledtDetalleOrdenes.colorPrendaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispago1Null() {
+                return this.IsNull(this.tabledtDetalleOrdenes.pago1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpago1Null() {
+                this[this.tabledtDetalleOrdenes.pago1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispago2Null() {
+                return this.IsNull(this.tabledtDetalleOrdenes.pago2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpago2Null() {
+                this[this.tabledtDetalleOrdenes.pago2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaActualizadoNull() {
+                return this.IsNull(this.tabledtDetalleOrdenes.fechaActualizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaActualizadoNull() {
+                this[this.tabledtDetalleOrdenes.fechaActualizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstotalOrdenNull() {
+                return this.IsNull(this.tabledtDetalleOrdenes.totalOrdenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettotalOrdenNull() {
+                this[this.tabledtDetalleOrdenes.totalOrdenColumn] = global::System.Convert.DBNull;
             }
         }
         

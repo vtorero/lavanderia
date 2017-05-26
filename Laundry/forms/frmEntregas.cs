@@ -132,6 +132,7 @@ namespace Lavanderia.forms
             if (Convert.ToInt32(dgvOrdenes[10, pos].Value) == 2)
             {
                 txtCodigo.Text = Convert.ToString(dgvOrdenes[0, pos].Value);
+                btnEntregar.Enabled = true;
                 txtDebe.Visible = true;
                 lblDebe.Visible = true;
                 lblsimdebe.Visible = true;
@@ -144,6 +145,7 @@ namespace Lavanderia.forms
                 txtCodigo.Text = Convert.ToString(dgvOrdenes[0, pos].Value);
                 txtDebe.Visible = false;
                 lblDebe.Visible = false;
+                btnEntregar.Enabled = true;
                 lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
                 chkVisa.Visible = false;
@@ -176,6 +178,7 @@ namespace Lavanderia.forms
             lblDebe.Visible = false;
             lblsimdebe.Visible = false;
             MessageBox.Show("Orden Nro: " + txtCodigo.Text + " actualizada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnEntregar.Enabled = false;
         }
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)

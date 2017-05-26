@@ -295,6 +295,7 @@
             // 
             // btnEntregar
             // 
+            this.btnEntregar.Enabled = false;
             this.btnEntregar.Image = global::Lavanderia.Properties.Resources._112_Tick_Green;
             this.btnEntregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEntregar.Location = new System.Drawing.Point(176, 78);
