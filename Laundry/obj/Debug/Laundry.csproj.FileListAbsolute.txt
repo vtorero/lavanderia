@@ -50,3 +50,4 @@ D:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 D:\lavanderia\Laundry\obj\Debug\Laundry.exe
 D:\lavanderia\Laundry\obj\Debug\Laundry.pdb
 D:\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
+D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmReporteDetalle.resources

@@ -278,6 +278,12 @@
       <DependentUpon>crPrendas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\crReporteDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReporteDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\crSucursales.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -377,6 +383,10 @@
     <EmbeddedResource Include="Reportes\crPrendas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crReporteDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReporteDetalle.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crSucursales.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
