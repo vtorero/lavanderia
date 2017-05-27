@@ -544,10 +544,10 @@ namespace Lavanderia.Models {
                         string cuotas, 
                         string marca, 
                         string colorPrenda, 
-                        string pago1, 
-                        string pago2, 
+                        double pago1, 
+                        double pago2, 
                         string fechaActualizado, 
-                        string totalOrden) {
+                        double totalOrden) {
                 dtDetalleOrdenesRow rowdtDetalleOrdenesRow = ((dtDetalleOrdenesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -641,13 +641,13 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnmarca);
                 this.columncolorPrenda = new global::System.Data.DataColumn("colorPrenda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncolorPrenda);
-                this.columnpago1 = new global::System.Data.DataColumn("pago1", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnpago1 = new global::System.Data.DataColumn("pago1", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpago1);
-                this.columnpago2 = new global::System.Data.DataColumn("pago2", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnpago2 = new global::System.Data.DataColumn("pago2", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpago2);
                 this.columnfechaActualizado = new global::System.Data.DataColumn("fechaActualizado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaActualizado);
-                this.columntotalOrden = new global::System.Data.DataColumn("totalOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columntotalOrden = new global::System.Data.DataColumn("totalOrden", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalOrden);
             }
             
@@ -1015,10 +1015,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pago1 {
+            public double pago1 {
                 get {
                     try {
-                        return ((string)(this[this.tabledtDetalleOrdenes.pago1Column]));
+                        return ((double)(this[this.tabledtDetalleOrdenes.pago1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'pago1\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
@@ -1031,10 +1031,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pago2 {
+            public double pago2 {
                 get {
                     try {
-                        return ((string)(this[this.tabledtDetalleOrdenes.pago2Column]));
+                        return ((double)(this[this.tabledtDetalleOrdenes.pago2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'pago2\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
@@ -1064,10 +1064,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string totalOrden {
+            public double totalOrden {
                 get {
                     try {
-                        return ((string)(this[this.tabledtDetalleOrdenes.totalOrdenColumn]));
+                        return ((double)(this[this.tabledtDetalleOrdenes.totalOrdenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'totalOrden\' de la tabla \'dtDetalleOrdenes\' es DBNull.", e);
