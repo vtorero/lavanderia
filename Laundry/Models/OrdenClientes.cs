@@ -25,7 +25,7 @@ namespace Lavanderia.Models
          public OrdenClientes() { }
 
      public OrdenClientes(
-         int idorden, int idcliente, string nombrecliente, string sucur,string dnicliente,string fechacreado,decimal pag1,decimal pag2,
+         int idorden, int idcliente, string nombrecliente,string sucur,string dnicliente,string fechacreado,decimal pag1,decimal pag2,
          decimal monto, decimal montopendiente,int tipopago/*,decimal montototal*/)
         {
             this.idOrden=idorden;
