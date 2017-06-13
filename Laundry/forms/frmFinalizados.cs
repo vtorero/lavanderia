@@ -135,14 +135,14 @@ namespace Lavanderia.forms
                 string tipopago2 = _reader.GetString("tipoPago2");
                 txtIdPago.Text = Convert.ToString(idPago);
 
-                if (varGlobales.sessionUsuario.ToString().Equals("1")) {
+                //if (varGlobales.sessionUsuario.ToString().Equals("1")) {
                     btnCambiaModo.Enabled = true;
                     rdpago1E.Enabled = true;
                     rdpago1T.Enabled = true;
                     rdpago2E.Enabled = true;
                     rdpago2T.Enabled = true;
                 
-                }
+                //}
 
                 if (tipopago.Equals("2"))
                 {
@@ -221,6 +221,9 @@ namespace Lavanderia.forms
             llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             llenaPago(Convert.ToInt32(dgvOrdenes[0, pos].Value));
         }
+
+
+
 
      
     }

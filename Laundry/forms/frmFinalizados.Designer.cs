@@ -298,7 +298,6 @@
             // 
             // btnCambiaModo
             // 
-            this.btnCambiaModo.Enabled = false;
             this.btnCambiaModo.Location = new System.Drawing.Point(755, 72);
             this.btnCambiaModo.Name = "btnCambiaModo";
             this.btnCambiaModo.Size = new System.Drawing.Size(162, 41);
@@ -330,7 +329,7 @@
             this.Controls.Add(this.dgvOrdenes);
             this.Name = "frmFinalizados";
             this.Text = "frmFinalizados";
-            this.groupBox1.ResumeLayout(false);
+           this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.groupBox3.ResumeLayout(false);
