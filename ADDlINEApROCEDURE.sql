@@ -1,4 +1,5 @@
 DROP PROCEDURE IF EXISTS addLineaOrden; 
+DROP PROCEDURE IF EXISTS addPago; 
 DROP PROCEDURE IF EXISTS addOrden; 
 DROP PROCEDURE IF EXISTS ultimoIdOrden; 
 DROP PROCEDURE IF EXISTS clientesAll;	
@@ -25,11 +26,12 @@ IN Pobservacion VARCHAR(200),
 IN Pestado INT,
 IN PtipoPago INT,
 IN Pdscto INT,
+IN pDescuento DECIMAL(10,2),
 OUT ultimoId INT)
 BEGIN
 START TRANSACTION;
-INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto) VALUES 
-(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto);
+INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto,descuento) VALUES 
+(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto,pDescuento);
 SELECT LAST_INSERT_ID() INTO ultimoId;
 COMMIT;
 END $$
@@ -62,6 +64,27 @@ INSERT INTO OrdenLinea(idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto
 VALUES(PidOrden,Pitem,PidPrenda,Pdescripcion,Pcantidad,Pprecio,Pdefecto,Pcolor,Pmarca,Ptotal,Ptipo,Pestado);
 COMMIT;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE addPago(
+IN PidOrden INT ,
+IN pPago1 DECIMAL(10,2),
+IN pPago2 DECIMAL(10,2),
+IN pPagoTotal DECIMAL(10,2), 
+IN pTipoPago INT,
+IN pTipoPago1 INT,
+IN pTipoPago2 INT,
+IN ptipoDoc INT,
+IN pIgv DECIMAL(10,2),
+IN pEstado DECIMAL(10,2)
+)
+BEGIN
+START TRANSACTION;
+INSERT INTO Pago (idOrden, pago1,pago2,pagoTotal,tipoPago,tipoPago1,tipoDocumento,igv,Estado,fechaPago,fechaActualizado) 
+VALUES (PidOrden,pPago1,pPago2,pPagoTotal,pTipoPago,pTipoPago1,pTipoPago2,ptipoDoc,pIgv,pEstado);
+COMMIT;
+END $$
+
 DELIMITER $$
 CREATE PROCEDURE ultimoIdOrden(IN usuario INT)
 BEGIN

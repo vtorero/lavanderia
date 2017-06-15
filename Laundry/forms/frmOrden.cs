@@ -195,6 +195,7 @@ namespace Lavanderia.forms
             int tipo_pago = 0;
             int tipo_pago1 = 0;
             int tipo_doc = 0;
+            int tipo_descuento = 0;
             if (rdTotal.Checked)
             {
                 tipo_pago = 1;
@@ -208,7 +209,11 @@ namespace Lavanderia.forms
             {
                 tipo_pago1 = 1;
             }
+            if (chkDescuento.Checked) {
+                
+                tipo_descuento = 1;
 
+            }
 
             int status = 0;
             string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0, 10);
@@ -220,7 +225,8 @@ namespace Lavanderia.forms
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
-            ord.Descuento = dscto;
+            ord.Descuento = tipo_descuento;
+            ord.pDescuento = nroDscto.Value;
             status = OrdenDao.Agregar(ord);
 
             if (status > 0)
@@ -421,6 +427,10 @@ namespace Lavanderia.forms
             btnImprimir.Enabled = false;
             chkVisa.Checked = false;
             chkVisa.Enabled = false;
+            chkDescuento.Checked = false;
+            chkDescuento.Enabled = false;
+            nroDscto.Value = 0;
+            nroDscto.Enabled = false;
             totalOrden =0;
 
 
@@ -742,12 +752,14 @@ namespace Lavanderia.forms
 
         }
 
- 
-
-     
-
-       
-    }
+        private void nroDscto_ValueChanged(object sender, EventArgs e)
+        {
+            decimal total = totalOrden;
+            txtPago.Text = Convert.ToString(Decimal.Round(total -(Convert.ToDecimal(txtPago.Text) * Convert.ToDecimal(nroDscto.Value.ToString()))/100,2));
+            total = totalOrden;
+        }
+    
+        }
 }
       
    
