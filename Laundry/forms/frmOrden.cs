@@ -136,6 +136,10 @@ namespace Lavanderia.forms
             rdServicio.Checked = false;
             chkVisa.Checked = false;
             chkVisa.Enabled = false;
+            chkDescuento.Checked = false;
+            chkDescuento.Enabled = false;
+            nroDscto.Enabled = false;
+            nroDscto.Value = 0;
             txtPrecio.Text = "";
           nroCantidad.Value = nroCantidad.Minimum;
            
@@ -319,6 +323,8 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
             txtIg.Visible = false;
+            chkDescuento.Enabled = true;
+            nroDscto.Enabled = true;
 
 
         }
@@ -335,6 +341,8 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
+            chkDescuento.Enabled = true;
+            nroDscto.Enabled = true;
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -726,6 +734,12 @@ namespace Lavanderia.forms
             habilitaServicio();
             btnAdd.Enabled = true;
             
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            nroDscto.Enabled = true;
+
         }
 
  

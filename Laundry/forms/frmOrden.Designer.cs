@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -107,6 +107,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.chkDescuento = new System.Windows.Forms.CheckBox();
+            this.nroDscto = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,6 +119,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nroDscto)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -127,7 +131,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(484, 495);
+            this.groupBox1.Size = new System.Drawing.Size(484, 517);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente y Pagos";
@@ -233,6 +237,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.nroDscto);
+            this.groupBox2.Controls.Add(this.chkDescuento);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.txtIg);
             this.groupBox2.Controls.Add(this.lblSimbolopendiente);
@@ -255,7 +262,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(460, 284);
+            this.groupBox2.Size = new System.Drawing.Size(460, 301);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
@@ -285,7 +292,7 @@
             // lblSimbolopendiente
             // 
             this.lblSimbolopendiente.AutoSize = true;
-            this.lblSimbolopendiente.Location = new System.Drawing.Point(203, 104);
+            this.lblSimbolopendiente.Location = new System.Drawing.Point(201, 104);
             this.lblSimbolopendiente.Name = "lblSimbolopendiente";
             this.lblSimbolopendiente.Size = new System.Drawing.Size(24, 16);
             this.lblSimbolopendiente.TabIndex = 14;
@@ -295,7 +302,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(203, 68);
+            this.label8.Location = new System.Drawing.Point(201, 68);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(24, 16);
             this.label8.TabIndex = 13;
@@ -309,7 +316,7 @@
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.Size = new System.Drawing.Size(54, 20);
             this.chkVisa.TabIndex = 25;
-            this.chkVisa.Text = "Visa";
+            this.chkVisa.Text = "&Visa";
             this.chkVisa.UseVisualStyleBackColor = true;
             // 
             // lblObs
@@ -327,7 +334,7 @@
             this.txtObservacion.Location = new System.Drawing.Point(115, 143);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(288, 43);
+            this.txtObservacion.Size = new System.Drawing.Size(304, 43);
             this.txtObservacion.TabIndex = 11;
             // 
             // label12
@@ -386,9 +393,9 @@
             // 
             // txtPendiente
             // 
-            this.txtPendiente.Location = new System.Drawing.Point(232, 101);
+            this.txtPendiente.Location = new System.Drawing.Point(231, 101);
             this.txtPendiente.Name = "txtPendiente";
-            this.txtPendiente.Size = new System.Drawing.Size(100, 22);
+            this.txtPendiente.Size = new System.Drawing.Size(66, 22);
             this.txtPendiente.TabIndex = 5;
             this.txtPendiente.Visible = false;
             // 
@@ -405,9 +412,9 @@
             // txtPago
             // 
             this.txtPago.Enabled = false;
-            this.txtPago.Location = new System.Drawing.Point(233, 65);
+            this.txtPago.Location = new System.Drawing.Point(231, 65);
             this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(100, 22);
+            this.txtPago.Size = new System.Drawing.Size(65, 22);
             this.txtPago.TabIndex = 3;
             this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
             this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
@@ -426,7 +433,7 @@
             // 
             this.rdParcial.AutoSize = true;
             this.rdParcial.Enabled = false;
-            this.rdParcial.Location = new System.Drawing.Point(233, 25);
+            this.rdParcial.Location = new System.Drawing.Point(215, 25);
             this.rdParcial.Name = "rdParcial";
             this.rdParcial.Size = new System.Drawing.Size(104, 20);
             this.rdParcial.TabIndex = 10;
@@ -735,14 +742,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -760,8 +767,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -793,18 +800,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -942,6 +949,35 @@
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
             // 
+            // chkDescuento
+            // 
+            this.chkDescuento.AutoSize = true;
+            this.chkDescuento.Enabled = false;
+            this.chkDescuento.Location = new System.Drawing.Point(353, 64);
+            this.chkDescuento.Name = "chkDescuento";
+            this.chkDescuento.Size = new System.Drawing.Size(92, 20);
+            this.chkDescuento.TabIndex = 28;
+            this.chkDescuento.Text = "&Descuento";
+            this.chkDescuento.UseVisualStyleBackColor = true;
+            this.chkDescuento.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // nroDscto
+            // 
+            this.nroDscto.Enabled = false;
+            this.nroDscto.Location = new System.Drawing.Point(353, 98);
+            this.nroDscto.Name = "nroDscto";
+            this.nroDscto.Size = new System.Drawing.Size(61, 22);
+            this.nroDscto.TabIndex = 29;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(329, 101);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 16);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "%";
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -970,6 +1006,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nroDscto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1050,5 +1087,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clTipo;
         private System.Windows.Forms.Button btnBuscaprenda;
         private System.Windows.Forms.TextBox txtNombrePrenda;
+        private System.Windows.Forms.CheckBox chkDescuento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown nroDscto;
     }
 }
