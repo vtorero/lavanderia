@@ -128,7 +128,7 @@ IN estado INT
 BEGIN
 IF(usuario<>1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario
-WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
+WHERE (fechaEntrega BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
 END IF;
 IF(usuario=1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario

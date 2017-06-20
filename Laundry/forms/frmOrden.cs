@@ -220,7 +220,7 @@ namespace Lavanderia.forms
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega = s + " " + h;
-            ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text)); ;
+            ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text) * Convert.ToDecimal(nroDscto.Value.ToString())/100);
             ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text);
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;

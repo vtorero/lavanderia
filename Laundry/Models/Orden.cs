@@ -18,7 +18,7 @@ namespace Lavanderia.Models
         public int estado { get; set; }
         public int tipoPago { get; set;}
         public int Descuento { get; set; }
-        public decimal pDescuento { get; set; } 
+        public decimal pDescuento {get; set;} 
 
         public Orden() { }
 
