@@ -24,6 +24,7 @@ namespace Lavanderia.forms
 
         Validacion v = new Validacion();
         decimal totalOrden = 0;
+        decimal totalDescuento = 0;
         int dscto = 0;
         public frmOrden()
         {
@@ -139,7 +140,7 @@ namespace Lavanderia.forms
             chkDescuento.Checked = false;
             chkDescuento.Enabled = false;
             nroDscto.Enabled = false;
-            nroDscto.Value = 0;
+            nroDscto.Text = "0";
             txtPrecio.Text = "";
           nroCantidad.Value = nroCantidad.Minimum;
            
@@ -220,13 +221,21 @@ namespace Lavanderia.forms
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega = s + " " + h;
-            ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text) * Convert.ToDecimal(nroDscto.Value.ToString())/100);
+            if (tipo_descuento == 0)
+            {
+                ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
+            }
+            else {
+
+                ord.totalOrden = Convert.ToDecimal(txtPago.Text);
+            }
+            
             ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text);
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
-            ord.pDescuento = nroDscto.Value;
+            ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
             status = OrdenDao.Agregar(ord);
 
             if (status > 0)
@@ -329,8 +338,11 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
             txtIg.Visible = false;
-            chkDescuento.Enabled = true;
-            nroDscto.Enabled = true;
+            chkDescuento.Enabled = false;
+            chkDescuento.Visible = false;
+            nroDscto.Visible = false;
+            nroDscto.Enabled = false;
+
 
 
         }
@@ -348,7 +360,9 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
             chkDescuento.Enabled = true;
-            nroDscto.Enabled = true;
+            chkDescuento.Visible = true;
+            
+
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -429,8 +443,12 @@ namespace Lavanderia.forms
             chkVisa.Enabled = false;
             chkDescuento.Checked = false;
             chkDescuento.Enabled = false;
-            nroDscto.Value = 0;
+            chkDescuento.Visible = false;
+            nroDscto.Text = "0";
             nroDscto.Enabled = false;
+            nroDscto.Visible = false;
+            label11.Visible = false;
+
             totalOrden =0;
 
 
@@ -499,6 +517,9 @@ namespace Lavanderia.forms
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
+            chkDescuento.Enabled = true;
+
+            
         }
         /*
         private void chkFactura_CheckStateChanged(object sender, EventArgs e)
@@ -748,15 +769,41 @@ namespace Lavanderia.forms
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            nroDscto.Enabled = true;
+            if (!nroDscto.Enabled)
+            {
+                nroDscto.Visible = false;
+                nroDscto.Enabled = false;
+                label11.Visible = false;
+                txtPago.Text = Convert.ToString(totalOrden);
+           
+            }
+            else {
+                nroDscto.Visible = true;
+                nroDscto.Enabled = true;
+                label11.Visible = true;
+                
+            
+            }
 
         }
 
-        private void nroDscto_ValueChanged(object sender, EventArgs e)
+    
+        private void nroDscto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            decimal total = totalOrden;
-            txtPago.Text = Convert.ToString(Decimal.Round(total -(Convert.ToDecimal(txtPago.Text) * Convert.ToDecimal(nroDscto.Value.ToString()))/100,2));
-            total = totalOrden;
+            v.soloNumeros(e);
+        }
+
+        private void nroDscto_Leave(object sender, EventArgs e)
+        {
+            totalDescuento = Convert.ToDecimal(nroDscto.Text);
+            if (!txtPago.Text.Equals(""))
+            {
+                decimal total = totalOrden;
+                txtPago.Text = Convert.ToString(Decimal.Round(total - (Convert.ToDecimal(txtPago.Text) * totalDescuento) / 100, 2));
+                //totalOrden = Decimal.Round(total - (Convert.ToDecimal(txtPago.Text) * Convert.ToDecimal(nroDscto.Text)) / 100, 2);
+                //total = totalOrden;
+
+            }
         }
     
         }
