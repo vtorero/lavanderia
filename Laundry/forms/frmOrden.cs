@@ -21,7 +21,7 @@ namespace Lavanderia.forms
     {
         int i = 1;
         int idOrdenPrint = 0;
-
+        decimal cantidadGeneral = 0;
         Validacion v = new Validacion();
         decimal totalOrden = 0;
         decimal totalDescuento = 0;
@@ -67,14 +67,19 @@ namespace Lavanderia.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             if (nroCantidad.Value > 0)
             {
+               
                 int tipoServ=0;
                 string id, detalle, defecto, colores,marca;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
+
+                
                 cantidad = nroCantidad.Value;
+            
                 marca = cmbMarca.Text;
                 precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text), 2);
                 
@@ -83,6 +88,12 @@ namespace Lavanderia.forms
 
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
+
+                if (tipoServ == 1)
+                {
+                    cantidadGeneral += cantidad;
+                }
+
                 foreach (Object def in chkDefecto.CheckedItems)
                 {
                     defecto += def.ToString() + ",";
@@ -112,6 +123,12 @@ namespace Lavanderia.forms
                 chkDscto.Checked = false;
                 
                 total=0;
+
+                if(cantidadGeneral>=3){
+
+                    MessageBox.Show("Aplica el descuento cantidad " + cantidadGeneral, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                }
             }
             else
             {
@@ -359,8 +376,8 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
-            chkDescuento.Enabled = true;
-            chkDescuento.Visible = true;
+            /*chkDescuento.Enabled = true;
+            chkDescuento.Visible = true;*/
             
 
         }
@@ -517,7 +534,7 @@ namespace Lavanderia.forms
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
-            chkDescuento.Enabled = true;
+            //chkDescuento.Enabled = true;
 
             
         }
