@@ -124,7 +124,7 @@ namespace Lavanderia.forms
                 
                 total=0;
 
-                if(cantidadGeneral>=3){
+                if(cantidadGeneral>=3 ){
 
                     MessageBox.Show("Aplica el descuento cantidad " + cantidadGeneral, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 

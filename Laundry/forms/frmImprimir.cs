@@ -31,12 +31,12 @@ namespace Lavanderia.forms
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");
 
             cryrep.SetDataSource(ds);
-            cryrep.PrintToPrinter(1, true, 0, 0);
+            //cryrep.PrintToPrinter(1, true, 0, 0);
 
-           /* frmReporte rt = new frmReporte();
+            frmReporte rt = new frmReporte();
             rt.Text = "Ticket";
             rt.crystalReportViewer1.ReportSource = cryrep;
-            rt.Show();﻿*/
+            rt.Show();﻿
         }
     }
 }
