@@ -211,6 +211,7 @@ namespace Lavanderia.forms
             Orden ord = new Orden();
             Pago pago = new Pago();
             int tipo_pago = 0;
+            int nrodia = 0;
             int tipo_pago1 = 0;
             int tipo_doc = 0;
             int tipo_descuento = 0;
@@ -262,7 +263,7 @@ namespace Lavanderia.forms
 
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
-
+                    nrodia = (int)Hoy.DayOfWeek;
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = 0;
@@ -283,6 +284,7 @@ namespace Lavanderia.forms
 
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
+                    nrodia = (int) Hoy.DayOfWeek;
 
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
@@ -329,7 +331,7 @@ namespace Lavanderia.forms
 
                 }
 
-                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} ", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} aplica oferta {1}", status, nrodia), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 idOrdenPrint = status;
                 desHabilitaServicio();
                 btnImprimir.Enabled = true;

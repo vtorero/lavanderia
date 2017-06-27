@@ -189,6 +189,12 @@
     <Compile Include="forms\frmServicio.Designer.cs">
       <DependentUpon>frmServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\OrdenesV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\OrdenesV2.Designer.cs">
+      <DependentUpon>OrdenesV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\dsAlpeso.Designer.cs">
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmServicio.resx">
       <DependentUpon>frmServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\OrdenesV2.resx">
+      <DependentUpon>OrdenesV2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
