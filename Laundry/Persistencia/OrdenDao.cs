@@ -180,6 +180,22 @@ namespace Lavanderia.Persistencia
         }
 
 
+        public static string consultaOferta(int dia) {
+            string nombre="";
+            MySqlCommand _comando = new MySqlCommand("ofertasDelDia", BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.Parameters.Add(new MySqlParameter("dia", dia));
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            while (_reader.Read())
+            {
+                nombre = Convert.ToString(_reader["nombre"]);
+            }
+            _comando.Connection.Close();
+
+            return nombre;
+        }
+
+
         public static int consultaPendientes(int usuario)
         {
             int id = 0;

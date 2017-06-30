@@ -244,6 +244,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsVentas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Oferta.cs" />
     <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\OrdenClientes.cs" />
     <Compile Include="Models\OrdenLinea.cs" />

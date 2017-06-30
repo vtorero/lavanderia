@@ -221,7 +221,13 @@ namespace Lavanderia.forms
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            int nrodia;
             label1.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
+            DateTime Hoy = DateTime.Now;
+            
+            nrodia = (int) Hoy.DayOfWeek;
+            lblOferta.Text = OrdenDao.consultaOferta(nrodia);
+
             }
 
         private void detalleOrdenesToolStripMenuItem_Click(object sender, EventArgs e)

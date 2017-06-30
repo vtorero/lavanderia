@@ -65,6 +65,7 @@ namespace Lavanderia.forms
                         mainStatusBar.Panels.Add("sucursal");
                         mainStatusBar.Panels.Add("Fecha");
                         mainStatusBar.Panels.Add("tipo");
+                        mainStatusBar.Panels.Add("Oferta del Día");
                         mainStatusBar.Panels[0].Width = 50;
                         mainStatusBar.Panels[0].Text = "Usuario:";
                         mainStatusBar.Panels[1].Text = result.nombreUsuario + " " + result.apellidoUsuario;
@@ -74,6 +75,11 @@ namespace Lavanderia.forms
                         mainStatusBar.Panels[4].Width = 200;
                         mainStatusBar.Panels[4].Text = Convert.ToString(DateTime.Now);
                         mainStatusBar.Panels[5].Text = (result.tipoUsuario == 1) ? "Admin" : "Normal";
+                        DateTime Hoy = DateTime.Now;
+                        int nrodia = (int)Hoy.DayOfWeek;
+                        mainStatusBar.Panels[6].Width = 100;
+                        mainStatusBar.Panels[6].Text = "Oferta del día:";
+                        mainStatusBar.Panels[6].Text = OrdenDao.consultaOferta(nrodia);
                         mainStatusBar.ShowPanels = true;
                         childForm.Controls.Add(mainStatusBar);
                         childForm.Show();

@@ -12,17 +12,19 @@ namespace Lavanderia.Models
         public string NombrePrenda { get; set; }
         public string Descripcion { get; set; }
         public decimal precioServicio { get; set; }
+        public string tipoPrenda { get; set; } 
 
 
 
         public Prenda() { }
 
-        public Prenda(int idprenda, string nombre, string descr, decimal precio)
+        public Prenda(int idprenda, string nombre, string descr, decimal precio,string tipoprenda)
         {
             this.idPrenda = idprenda;
             this.NombrePrenda = nombre;
             this.Descripcion = descr;
             this.precioServicio = precio;
+            this.tipoPrenda = tipoprenda;
 
         }
 

@@ -98,10 +98,12 @@ namespace Lavanderia.forms
                 {
                     defecto += def.ToString() + ",";
                 }
-                foreach (Object col in chkColores.CheckedItems)
+
+                colores = cmbColor.Text;
+                /*foreach (Object col in chkColores.CheckedItems)
                 {
                     colores += col.ToString() + ",";
-                }
+                }*/
 
                 total = Decimal.Round((cantidad * precio), 2);
 
@@ -264,6 +266,9 @@ namespace Lavanderia.forms
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
                     nrodia = (int)Hoy.DayOfWeek;
+
+
+
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = 0;
@@ -624,6 +629,17 @@ namespace Lavanderia.forms
 
         private void fillColores()
         {
+            MySqlDataReader _reader = ColorDao.fillColor();
+            cmbColor.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            AutoCompleteStringCollection datosM = new AutoCompleteStringCollection();
+            while (_reader.Read())
+            {
+                string name = _reader.GetString("nombreColor");
+                datosM.Add(name);
+
+            }
+            cmbColor.AutoCompleteCustomSource=datosM;
 
             /*MySqlDataReader _reader = PrendaDao.fillPrenda();
             cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -636,15 +652,15 @@ namespace Lavanderia.forms
 
             }
             cmbPrenda.AutoCompleteCustomSource = datos;
-            */
+          
             MySqlDataReader _readerC = ColorDao.fillColor();
             while (_readerC.Read())
             {
                 chkColores.Items.Add(_readerC.GetString("nombreColor"));
 
-            }
+            }  */
 
-      
+
 
         }
 

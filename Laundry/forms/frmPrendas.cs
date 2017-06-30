@@ -94,6 +94,7 @@ namespace Lavanderia.forms
                 prenda.NombrePrenda = txtNombre.Text.Trim();
                 prenda.Descripcion = txtDescripcion.Text.Trim();
                 prenda.precioServicio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
+                prenda.tipoPrenda = cmbTipoPrenda.Text;
 
 
                 if (btnGuardar.Text.Equals("&Registrar"))

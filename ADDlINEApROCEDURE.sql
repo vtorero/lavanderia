@@ -16,6 +16,7 @@ DROP PROCEDURE IF EXISTS consultaPago;
 DROP PROCEDURE IF EXISTS modificaPago;
 DROP PROCEDURE IF EXISTS buscarOrdenesId;
 DROP PROCEDURE IF EXISTS pendienteEntregas;
+DROP PROCEDURE IF EXISTS ofertasDelDia;
 DELIMITER $$
 CREATE PROCEDURE addOrden(
 IN PidCliente INT,
@@ -43,6 +44,16 @@ IN USUARIO INT
 BEGIN
 SELECT COUNT(*) total FROM Orden o WHERE SUBSTRING(o.fechaEntrega,1,10)=SUBSTRING(NOW(),1,10) AND o.`idUsuario`=USUARIO;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE ofertasDelDia(
+IN dia VARCHAR(1)
+)
+BEGIN
+SELECT * FROM oferta  WHERE diasOferta LIKE CONCAT('%', dia , '%') AND estado=1;
+END $$
+
+
 
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(
