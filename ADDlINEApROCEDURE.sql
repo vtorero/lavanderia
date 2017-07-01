@@ -109,7 +109,7 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE coloresAll()
 BEGIN
-SELECT * FROM Color ORDER BY nombreColor ASC;
+SELECT idColor,UPPER(nombreColor) nombreColor FROM Color ORDER BY nombreColor ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE serviciosAll()
@@ -139,7 +139,7 @@ IN estado INT
 BEGIN
 IF(usuario<>1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario
-WHERE (fechaEntrega BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
+WHERE (fechaCreado BETWEEN fechaInicio AND fechaFin AND o.estado=estado AND o.idUsuario=usuario) AND (c.nombreCliente LIKE nombreCliente AND o.idUsuario=usuario);
 END IF;
 IF(usuario=1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario

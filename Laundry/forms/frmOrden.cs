@@ -128,7 +128,7 @@ namespace Lavanderia.forms
 
                 if(cantidadGeneral>=3 ){
 
-                    MessageBox.Show("Aplica el descuento cantidad " + cantidadGeneral, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Aplica el descuento cantidad " + cantidadGeneral, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 }
             }
@@ -150,6 +150,8 @@ namespace Lavanderia.forms
             cmbServicios.Enabled = false;
             cmbMarca.Enabled = false;
             cmbMarca.Text = "";
+            cmbColor.Enabled = false;
+            cmbColor.Text = "";
             cmbPrenda.Text = "";
             cmbServicios.Text = "";
             rdPrenda.Checked = false;
@@ -177,6 +179,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
             chkColores.Enabled = false;
+            cmbColor.Enabled = false;
            
         }
 
@@ -268,7 +271,6 @@ namespace Lavanderia.forms
                     nrodia = (int)Hoy.DayOfWeek;
 
 
-
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = 0;
@@ -336,7 +338,7 @@ namespace Lavanderia.forms
 
                 }
 
-                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0} aplica oferta {1}", status, nrodia), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0}", status, nrodia), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 idOrdenPrint = status;
                 desHabilitaServicio();
                 btnImprimir.Enabled = true;
@@ -422,6 +424,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = true;
             chkDefecto.Enabled = true;
             chkColores.Enabled = true;
+            cmbColor.Enabled = true;
 
             dgvOrden.Enabled = true;
 
@@ -435,6 +438,7 @@ namespace Lavanderia.forms
             nroCantidad.Enabled = false;
             chkDefecto.Enabled = false;
             chkColores.Enabled = false;
+            cmbColor.Enabled = false;
             txtPendiente.Enabled = false;
             txtPago.Text = "";
             txtPago.Enabled = false;
@@ -759,6 +763,7 @@ namespace Lavanderia.forms
             //cmbPrenda.Visible = true;
             cmbServicios.Visible = false;
             cmbMarca.Enabled = true;
+            cmbColor.Enabled=true;
             labelCantidad.Text = "Cantidad";
             nroCantidad.Minimum = 1;
             nroCantidad.Value = 1;

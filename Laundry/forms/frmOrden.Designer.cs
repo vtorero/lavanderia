@@ -66,6 +66,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbColor = new System.Windows.Forms.ComboBox();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
             this.btnBuscaprenda = new System.Windows.Forms.Button();
             this.chkDscto = new System.Windows.Forms.CheckBox();
@@ -74,6 +75,7 @@
             this.labelOferta = new System.Windows.Forms.Label();
             this.cmbServicios = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.chkColores = new System.Windows.Forms.CheckedListBox();
             this.chkDefecto = new System.Windows.Forms.CheckedListBox();
             this.cmbPrenda = new System.Windows.Forms.ComboBox();
             this.TXTIGV = new System.Windows.Forms.TextBox();
@@ -109,8 +111,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.cmbColor = new System.Windows.Forms.ComboBox();
-            this.chkColores = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -309,7 +309,7 @@
             this.btnImprimir.Location = new System.Drawing.Point(357, 204);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(89, 54);
-            this.btnImprimir.TabIndex = 27;
+            this.btnImprimir.TabIndex = 13;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -349,7 +349,7 @@
             this.chkVisa.Location = new System.Drawing.Point(354, 26);
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.Size = new System.Drawing.Size(54, 20);
-            this.chkVisa.TabIndex = 25;
+            this.chkVisa.TabIndex = 11;
             this.chkVisa.Text = "&Visa";
             this.chkVisa.UseVisualStyleBackColor = true;
             // 
@@ -400,7 +400,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(254, 203);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(97, 55);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -527,6 +527,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle del servicio";
             // 
+            // cmbColor
+            // 
+            this.cmbColor.Enabled = false;
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Location = new System.Drawing.Point(163, 108);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(132, 24);
+            this.cmbColor.TabIndex = 6;
+            // 
             // txtNombrePrenda
             // 
             this.txtNombrePrenda.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -577,7 +586,7 @@
             this.cmbMarca.Location = new System.Drawing.Point(318, 108);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 24);
-            this.cmbMarca.TabIndex = 33;
+            this.cmbMarca.TabIndex = 7;
             this.cmbMarca.Leave += new System.EventHandler(this.cmbMarca_Leave);
             // 
             // labelOferta
@@ -612,6 +621,18 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "Color:";
             // 
+            // chkColores
+            // 
+            this.chkColores.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.chkColores.CheckOnClick = true;
+            this.chkColores.Enabled = false;
+            this.chkColores.FormattingEnabled = true;
+            this.chkColores.Location = new System.Drawing.Point(163, 138);
+            this.chkColores.Name = "chkColores";
+            this.chkColores.Size = new System.Drawing.Size(106, 89);
+            this.chkColores.TabIndex = 29;
+            this.chkColores.Visible = false;
+            // 
             // chkDefecto
             // 
             this.chkDefecto.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -627,8 +648,8 @@
             "Gastado"});
             this.chkDefecto.Location = new System.Drawing.Point(36, 107);
             this.chkDefecto.Name = "chkDefecto";
-            this.chkDefecto.Size = new System.Drawing.Size(109, 89);
-            this.chkDefecto.TabIndex = 28;
+            this.chkDefecto.Size = new System.Drawing.Size(109, 106);
+            this.chkDefecto.TabIndex = 5;
             // 
             // cmbPrenda
             // 
@@ -728,7 +749,7 @@
             0});
             this.nroCantidad.Name = "nroCantidad";
             this.nroCantidad.Size = new System.Drawing.Size(59, 22);
-            this.nroCantidad.TabIndex = 5;
+            this.nroCantidad.TabIndex = 4;
             this.nroCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nroCantidad.ThousandsSeparator = true;
             this.nroCantidad.ValueChanged += new System.EventHandler(this.nroCantidad_ValueChanged);
@@ -972,26 +993,6 @@
             this.LblId.TabIndex = 15;
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
-            // 
-            // cmbColor
-            // 
-            this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Location = new System.Drawing.Point(163, 108);
-            this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(132, 24);
-            this.cmbColor.TabIndex = 38;
-            // 
-            // chkColores
-            // 
-            this.chkColores.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.chkColores.CheckOnClick = true;
-            this.chkColores.Enabled = false;
-            this.chkColores.FormattingEnabled = true;
-            this.chkColores.Location = new System.Drawing.Point(174, 143);
-            this.chkColores.Name = "chkColores";
-            this.chkColores.Size = new System.Drawing.Size(120, 89);
-            this.chkColores.TabIndex = 29;
-            this.chkColores.Visible = false;
             // 
             // frmOrden
             // 
