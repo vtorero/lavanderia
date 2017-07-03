@@ -22,6 +22,8 @@ namespace Lavanderia.forms
         int i = 1;
         int idOrdenPrint = 0;
         decimal cantidadGeneral = 0;
+        decimal cantidadGeneralcama = 0;
+        string aplicaDescuento = "";
         Validacion v = new Validacion();
         decimal totalOrden = 0;
         decimal totalDescuento = 0;
@@ -50,11 +52,12 @@ namespace Lavanderia.forms
 
         }
 
-        public void ejecutar2(string id, string nombre, decimal precio)
+        public void ejecutar2(string id, string nombre, decimal precio,string tipo)
         {
             LblId.Text = id;
             txtNombrePrenda.Text = nombre;
             txtPrecio.Text = Convert.ToString(Decimal.Round(precio, 2));
+            txttipo.Text = tipo;
         }
 
         public void ejecutar3(string colores)
@@ -72,7 +75,7 @@ namespace Lavanderia.forms
             {
                
                 int tipoServ=0;
-                string id, detalle, defecto, colores,marca;
+                string id, detalle, defecto, colores,marca, tipo;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
@@ -88,10 +91,20 @@ namespace Lavanderia.forms
 
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
+                int nrodia;
+                DateTime Hoy = DateTime.Now;
 
-                if (tipoServ == 1)
+                nrodia = (int)Hoy.DayOfWeek;
+                aplicaDescuento = OrdenDao.consultaOferta(nrodia);
+
+                if (tipoServ == 1 && aplicaDescuento.Equals("3 Prendas a mas"))
                 {
                     cantidadGeneral += cantidad;
+                }
+
+                if (tipoServ == 1 && txttipo.Text == "Ropa de Cama" && aplicaDescuento.Equals("Ropa de Cama"))
+                {
+                    cantidadGeneralcama += cantidad;
                 }
 
                 foreach (Object def in chkDefecto.CheckedItems)
@@ -126,9 +139,16 @@ namespace Lavanderia.forms
                 
                 total=0;
 
+                if (cantidadGeneralcama >= 1)
+                {
+
+                    MessageBox.Show("Aplica el descuento Ropa de Cama: " + aplicaDescuento + " por la cantidad " + cantidadGeneralcama + " items", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+
                 if(cantidadGeneral>=3 ){
 
-                    //MessageBox.Show("Aplica el descuento cantidad " + cantidadGeneral, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Aplica el descuento: " + aplicaDescuento  + " por la cantidad " + cantidadGeneral+ " items", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
                 }
             }

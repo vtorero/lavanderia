@@ -16,6 +16,7 @@ namespace Lavanderia.Models
 
 
 
+
         public Prenda() { }
 
         public Prenda(int idprenda, string nombre, string descr, decimal precio,string tipoprenda)

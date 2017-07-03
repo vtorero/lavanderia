@@ -13,7 +13,7 @@ namespace Lavanderia.forms.busquedas
 {
     public partial class frmBuscarPrendas : Form
     {
-        public delegate void enviar(string id, string nombre, decimal precio);
+        public delegate void enviar(string id, string nombre, decimal precio,string tipo);
         public event enviar enviado;
         public frmBuscarPrendas()
         {
@@ -32,6 +32,7 @@ namespace Lavanderia.forms.busquedas
             dgvPrendas.Columns[3].HeaderText = "Precio";
             dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
             dgvPrendas.Columns[3].Width = 100;
+            dgvPrendas.Columns[4].Width = 100;
             
         }
 
@@ -44,7 +45,7 @@ namespace Lavanderia.forms.busquedas
 
             int pos;
             pos = dgvPrendas.CurrentRow.Index;
-            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value));
+            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value), Convert.ToString(dgvPrendas[4, pos].Value));
             this.Close();
         }
 
@@ -65,6 +66,7 @@ namespace Lavanderia.forms.busquedas
             dgvPrendas.Columns[3].HeaderText = "Precio";
             dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
             dgvPrendas.Columns[3].Width = 100;
+            dgvPrendas.Columns[4].Width = 100;
         }
     }
 }

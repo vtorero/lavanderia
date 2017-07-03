@@ -13,7 +13,7 @@ namespace Lavanderia.forms.busquedas
 {
     public partial class frmBuscarServicio : Form
     {
-        public delegate void enviar(string id, string nombre, decimal precio);
+        public delegate void enviar(string id, string nombre, decimal precio,string tipo);
         public event enviar enviado;
         public frmBuscarServicio()
         {
@@ -37,13 +37,14 @@ namespace Lavanderia.forms.busquedas
             dgvServicios.Columns[2].HeaderText = "Precio";
             dgvServicios.Columns[2].DefaultCellStyle.Format = "C2";
             dgvServicios.Columns[2].Width = 100;
+            dgvServicios.Columns[3].Width = 100;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int pos;
             pos = dgvServicios.CurrentRow.Index;
-            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value));
+            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value), Convert.ToString(dgvServicios[3, pos].Value));
             this.Close();
         }
 
@@ -56,7 +57,7 @@ namespace Lavanderia.forms.busquedas
         {
             int pos;
             pos = dgvServicios.CurrentRow.Index;
-            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value));
+            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value), Convert.ToString(dgvServicios[3, pos].Value));
             this.Close();
         }
     }
