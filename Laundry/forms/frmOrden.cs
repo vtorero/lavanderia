@@ -27,6 +27,8 @@ namespace Lavanderia.forms
         Validacion v = new Validacion();
         decimal totalOrden = 0;
         decimal totalDescuento = 0;
+        decimal totalOfertaRopa = 0;
+        decimal totalOfertaCama = 0;
         int dscto = 0;
         public frmOrden()
         {
@@ -79,7 +81,8 @@ namespace Lavanderia.forms
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
-
+                total = 0;
+           
                 
                 cantidad = nroCantidad.Value;
             
@@ -100,11 +103,20 @@ namespace Lavanderia.forms
                 if (tipoServ == 1 && aplicaDescuento.Equals("3 Prendas a mas"))
                 {
                     cantidadGeneral += cantidad;
+                    totalOfertaRopa+= Decimal.Round((cantidad * precio), 2);
+                }
+                else {
+                    total = Decimal.Round((cantidad * precio), 2);
+                
                 }
 
                 if (tipoServ == 1 && txttipo.Text == "Ropa de Cama" && aplicaDescuento.Equals("Ropa de Cama"))
                 {
                     cantidadGeneralcama += cantidad;
+                    totalOfertaCama+= Decimal.Round((cantidad * precio), 2);
+                }
+                else {
+                    total = Decimal.Round((cantidad * precio), 2);
                 }
 
                 foreach (Object def in chkDefecto.CheckedItems)
@@ -118,7 +130,7 @@ namespace Lavanderia.forms
                     colores += col.ToString() + ",";
                 }*/
 
-                total = Decimal.Round((cantidad * precio), 2);
+              
 
                 if (chkDscto.Checked)
                 {
@@ -142,13 +154,13 @@ namespace Lavanderia.forms
                 if (cantidadGeneralcama >= 1)
                 {
 
-                    MessageBox.Show("Aplica el descuento Ropa de Cama: " + aplicaDescuento + " por la cantidad " + cantidadGeneralcama + " items", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Aplica el descuento Ropa de Cama: " + aplicaDescuento + " por la cantidad " + cantidadGeneralcama + " items "+ totalOfertaCama   , "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
 
                 if(cantidadGeneral>=3 ){
 
-                    MessageBox.Show("Aplica el descuento: " + aplicaDescuento  + " por la cantidad " + cantidadGeneral+ " items", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Aplica el descuento: " + aplicaDescuento  + " por la cantidad " + cantidadGeneral+ " items "+ totalOfertaRopa, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
                 }
             }
@@ -253,33 +265,20 @@ namespace Lavanderia.forms
             {
                 tipo_pago1 = 1;
             }
-            if (chkDescuento.Checked) {
-                
-                tipo_descuento = 1;
-
-            }
+      
 
             int status = 0;
             string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0, 10);
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
-            ord.fechaEntrega = s + " " + h;
-            if (tipo_descuento == 0)
-            {
-                ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
-            }
-            else {
-
-                ord.totalOrden = Convert.ToDecimal(txtPago.Text);
-            }
-            
+            ord.fechaEntrega = s + " " + h;      
             ord.idUsuario = Convert.ToInt32(toolStripStatusLabel1.Text);
             ord.observacion = txtObservacion.Text;
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
             ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
-            status = OrdenDao.Agregar(ord);
+           
 
             if (status > 0)
             {
@@ -289,12 +288,44 @@ namespace Lavanderia.forms
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
                     nrodia = (int)Hoy.DayOfWeek;
+                    Oferta of = OfertaDao.Buscar(nrodia);
+
+                    if (chkVisa.Checked) {
+                        of.Porcentaje = of.Porcentaje-5;
+                    }
+
+                    if (of.Porcentaje > 0)
+                    {
+                        if (of.Porcentaje > 0 && of.Nombre.Equals("Ropa de Cama"))
+                        {
+                            decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
+                            decimal descuento = totalOfertaCama * (of.Porcentaje / 100);
+                            MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                            pago.PagoTotal = nuevototal + (totalOfertaCama - descuento);
+                            ord.totalOrden = nuevototal + (totalOfertaCama - descuento);
+                        }
 
 
+                        if (of.Porcentaje > 0 && of.Nombre.Equals("3 Prendas a mas"))
+                        {
+                            decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
+                            decimal descuento = totalOfertaRopa * (of.Porcentaje / 100);
+                            MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                            pago.PagoTotal = nuevototal + (totalOfertaRopa - descuento);
+                            ord.totalOrden = nuevototal + (totalOfertaRopa - descuento);
+                        }
+                    }
+                    else {
+
+                        pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                        ord.totalOrden = Convert.ToDecimal(txtPago.Text);
+                    }
+                    
+                    status = OrdenDao.Agregar(ord);
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = 0;
-                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                    
                     pago.TipoPago = tipo_pago;
                     pago.TipoPago1 = tipo_pago1;
                     pago.TipoDocumento = tipo_doc;
@@ -496,7 +527,8 @@ namespace Lavanderia.forms
             nroDscto.Enabled = false;
             nroDscto.Visible = false;
             label11.Visible = false;
-
+            totalOfertaCama = 0;
+            totalOfertaRopa = 0;
             totalOrden =0;
 
 

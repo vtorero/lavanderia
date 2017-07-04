@@ -254,6 +254,7 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\ClienteDao.cs" />
     <Compile Include="Persistencia\ColorDao.cs" />
+    <Compile Include="Persistencia\OfertaDao.cs" />
     <Compile Include="Persistencia\OrdenDao.cs" />
     <Compile Include="Persistencia\PagoDao.cs" />
     <Compile Include="Persistencia\PrendaDao.cs" />
