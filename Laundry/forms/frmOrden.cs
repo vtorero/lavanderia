@@ -353,6 +353,7 @@ namespace Lavanderia.forms
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
                     nrodia = (int) Hoy.DayOfWeek;
 
+                    status = OrdenDao.Agregar(ord);
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
