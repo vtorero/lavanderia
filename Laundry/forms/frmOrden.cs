@@ -398,7 +398,7 @@ namespace Lavanderia.forms
 
                 }
 
-                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0}", status, nrodia), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0}", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 idOrdenPrint = status;
                 desHabilitaServicio();
                 btnImprimir.Enabled = true;
