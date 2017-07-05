@@ -33,6 +33,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbTipoPrenda = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvPrendas = new System.Windows.Forms.DataGridView();
-            this.cmbTipoPrenda = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -98,6 +98,27 @@
             this.groupBox1.Size = new System.Drawing.Size(564, 289);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 18);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Tipo Prenda:";
+            // 
+            // cmbTipoPrenda
+            // 
+            this.cmbTipoPrenda.FormattingEnabled = true;
+            this.cmbTipoPrenda.Items.AddRange(new object[] {
+            "Seleccionar",
+            "Ropa de Cama",
+            "Estandar"});
+            this.cmbTipoPrenda.Location = new System.Drawing.Point(157, 147);
+            this.cmbTipoPrenda.Name = "cmbTipoPrenda";
+            this.cmbTipoPrenda.Size = new System.Drawing.Size(121, 26);
+            this.cmbTipoPrenda.TabIndex = 10;
             // 
             // label4
             // 
@@ -239,26 +260,6 @@
             this.dgvPrendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPrendas.Size = new System.Drawing.Size(583, 226);
             this.dgvPrendas.TabIndex = 3;
-            // 
-            // cmbTipoPrenda
-            // 
-            this.cmbTipoPrenda.FormattingEnabled = true;
-            this.cmbTipoPrenda.Items.AddRange(new object[] {
-            "Seleccionar",
-            "Ropa de Cama"});
-            this.cmbTipoPrenda.Location = new System.Drawing.Point(157, 147);
-            this.cmbTipoPrenda.Name = "cmbTipoPrenda";
-            this.cmbTipoPrenda.Size = new System.Drawing.Size(121, 26);
-            this.cmbTipoPrenda.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 18);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Tipo Prenda:";
             // 
             // frmPrendas
             // 

@@ -100,7 +100,7 @@ namespace Lavanderia.forms
                 nrodia = (int)Hoy.DayOfWeek;
                 aplicaDescuento = OrdenDao.consultaOferta(nrodia);
 
-                if (tipoServ == 1 && aplicaDescuento.Equals("3 Prendas a mas"))
+                if (tipoServ == 1 && aplicaDescuento.Equals("3 Prendas a más"))
                 {
                     cantidadGeneral += cantidad;
                     totalOfertaRopa+= Decimal.Round((cantidad * precio), 2);
@@ -151,18 +151,18 @@ namespace Lavanderia.forms
                 
                 total=0;
 
-                if (cantidadGeneralcama >= 1)
-                {
+                //if (cantidadGeneralcama >= 1)
+                //{
 
-                    MessageBox.Show("Aplica el descuento Ropa de Cama: " + aplicaDescuento + " por la cantidad " + cantidadGeneralcama + " items "+ totalOfertaCama   , "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    MessageBox.Show("Aplica el descuento Ropa de Cama: " + aplicaDescuento + " por la cantidad " + cantidadGeneralcama + " items "+ totalOfertaCama   , "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                }
+                //}
 
-                if(cantidadGeneral>=3 ){
+                //if(cantidadGeneral>=3 ){
 
-                    MessageBox.Show("Aplica el descuento: " + aplicaDescuento  + " por la cantidad " + cantidadGeneral+ " items "+ totalOfertaRopa, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    MessageBox.Show("Aplica el descuento: " + aplicaDescuento  + " por la cantidad " + cantidadGeneral+ " items "+ totalOfertaRopa, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
-                }
+                //}
             }
             else
             {
@@ -280,8 +280,8 @@ namespace Lavanderia.forms
             ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
            
 
-            if (status > 0)
-            {
+           // if (status > 0)
+            //{
                 if (tipo_pago == 1)
                 {
 
@@ -298,32 +298,41 @@ namespace Lavanderia.forms
                     {
                         if (of.Porcentaje > 0 && of.Nombre.Equals("Ropa de Cama"))
                         {
+
                             decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
                             decimal descuento = totalOfertaCama * (of.Porcentaje / 100);
-                            MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                           // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
                             pago.PagoTotal = nuevototal + (totalOfertaCama - descuento);
                             ord.totalOrden = nuevototal + (totalOfertaCama - descuento);
+                            pago.Pago1 = nuevototal + (totalOfertaCama - descuento);
+                            ord.Descuento = 1;
+                            ord.pDescuento = of.Porcentaje;
+
                         }
 
 
-                        if (of.Porcentaje > 0 && of.Nombre.Equals("3 Prendas a mas"))
+                        if (of.Porcentaje > 0 && of.Nombre.Equals("3 Prendas a más"))
                         {
                             decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
                             decimal descuento = totalOfertaRopa * (of.Porcentaje / 100);
-                            MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                           // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
                             pago.PagoTotal = nuevototal + (totalOfertaRopa - descuento);
                             ord.totalOrden = nuevototal + (totalOfertaRopa - descuento);
+                            pago.Pago1 = nuevototal + (totalOfertaRopa - descuento);
+                            ord.Descuento = 1;
+                            ord.pDescuento = of.Porcentaje;
                         }
                     }
                     else {
 
                         pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                         ord.totalOrden = Convert.ToDecimal(txtPago.Text);
+                        pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                     }
                     
                     status = OrdenDao.Agregar(ord);
                     pago.idOrden = status;
-                    pago.Pago1 = Convert.ToDecimal(txtPago.Text);
+                   
                     pago.Pago2 = 0;
                     
                     pago.TipoPago = tipo_pago;
@@ -396,7 +405,7 @@ namespace Lavanderia.forms
                 dscto = 0;
                 i = 1;
 
-            }
+            //}
 
 
         }
@@ -436,8 +445,14 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
-            /*chkDescuento.Enabled = true;
-            chkDescuento.Visible = true;*/
+            if (totalOfertaCama > 0 || totalOfertaRopa > 0) {
+                label11.Visible = true;
+                nroDscto.Visible = true;
+
+            
+            }
+            /*chkDescuento.Enabled = true;*/
+            
             
 
         }
@@ -597,7 +612,22 @@ namespace Lavanderia.forms
         private void rdTotal_CheckedChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
+            DateTime Hoy = DateTime.Now;
+            int nro;
+            nro = (int)Hoy.DayOfWeek;
+            Oferta of = OfertaDao.Buscar(nro);
             //chkDescuento.Enabled = true;
+            if (of.Porcentaje > 0 && totalOfertaRopa>0 || totalOfertaCama>0) {
+                label11.Visible = true;
+                nroDscto.Visible = true;
+                if (chkVisa.Checked) {
+                    nroDscto.Text = Convert.ToString(of.Porcentaje - 5);
+                } else {
+                    nroDscto.Text = Convert.ToString(of.Porcentaje);
+                }
+
+
+            }
 
             
         }

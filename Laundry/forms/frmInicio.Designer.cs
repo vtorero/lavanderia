@@ -214,7 +214,7 @@
             this.toolBarToolStripMenuItem,
             this.statusBarToolStripMenuItem});
             this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(36, 20);
+            this.viewMenu.Size = new System.Drawing.Size(35, 20);
             this.viewMenu.Text = "&Ver";
             // 
             // toolBarToolStripMenuItem
@@ -303,7 +303,7 @@
             this.closeAllToolStripMenuItem,
             this.arrangeIconsToolStripMenuItem});
             this.windowsMenu.Name = "windowsMenu";
-            this.windowsMenu.Size = new System.Drawing.Size(67, 20);
+            this.windowsMenu.Size = new System.Drawing.Size(66, 20);
             this.windowsMenu.Text = "&Ventanas";
             // 
             // newWindowToolStripMenuItem
@@ -499,7 +499,7 @@
             // 
             this.lblOferta.AutoSize = true;
             this.lblOferta.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblOferta.Location = new System.Drawing.Point(516, 48);
+            this.lblOferta.Location = new System.Drawing.Point(423, 48);
             this.lblOferta.Name = "lblOferta";
             this.lblOferta.Size = new System.Drawing.Size(35, 13);
             this.lblOferta.TabIndex = 5;

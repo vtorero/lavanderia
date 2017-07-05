@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.util;
 using Lavanderia.Persistencia;
+using Lavanderia.Models;
 
 namespace Lavanderia.forms
 {
@@ -226,7 +227,17 @@ namespace Lavanderia.forms
             DateTime Hoy = DateTime.Now;
             
             nrodia = (int) Hoy.DayOfWeek;
-            lblOferta.Text = OrdenDao.consultaOferta(nrodia);
+            Oferta of = new Oferta();
+            of=OfertaDao.Buscar(nrodia);
+            if (of.Porcentaje > 0)
+            {
+                lblOferta.Text = "Oferta de Día: " + of.Nombre + " (" + of.Porcentaje + "%) Descuento";
+            }
+            else {
+                lblOferta.Text = "";
+            }
+            
+;
 
             }
 
