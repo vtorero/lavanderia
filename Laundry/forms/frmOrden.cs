@@ -113,8 +113,8 @@ namespace Lavanderia.forms
 
                 if (tipoServ == 1 && aplicaDescuento.Equals("3 Prendas a más") && cantidadTipo1 >= 3 && txttipo.Text.Equals("Estandar"))
                 {
-                    cantidadGeneral += cantidad;
-                    totalOfertaRopa+= Decimal.Round((cantidad * precio), 2);
+                    cantidadGeneral += cantidadTipo1;
+                    totalOfertaRopa += Decimal.Round((cantidadTipo1 * precio), 2);
                 }
                 else {
                     total = Decimal.Round((cantidad * precio), 2);
