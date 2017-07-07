@@ -53,15 +53,7 @@ namespace Lavanderia.forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            pos = dgvPrendas.CurrentRow.Index;
-            lblCodigo.Visible = true;
-            txtCodigo.Visible = true;
-            txtCodigo.Text = Convert.ToString(dgvPrendas[0, pos].Value);
-            txtNombre.Text = Convert.ToString(dgvPrendas[1, pos].Value);
-            txtDescripcion.Text = Convert.ToString(dgvPrendas[2, pos].Value);
-            txtPrecio.Text = Convert.ToString(dgvPrendas[3, pos].Value);
-            tabControl1.SelectedTab = tabPage1;
-            btnGuardar.Text = "&Actualizar";
+     
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +70,8 @@ namespace Lavanderia.forms
                 dgvPrendas.Columns[2].Width = 200;
                 dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
                 dgvPrendas.Columns[3].HeaderText = "Precio";
+                dgvPrendas.Columns[4].HeaderText = "Tipo";
+                dgvPrendas.Columns[4].Width = 200;
             }
         }
 
@@ -131,6 +125,8 @@ namespace Lavanderia.forms
                 dgvPrendas.Columns[2].Width = 200;
                 dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
                 dgvPrendas.Columns[3].HeaderText = "Precio";
+                dgvPrendas.Columns[4].HeaderText = "Tipo";
+                dgvPrendas.Columns[4].Width = 200;
                 tabControl1.SelectedTab = tabPage2;
                 btnGuardar.Text = "&Registrar";
                 resetValores();
@@ -157,7 +153,7 @@ namespace Lavanderia.forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            pos = dgvPrendas.CurrentRow.Index;
+                        pos = dgvPrendas.CurrentRow.Index;
             string id = Convert.ToString(dgvPrendas[0, pos].Value);
 
             DialogResult result = MessageBox.Show("Eliminar la prenda: " + id, "Confirmar", MessageBoxButtons.YesNo);
@@ -173,14 +169,37 @@ namespace Lavanderia.forms
                 dgvPrendas.Columns[2].Width = 200;
                 dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
                 dgvPrendas.Columns[3].HeaderText = "Precio";
-                
+                dgvPrendas.Columns[4].HeaderText = "Tipo";
+                dgvPrendas.Columns[4].Width = 200;
+
                 MessageBox.Show("Prenda eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
            
         }
 
-   
+
+        private void  editar_prenda() {
+
+            pos = dgvPrendas.CurrentRow.Index;
+            lblCodigo.Visible = true;
+            txtCodigo.Visible = true;
+            txtCodigo.Text = Convert.ToString(dgvPrendas[0, pos].Value);
+            txtNombre.Text = Convert.ToString(dgvPrendas[1, pos].Value);
+            txtDescripcion.Text = Convert.ToString(dgvPrendas[2, pos].Value);
+            txtPrecio.Text = Convert.ToString(dgvPrendas[3, pos].Value);
+            cmbTipoPrenda.Text = Convert.ToString(dgvPrendas[4, pos].Value);
+            tabControl1.SelectedTab = tabPage1;
+            btnGuardar.Text = "&Actualizar";
+
+         
+        
+        }
+
+        private void dgvPrendas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            editar_prenda();
+        }
      
     }
 }

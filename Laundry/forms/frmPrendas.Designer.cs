@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,7 +64,7 @@
             this.tabControl1.Location = new System.Drawing.Point(24, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(603, 321);
+            this.tabControl1.Size = new System.Drawing.Size(772, 478);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -74,7 +74,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(595, 290);
+            this.tabPage1.Size = new System.Drawing.Size(764, 447);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registro";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Location = new System.Drawing.Point(16, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(564, 289);
+            this.groupBox1.Size = new System.Drawing.Size(717, 289);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -117,13 +117,13 @@
             "Estandar"});
             this.cmbTipoPrenda.Location = new System.Drawing.Point(157, 147);
             this.cmbTipoPrenda.Name = "cmbTipoPrenda";
-            this.cmbTipoPrenda.Size = new System.Drawing.Size(121, 26);
+            this.cmbTipoPrenda.Size = new System.Drawing.Size(189, 26);
             this.cmbTipoPrenda.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(117, 189);
+            this.label4.Location = new System.Drawing.Point(125, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 18);
             this.label4.TabIndex = 9;
@@ -131,7 +131,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(380, 217);
+            this.btnGuardar.Location = new System.Drawing.Point(506, 219);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(165, 50);
             this.btnGuardar.TabIndex = 8;
@@ -161,7 +161,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 189);
+            this.label3.Location = new System.Drawing.Point(33, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 18);
             this.label3.TabIndex = 6;
@@ -187,7 +187,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(157, 186);
+            this.txtPrecio.Location = new System.Drawing.Point(157, 189);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(45, 24);
             this.txtPrecio.TabIndex = 3;
@@ -197,14 +197,14 @@
             this.txtDescripcion.Location = new System.Drawing.Point(157, 87);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(276, 53);
+            this.txtDescripcion.Size = new System.Drawing.Size(389, 53);
             this.txtDescripcion.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(157, 47);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(276, 24);
+            this.txtNombre.Size = new System.Drawing.Size(389, 24);
             this.txtNombre.TabIndex = 1;
             // 
             // tabPage2
@@ -215,7 +215,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(595, 290);
+            this.tabPage2.Size = new System.Drawing.Size(764, 447);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Listado";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(439, 238);
+            this.btnEliminar.Location = new System.Drawing.Point(592, 394);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(150, 35);
             this.btnEliminar.TabIndex = 5;
@@ -234,7 +234,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(268, 238);
+            this.btnEditar.Location = new System.Drawing.Point(421, 394);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(165, 35);
             this.btnEditar.TabIndex = 4;
@@ -244,28 +244,30 @@
             // 
             // dgvPrendas
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPrendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrendas.Location = new System.Drawing.Point(6, 6);
             this.dgvPrendas.MultiSelect = false;
             this.dgvPrendas.Name = "dgvPrendas";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPrendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPrendas.Size = new System.Drawing.Size(583, 226);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPrendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPrendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPrendas.Size = new System.Drawing.Size(736, 382);
             this.dgvPrendas.TabIndex = 3;
+            this.dgvPrendas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrendas_CellDoubleClick);
             // 
             // frmPrendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 343);
+            this.ClientSize = new System.Drawing.Size(819, 513);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmPrendas";
             this.Text = "frmPrendas";

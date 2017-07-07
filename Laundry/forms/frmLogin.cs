@@ -75,11 +75,27 @@ namespace Lavanderia.forms
                         mainStatusBar.Panels[4].Width = 200;
                         mainStatusBar.Panels[4].Text = Convert.ToString(DateTime.Now);
                         mainStatusBar.Panels[5].Text = (result.tipoUsuario == 1) ? "Admin" : "Normal";
-                        DateTime Hoy = DateTime.Now;
-                        int nrodia = (int)Hoy.DayOfWeek;
                         mainStatusBar.Panels[6].Width = 100;
                         mainStatusBar.Panels[6].Text = "Oferta del día:";
-                        mainStatusBar.Panels[6].Text = OrdenDao.consultaOferta(nrodia);
+                        DateTime Hoy = DateTime.Now;
+                        int nrodia = (int)Hoy.DayOfWeek;
+                        Oferta of = new Oferta();
+                        of = OfertaDao.Buscar(nrodia);
+                        varGlobales.OfertaDia = of.Nombre;
+                        varGlobales.porcentajeOferta = of.Porcentaje;
+
+                        mainStatusBar.Panels[6].Text = varGlobales.OfertaDia;
+
+                        if (of.Porcentaje>0)
+                        {
+                            childForm.lblOferta.Text = "Oferta de Día: " + varGlobales.OfertaDia + " (" + varGlobales.porcentajeOferta + "%) Descuento";
+                        }
+                        else
+                        {
+                            childForm.lblOferta.Text = "";
+                        }
+
+
                         mainStatusBar.ShowPanels = true;
                         childForm.Controls.Add(mainStatusBar);
                         childForm.Show();

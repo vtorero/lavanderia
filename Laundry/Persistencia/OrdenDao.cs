@@ -37,9 +37,11 @@ namespace Lavanderia.Persistencia
         cmd.ExecuteNonQuery(); // insert second row for update
             return  Convert.ToInt32(cmd.Parameters["ultimoId"].Value);
                 }
-                catch (MySqlException ex)
+                catch (MySqlException)
                 {
+
                     return 0;
+                    
                 }
                 finally
                 {
