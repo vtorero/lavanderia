@@ -14,6 +14,7 @@ using Lavanderia.util;
 using System.Globalization;
 using CrystalDecisions.CrystalReports.Engine;
 using MySql.Data.MySqlClient;
+using Crearticket;
 
 namespace Lavanderia.forms
 {
@@ -346,7 +347,7 @@ namespace Lavanderia.forms
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
                     nrodia = (int) Hoy.DayOfWeek;
-
+                    ord.totalOrden =(Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
                     status = OrdenDao.Agregar(ord);
                     pago.idOrden = status;
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
@@ -658,12 +659,51 @@ namespace Lavanderia.forms
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            ReportDocument cryrep = new ReportDocument();
-            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
-            DataSet ds = new DataSet();
+            
+            CrearTicket ticket = new CrearTicket();
+            OrdenDao.buscarOrdenId(idOrdenPrint);
 
-            myadap.Fill(ds,"Ticket");
+
+            ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
+            ticket.TextoIzquierda("");
+             MySqlCommand _comando1 = new MySqlCommand(String.Format(
+           "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
+
+             MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), BdComun.ObtenerConexion());
+            MySqlDataReader _reader1 = _comando1.ExecuteReader();
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            _reader1.Read();
+            ticket.TextoIzquierda("DIREC: "+ _reader1.GetString(15).ToUpper());
+            ticket.TextoIzquierda("HORARIO:LUNES A VIERNES DE 8:00AM A 8:00PM Y SABADO DE 8:00AM A 7:00PM");
+            ticket.TextoIzquierda("TELEF: " + _reader1.GetString(16));
+            ticket.TextoDerecha("");
+            ticket.lineasIgual();
+            ticket.TextoIzquierda("CLIENTE: "+ _reader1.GetString(2));
+            if (!_reader1.GetString(1).Equals("")) {
+                ticket.TextoIzquierda("DNI: " + _reader1.GetString(1));
+            }
+            ticket.lineasAsteriscos();
+
+            ticket.TextoExtremos("NRO DE ORDEN", _reader1.GetString(0));
+            ticket.lineasIgual();
+            ticket.EncabezadoVenta();
+            _comando1.Connection.Close();
+            while (_reader.Read())
+            {
+                ticket.AgregaArticulo(_reader.GetString(8), _reader.GetInt32(6),_reader.GetDecimal(7),_reader.GetDecimal(9));
+                ticket.TextoExtremos(_reader.GetString(10) + " " + _reader.GetString(11), _reader1.GetString(12));
+                ticket.lineasGuio();
+            }
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("¡GRACIAS POR SU PREFERENCIA!");
+            ticket.CortaTicket();
+            ticket.ImprimirTicket("ticketera");
+
+
+            _comando.Connection.Close();
+            
+            /*myadap.Fill(ds,"Ticket");
 
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");
 

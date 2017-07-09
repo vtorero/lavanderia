@@ -280,6 +280,7 @@
       <DependentUpon>crCierre.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\CrearTicket.cs" />
     <Compile Include="Reportes\crPrendas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
