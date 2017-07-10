@@ -354,6 +354,7 @@
             this.chkVisa.TabIndex = 11;
             this.chkVisa.Text = "&Visa";
             this.chkVisa.UseVisualStyleBackColor = true;
+            this.chkVisa.CheckedChanged += new System.EventHandler(this.chkVisa_CheckedChanged);
             // 
             // lblObs
             // 

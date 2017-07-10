@@ -103,7 +103,7 @@ namespace Lavanderia.forms
         {
             CrearTicket ticket = new CrearTicket();
             ticket.CortaPapel();
-            ticket.ImprimirTicket("Tkcet");
+            ticket.ImprimirTicket("ticketera");
         }
     }
 }

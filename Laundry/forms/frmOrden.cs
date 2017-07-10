@@ -29,6 +29,7 @@ namespace Lavanderia.forms
         decimal totalDescuento = 0;
         decimal totalOfertaRopa = 0;
         decimal totalOfertaCama = 0;
+        decimal porcentajeDescuento = varGlobales.porcentajeOferta;
         public frmOrden()
         {
             InitializeComponent();
@@ -283,8 +284,13 @@ namespace Lavanderia.forms
                     DateTime Hoy = DateTime.Now;
                     string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
 
-                     if (chkVisa.Checked) {
-                         varGlobales.porcentajeOferta = varGlobales.porcentajeOferta - 5;
+                    if (chkVisa.Checked)
+                    {
+
+                        porcentajeDescuento = varGlobales.porcentajeOferta -5;
+                    }
+                    else {
+                        porcentajeDescuento = varGlobales.porcentajeOferta;
                     }
 
                      if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 3))
@@ -293,7 +299,7 @@ namespace Lavanderia.forms
                         {
 
                             decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
-                            decimal descuento = totalOfertaCama * (varGlobales.porcentajeOferta / 100);
+                            decimal descuento = totalOfertaCama * (porcentajeDescuento / 100);
                            // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
                             pago.PagoTotal = nuevototal + (totalOfertaCama - descuento);
                             ord.totalOrden = nuevototal + (totalOfertaCama - descuento);
@@ -308,7 +314,7 @@ namespace Lavanderia.forms
                         if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("3 Prendas a más") && cantidadGeneral >= 3)
                         {
                             decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
-                            decimal descuento = totalOfertaRopa * (varGlobales.porcentajeOferta / 100);
+                            decimal descuento = totalOfertaRopa * (porcentajeDescuento / 100);
                            // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
                             pago.PagoTotal = nuevototal + (totalOfertaRopa - descuento);
                             ord.totalOrden = nuevototal + (totalOfertaRopa - descuento);
@@ -542,6 +548,7 @@ namespace Lavanderia.forms
             cantidadGeneral = 0;
             cantidadGeneralcama = 0;
             totalOrden =0;
+            porcentajeDescuento = varGlobales.porcentajeOferta;
 
 
         }
@@ -972,6 +979,17 @@ namespace Lavanderia.forms
                 //totalOrden = Decimal.Round(total - (Convert.ToDecimal(txtPago.Text) * Convert.ToDecimal(nroDscto.Text)) / 100, 2);
                 //total = totalOrden;
 
+            }
+        }
+
+        private void chkVisa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkVisa.Checked && porcentajeDescuento > 0)
+            {
+                nroDscto.Text = Convert.ToString(porcentajeDescuento - 5);
+            }
+            else {
+                nroDscto.Text = Convert.ToString(porcentajeDescuento);
             }
         }
     
