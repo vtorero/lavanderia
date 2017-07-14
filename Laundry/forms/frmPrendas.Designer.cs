@@ -113,7 +113,6 @@
             this.cmbTipoPrenda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoPrenda.FormattingEnabled = true;
             this.cmbTipoPrenda.Items.AddRange(new object[] {
-            "Seleccionar",
             "Ropa de Cama",
             "Estandar"});
             this.cmbTipoPrenda.Location = new System.Drawing.Point(157, 147);

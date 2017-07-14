@@ -53,7 +53,7 @@ namespace Lavanderia.Persistencia
         }
 
 
-        public static int AgregarLinea(OrdenLinea ordenlinea)
+        public static void AgregarLinea(OrdenLinea ordenlinea)
         {
            
             MySqlCommand cmd = new MySqlCommand("addLineaOrden", BdComun.ObtenerConexion());
@@ -73,7 +73,7 @@ namespace Lavanderia.Persistencia
             
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
-            return ultimo_id();
+            //return ultimo_id();
         }
 
         public static int entregaOrden(int id,int pago2,string obs) {

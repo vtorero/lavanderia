@@ -53,7 +53,7 @@ namespace Lavanderia.forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-     
+            editar_prenda();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace Lavanderia.forms
 
 
 
-            if ((!string.IsNullOrWhiteSpace(txtNombre.Text)) && (!string.IsNullOrWhiteSpace(txtDescripcion.Text)))
+            if ((!string.IsNullOrWhiteSpace(txtNombre.Text)) && (!string.IsNullOrWhiteSpace(txtDescripcion.Text)) && (!string.IsNullOrWhiteSpace(cmbTipoPrenda.Text)))
             {
                 prenda.NombrePrenda = txtNombre.Text.Trim();
                 prenda.Descripcion = txtDescripcion.Text.Trim();

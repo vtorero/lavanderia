@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(183, 81);
+            this.label2.Location = new System.Drawing.Point(179, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 1;
@@ -74,7 +74,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(263, 81);
+            this.txtPassword.Location = new System.Drawing.Point(263, 73);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(171, 24);
@@ -104,7 +104,7 @@
             this.cmbBase.Items.AddRange(new object[] {
             "Producción",
             "Test"});
-            this.cmbBase.Location = new System.Drawing.Point(263, 107);
+            this.cmbBase.Location = new System.Drawing.Point(264, 106);
             this.cmbBase.Name = "cmbBase";
             this.cmbBase.Size = new System.Drawing.Size(171, 21);
             this.cmbBase.TabIndex = 8;
@@ -114,7 +114,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(152, 122);
+            this.label3.Location = new System.Drawing.Point(152, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 18);
             this.label3.TabIndex = 7;
@@ -159,7 +159,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lavandería San Isidro S.A (V0.006)";
+            this.Text = "Lavandería San Isidro S.A (V0.007)";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
