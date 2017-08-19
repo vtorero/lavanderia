@@ -235,6 +235,25 @@ namespace Lavanderia.forms
             childForm.Show();﻿
         }
 
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportDocument cryrep = new ReportDocument();
+            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
+         "SELECT upper(nombreCliente) nombreCliente,dniCliente,correoCliente,telefonoCliente,u.sucursal FROM cliente c inner join usuario u on c.usuarioCreador=u.id order by sucursal"), BdComun.ObtenerConexion());
+            DataSet ds = new DataSet();
+
+            myadap.Fill(ds, "Clientes");
+
+            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crClientes.rpt");
+
+            cryrep.SetDataSource(ds);
+
+            frmReporte rt = new frmReporte();
+            rt.Text = "Reporte de Clientes";
+            rt.crystalReportViewer1.ReportSource = cryrep;
+            rt.Show();﻿
+        }
+
  
 
     
