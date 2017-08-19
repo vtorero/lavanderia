@@ -110,6 +110,7 @@ namespace Lavanderia.Persistencia
                 ordencliente.sucursal = Convert.ToString(dr["sucursal"]);
                 ordencliente.dniCliente = Convert.ToString(dr["dniCliente"]);
                 ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
+                ordencliente.fechaEntrega = Convert.ToString(dr["fechaEntrega"]);
                 ordencliente.pago1 = Convert.ToDecimal(dr["pago1"]);
                 ordencliente.pago2 = Convert.ToDecimal(dr["pago2"]);
                 ordencliente.Monto= Convert.ToDecimal(dr["totalOrden"]);

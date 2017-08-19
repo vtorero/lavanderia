@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.forms.busquedas;
 using Lavanderia.Persistencia;
+using Lavanderia.util;
 
 namespace Lavanderia.forms
 {

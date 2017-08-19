@@ -193,6 +193,7 @@
             this.dgvOrdenes.Location = new System.Drawing.Point(18, 148);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -217,6 +218,7 @@
             this.dgvDetalles.Location = new System.Drawing.Point(9, 19);
             this.dgvDetalles.MultiSelect = false;
             this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.ReadOnly = true;
             this.dgvDetalles.RowHeadersVisible = false;
             this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -329,7 +331,7 @@
             this.Controls.Add(this.dgvOrdenes);
             this.Name = "frmFinalizados";
             this.Text = "frmFinalizados";
-           this.groupBox1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.groupBox3.ResumeLayout(false);

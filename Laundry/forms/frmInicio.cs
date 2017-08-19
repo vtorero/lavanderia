@@ -224,8 +224,7 @@ namespace Lavanderia.forms
         {
            
             label1.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
-           
-           
+                      
             }
 
         private void detalleOrdenesToolStripMenuItem_Click(object sender, EventArgs e)
