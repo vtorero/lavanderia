@@ -170,6 +170,7 @@
             this.btnAddPrenda.TabIndex = 7;
             this.btnAddPrenda.Text = "...";
             this.btnAddPrenda.UseVisualStyleBackColor = true;
+            this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
             // 
             // txtCliente
             // 

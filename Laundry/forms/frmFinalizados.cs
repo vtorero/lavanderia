@@ -11,6 +11,7 @@ using Lavanderia.Persistencia;
 using Lavanderia.Models;
 using MySql.Data.MySqlClient;
 using Lavanderia.util;
+using Lavanderia.forms.busquedas;
 
 namespace Lavanderia.forms
 {
@@ -80,7 +81,7 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[10].HeaderText = "Monto Pendiente";
             dgvOrdenes.Columns[10].DefaultCellStyle.Format = "C2";
             dgvOrdenes.Columns[10].Width = 100;
-            dgvOrdenes.Columns[11].Visible = false;
+            //dgvOrdenes.Columns[11].Visible = false;
             dgvOrdenes.Columns[11].HeaderText = "Cuotas";
            
        
@@ -222,6 +223,19 @@ namespace Lavanderia.forms
             pos = dgvOrdenes.CurrentRow.Index;
             llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             llenaPago(Convert.ToInt32(dgvOrdenes[0, pos].Value));
+        }
+        public void ejecutar(string id, string nombre, string dni, string telefono)
+        {
+            txtCliente.Text = nombre;
+            txtDni.Text = dni;
+            txtIdCliente.Text = id;
+
+        }
+        private void btnAddPrenda_Click(object sender, EventArgs e)
+        {
+            frmBuscarCliente childForm = new frmBuscarCliente();
+            childForm.enviado += new frmBuscarCliente.enviar(ejecutar);
+            childForm.ShowDialog();
         }
 
 

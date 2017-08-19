@@ -79,6 +79,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblOferta = new System.Windows.Forms.Label();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -251,7 +252,8 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prendasToolStripMenuItem,
             this.ventasToolStripMenuItem,
-            this.detalleOrdenesToolStripMenuItem});
+            this.detalleOrdenesToolStripMenuItem,
+            this.clientesToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.optionsToolStripMenuItem.Text = "&Reportes";
@@ -504,6 +506,12 @@
             this.lblOferta.Size = new System.Drawing.Size(0, 13);
             this.lblOferta.TabIndex = 5;
             // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +588,7 @@
         private System.Windows.Forms.ToolStripMenuItem detalleOrdenesToolStripMenuItem;
         public System.Windows.Forms.Label lblOferta;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
 
