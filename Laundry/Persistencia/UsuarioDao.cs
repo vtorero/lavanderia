@@ -29,6 +29,7 @@ namespace Lavanderia.Persistencia
 
               
             }
+            _comando.Connection.Close();
             return usuario;
         }
 

@@ -17,6 +17,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Cliente (nombreCliente, dniCliente, correoCliente,direccionCliente,telefonoCliente,usuarioCreador) values ('{0}','{1}','{2}','{3}','{4}',{5})",
                 cliente.Nombres, cliente.DNI, cliente.Email,cliente.Dirección,cliente.Teléfono,cliente.usuarioCreador), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
         }
 
@@ -25,6 +26,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Cliente Set nombreCliente='{0}',dniCliente='{1}',correoCliente='{2}',direccionCliente='{3}',telefonoCliente='{4}' where idCliente={5}"
             , cliente.Nombres, cliente.DNI, cliente.Email, cliente.Dirección, cliente.Teléfono, cliente.idCliente), BdComun.ObtenerConexion());
             retorno= comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
 
         
@@ -34,6 +36,7 @@ namespace Lavanderia.Persistencia
             int retorno = 0;
             MySqlCommand comando = new MySqlCommand(string.Format("DELETE FROM Cliente where idCliente='{0}'", idcliente),BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
         }
 
@@ -79,7 +82,7 @@ while (_reader.Read())
                 cliente.Teléfono = _reader.GetString(4);
                 _lista.Add(cliente);
             }
-
+            _comando.Connection.Close();
             return _lista;
         }
 

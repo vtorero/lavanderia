@@ -84,6 +84,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("tipopago2", pago2));
             cmd.Parameters.Add(new MySqlParameter("obs", obs));
             cmd.ExecuteReader();
+            cmd.Connection.Close();
             return retorno;
         }
 

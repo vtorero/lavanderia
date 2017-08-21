@@ -17,6 +17,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Servicio (nombreServicio, precioServicio) values ('{0}','{1}')",
                 servicio.NombreServicio, servicio.precioServicio), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
         }
 
@@ -27,6 +28,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Servicio Set nombreServicio='{0}',precioServicio='{1}' where idServicio='{2}'"
             , servicio.NombreServicio, servicio.precioServicio, servicio.idServicio), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
 
         }
@@ -55,6 +57,7 @@ namespace Lavanderia.Persistencia
                 servicio.precioServicio = _reader.GetFloat(2);
                 _lista.Add(servicio);
             }
+            _comando.Connection.Close();
 
             return _lista;
         }
@@ -64,6 +67,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand _comando = new MySqlCommand("serviciosAll", BdComun.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            
             return _reader;
         }
 
@@ -81,6 +85,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand _comando = new MySqlCommand(String.Format(
              "SELECT idServicio, nombreServicio, precioServicio ,cantidadMinima FROM Servicio where nombreServicio = '{0}'", criterio), BdComun.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
+            //_comando.Connection.Close();
             return _reader;
         }
 
@@ -99,7 +104,7 @@ namespace Lavanderia.Persistencia
                 servicio.precioServicio = _reader.GetFloat(2);
                 _lista.Add(servicio);
             }
-
+            _comando.Connection.Close();
             return _lista;
         }
 

@@ -17,6 +17,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio,tipoPrenda) values ('{0}','{1}',{2},'{3}')",
                 prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
         }
 
@@ -27,6 +28,7 @@ namespace Lavanderia.Persistencia
             MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Prenda Set nombrePrenda='{0}',descripcionPrenda='{1}',precioServicio='{2}',tipoPrenda='{3}' where idPrenda='{4}'"
             , prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda, prenda.idPrenda), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
 
 
@@ -37,6 +39,7 @@ namespace Lavanderia.Persistencia
             int retorno = 0;
             MySqlCommand comando = new MySqlCommand(string.Format("DELETE FROM Prenda where idPrenda='{0}'", idprenda), BdComun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            comando.Connection.Close();
             return retorno;
         }
 
@@ -45,8 +48,8 @@ namespace Lavanderia.Persistencia
             MySqlCommand _comando = new MySqlCommand("prendasAll",BdComun.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
-            return _reader;
-
+                 return _reader;
+          
         }
 
         public static MySqlDataReader fillMarca()
@@ -55,9 +58,9 @@ namespace Lavanderia.Persistencia
             MySqlCommand _comando = new MySqlCommand("marcasAll", BdComun.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            
             return _reader;
-
-        }
+            }
 
 
         public static int agregarMarca(string nombre)
@@ -80,6 +83,7 @@ namespace Lavanderia.Persistencia
 
             MySqlDataReader _reader = _comando.ExecuteReader();
 
+            _comando.Connection.Close();
 
             return _reader;
        
@@ -104,7 +108,7 @@ namespace Lavanderia.Persistencia
                 
          _lista.Add(prenda);
             }
-
+            _comando.Connection.Close();
             return _lista;
         }
 
@@ -125,6 +129,7 @@ namespace Lavanderia.Persistencia
                 _lista.Add(prenda);
             }
 
+            _comando.Connection.Close();
             return _lista;
         }
 

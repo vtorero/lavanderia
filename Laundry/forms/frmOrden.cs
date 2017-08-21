@@ -749,7 +749,7 @@ namespace Lavanderia.forms
 
             }
             cmbMarca.AutoCompleteCustomSource = datosM;
-        
+            
         }
 
         private void fillServicio() {
@@ -763,7 +763,8 @@ namespace Lavanderia.forms
                 cmbServicios.DisplayMember = name;
                 cmbServicios.ValueMember = id;
             }
-        
+
+            _readerS.Close();
         }
 
         private void fillColores()
@@ -799,7 +800,7 @@ namespace Lavanderia.forms
 
             }  */
 
-
+            _reader.Close();
 
         }
 
@@ -871,9 +872,10 @@ namespace Lavanderia.forms
                 txtPrecio.Text = Convert.ToString(Decimal.Round(_reader.GetDecimal("precioServicio"), 2));
                 LblId.Text = name;
             }
+         
             habilitaServicio();
             btnAdd.Enabled = true;
-            
+            _reader.Close();
         }
 
         private void nroCantidad_ValueChanged(object sender, EventArgs e)

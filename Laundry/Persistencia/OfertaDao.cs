@@ -20,9 +20,7 @@ namespace Lavanderia.Persistencia
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("dia",dia));
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-
-            while (dr.Read())
+             while (dr.Read())
             {
                 
                 oferta.idOferta= Convert.ToInt32(dr["id"]);
@@ -31,8 +29,7 @@ namespace Lavanderia.Persistencia
                
             }
             cmd.Connection.Close();
-            
-            return oferta;
+                return oferta;
         }
 
 
