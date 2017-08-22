@@ -239,7 +239,7 @@ namespace Lavanderia.forms
         {
             ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT upper(nombreCliente) nombreCliente,dniCliente,correoCliente,telefonoCliente,u.sucursal FROM cliente c inner join usuario u on c.usuarioCreador=u.id order by sucursal"), BdComun.ObtenerConexion());
+         "SELECT upper(nombreCliente) nombreCliente,dniCliente,correoCliente,telefonoCliente,u.sucursal FROM Cliente c inner join usuario u on c.usuarioCreador=u.id order by sucursal"), BdComun.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds, "Clientes");
