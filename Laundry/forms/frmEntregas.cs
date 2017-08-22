@@ -141,7 +141,7 @@ namespace Lavanderia.forms
                 txtDebe.Visible = true;
                 lblDebe.Visible = true;
                 lblsimdebe.Visible = true;
-                txtDebe.Text = Convert.ToString(dgvOrdenes[9, pos].Value);
+                txtDebe.Text = Convert.ToString(dgvOrdenes[8, pos].Value);
                 chkVisa.Visible = true;
                 llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             }
