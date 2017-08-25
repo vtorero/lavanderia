@@ -6,18 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
 using System.Data;
+using Lavanderia.util;
 
 namespace Lavanderia.Persistencia
+    
 {
+    
+ 
     class ServicioDao
     {
+            
         public static int Agregar(Servicio servicio)
         {
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             int retorno = 0;
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Servicio (nombreServicio, precioServicio) values ('{0}','{1}')",
-                servicio.NombreServicio, servicio.precioServicio), BdComun.ObtenerConexion());
+                servicio.NombreServicio, servicio.precioServicio),cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
-            comando.Connection.Close();
+            cnx.cerrarConexion();
             return retorno;
         }
 
@@ -64,11 +71,11 @@ namespace Lavanderia.Persistencia
 
         public static MySqlDataReader fillServicio()
         {
+            
             MySqlCommand _comando = new MySqlCommand("serviciosAll", BdComun.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
-            
-            return _reader;
+           return _reader;
         }
 
         public static MySqlDataReader fillSucursales()
