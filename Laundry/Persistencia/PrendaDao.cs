@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Lavanderia.Persistencia
 {
@@ -58,7 +59,8 @@ namespace Lavanderia.Persistencia
           
         }
 
-        public static MySqlDataReader fillMarca()
+
+          /* public static MySqlDataReader fillMarca()
         {
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
@@ -68,7 +70,7 @@ namespace Lavanderia.Persistencia
             return _reader;
            
             }
-
+        */
 
         public static int agregarMarca(string nombre)
         {

@@ -12,10 +12,11 @@ namespace Lavanderia.Persistencia
     {
         public  static Usuario Consultar(string user,string pass)
         {
+            ConexBD conec = new ConexBD();
             List<Usuario> _lista = new List<Usuario>();
-
+            conec.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM usuario where nombre='{0}' and password='{1}'",user,pass), BdComun.ObtenerConexion());
+           "SELECT * FROM usuario where nombre='{0}' and password='{1}'",user,pass), conec.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             Usuario usuario = new Usuario();
             while (_reader.Read())
@@ -26,10 +27,10 @@ namespace Lavanderia.Persistencia
                 usuario.emailUsuario = _reader.GetString(3);
                 usuario.sucursalUsuario = _reader.GetString(4);
                 usuario.tipoUsuario = _reader.GetInt32(6);
-
-              
+                             
             }
             _comando.Connection.Close();
+            conec.cerrarConexion();
             return usuario;
         }
 

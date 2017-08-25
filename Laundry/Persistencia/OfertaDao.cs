@@ -14,9 +14,10 @@ namespace Lavanderia.Persistencia
     {
         public static Oferta Buscar(int dia)
         {
-            
-            Oferta oferta = new Oferta();
-            MySqlCommand cmd = new MySqlCommand("ofertasDelDia", BdComun.ObtenerConexion());
+            ConexBD con = new ConexBD();
+            con.Conectar();
+             Oferta oferta = new Oferta();
+            MySqlCommand cmd = new MySqlCommand("ofertasDelDia", con.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("dia",dia));
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -29,6 +30,7 @@ namespace Lavanderia.Persistencia
                
             }
             cmd.Connection.Close();
+            con.cerrarConexion();
                 return oferta;
         }
 

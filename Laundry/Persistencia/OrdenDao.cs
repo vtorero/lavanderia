@@ -203,7 +203,9 @@ namespace Lavanderia.Persistencia
         public static int consultaPendientes(int usuario)
         {
             int id = 0;
-            MySqlCommand _comando = new MySqlCommand("pendienteEntregas", BdComun.ObtenerConexion());
+            ConexBD cn = new ConexBD();
+            cn.Conectar();
+            MySqlCommand _comando = new MySqlCommand("pendienteEntregas", cn.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.Parameters.Add(new MySqlParameter("USUARIO", usuario));
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
@@ -212,6 +214,7 @@ namespace Lavanderia.Persistencia
                 id = Convert.ToInt32(_reader["total"]);
             }
             _comando.Connection.Close();
+            cn.cerrarConexion();
             
             return id;
             

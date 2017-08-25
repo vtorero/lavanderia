@@ -738,11 +738,14 @@ namespace Lavanderia.forms
 
 
         private void fillMarcas() {
-
-            MySqlDataReader _reader = PrendaDao.fillMarca();
-            cmbMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
+             cmbMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            AutoCompleteStringCollection datosM = new AutoCompleteStringCollection();
+           AutoCompleteStringCollection datosM = new AutoCompleteStringCollection();
+            cnx.Conectar();
+           MySqlCommand _comando = new MySqlCommand("marcasAll", cnx.ObtenerConexion());
+           _comando.CommandType = CommandType.StoredProcedure;
+           MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+
             while (_reader.Read())
             {
                 string name = _reader.GetString("nombreMarca");
@@ -750,6 +753,7 @@ namespace Lavanderia.forms
 
             }
             cmbMarca.AutoCompleteCustomSource = datosM;
+            cnx.cerrarConexion();
             
         }
 
