@@ -97,8 +97,7 @@ namespace Lavanderia.Persistencia
 
             _comando.Connection.Close();
             cnx.cerrarConexion();
-
-            return _reader;
+               return _reader;
        
         }
 

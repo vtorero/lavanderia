@@ -29,9 +29,8 @@ namespace Lavanderia.Persistencia
                 oferta.Porcentaje = Convert.ToDecimal(dr["porcentaje"]);
                
             }
-            cmd.Connection.Close();
-            con.cerrarConexion();
-                return oferta;
+              con.cerrarConexion();
+              return oferta;
         }
 
 
