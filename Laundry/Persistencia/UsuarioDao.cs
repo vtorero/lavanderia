@@ -29,7 +29,6 @@ namespace Lavanderia.Persistencia
                 usuario.tipoUsuario = _reader.GetInt32(6);
                              
             }
-            _comando.Connection.Close();
             conec.cerrarConexion();
             return usuario;
         }

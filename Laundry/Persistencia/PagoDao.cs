@@ -29,22 +29,28 @@ namespace Lavanderia.Persistencia
 
         public static MySqlDataReader consultaPago(int id)
         {
-            MySqlCommand _comando = new MySqlCommand("consultaPago", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("consultaPago", cnx.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.Parameters.Add(new MySqlParameter("id", id));
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+           
             return _reader;
         }
 
         public static int modificaPago(int id, int pago1, int pago2 )
         {
             int retorno = 1;
-            MySqlCommand cmd = new MySqlCommand("modificaPago", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("modificaPago", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("id", id));
             cmd.Parameters.Add(new MySqlParameter("pago1", pago1));
             cmd.Parameters.Add(new MySqlParameter("pago2", pago2));
             cmd.ExecuteReader();
+            cnx.cerrarConexion();
             return retorno;
         }
 

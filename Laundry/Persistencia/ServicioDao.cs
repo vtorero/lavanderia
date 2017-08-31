@@ -32,10 +32,12 @@ namespace Lavanderia.Persistencia
         public static int Modificar(Servicio servicio)
         {
             int retorno = 0;
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Servicio Set nombreServicio='{0}',precioServicio='{1}' where idServicio='{2}'"
-            , servicio.NombreServicio, servicio.precioServicio, servicio.idServicio), BdComun.ObtenerConexion());
+            , servicio.NombreServicio, servicio.precioServicio, servicio.idServicio), cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
-            comando.Connection.Close();
+            cnx.cerrarConexion();
             return retorno;
 
         }
@@ -43,17 +45,21 @@ namespace Lavanderia.Persistencia
         public static int Eliminar(int idservicio)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("DELETE FROM Servicio where idServicio='{0}'", idservicio), BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand comando = new MySqlCommand(string.Format("DELETE FROM Servicio where idServicio='{0}'", idservicio), cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
+            cnx.cerrarConexion();
             return retorno;
         }
 
         public static List<Servicio> Buscar()
         {
             List<Servicio> _lista = new List<Servicio>();
-
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM Servicio ORDER BY nombreServicio"), BdComun.ObtenerConexion());
+           "SELECT * FROM Servicio ORDER BY nombreServicio"), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
 
             while (_reader.Read())
@@ -64,24 +70,30 @@ namespace Lavanderia.Persistencia
                 servicio.precioServicio = _reader.GetFloat(2);
                 _lista.Add(servicio);
             }
-            _comando.Connection.Close();
+            
+            cnx.cerrarConexion();
 
             return _lista;
         }
 
         public static MySqlDataReader fillServicio()
         {
-            
-            MySqlCommand _comando = new MySqlCommand("serviciosAll", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("serviciosAll", cnx.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            cnx.cerrarConexion();
            return _reader;
         }
 
         public static MySqlDataReader fillSucursales()
         {
-            MySqlCommand _comando = new MySqlCommand("SELECT id, sucursal FROM usuario where id<> 1 order by sucursal", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("SELECT id, sucursal FROM usuario where id<> 1 order by sucursal", cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
+            cnx.cerrarConexion();
             return _reader;
         }
 
@@ -89,19 +101,23 @@ namespace Lavanderia.Persistencia
 
         public static MySqlDataReader fillServicioSearch(string criterio)
         {
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
              "SELECT idServicio, nombreServicio, precioServicio ,cantidadMinima FROM Servicio where nombreServicio = '{0}'", criterio), BdComun.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             //_comando.Connection.Close();
+            cnx.cerrarConexion();
             return _reader;
         }
 
         public static List<Servicio> Buscar(string nombre)
         {
             List<Servicio> _lista = new List<Servicio>();
-
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT *  FROM Servicio where nombreServicio like '%{0}%' ", nombre), BdComun.ObtenerConexion());
+           "SELECT *  FROM Servicio where nombreServicio like '%{0}%' ", nombre), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
@@ -112,6 +128,7 @@ namespace Lavanderia.Persistencia
                 _lista.Add(servicio);
             }
             _comando.Connection.Close();
+            cnx.cerrarConexion();
             return _lista;
         }
 

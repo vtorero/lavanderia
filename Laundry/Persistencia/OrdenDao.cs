@@ -15,9 +15,9 @@ namespace Lavanderia.Persistencia
 
         public static int Agregar(Orden orden)
         {
- 
-      
-            MySqlCommand cmd = new MySqlCommand("addOrden", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("addOrden", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("PidCliente", orden.idCliente));
             cmd.Parameters.Add(new MySqlParameter("PfechaEntrega", orden.fechaEntrega));
@@ -47,7 +47,8 @@ namespace Lavanderia.Persistencia
                 {
                      cmd.Connection.Close();
                 }
-            
+
+            cnx.cerrarConexion();
           
           
         }
@@ -55,8 +56,9 @@ namespace Lavanderia.Persistencia
 
         public static void AgregarLinea(OrdenLinea ordenlinea)
         {
-           
-            MySqlCommand cmd = new MySqlCommand("addLineaOrden", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("addLineaOrden", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("PidOrden", ordenlinea.idOrden));
             cmd.Parameters.Add(new MySqlParameter("Pitem", ordenlinea.Item));
@@ -73,25 +75,30 @@ namespace Lavanderia.Persistencia
             
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
+            cnx.cerrarConexion();
             //return ultimo_id();
         }
 
         public static int entregaOrden(int id,int pago2,string obs) {
             int retorno=1;
-            MySqlCommand cmd = new MySqlCommand("entregaOrden", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("entregaOrden", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("id", id));
             cmd.Parameters.Add(new MySqlParameter("tipopago2", pago2));
             cmd.Parameters.Add(new MySqlParameter("obs", obs));
             cmd.ExecuteReader();
-            cmd.Connection.Close();
+            cnx.cerrarConexion();
             return retorno;
         }
 
         public static List<OrdenClientes> buscarOrden(string nombre,string dni, string fechainicio,string fechafin,int estado)
         {
             List<OrdenClientes> _lista = new List<OrdenClientes>();
-            MySqlCommand cmd = new MySqlCommand("buscarOrdenes", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("buscarOrdenes", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("usuario", varGlobales.sessionUsuario));
             cmd.Parameters.Add(new MySqlParameter("nombreCliente", nombre));
@@ -120,6 +127,7 @@ namespace Lavanderia.Persistencia
                _lista.Add(ordencliente);
             }
             cmd.Connection.Close();
+            cnx.cerrarConexion();
            
             return _lista;
         }
@@ -127,7 +135,9 @@ namespace Lavanderia.Persistencia
         public static List<OrdenClientes> buscarOrdenId(int id)
         {
             List<OrdenClientes> _lista = new List<OrdenClientes>();
-            MySqlCommand cmd = new MySqlCommand("buscarOrdenesId", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("buscarOrdenesId", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("id", id));
             cmd.Parameters.Add(new MySqlParameter("usuario", varGlobales.sessionUsuario));
@@ -151,7 +161,7 @@ namespace Lavanderia.Persistencia
                 ordencliente.TipoPago = Convert.ToInt32(dr["tipoPago"]);
                 _lista.Add(ordencliente);
             }
-            cmd.Connection.Close();
+            cnx.cerrarConexion();
 
             return _lista;
         }
@@ -159,7 +169,9 @@ namespace Lavanderia.Persistencia
         public static List<OrdenLinea> consultarOrden(int id)
         {
             List<OrdenLinea> _lista = new List<OrdenLinea>();
-            MySqlCommand cmd = new MySqlCommand("consultaOrden", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("consultaOrden", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("id", id));
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -178,7 +190,8 @@ namespace Lavanderia.Persistencia
                 ordenlinea.Total = Convert.ToDecimal(dr["total"]);
                 _lista.Add(ordenlinea);
             }
-            cmd.Connection.Close();
+
+            cnx.cerrarConexion();
 
             return _lista;
         }
@@ -186,7 +199,9 @@ namespace Lavanderia.Persistencia
 
         public static string consultaOferta(int dia) {
             string nombre="";
-            MySqlCommand _comando = new MySqlCommand("ofertasDelDia", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("ofertasDelDia", cnx.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.Parameters.Add(new MySqlParameter("dia", dia));
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
@@ -195,7 +210,7 @@ namespace Lavanderia.Persistencia
                 nombre = Convert.ToString(_reader["nombre"]);
             }
             _comando.Connection.Close();
-
+            cnx.cerrarConexion();
             return nombre;
         }
 
@@ -226,7 +241,9 @@ namespace Lavanderia.Persistencia
         {
 
             int id=0;
-            MySqlCommand cmd= new MySqlCommand("ultimoIdOrden", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd= new MySqlCommand("ultimoIdOrden", cnx.ObtenerConexion());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new MySqlParameter("usuario",varGlobales.sessionUsuario));
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -234,7 +251,8 @@ namespace Lavanderia.Persistencia
             {
                 id = Convert.ToInt32(dr["ultimoid"]);
             }
-              cmd.Connection.Close();
+          
+              cnx.cerrarConexion();
             return id;
         }
 
