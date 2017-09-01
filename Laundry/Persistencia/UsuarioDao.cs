@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.Models;
+using System.Data;
 
 namespace Lavanderia.Persistencia
 {
@@ -15,9 +16,11 @@ namespace Lavanderia.Persistencia
             ConexBD conec = new ConexBD();
             List<Usuario> _lista = new List<Usuario>();
             conec.Conectar();
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT * FROM usuario where nombre='{0}' and password='{1}'",user,pass), conec.ObtenerConexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
+            MySqlCommand _comando = new MySqlCommand("consultaUsuario",conec.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.Parameters.Add(new MySqlParameter("USUARIO", user));
+            _comando.Parameters.Add(new MySqlParameter("PASS", pass));
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
             Usuario usuario = new Usuario();
             while (_reader.Read())
             {

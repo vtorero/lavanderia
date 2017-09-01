@@ -46,9 +46,10 @@ namespace Lavanderia.Persistencia
                 finally
                 {
                      cmd.Connection.Close();
+                     cnx.cerrarConexion();
                 }
 
-            cnx.cerrarConexion();
+           
           
           
         }
