@@ -18,11 +18,11 @@ namespace Lavanderia.Models
 
         public  Color() { }
 
-        public Color(int idColor, string nombreColor, string valorColor)
+        public Color(int idcolor, string nombrecolor, string valorcolor)
         {
-            this.idColor = idColor;
-            this.nombreColor= nombreColor;
-            this.valorColor=valorColor   ;
+            this.idColor = idcolor;
+            this.nombreColor= nombrecolor;
+            this.valorColor=valorcolor   ;
             
 
         }

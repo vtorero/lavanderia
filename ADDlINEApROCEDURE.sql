@@ -127,7 +127,7 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE coloresAll()
 BEGIN
-SELECT idColor,UPPER(nombreColor) nombreColor FROM Color ORDER BY nombreColor ASC;
+SELECT idColor,UPPER(nombreColor) nombreColor,UPPER(valorColor) valorColor FROM Color ORDER BY nombreColor ASC;
 END $$
 DELIMITER $$
 CREATE PROCEDURE serviciosAll()

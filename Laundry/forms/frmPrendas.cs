@@ -153,7 +153,7 @@ namespace Lavanderia.forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-                        pos = dgvPrendas.CurrentRow.Index;
+            pos = dgvPrendas.CurrentRow.Index;
             string id = Convert.ToString(dgvPrendas[0, pos].Value);
 
             DialogResult result = MessageBox.Show("Eliminar la prenda: " + id, "Confirmar", MessageBoxButtons.YesNo);

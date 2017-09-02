@@ -23,11 +23,9 @@ namespace Lavanderia.Persistencia
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
              while (dr.Read())
             {
-                
-                oferta.idOferta= Convert.ToInt32(dr["id"]);
+               oferta.idOferta= Convert.ToInt32(dr["id"]);
                 oferta.Nombre= Convert.ToString(dr["nombre"]);
                 oferta.Porcentaje = Convert.ToDecimal(dr["porcentaje"]);
-               
             }
               con.cerrarConexion();
               return oferta;

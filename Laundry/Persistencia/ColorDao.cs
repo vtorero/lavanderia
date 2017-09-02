@@ -51,8 +51,9 @@ namespace Lavanderia.Persistencia
         public static List<Color> Listar()
         {
             List<Color> _lista = new List<Color>();
-
-            MySqlCommand _comando = new MySqlCommand("coloresAll", BdComun.ObtenerConexion());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("coloresAll", cnx.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
 
@@ -62,11 +63,9 @@ namespace Lavanderia.Persistencia
                 color.idColor = Convert.ToInt32(_reader["idColor"]);
                 color.nombreColor = Convert.ToString(_reader["nombreColor"]);
                 color.valorColor = Convert.ToString(_reader["valorColor"]);
-                
-
                 _lista.Add(color);
             }
-
+            cnx.cerrarConexion();
             return _lista;
         }
 

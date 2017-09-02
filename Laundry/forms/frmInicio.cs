@@ -28,7 +28,7 @@ namespace Lavanderia.forms
         {
             Form childForm = new frmPrendas();
             childForm.MdiParent = this;
-            childForm.Text = "Mantenimiento de Prendas :" + varGlobales.sessionUsuario;
+            childForm.Text = "Mantenimiento de Prendas ";
             childForm.Show();
         }
 
