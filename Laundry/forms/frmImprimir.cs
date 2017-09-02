@@ -44,16 +44,18 @@ namespace Lavanderia.forms
         private void button2_Click(object sender, EventArgs e)
         {
             CrearTicket ticket = new CrearTicket();
-            
 
+            ConexBD cn1 = new ConexBD();
+            cn1.Conectar();
 
             ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
             ticket.TextoIzquierda("");
             MySqlCommand _comando1 = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", Convert.ToInt32(txtTicket.Text)), BdComun.ObtenerConexion());
-
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", Convert.ToInt32(txtTicket.Text)), cn1.ObtenerConexion());
+            ConexBD cn2 = new ConexBD();
+            cn2.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", Convert.ToInt32(txtTicket.Text)), BdComun.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", Convert.ToInt32(txtTicket.Text)), cn2.ObtenerConexion());
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
@@ -97,6 +99,8 @@ namespace Lavanderia.forms
 
             _comando.Connection.Close();
             _comando1.Connection.Close();
+            cn1.cerrarConexion();
+            cn2.cerrarConexion();
         }
 
         private void button3_Click(object sender, EventArgs e)
