@@ -6,6 +6,7 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace Crearticket
 {
@@ -209,7 +210,8 @@ namespace Crearticket
             { resumen = texto; }
 
             textoCompleto = resumen;
-            valor = total.ToString("#,#.00");//Agregamos el total previo formateo.
+            valor = total.ToString("0.00", CultureInfo.InvariantCulture);
+            //valor = total.ToString("#,#.00");//Agregamos el total previo formateo.
 
             //Obtenemos el numero de espacios restantes para alinearlos a la derecha
             int nroEspacios = maxCar - (resumen.Length + valor.Length);
