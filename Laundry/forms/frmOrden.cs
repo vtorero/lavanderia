@@ -666,16 +666,17 @@ namespace Lavanderia.forms
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            cnx.Conectar();
+            ConexBD cn1 = new ConexBD();
+            cn1.Conectar();
             CrearTicket ticket = new CrearTicket();
-
-           ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
+            ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
             ticket.TextoIzquierda("");
             MySqlCommand _comando1 = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cnx.ObtenerConexion());
-
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn1.ObtenerConexion());
+           ConexBD cn2 = new ConexBD();
+            cn2.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cnx.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
@@ -720,7 +721,8 @@ namespace Lavanderia.forms
             _comando.Connection.Close();
             _comando1.Connection.Close();
 
-            cnx.cerrarConexion();
+            cn1.cerrarConexion();
+            cn2.cerrarConexion();
             
             
             /*myadap.Fill(ds,"Ticket");
@@ -759,7 +761,12 @@ namespace Lavanderia.forms
 
         private void fillServicio() {
             cmbServicios.Items.Clear();
-            MySqlDataReader _readerS = ServicioDao.fillServicio();
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("serviciosAll", cnx.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _readerS = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+            
             while (_readerS.Read())
             {
                 string name = _readerS.GetString("nombreServicio");
@@ -768,8 +775,8 @@ namespace Lavanderia.forms
                 cmbServicios.DisplayMember = name;
                 cmbServicios.ValueMember = id;
             }
-
-            _readerS.Close();
+                        _readerS.Close();
+                        cnx.cerrarConexion();
         }
 
         private void fillColores()
@@ -867,8 +874,11 @@ namespace Lavanderia.forms
         {
           
             Object selectedItem = cmbServicios.SelectedItem;
-
-            MySqlDataReader _reader = ServicioDao.fillServicioSearch(selectedItem.ToString());
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+             "SELECT idServicio, nombreServicio, precioServicio ,cantidadMinima FROM Servicio where nombreServicio = '{0}'", selectedItem.ToString()), cnx.ObtenerConexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
 
@@ -881,6 +891,7 @@ namespace Lavanderia.forms
             habilitaServicio();
             btnAdd.Enabled = true;
             _reader.Close();
+            cnx.cerrarConexion();
         }
 
         private void nroCantidad_ValueChanged(object sender, EventArgs e)

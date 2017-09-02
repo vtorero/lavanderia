@@ -104,7 +104,7 @@ namespace Lavanderia.Persistencia
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-             "SELECT idServicio, nombreServicio, precioServicio ,cantidadMinima FROM Servicio where nombreServicio = '{0}'", criterio), BdComun.ObtenerConexion());
+             "SELECT idServicio, nombreServicio, precioServicio ,cantidadMinima FROM Servicio where nombreServicio = '{0}'", criterio), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             //_comando.Connection.Close();
             cnx.cerrarConexion();
