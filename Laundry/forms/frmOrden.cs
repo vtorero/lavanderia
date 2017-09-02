@@ -716,7 +716,7 @@ namespace Lavanderia.forms
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU PREFERENCIA!");
             ticket.CortaTicket();
-            ticket.ImprimirTicket(_reader1.GetString(17));
+            ticket.ImprimirTicket(_reader1.GetString(20));
 
 
             _comando.Connection.Close();
