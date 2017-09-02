@@ -710,8 +710,9 @@ namespace Lavanderia.forms
 
             ticket.lineasAsteriscos();
 
-            ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
-            ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
+            ticket.AgregarTotales("            TOTAL..........S/.", _reader1.GetDecimal(13));
+            ticket.AgregarTotales("            DESCUENTO......S/.", _reader1.GetDecimal(8));
+            ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(5));//La M indica que es un decimal en C#
             ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU PREFERENCIA!");
