@@ -13,16 +13,14 @@ namespace Lavanderia.Models
         public string nombreColor { get; set; }
         public string valorColor { get; set; }
         
-
-
-
+                
         public  Color() { }
 
         public Color(int idcolor, string nombrecolor, string valorcolor)
         {
             this.idColor = idcolor;
             this.nombreColor= nombrecolor;
-            this.valorColor=valorcolor   ;
+            this.valorColor=valorcolor;
             
 
         }
