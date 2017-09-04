@@ -260,7 +260,7 @@ namespace Lavanderia.forms
             cnx.Conectar();
           ReportDocument cryrep = new ReportDocument();
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
-         "SELECT o.idOrden,UPPER(nombreCliente) nombreCliente,fechaCreado,fechaEntrega,u.sucursal,totalOrden,pago1,o.aplicaDscto,DATEDIFF(NOW(),o.fechaEntrega) diasAtraso,IF(o.`estado`=0, 'En tienda','Entregado') estado FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.estado=0 order by o.idOrden DESC"), cnx.ObtenerConexion());
+         "SELECT o.idOrden,UPPER(nombreCliente) nombreCliente,fechaCreado,fechaEntrega,u.sucursal,totalOrden,pago1,o.aplicaDscto,DATEDIFF(NOW(),o.fechaEntrega) diasAtraso,IF(o.`estado`=0, 'En tienda','Entregado') estado FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.estado=0 AND u.id<>1  order by o.idOrden DESC"), cnx.ObtenerConexion());
             DataSet ds = new DataSet();
 
             myadap.Fill(ds, "dsInventario");
