@@ -439,7 +439,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsInventarioRow AdddsInventarioRow(string idOrden, string nombreCliente, string fechaCreado, string fechaEntrega, string sucursal, double totalOrden, decimal pago1, int diasAtraso, string estado) {
+            public dsInventarioRow AdddsInventarioRow(int idOrden, string nombreCliente, string fechaCreado, string fechaEntrega, string sucursal, double totalOrden, decimal pago1, int diasAtraso, string estado) {
                 dsInventarioRow rowdsInventarioRow = ((dsInventarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -487,7 +487,7 @@ namespace Lavanderia.Models {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidOrden);
                 this.columnnombreCliente = new global::System.Data.DataColumn("nombreCliente", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreCliente);
@@ -647,10 +647,10 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idOrden {
+            public int idOrden {
                 get {
                     try {
-                        return ((string)(this[this.tabledsInventario.idOrdenColumn]));
+                        return ((int)(this[this.tabledsInventario.idOrdenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'idOrden\' de la tabla \'dsInventario\' es DBNull.", e);
