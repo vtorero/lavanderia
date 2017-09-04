@@ -254,6 +254,28 @@ namespace Lavanderia.forms
             rt.Show();﻿
         }
 
+        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+          ReportDocument cryrep = new ReportDocument();
+            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(
+         "SELECT o.idOrden,UPPER(nombreCliente) nombreCliente,fechaCreado,fechaEntrega,u.sucursal,totalOrden,pago1,O.`aplicaDscto`,DATEDIFF(NOW(),o.fechaEntrega) diasAtraso,IF(o.`estado`=0, 'En tienda','Entregado') estado FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.estado=0 order by o.idOrden DESC"), cnx.ObtenerConexion());
+            DataSet ds = new DataSet();
+
+            myadap.Fill(ds, "dsInventario");
+            cnx.cerrarConexion();
+            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crInventario.rpt");
+
+            cryrep.SetDataSource(ds);
+
+            frmReporte rt = new frmReporte();
+            rt.Text = "Reporte de Inventario";
+            rt.crystalReportViewer1.ReportSource = cryrep;
+            rt.Show();﻿
+
+        }
+
  
 
     

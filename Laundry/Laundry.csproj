@@ -198,6 +198,11 @@
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\DataSetInventario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\dsAlpeso.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -297,6 +302,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\CrearTicket.cs" />
+    <Compile Include="Reportes\crInventario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crInventario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\crPrendas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -412,6 +423,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crClientes.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crInventario.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crPrendas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
@@ -432,6 +447,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crVentas.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Models\DataSetInventario.xsc">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
+    <None Include="Models\DataSetInventario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInventario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\DataSetInventario.xss">
+      <DependentUpon>DataSetInventario.xsd</DependentUpon>
+    </None>
     <None Include="Models\dsAlpeso.xsc">
       <DependentUpon>dsAlpeso.xsd</DependentUpon>
     </None>
