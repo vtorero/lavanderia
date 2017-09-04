@@ -76,7 +76,10 @@ namespace Lavanderia.forms
         private void fillSusursal()
         {
             chKSucursal.Items.Clear();
-            MySqlDataReader _readerS = ServicioDao.fillSucursales();
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("SELECT id, sucursal FROM usuario where id<> 1 order by sucursal", cnx.ObtenerConexion());
+             MySqlDataReader _readerS = _comando.ExecuteReader();
             while (_readerS.Read())
             {
                 string name = _readerS.GetString("sucursal");
@@ -85,6 +88,7 @@ namespace Lavanderia.forms
                 chKSucursal.DisplayMember = name;
                 chKSucursal.ValueMember = id;
             }
+            cnx.cerrarConexion();
 
         }
 
