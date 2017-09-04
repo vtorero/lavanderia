@@ -52,12 +52,16 @@
             this.rdpago2E = new System.Windows.Forms.RadioButton();
             this.btnCambiaModo = new System.Windows.Forms.Button();
             this.txtIdPago = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grpPago2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtIdCliente
@@ -230,7 +234,7 @@
             // 
             this.rdpago1E.AutoSize = true;
             this.rdpago1E.Enabled = false;
-            this.rdpago1E.Location = new System.Drawing.Point(6, 19);
+            this.rdpago1E.Location = new System.Drawing.Point(16, 19);
             this.rdpago1E.Name = "rdpago1E";
             this.rdpago1E.Size = new System.Drawing.Size(64, 17);
             this.rdpago1E.TabIndex = 17;
@@ -311,18 +315,52 @@
             // 
             // txtIdPago
             // 
-            this.txtIdPago.Location = new System.Drawing.Point(597, 65);
+            this.txtIdPago.Location = new System.Drawing.Point(755, 116);
             this.txtIdPago.Name = "txtIdPago";
             this.txtIdPago.Size = new System.Drawing.Size(52, 20);
             this.txtIdPago.TabIndex = 22;
             this.txtIdPago.Visible = false;
             this.txtIdPago.TextChanged += new System.EventHandler(this.txtIdPago_TextChanged);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.radioButton2);
+            this.groupBox4.Controls.Add(this.radioButton1);
+            this.groupBox4.Location = new System.Drawing.Point(579, 65);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(167, 71);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Estado";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(16, 43);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(74, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Entregado";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(16, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(84, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Por Entregar";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 510);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.txtIdPago);
             this.Controls.Add(this.btnCambiaModo);
             this.Controls.Add(this.grpPago2);
@@ -341,6 +379,8 @@
             this.groupBox2.PerformLayout();
             this.grpPago2.ResumeLayout(false);
             this.grpPago2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,5 +412,8 @@
         private System.Windows.Forms.TextBox txtIdPago;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

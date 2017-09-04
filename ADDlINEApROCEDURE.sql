@@ -14,6 +14,7 @@ DROP PROCEDURE IF EXISTS insertaMarca;
 DROP PROCEDURE IF EXISTS consultaOrden;
 DROP PROCEDURE IF EXISTS consultaPago;
 DROP PROCEDURE IF EXISTS modificaPago;
+DROP PROCEDURE IF EXISTS modificaEstado;
 DROP PROCEDURE IF EXISTS buscarOrdenesId;
 DROP PROCEDURE IF EXISTS pendienteEntregas;
 DROP PROCEDURE IF EXISTS ofertasDelDia;
@@ -228,6 +229,18 @@ IN pago2 INT
 BEGIN
 START TRANSACTION;
 UPDATE Pago SET tipoPago1=pago1,tipoPago2=pago2,Observacion="cambio tipo pago" WHERE idPago=id;
+COMMIT;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE modificaEstado(
+IN id INT,
+IN ESTADO INT
+
+)
+BEGIN
+START TRANSACTION;
+UPDATE Orden SET estado=ESTADO WHERE idOrden=id;
 COMMIT;
 END $$
 

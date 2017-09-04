@@ -680,10 +680,10 @@ namespace Lavanderia.forms
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
-            ticket.TextoIzquierda("DIRECCION: " + _reader1.GetString(15).ToUpper());
+            ticket.TextoIzquierda("DIRECCION: " + _reader1.GetString(18).ToUpper());
             ticket.TextoIzquierda("HORARIO: LUNES A VIERNES DE 8:00AM");
             ticket.TextoIzquierda(" A 8:00PM Y SABADO DE 8:00AM A 7:00PM");
-            ticket.TextoIzquierda("TELEF: " + _reader1.GetString(16));
+            ticket.TextoIzquierda("TELEF: " + _reader1.GetString(19));
             ticket.lineasIgual();
             ticket.TextoIzquierda("CLIENTE: " + _reader1.GetString(2).ToUpper());
             if (!_reader1.GetString(1).Equals(""))
@@ -697,7 +697,11 @@ namespace Lavanderia.forms
             ticket.lineasAsteriscos();
             ticket.EncabezadoVenta();
             ticket.lineasAsteriscos();
-        
+            decimal totalSinDescuento = 0;
+            decimal cargoVisa = 0;
+            if (chkVisa.Checked) {
+                cargoVisa = 5;
+            }
             while (_reader.Read())
             {
                 ticket.AgregaArticulo(_reader.GetString(8), _reader.GetDecimal(6), _reader.GetDecimal(7), _reader.GetDecimal(9));
@@ -705,13 +709,18 @@ namespace Lavanderia.forms
                 {
                     ticket.TextoExtremos(_reader.GetString(10) + " " + _reader.GetString(11), _reader.GetString(12));
                 }
+                totalSinDescuento += _reader.GetDecimal(9);
                 ticket.lineasGuio();
             }
 
             ticket.lineasAsteriscos();
 
-            ticket.AgregarTotales("            TOTAL..........S/.", _reader1.GetDecimal(12));
-            ticket.AgregarTotales("            DESCUENTO %"+_reader1.GetDecimal(6) + "......S/.", _reader1.GetDecimal(8));
+            ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+            if (_reader1.GetDecimal(6) > 0)
+            {
+                ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6)-cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+            }
+
             ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(5));//La M indica que es un decimal en C#
             ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
             ticket.TextoIzquierda("");

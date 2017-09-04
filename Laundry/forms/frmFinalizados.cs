@@ -128,7 +128,13 @@ namespace Lavanderia.forms
 
         private void llenaPago(int id) {
 
-            MySqlDataReader _reader = PagoDao.consultaPago(id);
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("consultaPago", cnx.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.Parameters.Add(new MySqlParameter("id", id));
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+
             while (_reader.Read())
             {
 
@@ -177,11 +183,11 @@ namespace Lavanderia.forms
                 {
                     rdpago2T.Checked = true;
                 }
-
-
-
                 
             }
+
+            cnx.cerrarConexion();
+
 
         }
 
