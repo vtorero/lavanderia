@@ -34,6 +34,8 @@ namespace Lavanderia.forms
 
             if (s != "")
             {
+                ConexBD cnx = new ConexBD();
+                cnx.Conectar();
                 ReportDocument cryrep = new ReportDocument();
                 MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("(SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,SUBSTRING(o.fechaCreado,1,10) AS fechaCreado,pg.fechaPago,o.idUsuario, u.sucursal,pg.pagoTotal,pg.pago1 AS pago," +
 " IF(tipoPago1=0,'EFECTIVO','TARJETA') modoPago,IF(o.Estado=0,'ENTREGA','RECOJO') Movimiento FROM " +
@@ -48,7 +50,7 @@ namespace Lavanderia.forms
 " (SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,SUBSTRING(o.fechaCreado,1,10) AS fechaCreado,pg.fechaActualizado AS fechaPago,o.idUsuario, u.sucursal,pg.pagoTotal,pg.pago2 AS pago ,IF(pg.tipoPago2=0,'EFECTIVO','TARJETA') modoPago, " +
 " IF(o.Estado=0,'ENTREGA','RECOJO') Movimiento FROM (SELECT * FROM Pago WHERE fechaActualizado BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
  " ) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(2) AND o.`estado` IN(1) INNER JOIN usuario u ON o.idUsuario=u.id " +
-  " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ")  ORDER BY modoPago) ORDER BY modopago,idOrden"), BdComun.ObtenerConexion());
+  " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.sucursal IN(" + s + ")  ORDER BY modoPago) ORDER BY modopago,idOrden"), cnx.ObtenerConexion());
                 DataSet ds = new DataSet();
 
 
@@ -61,7 +63,7 @@ namespace Lavanderia.forms
 
                 cryrep.SetDataSource(ds);
 
-
+                cnx.cerrarConexion();
                 frmReporte rt = new frmReporte();
                 rt.Text = "Reporte de Cierre";
                 rt.crystalReportViewer1.ReportSource = cryrep;
