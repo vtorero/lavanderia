@@ -699,6 +699,7 @@ namespace Lavanderia.forms
             ticket.lineasAsteriscos();
             decimal totalSinDescuento = 0;
             decimal cargoVisa = 0;
+            _reader.Read();
             if (_reader.GetDecimal(18)==1)
             {
                 cargoVisa = 5;
