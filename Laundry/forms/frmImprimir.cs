@@ -99,10 +99,14 @@ namespace Lavanderia.forms
 
                 ticket.lineasAsteriscos();
 
-                ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
                 if (_reader1.GetDecimal(6) > 0)
                 {
-                ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+                    ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+                    ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+                }
+                else
+                {
+                    ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
                 }
 
                 ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
