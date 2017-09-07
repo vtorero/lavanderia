@@ -798,7 +798,7 @@ namespace Lavanderia.forms
 
         private void fillColores()
         {
-           
+            cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand("coloresAll", cnx.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
