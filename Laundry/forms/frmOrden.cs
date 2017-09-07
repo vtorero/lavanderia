@@ -798,7 +798,10 @@ namespace Lavanderia.forms
 
         private void fillColores()
         {
-            MySqlDataReader _reader = ColorDao.fillColor();
+           
+            MySqlCommand _comando = new MySqlCommand("coloresAll", cnx.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
             cmbColor.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             AutoCompleteStringCollection datosM = new AutoCompleteStringCollection();
@@ -808,28 +811,10 @@ namespace Lavanderia.forms
                 datosM.Add(name);
 
             }
-            cmbColor.AutoCompleteCustomSource=datosM;
-
-            /*MySqlDataReader _reader = PrendaDao.fillPrenda();
-            cmbPrenda.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            cmbPrenda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            AutoCompleteStringCollection datos = new AutoCompleteStringCollection();
-            while (_reader.Read())
-            {
-                string name = _reader.GetString("nombrePrenda");
-                datos.Add(name);
-
-            }
-            cmbPrenda.AutoCompleteCustomSource = datos;
-          
-            MySqlDataReader _readerC = ColorDao.fillColor();
-            while (_readerC.Read())
-            {
-                chkColores.Items.Add(_readerC.GetString("nombreColor"));
-
-            }  */
-
             _reader.Close();
+            cnx.cerrarConexion();
+            cmbColor.AutoCompleteCustomSource=datosM;
+            
 
         }
 
