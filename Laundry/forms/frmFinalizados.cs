@@ -102,20 +102,22 @@ namespace Lavanderia.forms
             dgvOrdenes.Columns[4].Width = 100;
             dgvOrdenes.Columns[5].HeaderText = "Fecha Orden";
             dgvOrdenes.Columns[5].Width = 120;
-            dgvOrdenes.Columns[6].HeaderText = "Pago 1";
-            dgvOrdenes.Columns[6].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[6].Width = 70;
-            dgvOrdenes.Columns[7].HeaderText = "Pago 2";
+            dgvOrdenes.Columns[6].HeaderText = "Fecha Entrega";
+            dgvOrdenes.Columns[6].Width = 120;
+            dgvOrdenes.Columns[7].HeaderText = "Pago 1";
             dgvOrdenes.Columns[7].DefaultCellStyle.Format = "C2";
             dgvOrdenes.Columns[7].Width = 70;
-            dgvOrdenes.Columns[8].HeaderText = "Monto Orden";
+            dgvOrdenes.Columns[8].HeaderText = "Pago 2";
             dgvOrdenes.Columns[8].DefaultCellStyle.Format = "C2";
-            dgvOrdenes.Columns[8].Width = 100;
-            dgvOrdenes.Columns[9].HeaderText = "Monto Pendiente";
+            dgvOrdenes.Columns[8].Width = 70;
+            dgvOrdenes.Columns[9].HeaderText = "Monto Orden";
             dgvOrdenes.Columns[9].DefaultCellStyle.Format = "C2";
             dgvOrdenes.Columns[9].Width = 100;
-            dgvOrdenes.Columns[9].Visible = false;
-            dgvOrdenes.Columns[10].HeaderText = "Cuotas";
+            dgvOrdenes.Columns[10].HeaderText = "Monto Pendiente";
+            dgvOrdenes.Columns[10].DefaultCellStyle.Format = "C2";
+            dgvOrdenes.Columns[10].Width = 100;
+            //dgvOrdenes.Columns[11].Visible = false;
+            dgvOrdenes.Columns[11].HeaderText = "Cuotas";
 
         }
 
