@@ -185,7 +185,7 @@ CREATE PROCEDURE consultaOrden(
 IN id INT
 )
 BEGIN
-SELECT o.idOrden,l.item,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,p.tipoPago,p.tipoPago1,p.tipoPago2 FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden WHERE o.idOrden=id;
+SELECT o.idOrden,l.item,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,p.tipoPago,p.tipoPago1,p.tipoPago2,p.fechaActualizado FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden WHERE o.idOrden=id;
 
 END $$
 DELIMITER $$
