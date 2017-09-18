@@ -112,6 +112,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.chkGarantia = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -493,6 +494,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkGarantia);
             this.groupBox4.Controls.Add(this.txttipo);
             this.groupBox4.Controls.Add(this.cmbColor);
             this.groupBox4.Controls.Add(this.txtNombrePrenda);
@@ -1007,6 +1009,16 @@
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
             // 
+            // chkGarantia
+            // 
+            this.chkGarantia.AutoSize = true;
+            this.chkGarantia.Location = new System.Drawing.Point(318, 162);
+            this.chkGarantia.Name = "chkGarantia";
+            this.chkGarantia.Size = new System.Drawing.Size(98, 20);
+            this.chkGarantia.TabIndex = 39;
+            this.chkGarantia.Text = "Sin garantia";
+            this.chkGarantia.UseVisualStyleBackColor = true;
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1121,5 +1133,6 @@
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.CheckedListBox chkColores;
         private System.Windows.Forms.TextBox txttipo;
+        private System.Windows.Forms.CheckBox chkGarantia;
     }
 }

@@ -91,7 +91,7 @@ namespace Lavanderia.forms
         private void llenarDatosId(int id)
         {
 
-            dgvOrdenes.DataSource = OrdenDao.buscarOrdenId(id);
+            dgvOrdenes.DataSource = OrdenDao.buscarOrdenIdFin(id);
             dgvOrdenes.Columns[0].HeaderText = "Código";
             dgvOrdenes.Columns[0].Width = 50;
             dgvOrdenes.Columns[1].Visible = false;

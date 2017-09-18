@@ -168,6 +168,40 @@ namespace Lavanderia.Persistencia
             return _lista;
         }
 
+        public static List<OrdenClientes> buscarOrdenIdFin(int id)
+        {
+            List<OrdenClientes> _lista = new List<OrdenClientes>();
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand cmd = new MySqlCommand("buscarOrdenesIdFin", cnx.ObtenerConexion());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new MySqlParameter("id", id));
+            cmd.Parameters.Add(new MySqlParameter("usuario", varGlobales.sessionUsuario));
+
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                OrdenClientes ordencliente = new OrdenClientes();
+                ordencliente.idOrden = Convert.ToInt32(dr["idOrden"]);
+                ordencliente.idCliente = Convert.ToInt32(dr["idCliente"]);
+                ordencliente.nombreCliente = Convert.ToString(dr["nombreCliente"]);
+                ordencliente.sucursal = Convert.ToString(dr["sucursal"]);
+                ordencliente.dniCliente = Convert.ToString(dr["dniCliente"]);
+                ordencliente.fechaCreado = Convert.ToString(dr["fechaCreado"]);
+                ordencliente.fechaEntrega = Convert.ToString(dr["fechaActualizado"]);
+                ordencliente.pago1 = Convert.ToDecimal(dr["pago1"]);
+                ordencliente.pago2 = Convert.ToDecimal(dr["pago2"]);
+                ordencliente.Monto = Convert.ToDecimal(dr["totalOrden"]);
+                ordencliente.MontoPendiente = Convert.ToDecimal(dr["pago2"]);
+                ordencliente.TipoPago = Convert.ToInt32(dr["tipoPago"]);
+                _lista.Add(ordencliente);
+            }
+            cnx.cerrarConexion();
+
+            return _lista;
+        }
         public static List<OrdenLinea> consultarOrden(int id)
         {
             List<OrdenLinea> _lista = new List<OrdenLinea>();
