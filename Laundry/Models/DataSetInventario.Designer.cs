@@ -297,6 +297,8 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnestado;
             
+            private global::System.Data.DataColumn columntipo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dsInventarioDataTable() {
@@ -404,6 +406,14 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoColumn {
+                get {
+                    return this.columntipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsInventarioRow AdddsInventarioRow(int idOrden, string nombreCliente, string fechaCreado, string fechaEntrega, string sucursal, double totalOrden, decimal pago1, int diasAtraso, string estado) {
+            public dsInventarioRow AdddsInventarioRow(int idOrden, string nombreCliente, string fechaCreado, string fechaEntrega, string sucursal, double totalOrden, decimal pago1, int diasAtraso, string estado, string tipo) {
                 dsInventarioRow rowdsInventarioRow = ((dsInventarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -450,7 +460,8 @@ namespace Lavanderia.Models {
                         totalOrden,
                         pago1,
                         diasAtraso,
-                        estado};
+                        estado,
+                        tipo};
                 rowdsInventarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsInventarioRow);
                 return rowdsInventarioRow;
@@ -482,6 +493,7 @@ namespace Lavanderia.Models {
                 this.columnpago1 = base.Columns["pago1"];
                 this.columndiasAtraso = base.Columns["diasAtraso"];
                 this.columnestado = base.Columns["estado"];
+                this.columntipo = base.Columns["tipo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,6 +517,8 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columndiasAtraso);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestado);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -791,6 +805,22 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsInventario.tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo\' de la tabla \'dsInventario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsInventario.tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidOrdenNull() {
                 return this.IsNull(this.tabledsInventario.idOrdenColumn);
             }
@@ -895,6 +925,18 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestadoNull() {
                 this[this.tabledsInventario.estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoNull() {
+                return this.IsNull(this.tabledsInventario.tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoNull() {
+                this[this.tabledsInventario.tipoColumn] = global::System.Convert.DBNull;
             }
         }
         
