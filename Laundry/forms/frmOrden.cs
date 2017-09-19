@@ -95,7 +95,6 @@ namespace Lavanderia.forms
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
 
-
                 if (tipoServ == 1 && varGlobales.OfertaDia.Equals("3 Prendas a más") && txttipo.Text.Equals("Estandar"))
                 {
                     cantidadGeneral += cantidad;
@@ -429,8 +428,7 @@ namespace Lavanderia.forms
             chkDescuento.Enabled = false;
             chkDescuento.Visible = false;
             lblDescuento.Visible = false;
-            lblDescuento.Text = "";
-            nroDscto.Visible = false;
+           nroDscto.Visible = false;
             nroDscto.Enabled = false;
 
 
@@ -1021,7 +1019,7 @@ namespace Lavanderia.forms
 
         private void chkVisa_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkVisa.Checked && porcentajeDescuento > 0)
+            if (chkVisa.Checked && porcentajeDescuento > 0 && !rdParcial.Checked)
             {
                 nroDscto.Text = Convert.ToString(porcentajeDescuento - 5);
                 lblDescuento.Visible = true;
@@ -1036,7 +1034,7 @@ namespace Lavanderia.forms
                 {
                     lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
                 }
-
+                 
             }
         }
     
