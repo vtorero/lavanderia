@@ -425,8 +425,11 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             btnGuardar.Enabled = true;
             txtIg.Visible = false;
+            lblPorcentaje.Visible = false;
             chkDescuento.Enabled = false;
             chkDescuento.Visible = false;
+            lblDescuento.Visible = false;
+            lblDescuento.Text = "";
             nroDscto.Visible = false;
             nroDscto.Enabled = false;
 
@@ -447,10 +450,11 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
             if (cantidadGeneralcama > 1 || cantidadGeneral>=3) {
-                label11.Visible = true;
+                lblPorcentaje.Visible = true;
                 nroDscto.Visible = true;
-
-            
+                lblDescuento.Visible = true;
+                lblDescuento.Text = "Total a pagar: S/. " + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                
             }
             /*chkDescuento.Enabled = true;*/
             
@@ -542,7 +546,9 @@ namespace Lavanderia.forms
             nroDscto.Text = "0";
             nroDscto.Enabled = false;
             nroDscto.Visible = false;
-            label11.Visible = false;
+            lblPorcentaje.Visible = false;
+            lblDescuento.Text = "0";
+            lblDescuento.Visible = false;
             totalOfertaCama = 0;
             totalOfertaRopa = 0;
             cantidadGeneral = 0;
@@ -620,12 +626,23 @@ namespace Lavanderia.forms
             //chkDescuento.Enabled = true;
             if (varGlobales.porcentajeOferta > 0 && cantidadGeneral >= 3 || cantidadGeneralcama >= 1)
             {
-                label11.Visible = true;
+                lblPorcentaje.Visible = true;
                 nroDscto.Visible = true;
+                
                 if (chkVisa.Checked) {
                     nroDscto.Text = Convert.ToString(varGlobales.porcentajeOferta - 5);
+                    lblDescuento.Visible = true;
+                    if (!txtPago.Text.Equals(""))
+                    {
+                        lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
+                    }
                 } else {
                     nroDscto.Text = Convert.ToString(varGlobales.porcentajeOferta);
+                    lblDescuento.Visible = true;
+                    if (!txtPago.Text.Equals(""))
+                    {
+                        lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
+                    }
                 }
 
 
@@ -969,14 +986,14 @@ namespace Lavanderia.forms
             {
                 nroDscto.Visible = false;
                 nroDscto.Enabled = false;
-                label11.Visible = false;
+                lblPorcentaje.Visible = false;
                 txtPago.Text = Convert.ToString(totalOrden);
            
             }
             else {
                 nroDscto.Visible = true;
                 nroDscto.Enabled = true;
-                label11.Visible = true;
+                lblPorcentaje.Visible = true;
                 
             
             }
@@ -1007,9 +1024,19 @@ namespace Lavanderia.forms
             if (chkVisa.Checked && porcentajeDescuento > 0)
             {
                 nroDscto.Text = Convert.ToString(porcentajeDescuento - 5);
+                lblDescuento.Visible = true;
+                if (!txtPago.Text.Equals(""))
+                {
+                    lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                }
             }
             else {
                 nroDscto.Text = Convert.ToString(porcentajeDescuento);
+                if (!txtPago.Text.Equals(""))
+                {
+                    lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                }
+
             }
         }
     

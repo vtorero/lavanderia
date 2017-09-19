@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.nroDscto = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtIg = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkGarantia = new System.Windows.Forms.CheckBox();
             this.txttipo = new System.Windows.Forms.TextBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.txtNombrePrenda = new System.Windows.Forms.TextBox();
@@ -112,7 +113,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.chkGarantia = new System.Windows.Forms.CheckBox();
+            this.lblDescuento = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -239,8 +240,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblDescuento);
             this.groupBox2.Controls.Add(this.nroDscto);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lblPorcentaje);
             this.groupBox2.Controls.Add(this.chkDescuento);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.txtIg);
@@ -281,21 +283,21 @@
             this.nroDscto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nroDscto_KeyPress);
             this.nroDscto.Leave += new System.EventHandler(this.nroDscto_Leave);
             // 
-            // label11
+            // lblPorcentaje
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(328, 66);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 16);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "%";
-            this.label11.Visible = false;
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Location = new System.Drawing.Point(328, 66);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(20, 16);
+            this.lblPorcentaje.TabIndex = 30;
+            this.lblPorcentaje.Text = "%";
+            this.lblPorcentaje.Visible = false;
             // 
             // chkDescuento
             // 
             this.chkDescuento.AutoSize = true;
             this.chkDescuento.Enabled = false;
-            this.chkDescuento.Location = new System.Drawing.Point(331, 104);
+            this.chkDescuento.Location = new System.Drawing.Point(327, 93);
             this.chkDescuento.Name = "chkDescuento";
             this.chkDescuento.Size = new System.Drawing.Size(92, 20);
             this.chkDescuento.TabIndex = 28;
@@ -532,6 +534,17 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle del servicio";
+            // 
+            // chkGarantia
+            // 
+            this.chkGarantia.AutoSize = true;
+            this.chkGarantia.Location = new System.Drawing.Point(318, 162);
+            this.chkGarantia.Name = "chkGarantia";
+            this.chkGarantia.Size = new System.Drawing.Size(98, 20);
+            this.chkGarantia.TabIndex = 39;
+            this.chkGarantia.Text = "Sin garantia";
+            this.chkGarantia.UseVisualStyleBackColor = true;
+            this.chkGarantia.Visible = false;
             // 
             // txttipo
             // 
@@ -802,14 +815,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -827,8 +840,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.Size = new System.Drawing.Size(679, 134);
             this.dgvOrden.TabIndex = 0;
@@ -860,18 +873,18 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle10;
             this.clPrecio.HeaderText = "Precio";
             this.clPrecio.Name = "clPrecio";
             this.clPrecio.Width = 55;
             // 
             // clTotal
             // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle11;
             this.clTotal.HeaderText = "Total";
             this.clTotal.Name = "clTotal";
             // 
@@ -1009,23 +1022,21 @@
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
             // 
-            // chkGarantia
+            // lblDescuento
             // 
-            this.chkGarantia.AutoSize = true;
-            this.chkGarantia.Location = new System.Drawing.Point(318, 162);
-            this.chkGarantia.Name = "chkGarantia";
-            this.chkGarantia.Size = new System.Drawing.Size(98, 20);
-            this.chkGarantia.TabIndex = 39;
-            this.chkGarantia.Text = "Sin garantia";
-            this.chkGarantia.UseVisualStyleBackColor = true;
-            this.chkGarantia.Visible = false;
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblDescuento.Location = new System.Drawing.Point(228, 104);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(0, 16);
+            this.lblDescuento.TabIndex = 32;
             // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1228, 733);
+            this.ClientSize = new System.Drawing.Size(1020, 733);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1129,11 +1140,12 @@
         private System.Windows.Forms.Button btnBuscaprenda;
         private System.Windows.Forms.TextBox txtNombrePrenda;
         private System.Windows.Forms.CheckBox chkDescuento;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblPorcentaje;
         private System.Windows.Forms.TextBox nroDscto;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.CheckedListBox chkColores;
         private System.Windows.Forms.TextBox txttipo;
         private System.Windows.Forms.CheckBox chkGarantia;
+        private System.Windows.Forms.Label lblDescuento;
     }
 }
