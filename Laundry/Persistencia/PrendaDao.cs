@@ -140,6 +140,7 @@ namespace Lavanderia.Persistencia
                 Prenda prenda = new Prenda();
                 prenda.idPrenda= _reader.GetInt32(0);
                 prenda.NombrePrenda = _reader.GetString(1);
+                prenda.Descripcion = _reader.GetString(2);
                 prenda.precioServicio= _reader.GetDecimal(3);
                 prenda.tipoPrenda = _reader.GetString(5);
                 _lista.Add(prenda);
