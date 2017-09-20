@@ -227,7 +227,7 @@ IN obs VARCHAR(200)
 )
 BEGIN
 START TRANSACTION;
-UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NOW() WHERE idOrden=id;
+UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs WHERE idOrden=id;
 UPDATE Orden SET estado=1 WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 COMMIT;

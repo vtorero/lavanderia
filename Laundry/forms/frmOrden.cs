@@ -632,14 +632,16 @@ namespace Lavanderia.forms
                     lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                       // lblDescuento.Text =                        Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 } else {
                     nroDscto.Text = Convert.ToString(varGlobales.porcentajeOferta);
                     lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        //lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 }
 
