@@ -28,6 +28,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("PtipoPago", orden.tipoPago));
             cmd.Parameters.Add(new MySqlParameter("Pdscto", orden.Descuento));
             cmd.Parameters.Add(new MySqlParameter("pDescuento", orden.pDescuento));
+            cmd.Parameters.Add(new MySqlParameter("pGarantia", orden.pGarantia));
             cmd.Parameters.Add(new MySqlParameter("ultimoId", MySqlDbType.Int64));
             cmd.Parameters["ultimoId"].Direction = ParameterDirection.Output;
            

@@ -60,7 +60,7 @@ namespace Lavanderia.forms
                 ConexBD cn2 = new ConexBD();
                 cn2.Conectar();
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1 FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
+                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
                 MySqlDataReader _reader1 = _comando1.ExecuteReader();
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 _reader1.Read();
@@ -114,6 +114,10 @@ namespace Lavanderia.forms
                 ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
                 ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
                 ticket.TextoIzquierda("");
+                if (_reader.GetInt32(19) == 1)
+                {
+                    ticket.TextoCentro("Prendas sin garantía");
+                }
                 ticket.TextoCentro("¡GRACIAS POR SU PREFERENCIA!");
                 ticket.CortaTicket();
                 ticket.ImprimirTicket(_reader1.GetString(20));

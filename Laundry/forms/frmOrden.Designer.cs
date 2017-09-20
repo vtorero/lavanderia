@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblDescuento = new System.Windows.Forms.Label();
             this.nroDscto = new System.Windows.Forms.TextBox();
             this.lblPorcentaje = new System.Windows.Forms.Label();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
@@ -113,7 +114,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.lblDescuento = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -270,6 +270,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de pago";
+            // 
+            // lblDescuento
+            // 
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblDescuento.Location = new System.Drawing.Point(228, 104);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(0, 16);
+            this.lblDescuento.TabIndex = 32;
             // 
             // nroDscto
             // 
@@ -538,13 +547,13 @@
             // chkGarantia
             // 
             this.chkGarantia.AutoSize = true;
+            this.chkGarantia.Enabled = false;
             this.chkGarantia.Location = new System.Drawing.Point(318, 162);
             this.chkGarantia.Name = "chkGarantia";
-            this.chkGarantia.Size = new System.Drawing.Size(98, 20);
+            this.chkGarantia.Size = new System.Drawing.Size(133, 20);
             this.chkGarantia.TabIndex = 39;
-            this.chkGarantia.Text = "Sin garantia";
+            this.chkGarantia.Text = "Pieza sin garantía";
             this.chkGarantia.UseVisualStyleBackColor = true;
-            this.chkGarantia.Visible = false;
             // 
             // txttipo
             // 
@@ -1021,15 +1030,6 @@
             this.LblId.TabIndex = 15;
             this.LblId.Text = "cod";
             this.LblId.Visible = false;
-            // 
-            // lblDescuento
-            // 
-            this.lblDescuento.AutoSize = true;
-            this.lblDescuento.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblDescuento.Location = new System.Drawing.Point(228, 104);
-            this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(0, 16);
-            this.lblDescuento.TabIndex = 32;
             // 
             // frmOrden
             // 

@@ -25,6 +25,7 @@ namespace Lavanderia.forms
         int idOrdenPrint = 0;
         decimal cantidadGeneral = 0;
         decimal cantidadGeneralcama = 0;
+        int garantia = 0;
         Validacion v = new Validacion();
         decimal totalOrden = 0;
         decimal totalDescuento = 0;
@@ -143,6 +144,8 @@ namespace Lavanderia.forms
                 restablecer();
                 cantidad=0;
                 chkDscto.Checked = false;
+                chkGarantia.Enabled = false;
+    
                 
                 total=0;
 
@@ -247,6 +250,7 @@ namespace Lavanderia.forms
             int tipo_pago1 = 0;
             int tipo_doc = 0;
             int tipo_descuento = 0;
+       
             if (rdTotal.Checked)
             {
                 tipo_pago = 1;
@@ -259,6 +263,10 @@ namespace Lavanderia.forms
             if (chkVisa.Checked)
             {
                 tipo_pago1 = 1;
+            }
+            if (chkGarantia.Checked)
+            {
+                garantia = 1;
             }
       
 
@@ -273,6 +281,7 @@ namespace Lavanderia.forms
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
             ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+            ord.pGarantia = garantia;
 
 
             
@@ -494,7 +503,7 @@ namespace Lavanderia.forms
             chkDefecto.Enabled = true;
             chkColores.Enabled = true;
             cmbColor.Enabled = true;
-
+            chkGarantia.Enabled = true;
             dgvOrden.Enabled = true;
 
 
@@ -538,6 +547,8 @@ namespace Lavanderia.forms
             btnImprimir.Enabled = false;
             chkVisa.Checked = false;
             chkVisa.Enabled = false;
+            chkGarantia.Checked = false;
+            chkGarantia.Enabled = false;
             chkDescuento.Checked = false;
             chkDescuento.Enabled = false;
             chkDescuento.Visible = false;
@@ -550,6 +561,7 @@ namespace Lavanderia.forms
             totalOfertaCama = 0;
             totalOfertaRopa = 0;
             cantidadGeneral = 0;
+            garantia = 0;
             cantidadGeneralcama = 0;
             totalOrden =0;
             porcentajeDescuento = varGlobales.porcentajeOferta;
@@ -693,7 +705,7 @@ namespace Lavanderia.forms
            ConexBD cn2 = new ConexBD();
             cn2.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1 FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
@@ -747,6 +759,9 @@ namespace Lavanderia.forms
             ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
             ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
             ticket.TextoIzquierda("");
+            if (_reader.GetInt32(19) == 1) {
+                ticket.TextoCentro("Prendas sin garantía");
+            }
             ticket.TextoCentro("¡GRACIAS POR SU PREFERENCIA!");
             ticket.CortaTicket();
             ticket.ImprimirTicket(_reader1.GetString(20));

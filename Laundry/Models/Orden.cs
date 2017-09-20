@@ -18,11 +18,12 @@ namespace Lavanderia.Models
         public int estado { get; set; }
         public int tipoPago { get; set;}
         public int Descuento { get; set; }
-        public decimal pDescuento {get; set;} 
+        public decimal pDescuento {get; set;}
+        public int pGarantia { get; set; } 
 
         public Orden() { }
 
-        public Orden(int idorden, int idcliente, string fechaentrega, decimal totalorden,string fechacreado,int idusuario,string Observacion,int Estado,int tipopago,int descuento,decimal pdescuento)
+        public Orden(int idorden, int idcliente, string fechaentrega, decimal totalorden, string fechacreado, int idusuario, string Observacion, int Estado, int tipopago, int descuento, decimal pdescuento, int pgarantia)
         {
             this.idOrden=idorden;
             this.idCliente = idcliente;
@@ -35,6 +36,7 @@ namespace Lavanderia.Models
             this.tipoPago = tipopago;
             this.Descuento = descuento;
             this.pDescuento = pdescuento;
+            this.pGarantia = pgarantia;
             
         }
 
