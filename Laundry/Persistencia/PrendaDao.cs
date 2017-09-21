@@ -16,10 +16,13 @@ namespace Lavanderia.Persistencia
         public static int Agregar(Prenda prenda)
         {
             int retorno = 0;
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
             MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio,tipoPrenda) values ('{0}','{1}',{2},'{3}')",
-                prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda), BdComun.ObtenerConexion());
+                prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda), cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             comando.Connection.Close();
+            cnx.cerrarConexion();
             return retorno;
         }
 
