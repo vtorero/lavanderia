@@ -1055,20 +1055,21 @@ namespace Lavanderia.forms
                 if (!txtPago.Text.Equals("") && porcentajeDescuento > 0 && (totalOfertaRopa > 0 || totalOfertaCama > 0))
                 {
                     lblDescuento.Visible = true;
-                    lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                    if (!txtPago.Text.Equals(""))
+                    {
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                    }
                 }
               }
             else {
                 nroDscto.Text = Convert.ToString(porcentajeDescuento);
-                lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
-                 
+                if (!txtPago.Text.Equals(""))
+                {
+                    lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                }
             }
         
     
         }
     }
 }
-
-      
-   
-

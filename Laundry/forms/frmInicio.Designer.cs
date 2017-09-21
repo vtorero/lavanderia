@@ -96,7 +96,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1020, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1012, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -428,7 +428,7 @@
             this.toolStripButton5});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1020, 48);
+            this.toolStrip.Size = new System.Drawing.Size(1012, 48);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
@@ -502,14 +502,14 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(36, 45);
             this.toolStripButton5.Text = "toolStripButton5";
-            this.toolStripButton5.Visible = false;
+            this.toolStripButton5.ToolTipText = "Egresos";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(216, 48);
+            this.label1.Location = new System.Drawing.Point(272, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 3;
@@ -518,7 +518,7 @@
             // 
             this.lblOferta.AutoSize = true;
             this.lblOferta.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblOferta.Location = new System.Drawing.Point(423, 48);
+            this.lblOferta.Location = new System.Drawing.Point(497, 48);
             this.lblOferta.Name = "lblOferta";
             this.lblOferta.Size = new System.Drawing.Size(0, 13);
             this.lblOferta.TabIndex = 5;
@@ -527,7 +527,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 596);
+            this.ClientSize = new System.Drawing.Size(1012, 596);
             this.Controls.Add(this.lblOferta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip);
