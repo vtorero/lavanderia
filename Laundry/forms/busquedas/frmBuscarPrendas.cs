@@ -27,12 +27,12 @@ namespace Lavanderia.forms.busquedas
             dgvPrendas.Columns[0].HeaderText = "Código";
             dgvPrendas.Columns[0].Width = 50;
             dgvPrendas.Columns[1].HeaderText = "Nombre";
-            dgvPrendas.Columns[1].Width = 150;
+            dgvPrendas.Columns[1].Width = 140;
             dgvPrendas.Columns[2].HeaderText = "Descripción";
-            dgvPrendas.Columns[2].Width = 120;
-            dgvPrendas.Columns[3].Visible = false;
-            dgvPrendas.Columns[4].HeaderText = "Precio";
-            dgvPrendas.Columns[4].DefaultCellStyle.Format = "C2";
+            dgvPrendas.Columns[2].Width = 140;
+            dgvPrendas.Columns[3].HeaderText = "Precio";
+            dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
+            dgvPrendas.Columns[3].Width = 100;
             dgvPrendas.Columns[4].Width = 100;
           
             
