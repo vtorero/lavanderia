@@ -124,6 +124,12 @@
     <Compile Include="forms\frmColor.Designer.cs">
       <DependentUpon>frmColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmEgresos.Designer.cs">
+      <DependentUpon>frmEgresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmEntregas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmColor.resx">
       <DependentUpon>frmColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmEgresos.resx">
+      <DependentUpon>frmEgresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmEntregas.resx">
       <DependentUpon>frmEntregas.cs</DependentUpon>
