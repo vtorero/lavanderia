@@ -782,6 +782,7 @@ namespace Lavanderia.forms
 
             totalOfertaCama = 0;
             totalOfertaRopa = 0;
+            btnImprimir.Enabled = false;
             /*myadap.Fill(ds,"Ticket");
 
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");
