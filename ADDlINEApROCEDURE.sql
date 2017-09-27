@@ -1,5 +1,6 @@
 DROP PROCEDURE IF EXISTS addLineaOrden; 
 DROP PROCEDURE IF EXISTS addPago; 
+DROP PROCEDURE IF EXISTS addEgreso; 
 DROP PROCEDURE IF EXISTS addOrden; 
 DROP PROCEDURE IF EXISTS ultimoIdOrden; 
 DROP PROCEDURE IF EXISTS clientesAll;	
@@ -16,6 +17,7 @@ DROP PROCEDURE IF EXISTS consultaPago;
 DROP PROCEDURE IF EXISTS modificaPago;
 DROP PROCEDURE IF EXISTS modificaEstado;
 DROP PROCEDURE IF EXISTS buscarOrdenesId;
+DROP PROCEDURE IF EXISTS buscarOrdenesIdFin;
 DROP PROCEDURE IF EXISTS pendienteEntregas;
 DROP PROCEDURE IF EXISTS ofertasDelDia;
 DROP PROCEDURE IF EXISTS consultaUsuario;
@@ -113,6 +115,21 @@ BEGIN
 START TRANSACTION;
 INSERT INTO Pago (idOrden, pago1,pago2,pagoTotal,tipoPago,tipoPago1,tipoDocumento,igv,Estado,fechaPago,fechaActualizado) 
 VALUES (PidOrden,pPago1,pPago2,pPagoTotal,pTipoPago,pTipoPago1,pTipoPago2,ptipoDoc,pIgv,pEstado);
+COMMIT;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE addEgreso(
+IN pIdUsuario DECIMAL(10,2),
+IN pMonto DECIMAL(10,2),
+IN pFecha VARCHAR(20), 
+IN pMotivo VARCHAR(500), 
+IN pEstado INT
+)
+BEGIN
+START TRANSACTION;
+INSERT INTO egresos (idUsuario,monto,fechaEgreso,motivo,estado) 
+VALUES (pIdUsuario,pMonto,pFecha,pMotivo,pEstado);
 COMMIT;
 END $$
 

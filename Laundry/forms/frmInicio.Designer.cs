@@ -503,7 +503,7 @@
             this.toolStripButton5.Size = new System.Drawing.Size(36, 45);
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.ToolTipText = "Egresos";
-            this.toolStripButton5.Visible = false;
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // label1
             // 

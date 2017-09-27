@@ -268,6 +268,15 @@ namespace Lavanderia.forms
 
         }
 
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmEgresos();
+          //  childForm.MdiParent = this;
+            childForm.Text = "Registro de egresos";
+            childForm.ShowDialog();
+
+        }
+
  
 
     

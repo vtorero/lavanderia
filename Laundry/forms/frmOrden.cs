@@ -273,7 +273,7 @@ namespace Lavanderia.forms
 
 
             int status = 0;
-            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd hh:mm:ss").Replace("/", "-").Substring(0, 10);
+            string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd HH:mm:ss").Replace("/", "-").Substring(0, 10);
             string h = dtHoraEntrega.Value.ToString("hh:mm:ss").Replace("a.m.", "").Replace("p.m.", "").Replace("/", "-");
             ord.idCliente = Convert.ToInt32(lblCodigoCliente.Text);
             ord.fechaEntrega = s + " " + h;
@@ -292,7 +292,7 @@ namespace Lavanderia.forms
             if (tipo_pago == 1)
             {
                 DateTime Hoy = DateTime.Now;
-                string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
+                string fecha_actual = Hoy.ToString("yyyy-MM-dd HH:mm:ss");
 
                 if (chkVisa.Checked)
                 {
@@ -363,7 +363,7 @@ namespace Lavanderia.forms
             {
 
                 DateTime Hoy = DateTime.Now;
-                string fecha_actual = Hoy.ToString("yyyy-MM-dd hh:mm:ss");
+                string fecha_actual = Hoy.ToString("yyyy-MM-dd HH:mm:ss");
                 nrodia = (int)Hoy.DayOfWeek;
                 ord.totalOrden = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
                 status = OrdenDao.Agregar(ord);

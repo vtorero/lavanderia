@@ -271,6 +271,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsVentas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Egreso.cs" />
     <Compile Include="Models\Oferta.cs" />
     <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\OrdenClientes.cs" />
@@ -281,6 +282,7 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\ClienteDao.cs" />
     <Compile Include="Persistencia\ColorDao.cs" />
+    <Compile Include="Persistencia\EgresoDao.cs" />
     <Compile Include="Persistencia\OfertaDao.cs" />
     <Compile Include="Persistencia\OrdenDao.cs" />
     <Compile Include="Persistencia\PagoDao.cs" />
