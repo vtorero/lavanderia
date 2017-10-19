@@ -12,7 +12,7 @@
   <xs:element name="dsCierreDiario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCierreDiario" msprop:Generator_UserDSName="dsCierreDiario">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dsCierrePagos" msprop:Generator_TableClassName="dsCierrePagosDataTable" msprop:Generator_TableVarName="tabledsCierrePagos" msprop:Generator_RowChangedName="dsCierrePagosRowChanged" msprop:Generator_TablePropName="dsCierrePagos" msprop:Generator_RowDeletingName="dsCierrePagosRowDeleting" msprop:Generator_RowChangingName="dsCierrePagosRowChanging" msprop:Generator_RowEvHandlerName="dsCierrePagosRowChangeEventHandler" msprop:Generator_RowDeletedName="dsCierrePagosRowDeleted" msprop:Generator_RowClassName="dsCierrePagosRow" msprop:Generator_UserTableName="dsCierrePagos" msprop:Generator_RowEvArgName="dsCierrePagosRowChangeEvent">
+        <xs:element name="dsCierrePagos" msprop:Generator_TableClassName="dsCierrePagosDataTable" msprop:Generator_TableVarName="tabledsCierrePagos" msprop:Generator_TablePropName="dsCierrePagos" msprop:Generator_RowDeletingName="dsCierrePagosRowDeleting" msprop:Generator_RowChangingName="dsCierrePagosRowChanging" msprop:Generator_RowEvHandlerName="dsCierrePagosRowChangeEventHandler" msprop:Generator_RowDeletedName="dsCierrePagosRowDeleted" msprop:Generator_UserTableName="dsCierrePagos" msprop:Generator_RowChangedName="dsCierrePagosRowChanged" msprop:Generator_RowEvArgName="dsCierrePagosRowChangeEvent" msprop:Generator_RowClassName="dsCierrePagosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idOrden" msprop:Generator_ColumnVarNameInTable="columnidOrden" msprop:Generator_ColumnPropNameInRow="idOrden" msprop:Generator_ColumnPropNameInTable="idOrdenColumn" msprop:Generator_UserColumnName="idOrden" type="xs:int" minOccurs="0" />
@@ -25,6 +25,7 @@
               <xs:element name="Movimiento" msprop:Generator_ColumnVarNameInTable="columnMovimiento" msprop:Generator_ColumnPropNameInRow="Movimiento" msprop:Generator_ColumnPropNameInTable="MovimientoColumn" msprop:Generator_UserColumnName="Movimiento" type="xs:string" minOccurs="0" />
               <xs:element name="fechaPago" msprop:Generator_ColumnVarNameInTable="columnfechaPago" msprop:Generator_ColumnPropNameInRow="fechaPago" msprop:Generator_ColumnPropNameInTable="fechaPagoColumn" msprop:Generator_UserColumnName="fechaPago" type="xs:string" minOccurs="0" />
               <xs:element name="pagoTotal" msprop:Generator_ColumnVarNameInTable="columnpagoTotal" msprop:Generator_ColumnPropNameInRow="pagoTotal" msprop:Generator_ColumnPropNameInTable="pagoTotalColumn" msprop:Generator_UserColumnName="pagoTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="egreso" msprop:Generator_ColumnVarNameInTable="columnegreso" msprop:Generator_ColumnPropNameInRow="egreso" msprop:Generator_ColumnPropNameInTable="egresoColumn" msprop:Generator_UserColumnName="egreso" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
