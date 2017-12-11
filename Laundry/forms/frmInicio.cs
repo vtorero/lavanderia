@@ -277,6 +277,14 @@ namespace Lavanderia.forms
 
         }
 
+        private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmRptEgresos();
+            childForm.MdiParent = this;
+            childForm.Text = "Reporte de Egresos";
+            childForm.Show();﻿
+        }
+
  
 
     

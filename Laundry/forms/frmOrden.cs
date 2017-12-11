@@ -567,6 +567,7 @@ namespace Lavanderia.forms
             garantia = 0;
             cantidadGeneralcama = 0;
             totalOrden = 0;
+            
             porcentajeDescuento = varGlobales.porcentajeOferta;
 
 

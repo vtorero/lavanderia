@@ -196,6 +196,12 @@
     <Compile Include="forms\frmReporteDetalle.Designer.cs">
       <DependentUpon>frmReporteDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmRptEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmRptEgresos.Designer.cs">
+      <DependentUpon>frmRptEgresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsEgresos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEgresos.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\DsPrendas.cs">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
@@ -316,6 +327,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\CrearTicket.cs" />
+    <Compile Include="Reportes\crEgresos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crEgresos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\crInventario.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -411,6 +428,9 @@
     <EmbeddedResource Include="forms\frmReporteDetalle.resx">
       <DependentUpon>frmReporteDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmRptEgresos.resx">
+      <DependentUpon>frmRptEgresos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmServicio.resx">
       <DependentUpon>frmServicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,6 +462,10 @@
     <EmbeddedResource Include="Reportes\crClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crClientes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crEgresos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crEgresos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crInventario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -532,6 +556,17 @@
     </None>
     <None Include="Models\DsDetalleOrdenes.xss">
       <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsEgresos.xsc">
+      <DependentUpon>dsEgresos.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsEgresos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEgresos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsEgresos.xss">
+      <DependentUpon>dsEgresos.xsd</DependentUpon>
     </None>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>

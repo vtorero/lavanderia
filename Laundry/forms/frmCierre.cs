@@ -57,6 +57,26 @@ MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("(SELECT pg.idOrden
 
         }
 
+        private void dtFechaFin_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaInicial_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
     
     }
 }
