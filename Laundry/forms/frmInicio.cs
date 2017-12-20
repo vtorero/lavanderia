@@ -285,6 +285,14 @@ namespace Lavanderia.forms
             childForm.Show();﻿
         }
 
+        private void historicoClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmClientesHistorico();
+            childForm.MdiParent = this;
+            childForm.Text = "Historico Clientes";
+            childForm.Show();﻿
+        }
+
  
 
     

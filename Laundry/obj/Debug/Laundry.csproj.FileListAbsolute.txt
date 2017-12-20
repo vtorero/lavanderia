@@ -55,3 +55,4 @@ D:\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmInventario.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmEgresos.resources
 D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmRptEgresos.resources
+D:\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmClientesHistorico.resources

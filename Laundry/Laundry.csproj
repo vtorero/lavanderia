@@ -118,6 +118,12 @@
     <Compile Include="forms\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmClientesHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmClientesHistorico.Designer.cs">
+      <DependentUpon>frmClientesHistorico.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmColor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsClientes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\dsClientesHistorico.cs">
+      <DependentUpon>dsClientesHistorico.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\dsClientesHistorico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClientesHistorico.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\DsDetalleOrdenes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -326,6 +341,12 @@
       <DependentUpon>crClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\crClientesHistorico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crClientesHistorico.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\CrearTicket.cs" />
     <Compile Include="Reportes\crEgresos.cs">
       <AutoGen>True</AutoGen>
@@ -388,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmClientesHistorico.resx">
+      <DependentUpon>frmClientesHistorico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmColor.resx">
       <DependentUpon>frmColor.cs</DependentUpon>
@@ -462,6 +486,10 @@
     <EmbeddedResource Include="Reportes\crClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crClientes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crClientesHistorico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crClientesHistorico.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crEgresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -545,6 +573,17 @@
     </None>
     <None Include="Models\dsClientes.xss">
       <DependentUpon>dsClientes.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsClientesHistorico.xsc">
+      <DependentUpon>dsClientesHistorico.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsClientesHistorico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClientesHistorico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsClientesHistorico.xss">
+      <DependentUpon>dsClientesHistorico.xsd</DependentUpon>
     </None>
     <None Include="Models\DsDetalleOrdenes.xsc">
       <DependentUpon>DsDetalleOrdenes.xsd</DependentUpon>
