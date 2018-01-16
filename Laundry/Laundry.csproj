@@ -283,6 +283,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsPrendas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\dsRecord.cs">
+      <DependentUpon>dsRecord.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\dsRecord.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRecord.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\dsTicket.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -364,6 +373,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crPrendas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crRecord.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\crReporteDetalle.cs">
@@ -503,6 +518,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crRecord.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRecord.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crReporteDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReporteDetalle.cs</LastGenOutput>
@@ -617,6 +636,17 @@
     </None>
     <None Include="Models\DsPrendas.xss">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsRecord.xsc">
+      <DependentUpon>dsRecord.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsRecord.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRecord.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsRecord.xss">
+      <DependentUpon>dsRecord.xsd</DependentUpon>
     </None>
     <None Include="Models\dsTicket.xsc">
       <DependentUpon>dsTicket.xsd</DependentUpon>

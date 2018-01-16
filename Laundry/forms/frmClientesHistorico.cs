@@ -45,14 +45,49 @@ namespace Lavanderia.forms
 
         private void btnSrcCliente_Click(object sender, EventArgs e)
         {
+            string s = "";
+            string order = "";
+            for (int x = 0; x <= chKSucursal.CheckedItems.Count - 1; x++)
             {
+                s += "'" + chKSucursal.CheckedItems[x].ToString() + "',";
+            }
+            s = s.TrimEnd(',');
 
-                string s = "";
-                for (int x = 0; x <= chKSucursal.CheckedItems.Count - 1; x++)
-                {
-                    s += "'" + chKSucursal.CheckedItems[x].ToString() + "',";
+            if (cheRecord.Checked) {
+
+                if (chkCliente.Checked) {
+                    order = "Order by idCliente";
                 }
-                s = s.TrimEnd(',');
+                else {
+                    order = "Order by totalOrden DESC";
+                }
+
+                if (s != "")
+                {
+                    ReportDocument cryrep = new ReportDocument();
+                    string query = "SELECT o.idCliente,u.`sucursal`,UPPER(c.`nombreCliente`) nombreCliente,c.`telefonoCliente`,o.`idOrden`,o.`fechaCreado` ,o.`totalOrden` FROM Orden o INNER JOIN Cliente c ON o.`idCliente`=c.`idCliente`  INNER JOIN usuario u ON o.`idUsuario`=u.`id` AND u.sucursal IN(" + s + ") WHERE o.`fechaCreado` BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:00:00' AND o.`estado`=1 "+ order;
+                    MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(query), BdComun.ObtenerConexion());
+                    DataSet ds = new DataSet();
+                    myadap.Fill(ds, "dtRecord");
+                    cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crRecord.rpt");
+                    cryrep.SetDataSource(ds);
+
+
+                    frmReporte rt = new frmReporte();
+                    rt.Text = "Reporte de Cierre";
+                    rt.crystalReportViewer1.ReportSource = cryrep;
+                    rt.Show();﻿
+            }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar al menos una sucursal", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                
+            }
+            else
+            {
+           
 
                 if (s != "")
                 {

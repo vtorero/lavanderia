@@ -35,6 +35,8 @@
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.btnSrcCliente = new System.Windows.Forms.Button();
+            this.cheRecord = new System.Windows.Forms.CheckBox();
+            this.chkCliente = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -101,11 +103,33 @@
             this.btnSrcCliente.UseVisualStyleBackColor = true;
             this.btnSrcCliente.Click += new System.EventHandler(this.btnSrcCliente_Click);
             // 
+            // cheRecord
+            // 
+            this.cheRecord.AutoSize = true;
+            this.cheRecord.Location = new System.Drawing.Point(232, 111);
+            this.cheRecord.Name = "cheRecord";
+            this.cheRecord.Size = new System.Drawing.Size(97, 17);
+            this.cheRecord.TabIndex = 38;
+            this.cheRecord.Text = "Reporte Pagos";
+            this.cheRecord.UseVisualStyleBackColor = true;
+            // 
+            // chkCliente
+            // 
+            this.chkCliente.AutoSize = true;
+            this.chkCliente.Location = new System.Drawing.Point(232, 134);
+            this.chkCliente.Name = "chkCliente";
+            this.chkCliente.Size = new System.Drawing.Size(117, 17);
+            this.chkCliente.TabIndex = 39;
+            this.chkCliente.Text = "Agrupar Por Cliente";
+            this.chkCliente.UseVisualStyleBackColor = true;
+            // 
             // frmClientesHistorico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 223);
+            this.Controls.Add(this.chkCliente);
+            this.Controls.Add(this.cheRecord);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chKSucursal);
             this.Controls.Add(this.label1);
@@ -130,5 +154,7 @@
         private System.Windows.Forms.DateTimePicker dtFechaFin;
         private System.Windows.Forms.Button btnSrcCliente;
         private System.Windows.Forms.DateTimePicker dtFechaInicial;
+        private System.Windows.Forms.CheckBox cheRecord;
+        private System.Windows.Forms.CheckBox chkCliente;
     }
 }
