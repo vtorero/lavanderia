@@ -28,48 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvPrendas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrendas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Enabled = false;
+            this.btnAceptar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnAceptar.Location = new System.Drawing.Point(231, 357);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(131, 45);
             this.btnAceptar.TabIndex = 7;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "&Agregar Item ->";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dgvPrendas
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPrendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrendas.Location = new System.Drawing.Point(12, 96);
             this.dgvPrendas.MultiSelect = false;
             this.dgvPrendas.Name = "dgvPrendas";
             this.dgvPrendas.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPrendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPrendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPrendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrendas.Size = new System.Drawing.Size(351, 248);
             this.dgvPrendas.TabIndex = 6;
+            this.dgvPrendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrendas_CellClick);
             this.dgvPrendas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvPrendas_MouseDoubleClick);
             // 
             // groupBox1
@@ -77,6 +81,7 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNombres);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 78);
@@ -88,6 +93,7 @@
             // 
             this.btnBuscar.AutoSize = true;
             this.btnBuscar.Image = global::Lavanderia.Properties.Resources.magnify;
+            this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnBuscar.Location = new System.Drawing.Point(271, 19);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 44);
@@ -98,6 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(17, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
@@ -111,17 +118,35 @@
             this.txtNombres.Size = new System.Drawing.Size(174, 20);
             this.txtNombres.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(12, 357);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 45);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "&Cerrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmBuscarPrendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(381, 420);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvPrendas);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Location = new System.Drawing.Point(10, 10);
             this.Name = "frmBuscarPrendas";
             this.Text = "Buscar Prendas";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmBuscarPrendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrendas)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -138,5 +163,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.Button button1;
     }
 }

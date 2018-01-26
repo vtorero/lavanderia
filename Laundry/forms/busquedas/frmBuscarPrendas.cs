@@ -40,15 +40,23 @@ namespace Lavanderia.forms.busquedas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            enviaDatos();
+            Int32 selectedRowCount = dgvPrendas.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                enviaDatos();
+            }
+            else { 
+            MessageBox.Show("Debe seleccionar una prenda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void enviaDatos() {
 
             int pos;
             pos = dgvPrendas.CurrentRow.Index;
-            enviado(Convert.ToString(dgvPrendas[0, pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value), Convert.ToString(dgvPrendas[4, pos].Value));
-            this.Close();
+            enviado(Convert.ToString(dgvPrendas[0,pos].Value), Convert.ToString(dgvPrendas[1, pos].Value), Convert.ToDecimal(dgvPrendas[3, pos].Value), Convert.ToString(dgvPrendas[4, pos].Value));
+            btnAceptar.Enabled = false;
+               // this.Close();
         }
 
         private void dgvPrendas_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -70,6 +78,17 @@ namespace Lavanderia.forms.busquedas
             dgvPrendas.Columns[3].DefaultCellStyle.Format = "C2";
             dgvPrendas.Columns[3].Width = 100;
             dgvPrendas.Columns[4].Width = 100;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void dgvPrendas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAceptar.Enabled = true;
         }
     }
 }
