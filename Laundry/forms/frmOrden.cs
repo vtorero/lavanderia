@@ -550,7 +550,7 @@ namespace Lavanderia.forms
             btnQuitar.Enabled = false;
             btnGuardar.Enabled = false;
             btnImprimir.Enabled = false;
-            chkVisa.Checked = false;
+            //chkVisa.Checked = false;
             chkVisa.Enabled = false;
             chkGarantia.Checked = false;
             chkGarantia.Enabled = false;
@@ -569,9 +569,13 @@ namespace Lavanderia.forms
             garantia = 0;
             cantidadGeneralcama = 0;
             totalOrden = 0;
+            totalOfertaRopa = 0;
+            totalOfertaCama = 0;
             if (varGlobales.porcentajeOferta > 0)
             {
                 decimal porcentajeDescuento = varGlobales.porcentajeOferta;
+                nroDscto.Text = Convert.ToString(varGlobales.porcentajeOferta);
+
             }
             else {
                 porcentajeDescuento = 0;
@@ -961,8 +965,7 @@ namespace Lavanderia.forms
             }
         }
 
-        private void rdPrenda_Click(object sender, EventArgs e)
-        {
+        private void rdPrenda_Click(object sender, EventArgs e)   {
             //cmbPrenda.Enabled = true;
             txtNombrePrenda.Visible = true;
             // btnBuscaprenda.Visible = true;
@@ -1055,29 +1058,30 @@ namespace Lavanderia.forms
             }
         }
 
-        private void chkVisa_CheckedChanged(object sender, EventArgs e)
+        private void chkVisa_Click(object sender, EventArgs e)
         {
             totalDescuento = Convert.ToDecimal(nroDscto.Text);
 
-            if (chkVisa.Checked && porcentajeDescuento > 0 && !rdParcial.Checked && totalDescuento>0)
+            if (chkVisa.Checked && porcentajeDescuento > 0 && !rdParcial.Checked && totalDescuento > 0)
             {
-                
-                nroDscto.Text = Convert.ToString(porcentajeDescuento - 5) ;
-               
+
+                nroDscto.Text = Convert.ToString(porcentajeDescuento - 5);
+
 
                 if (!txtPago.Text.Equals("") && porcentajeDescuento > 0 && (totalOfertaRopa > 0 || totalOfertaCama > 0) && totalDescuento > 0)
                 {
                     lblDescuento.Visible = true;
                     cargoVisa.Visible = true;
                     cargoVisa.Text = "5% + Visa";
-                    if (!txtPago.Text.Equals("") && totalDescuento>0)
+                    if (!txtPago.Text.Equals("") && totalDescuento > 0)
                     {
                         lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
                     }
                 }
-              }
-            else {
-              
+            }
+            else
+            {
+
                 if (!txtPago.Text.Equals("") && totalDescuento > 0)
                 {
                     cargoVisa.Visible = false;
@@ -1088,8 +1092,10 @@ namespace Lavanderia.forms
                 }
             }
         
-    
         }
+
+     
+       
 
       
     }
