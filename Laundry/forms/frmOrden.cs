@@ -180,7 +180,7 @@ namespace Lavanderia.forms
             btnBuscaprenda.Enabled = false;
             btnBuscaprenda.Visible = false;
             cmbServicios.Enabled = false;
-            cmbMarca.Enabled = false;
+            //cmbMarca.Enabled = false;
             cmbMarca.Text = "";
             cmbColor.Enabled = false;
             cmbColor.Text = "";
