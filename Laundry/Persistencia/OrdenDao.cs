@@ -56,6 +56,24 @@ namespace Lavanderia.Persistencia
         }
 
 
+        public static int Agregarsql(string insert)
+        {
+
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(insert, cnx.ObtenerConexion());
+            comando.CommandType = CommandType.Text;
+            retorno = comando.ExecuteNonQuery();
+            cnx.cerrarConexion();
+            return retorno;
+
+
+
+        }
+
+
+
         public static void AgregarLinea(OrdenLinea ordenlinea)
         {
             ConexBD cnx = new ConexBD();
