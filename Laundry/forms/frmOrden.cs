@@ -571,8 +571,6 @@ namespace Lavanderia.forms
             garantia = 0;
             cantidadGeneralcama = 0;
             totalOrden = 0;
-            totalOfertaRopa = 0;
-            totalOfertaCama = 0;
             if (varGlobales.porcentajeOferta > 0)
             {
                 decimal porcentajeDescuento = varGlobales.porcentajeOferta;
