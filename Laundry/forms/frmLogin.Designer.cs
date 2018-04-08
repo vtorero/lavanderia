@@ -108,7 +108,6 @@
             this.cmbBase.Name = "cmbBase";
             this.cmbBase.Size = new System.Drawing.Size(171, 21);
             this.cmbBase.TabIndex = 8;
-            this.cmbBase.Visible = false;
             // 
             // label3
             // 

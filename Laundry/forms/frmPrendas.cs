@@ -48,7 +48,7 @@ namespace Lavanderia.forms
 
         private void frmPrendas_Load(object sender, EventArgs e)
         {
-           
+            fillTipos();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -89,6 +89,7 @@ namespace Lavanderia.forms
                 prenda.Descripcion = txtDescripcion.Text.Trim();
                 prenda.precioServicio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text),2);
                 prenda.tipoPrenda = cmbTipoPrenda.Text;
+                prenda.tipo_oferta = cmbTipoPrenda.ValueMember;
 
 
                 if (btnGuardar.Text.Equals("&Registrar"))
@@ -199,6 +200,32 @@ namespace Lavanderia.forms
         private void dgvPrendas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             editar_prenda();
+        }
+
+        private void cmbTipoPrenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillTipos()
+        {
+            cmbTipoPrenda.Items.Clear();
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            MySqlCommand _comando = new MySqlCommand("prendasTipo", cnx.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _readerS = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (_readerS.Read())
+            {
+                string name = _readerS.GetString("descripcion");
+                string id = _readerS.GetString("id_tipo");
+                cmbTipoPrenda.Items.Add(name);
+                cmbTipoPrenda.DisplayMember = name;
+                cmbTipoPrenda.ValueMember = id;
+            }
+            _readerS.Close();
+            cnx.cerrarConexion();
         }
      
     }

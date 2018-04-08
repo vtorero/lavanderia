@@ -18,8 +18,8 @@ namespace Lavanderia.Persistencia
             int retorno = 0;
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio,tipoPrenda) values ('{0}','{1}',{2},'{3}')",
-                prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda), cnx.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into Prenda (NombrePrenda, DescripcionPrenda, precioServicio,tipoPrenda,tipo_oferta) values ('{0}','{1}',{2},'{3}','{4}')",
+                prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda,prenda.tipo_oferta), cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             comando.Connection.Close();
             cnx.cerrarConexion();
@@ -32,8 +32,8 @@ namespace Lavanderia.Persistencia
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Prenda Set nombrePrenda='{0}',descripcionPrenda='{1}',precioServicio='{2}',tipoPrenda='{3}' where idPrenda='{4}'"
-            , prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda, prenda.idPrenda), cnx.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE Prenda Set nombrePrenda='{0}',descripcionPrenda='{1}',precioServicio='{2}',tipoPrenda='{3}',tipo_oferta='{4}' where idPrenda='{5}'"
+            , prenda.NombrePrenda, prenda.Descripcion, prenda.precioServicio,prenda.tipoPrenda,prenda.tipo_oferta,prenda.idPrenda), cnx.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             comando.Connection.Close();
             cnx.cerrarConexion();
@@ -60,6 +60,15 @@ namespace Lavanderia.Persistencia
             MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
                  return _reader;
           
+        }
+
+
+        public static MySqlDataReader fillTipoPrenda() { 
+         
+            MySqlCommand _comando = new MySqlCommand("prendasTipo",BdComun.ObtenerConexion());
+            _comando.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+                 return _reader;
         }
 
 
@@ -111,7 +120,7 @@ namespace Lavanderia.Persistencia
                 ConexBD cnx = new ConexBD();
             cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio,tipoPrenda FROM Prenda order by idPrenda"),cnx.ObtenerConexion());
+           "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio,tipoPrenda,tipo_oferta FROM Prenda order by idPrenda"),cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             
             while (_reader.Read())
@@ -122,6 +131,7 @@ namespace Lavanderia.Persistencia
                 prenda.Descripcion = _reader.GetString(2);
                 prenda.precioServicio = _reader.GetDecimal(3);
                 prenda.tipoPrenda = _reader.GetString(4);
+                prenda.tipo_oferta = _reader.GetString(5);
                 
          _lista.Add(prenda);
             }
@@ -146,6 +156,7 @@ namespace Lavanderia.Persistencia
                 prenda.Descripcion = _reader.GetString(2);
                 prenda.precioServicio= _reader.GetDecimal(3);
                 prenda.tipoPrenda = _reader.GetString(5);
+                prenda.tipo_oferta = _reader.GetString(6);
                 _lista.Add(prenda);
             }
 

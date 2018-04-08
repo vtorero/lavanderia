@@ -119,6 +119,7 @@
             this.cmbTipoPrenda.Name = "cmbTipoPrenda";
             this.cmbTipoPrenda.Size = new System.Drawing.Size(189, 26);
             this.cmbTipoPrenda.TabIndex = 10;
+            this.cmbTipoPrenda.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPrenda_SelectedIndexChanged);
             // 
             // label4
             // 
