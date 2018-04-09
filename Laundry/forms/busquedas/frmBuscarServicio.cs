@@ -13,7 +13,7 @@ namespace Lavanderia.forms.busquedas
 {
     public partial class frmBuscarServicio : Form
     {
-        public delegate void enviar(string id, string nombre, decimal precio,string tipo);
+        public delegate void enviar(string id, string nombre, decimal precio,string tipo,string tipooferta);
         public event enviar enviado;
         public frmBuscarServicio()
         {
@@ -44,7 +44,7 @@ namespace Lavanderia.forms.busquedas
         {
             int pos;
             pos = dgvServicios.CurrentRow.Index;
-            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value), Convert.ToString(dgvServicios[3, pos].Value));
+            enviado(Convert.ToString(dgvServicios[0,pos].Value), Convert.ToString(dgvServicios[1,pos].Value), Convert.ToDecimal(dgvServicios[2,pos].Value), Convert.ToString(dgvServicios[3,pos].Value),Convert.ToString(dgvServicios[4,pos].Value));
             this.Close();
         }
 
@@ -57,7 +57,7 @@ namespace Lavanderia.forms.busquedas
         {
             int pos;
             pos = dgvServicios.CurrentRow.Index;
-            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value), Convert.ToString(dgvServicios[3, pos].Value));
+            enviado(Convert.ToString(dgvServicios[0, pos].Value), Convert.ToString(dgvServicios[1, pos].Value), Convert.ToDecimal(dgvServicios[2, pos].Value), Convert.ToString(dgvServicios[3, pos].Value), Convert.ToString(dgvServicios[4, pos].Value));
             this.Close();
         }
     }

@@ -56,12 +56,13 @@ namespace Lavanderia.forms
 
         }
 
-        public void ejecutar2(string id, string nombre, decimal precio, string tipo)
+        public void ejecutar2(string id, string nombre, decimal precio, string tipo,string tipooferta)
         {
             LblId.Text = id;
             txtNombrePrenda.Text = nombre;
             txtPrecio.Text = Convert.ToString(Decimal.Round(precio, 2));
             txttipo.Text = tipo;
+            txt_tipo_oferta.Text = tipooferta;
         }
 
         public void ejecutar3(string colores)
@@ -77,7 +78,7 @@ namespace Lavanderia.forms
             if (nroCantidad.Value > 0)
             {
                 int tipoServ = 0;
-                string id, detalle, defecto, colores, marca;
+                string id, detalle, defecto, colores, marca,tipooferta;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
@@ -89,6 +90,7 @@ namespace Lavanderia.forms
 
                 marca = cmbMarca.Text;
                 precio = Decimal.Round(Convert.ToDecimal(txtPrecio.Text), 2);
+                tipooferta = txt_tipo_oferta.Text;
 
                 defecto = "";
                 colores = "";
@@ -96,6 +98,19 @@ namespace Lavanderia.forms
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
 
+
+                string[] separators = {","};
+                string value = varGlobales.PrendasDia;
+                string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                 foreach (var word in words)
+                     if (tipooferta == word) {
+                         MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                         Console.WriteLine(word);
+                     }
+
+                if (tipooferta == varGlobales.PrendasDia) {
+                    MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
                 if (tipoServ == 1 && varGlobales.OfertaDia.Equals("3 Prendas a más") && txttipo.Text.Equals("Estandar"))
                 {
                     cantidadGeneral += cantidad;
@@ -137,7 +152,7 @@ namespace Lavanderia.forms
                     detalle = detalle + " Dscto + 5k";
 
                 }
-                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ);
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta);
                 i = i + 1;
                 totalOrden += Decimal.Round(total, 2);
                 PrendaDao.agregarMarca(cmbMarca.Text);

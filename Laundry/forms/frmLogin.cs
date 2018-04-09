@@ -83,6 +83,8 @@ namespace Lavanderia.forms
                         of = OfertaDao.Buscar(nrodia);
                         varGlobales.OfertaDia = of.Nombre;
                         varGlobales.porcentajeOferta = of.Porcentaje;
+                        varGlobales.PrendasDia = of.Prendas;
+                     
 
                         mainStatusBar.Panels[6].Text = varGlobales.OfertaDia;
 

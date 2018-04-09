@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.rdParcial = new System.Windows.Forms.RadioButton();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_tipo_oferta = new System.Windows.Forms.TextBox();
             this.chkGarantia = new System.Windows.Forms.CheckBox();
             this.txttipo = new System.Windows.Forms.TextBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
@@ -94,16 +95,6 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
-            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLmarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,7 +106,17 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.tipo_oferta = new System.Windows.Forms.TextBox();
+            this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDefecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clColores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLmarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -366,7 +367,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.tipo_oferta);
+            this.groupBox4.Controls.Add(this.txt_tipo_oferta);
             this.groupBox4.Controls.Add(this.chkGarantia);
             this.groupBox4.Controls.Add(this.txttipo);
             this.groupBox4.Controls.Add(this.cmbColor);
@@ -402,6 +403,11 @@
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // txt_tipo_oferta
+            // 
+            resources.ApplyResources(this.txt_tipo_oferta, "txt_tipo_oferta");
+            this.txt_tipo_oferta.Name = "txt_tipo_oferta";
             // 
             // chkGarantia
             // 
@@ -584,14 +590,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -603,71 +609,16 @@
             this.clDefecto,
             this.clColores,
             this.cLmarca,
-            this.clTipo});
+            this.clTipo,
+            this.Oferta});
             resources.ApplyResources(this.dgvOrden, "dgvOrden");
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
-            // 
-            // clNumero
-            // 
-            resources.ApplyResources(this.clNumero, "clNumero");
-            this.clNumero.Name = "clNumero";
-            // 
-            // clPrenda
-            // 
-            resources.ApplyResources(this.clPrenda, "clPrenda");
-            this.clPrenda.Name = "clPrenda";
-            // 
-            // clDescripcion
-            // 
-            resources.ApplyResources(this.clDescripcion, "clDescripcion");
-            this.clDescripcion.Name = "clDescripcion";
-            // 
-            // clCantidad
-            // 
-            resources.ApplyResources(this.clCantidad, "clCantidad");
-            this.clCantidad.Name = "clCantidad";
-            // 
-            // clPrecio
-            // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            resources.ApplyResources(this.clPrecio, "clPrecio");
-            this.clPrecio.Name = "clPrecio";
-            // 
-            // clTotal
-            // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
-            resources.ApplyResources(this.clTotal, "clTotal");
-            this.clTotal.Name = "clTotal";
-            // 
-            // clDefecto
-            // 
-            resources.ApplyResources(this.clDefecto, "clDefecto");
-            this.clDefecto.Name = "clDefecto";
-            // 
-            // clColores
-            // 
-            resources.ApplyResources(this.clColores, "clColores");
-            this.clColores.Name = "clColores";
-            // 
-            // cLmarca
-            // 
-            resources.ApplyResources(this.cLmarca, "cLmarca");
-            this.cLmarca.Name = "cLmarca";
-            // 
-            // clTipo
-            // 
-            resources.ApplyResources(this.clTipo, "clTipo");
-            this.clTipo.Name = "clTipo";
             // 
             // label6
             // 
@@ -735,10 +686,66 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
-            // tipo_oferta
+            // clNumero
             // 
-            resources.ApplyResources(this.tipo_oferta, "tipo_oferta");
-            this.tipo_oferta.Name = "tipo_oferta";
+            resources.ApplyResources(this.clNumero, "clNumero");
+            this.clNumero.Name = "clNumero";
+            // 
+            // clPrenda
+            // 
+            resources.ApplyResources(this.clPrenda, "clPrenda");
+            this.clPrenda.Name = "clPrenda";
+            // 
+            // clDescripcion
+            // 
+            resources.ApplyResources(this.clDescripcion, "clDescripcion");
+            this.clDescripcion.Name = "clDescripcion";
+            // 
+            // clCantidad
+            // 
+            resources.ApplyResources(this.clCantidad, "clCantidad");
+            this.clCantidad.Name = "clCantidad";
+            // 
+            // clPrecio
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.clPrecio, "clPrecio");
+            this.clPrecio.Name = "clPrecio";
+            // 
+            // clTotal
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.clTotal, "clTotal");
+            this.clTotal.Name = "clTotal";
+            // 
+            // clDefecto
+            // 
+            resources.ApplyResources(this.clDefecto, "clDefecto");
+            this.clDefecto.Name = "clDefecto";
+            // 
+            // clColores
+            // 
+            resources.ApplyResources(this.clColores, "clColores");
+            this.clColores.Name = "clColores";
+            // 
+            // cLmarca
+            // 
+            resources.ApplyResources(this.cLmarca, "cLmarca");
+            this.cLmarca.Name = "cLmarca";
+            // 
+            // clTipo
+            // 
+            resources.ApplyResources(this.clTipo, "clTipo");
+            this.clTipo.Name = "clTipo";
+            // 
+            // Oferta
+            // 
+            resources.ApplyResources(this.Oferta, "Oferta");
+            this.Oferta.Name = "Oferta";
             // 
             // frmOrden
             // 
@@ -830,16 +837,6 @@
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chkDscto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPrenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDefecto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clColores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cLmarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTipo;
         private System.Windows.Forms.Button btnBuscaprenda;
         private System.Windows.Forms.TextBox txtNombrePrenda;
         private System.Windows.Forms.CheckBox chkDescuento;
@@ -851,6 +848,17 @@
         private System.Windows.Forms.CheckBox chkGarantia;
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label cargoVisa;
-        private System.Windows.Forms.TextBox tipo_oferta;
+        private System.Windows.Forms.TextBox txt_tipo_oferta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDefecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clColores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLmarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Oferta;
     }
 }

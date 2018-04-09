@@ -12,7 +12,9 @@ namespace Lavanderia.util
         public static int sessionUsuario;
         public static string baseDeDatos;
         public static string OfertaDia;
+        public static string PrendasDia;
         public static decimal porcentajeOferta;
+
         
     }
 }
