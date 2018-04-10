@@ -323,7 +323,7 @@ namespace Lavanderia.forms
                     porcentajeDescuento = varGlobales.porcentajeOferta;
                 }
 
-                if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 3))
+                if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 1))
                 {
                     if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("Ropa de Cama") && cantidadGeneralcama >= 1)
                     {
@@ -341,7 +341,7 @@ namespace Lavanderia.forms
                     }
 
 
-                    if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("3 Prendas a más") && cantidadGeneral >= 3)
+                    if (varGlobales.porcentajeOferta > 0  && cantidadGeneral >= 1)
                     {
                         decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
                         decimal descuento = totalOfertaRopa * (porcentajeDescuento / 100);
