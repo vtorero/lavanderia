@@ -116,6 +116,7 @@ namespace Lavanderia.forms
                     {
                         cantidadGeneral += cantidad;
                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                        total = Decimal.Round((cantidad * precio), 2)-(Decimal.Round(totalOfertaRopa*varGlobales.porcentajeOferta/100,2));
 
                     }
                    else
