@@ -78,14 +78,12 @@ namespace Lavanderia.forms
             if (nroCantidad.Value > 0)
             {
                 int tipoServ = 0;
-                string id, detalle, defecto, colores, marca,tipooferta;
+                string id, detalle, defecto, colores, marca,tipooferta,globalOferta;
                 id = LblId.Text;
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
                 total = 0;
-
-
-                cantidad = nroCantidad.Value;
+                  cantidad = nroCantidad.Value;
 
 
                 marca = cmbMarca.Text;
@@ -94,6 +92,7 @@ namespace Lavanderia.forms
 
                 defecto = "";
                 colores = "";
+                globalOferta="";
 
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
@@ -106,28 +105,26 @@ namespace Lavanderia.forms
                      if (tipooferta == word)
                      {
 
-                         cantidadGeneral += cantidad;
-                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                         //cantidadGeneral += cantidad;
+                         globalOferta = word;
+                         //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
                          //MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                     }
-                     else {
                          total = Decimal.Round((cantidad * precio), 2);
                      }
+                   
+                   if (tipoServ == 1 && cantidad>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
+                    {
+                        cantidadGeneral += cantidad;
+                        totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
 
-             /*   if (tipoServ == 1 && varGlobales.OfertaDia.Equals("3 Prendas a más") && txttipo.Text.Equals("Estandar"))
-                {
-                    cantidadGeneral += cantidad;
-                    totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                    }
+                   else
+                   {
+                       total = Decimal.Round((cantidad * precio), 2);
 
-                }
-                else
-                {
-                    total = Decimal.Round((cantidad * precio), 2);
+                   }
 
-                }*/
-
-                if (tipoServ == 1 && txttipo.Text.Equals("Ropa de Cama") && varGlobales.OfertaDia.Equals("Ropa de Cama"))
+             /*   if (tipoServ == 1 && cantidad>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
                 {
                     cantidadGeneralcama += cantidad;
                     totalOfertaCama += Decimal.Round((cantidad * precio), 2);
@@ -135,7 +132,7 @@ namespace Lavanderia.forms
                 else
                 {
                     total = Decimal.Round((cantidad * precio), 2);
-                }
+                }*/
 
                 foreach (Object def in chkDefecto.CheckedItems)
                 {
@@ -156,6 +153,8 @@ namespace Lavanderia.forms
                     detalle = detalle + " Dscto + 5k";
 
                 }
+               
+
                 dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta);
                 i = i + 1;
                 totalOrden += Decimal.Round(total, 2);
@@ -166,9 +165,8 @@ namespace Lavanderia.forms
                 cantidad = 0;
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
-
-
-                total = 0;
+                globalOferta = "";
+                     total = 0;
 
                 //if (cantidadGeneralcama >= 1)
                 //{
@@ -325,23 +323,23 @@ namespace Lavanderia.forms
 
                 if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 1))
                 {
-                    if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("Ropa de Cama") && cantidadGeneralcama >= 1)
-                    {
+                    //if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("Ropa de Cama") && cantidadGeneralcama >= 1)
+                    //{
 
-                        decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
-                        decimal descuento = totalOfertaCama * (porcentajeDescuento / 100);
-                        // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
-                        pago.PagoTotal = nuevototal + (totalOfertaCama - descuento);
-                        ord.totalOrden = nuevototal + (totalOfertaCama - descuento);
-                        ord.observacion = txtObservacion.Text + "Oferta:" + varGlobales.OfertaDia;
-                        pago.Pago1 = nuevototal + (totalOfertaCama - descuento);
-                        ord.Descuento = 1;
-                        ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+                    //    decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
+                    //    decimal descuento = totalOfertaCama * (porcentajeDescuento / 100);
+                    //    // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                    //    pago.PagoTotal = nuevototal + (totalOfertaCama - descuento);
+                    //    ord.totalOrden = nuevototal + (totalOfertaCama - descuento);
+                    //    ord.observacion = txtObservacion.Text + "Oferta:" + varGlobales.OfertaDia;
+                    //    pago.Pago1 = nuevototal + (totalOfertaCama - descuento);
+                    //    ord.Descuento = 1;
+                    //    ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
 
-                    }
+                    //}
 
 
-                    if (varGlobales.porcentajeOferta > 0  && cantidadGeneral >= 1)
+                    if (varGlobales.porcentajeOferta > 0 && varGlobales.CantidadDia >= 1 && totalOfertaRopa>0)
                     {
                         decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
                         decimal descuento = totalOfertaRopa * (porcentajeDescuento / 100);
@@ -419,7 +417,7 @@ namespace Lavanderia.forms
                     ordline.TipoServicio = Convert.ToInt32(data.Cells["clTipo"].Value);
                     ordline.Estado = 0;
                     */
-                    sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "',"+ Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
+                    sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
                     //OrdenDao.AgregarLinea(ordline);
                 }
                 //Console.WriteLine(sqlAddLinea);
@@ -481,12 +479,12 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             chkVisa.Enabled = true;
-            if (cantidadGeneralcama > 1 || cantidadGeneral >= 3)
+            if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
             {
                 lblPorcentaje.Visible = true;
                 nroDscto.Visible = true;
                 lblDescuento.Visible = true;
-                lblDescuento.Text = "Total a pagar: S/. " + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                lblDescuento.Text = "Total a pagar: S/. " + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
 
             }
             /*chkDescuento.Enabled = true;*/
@@ -590,6 +588,7 @@ namespace Lavanderia.forms
             garantia = 0;
             cantidadGeneralcama = 0;
             totalOrden = 0;
+            totalOfertaRopa = 0;
             if (varGlobales.porcentajeOferta > 0)
             {
                 decimal porcentajeDescuento = varGlobales.porcentajeOferta;
@@ -668,7 +667,7 @@ namespace Lavanderia.forms
             btnGuardar.Enabled = true;
 
             //chkDescuento.Enabled = true;
-            if (varGlobales.porcentajeOferta > 0 && cantidadGeneral >= 3 || cantidadGeneralcama >= 1)
+            if (varGlobales.porcentajeOferta > 0 && cantidadGeneral >= varGlobales.CantidadDia || cantidadGeneralcama >= 1)
             {
                 lblPorcentaje.Visible = true;
                 nroDscto.Visible = true;
@@ -679,7 +678,7 @@ namespace Lavanderia.forms
                     lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                         // lblDescuento.Text =                        Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 }
@@ -689,7 +688,7 @@ namespace Lavanderia.forms
                     lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                         //lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 }
@@ -1094,7 +1093,7 @@ namespace Lavanderia.forms
                     cargoVisa.Text = "5% + Visa";
                     if (!txtPago.Text.Equals("") && totalDescuento > 0)
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                     }
                 }
             }

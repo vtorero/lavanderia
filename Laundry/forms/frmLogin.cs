@@ -84,6 +84,8 @@ namespace Lavanderia.forms
                         varGlobales.OfertaDia = of.Nombre;
                         varGlobales.porcentajeOferta = of.Porcentaje;
                         varGlobales.PrendasDia = of.Prendas;
+                        varGlobales.CantidadDia = of.Cantidad;
+
                      
 
                         mainStatusBar.Panels[6].Text = varGlobales.OfertaDia;

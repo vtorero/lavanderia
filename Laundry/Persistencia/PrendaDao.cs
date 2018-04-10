@@ -86,14 +86,17 @@ namespace Lavanderia.Persistencia
 
         public static int agregarMarca(string nombre)
         {
-            ConexBD cnx = new ConexBD();
-            cnx.Conectar();
-            MySqlCommand cmd = new MySqlCommand("insertaMarca", cnx.ObtenerConexion());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new MySqlParameter("nombre", nombre));
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
-            cnx.cerrarConexion();
+            if (!nombre.Equals(""))
+            {
+                ConexBD cnx = new ConexBD();
+                cnx.Conectar();
+                MySqlCommand cmd = new MySqlCommand("insertaMarca", cnx.ObtenerConexion());
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("nombre", nombre));
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+                cnx.cerrarConexion();
+            }
             return 1;
         }
 
