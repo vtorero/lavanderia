@@ -83,6 +83,7 @@ namespace Lavanderia.forms
                 detalle = (rdPrenda.Checked) ? txtNombrePrenda.Text : cmbServicios.Text;
                 decimal cantidad, precio, total;
                 total = 0;
+                decimal MontoDecuento = 0;
                   cantidad = nroCantidad.Value;
 
 
@@ -116,7 +117,9 @@ namespace Lavanderia.forms
                     {
                         cantidadGeneral += cantidad;
                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
-                        total = Decimal.Round((cantidad * precio), 2)-(Decimal.Round(totalOfertaRopa*varGlobales.porcentajeOferta/100,2));
+                        MontoDecuento = (Decimal.Round(totalOfertaRopa * varGlobales.porcentajeOferta / 100, 2));
+                        totalDescuento += MontoDecuento;
+                        total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
 
                     }
                    else
@@ -156,7 +159,7 @@ namespace Lavanderia.forms
                 }
                
 
-                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta);
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta,MontoDecuento);
                 i = i + 1;
                 totalOrden += Decimal.Round(total, 2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
@@ -166,8 +169,9 @@ namespace Lavanderia.forms
                 cantidad = 0;
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
+                MontoDecuento = 0;
                 globalOferta = "";
-                     total = 0;
+                total = 0;
 
                 //if (cantidadGeneralcama >= 1)
                 //{
@@ -388,7 +392,7 @@ namespace Lavanderia.forms
                 pago.idOrden = status;
                 pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                 pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
-                pago.PagoTotal = (Convert.ToDecimal(txtPago.Text) + Convert.ToDecimal(txtPendiente.Text));
+                pago.PagoTotal = (Convert.ToDecimal(totalOrden) + Convert.ToDecimal(txtPendiente.Text));
                 pago.TipoPago = tipo_pago;
                 pago.TipoPago1 = tipo_pago1;
                 pago.TipoDocumento = tipo_doc;
@@ -418,7 +422,14 @@ namespace Lavanderia.forms
                     ordline.TipoServicio = Convert.ToInt32(data.Cells["clTipo"].Value);
                     ordline.Estado = 0;
                     */
-                    sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
+                    if (tipo_pago == 2)
+                    {
+                        sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
+                    }
+                    else {
+                        sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
+                    
+                    }
                     //OrdenDao.AgregarLinea(ordline);
                 }
                 //Console.WriteLine(sqlAddLinea);
@@ -450,6 +461,7 @@ namespace Lavanderia.forms
             chkVisa.Enabled = true;
             lblSimbolopendiente.Visible = true;
             txtPendiente.Visible = true;
+            txtPendiente.Text = Convert.ToString(totalOrden+totalDescuento);
             txtPago.Enabled = true;
             txtObservacion.Enabled = true;
             txtPago.Text = "0.00";
@@ -475,6 +487,7 @@ namespace Lavanderia.forms
             txtPendiente.Visible = false;
             lblSimbolopendiente.Visible = false;
             txtPago.Text = Convert.ToString(totalOrden);
+            
             txtPago.Enabled = false;
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
@@ -499,7 +512,7 @@ namespace Lavanderia.forms
             if (!string.IsNullOrWhiteSpace(txtPago.Text))
             {
 
-                txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+                txtPendiente.Text = Convert.ToString(totalOrden+totalDescuento - Convert.ToDecimal(txtPago.Text));
 
             }
         }
@@ -590,6 +603,7 @@ namespace Lavanderia.forms
             cantidadGeneralcama = 0;
             totalOrden = 0;
             totalOfertaRopa = 0;
+            totalDescuento = 0;
             if (varGlobales.porcentajeOferta > 0)
             {
                 decimal porcentajeDescuento = varGlobales.porcentajeOferta;
