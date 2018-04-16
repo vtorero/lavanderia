@@ -117,7 +117,7 @@ namespace Lavanderia.forms
                     {
                         cantidadGeneral += cantidad;
                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
-                        MontoDecuento = (Decimal.Round(totalOfertaRopa * varGlobales.porcentajeOferta / 100, 2));
+                        MontoDecuento = (Decimal.Round(Decimal.Round((cantidad * precio), 2) * varGlobales.porcentajeOferta / 100, 2));
                         totalDescuento += MontoDecuento;
                         total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
 
@@ -170,6 +170,7 @@ namespace Lavanderia.forms
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
                 MontoDecuento = 0;
+                totalDescuento = 0;
                 globalOferta = "";
                 total = 0;
 
