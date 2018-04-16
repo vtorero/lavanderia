@@ -170,6 +170,7 @@ namespace Lavanderia.forms
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
                 MontoDecuento = 0;
+                totalOfertaRopa = 0;
                 globalOferta = "";
                 total = 0;
 
