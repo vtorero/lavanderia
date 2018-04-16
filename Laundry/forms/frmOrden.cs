@@ -170,7 +170,6 @@ namespace Lavanderia.forms
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
                 MontoDecuento = 0;
-                totalOfertaRopa = 0;
                 globalOferta = "";
                 total = 0;
 
@@ -327,9 +326,9 @@ namespace Lavanderia.forms
                     porcentajeDescuento = varGlobales.porcentajeOferta;
                 }
 
-                if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 1))
-                {
-                    //if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("Ropa de Cama") && cantidadGeneralcama >= 1)
+                //if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 1))
+                //{
+                //    //if (varGlobales.porcentajeOferta > 0 && varGlobales.OfertaDia.Equals("Ropa de Cama") && cantidadGeneralcama >= 1)
                     //{
 
                     //    decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaCama);
@@ -345,26 +344,26 @@ namespace Lavanderia.forms
                     //}
 
 
-                    if (varGlobales.porcentajeOferta > 0 && varGlobales.CantidadDia >= 1 && totalOfertaRopa>0)
-                    {
-                        decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
-                        decimal descuento = totalOfertaRopa * (porcentajeDescuento / 100);
-                        // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
-                        pago.PagoTotal = nuevototal + (totalOfertaRopa - descuento);
-                        ord.totalOrden = nuevototal + (totalOfertaRopa - descuento);
-                        pago.Pago1 = nuevototal + (totalOfertaRopa - descuento);
-                        ord.Descuento = 1;
-                        ord.observacion = txtObservacion.Text + "Oferta:" + varGlobales.OfertaDia;
-                        ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
-                    }
-                }
-                else
-                {
+                    //if (varGlobales.porcentajeOferta > 0 && varGlobales.CantidadDia >= 1 && totalOfertaRopa>0)
+                    //{
+                    //    decimal nuevototal = Convert.ToDecimal(txtPago.Text) - (totalOfertaRopa);
+                    //    decimal descuento = totalOfertaRopa * (porcentajeDescuento / 100);
+                    //    // MessageBox.Show(descuento + " :Porcentate:" + of.Porcentaje, "aviso");
+                    //    pago.PagoTotal = nuevototal + (totalOfertaRopa - descuento);
+                    //    ord.totalOrden = nuevototal + (totalOfertaRopa - descuento);
+                    //    pago.Pago1 = nuevototal + (totalOfertaRopa - descuento);
+                    //    ord.Descuento = 1;
+                    //    ord.observacion = txtObservacion.Text + "Oferta:" + varGlobales.OfertaDia;
+                    //    ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+                    //}
+                //}
+                //else
+               // {
 
                     pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     ord.totalOrden = Convert.ToDecimal(txtPago.Text);
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);
-                }
+                //}
 
                 status = OrdenDao.Agregar(ord);
                 pago.idOrden = status;
@@ -496,10 +495,10 @@ namespace Lavanderia.forms
             chkVisa.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
             {
-                lblPorcentaje.Visible = true;
-                nroDscto.Visible = true;
-                lblDescuento.Visible = true;
-                lblDescuento.Text = "Total a pagar: S/. " + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+               // lblPorcentaje.Visible = true;
+                //nroDscto.Visible = true;
+                //lblDescuento.Visible = true;
+                //lblDescuento.Text = "Total a pagar: S/. " + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
 
             }
             /*chkDescuento.Enabled = true;*/
@@ -685,8 +684,8 @@ namespace Lavanderia.forms
             //chkDescuento.Enabled = true;
             if (varGlobales.porcentajeOferta > 0 && cantidadGeneral >= varGlobales.CantidadDia || cantidadGeneralcama >= 1)
             {
-                lblPorcentaje.Visible = true;
-                nroDscto.Visible = true;
+                //lblPorcentaje.Visible = true;
+                //nroDscto.Visible = true;
 
                 if (chkVisa.Checked)
                 {
@@ -694,17 +693,17 @@ namespace Lavanderia.forms
                     lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        //lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                         // lblDescuento.Text =                        Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 }
                 else
                 {
                     nroDscto.Text = Convert.ToString(varGlobales.porcentajeOferta);
-                    lblDescuento.Visible = true;
+                    //lblDescuento.Visible = true;
                     if (!txtPago.Text.Equals(""))
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        //lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                         //lblDescuento.Text = Convert.ToString((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100);
                     }
                 }
@@ -1064,9 +1063,9 @@ namespace Lavanderia.forms
             }
             else
             {
-                nroDscto.Visible = true;
-                nroDscto.Enabled = true;
-                lblPorcentaje.Visible = true;
+                //nroDscto.Visible = true;
+                //nroDscto.Enabled = true;
+                //lblPorcentaje.Visible = true;
 
 
             }
@@ -1109,7 +1108,7 @@ namespace Lavanderia.forms
                     cargoVisa.Text = "5% + Visa";
                     if (!txtPago.Text.Equals("") && totalDescuento > 0)
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        //lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                     }
                 }
             }
@@ -1122,7 +1121,7 @@ namespace Lavanderia.forms
                     cargoVisa.Text = "";
                     nroDscto.Text = Convert.ToString(porcentajeDescuento);
                     //lblDescuento.Visible = false;
-                    lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
+                    //lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
                 }
             }
         
