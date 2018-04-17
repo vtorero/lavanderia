@@ -170,7 +170,6 @@ namespace Lavanderia.forms
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
                 MontoDecuento = 0;
-                totalDescuento = 0;
                 globalOferta = "";
                 total = 0;
 
@@ -393,7 +392,7 @@ namespace Lavanderia.forms
                 pago.idOrden = status;
                 pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                 pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
-                pago.PagoTotal = (Convert.ToDecimal(totalOrden) + Convert.ToDecimal(txtPendiente.Text));
+                pago.PagoTotal = (Convert.ToDecimal(totalOrden+totalDescuento) + Convert.ToDecimal(txtPendiente.Text));
                 pago.TipoPago = tipo_pago;
                 pago.TipoPago1 = tipo_pago1;
                 pago.TipoDocumento = tipo_doc;
@@ -425,7 +424,7 @@ namespace Lavanderia.forms
                     */
                     if (tipo_pago == 2)
                     {
-                        sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
+                        sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + (Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value)) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
                     }
                     else {
                         sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
@@ -513,7 +512,7 @@ namespace Lavanderia.forms
             if (!string.IsNullOrWhiteSpace(txtPago.Text))
             {
 
-                txtPendiente.Text = Convert.ToString(totalOrden+totalDescuento - Convert.ToDecimal(txtPago.Text));
+                txtPendiente.Text = Convert.ToString(Convert.ToDecimal(totalOrden+totalDescuento) - Convert.ToDecimal(txtPago.Text));
 
             }
         }
@@ -664,7 +663,7 @@ namespace Lavanderia.forms
         {
             if ((totalOrden - Convert.ToDecimal(txtPago.Text)) > 0)
             {
-                txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+                //txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
 
             }
             else
