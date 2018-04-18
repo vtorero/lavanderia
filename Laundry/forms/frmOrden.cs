@@ -392,7 +392,7 @@ namespace Lavanderia.forms
                 pago.idOrden = status;
                 pago.Pago1 = Convert.ToDecimal(txtPago.Text);
                 pago.Pago2 = Convert.ToDecimal(txtPendiente.Text); ;
-                pago.PagoTotal = (Convert.ToDecimal(totalOrden+totalDescuento) + Convert.ToDecimal(txtPendiente.Text));
+                pago.PagoTotal = (Convert.ToDecimal(totalOrden+totalDescuento));
                 pago.TipoPago = tipo_pago;
                 pago.TipoPago1 = tipo_pago1;
                 pago.TipoDocumento = tipo_doc;
