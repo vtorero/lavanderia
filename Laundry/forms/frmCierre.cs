@@ -25,6 +25,8 @@ namespace Lavanderia.forms
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
 ReportDocument cryrep = new ReportDocument();
+ 
+
 MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("(SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,SUBSTRING(o.fechaCreado,1,10) AS fechaCreado,pg.fechaPago,o.idUsuario, u.sucursal,pg.pagoTotal,pg.pago1 AS pago," +
 "(SELECT IFNULL(SUM(monto),0) FROM egresos  WHERE fechaEgreso BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:59' AND idUsuario=" + varGlobales.sessionUsuario + ") egreso, " +
 " IF(tipoPago1=0,'Efectivo','Tarjeta') modoPago,IF(o.Estado=0,'Entrega','Recojo') Movimiento FROM " +
