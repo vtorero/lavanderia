@@ -108,6 +108,7 @@
             this.cmbBase.Name = "cmbBase";
             this.cmbBase.Size = new System.Drawing.Size(171, 21);
             this.cmbBase.TabIndex = 8;
+            this.cmbBase.Visible = false;
             // 
             // label3
             // 
@@ -158,7 +159,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lavandería San Isidro S.A (V.17.04.18)";
+            this.Text = "Lavandería San Isidro S.A (V.02.08.18)";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
