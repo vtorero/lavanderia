@@ -223,7 +223,8 @@ namespace Lavanderia.forms
         private void frmInicio_Load(object sender, EventArgs e)
         {
            
-            label1.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
+            //label1.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
+            this.btn_pendientes.Text = Convert.ToString(OrdenDao.consultaPendientes(varGlobales.sessionUsuario)) + " Ordenes para entrega hoy ";
                       
             }
 
@@ -293,9 +294,15 @@ namespace Lavanderia.forms
             childForm.Show();﻿
         }
 
- 
+        private void btn_pendientes_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmClientesHistorico();
+            childForm.MdiParent = this;
+            childForm.Text = "Historico Clientes";
+            childForm.Show();﻿
+        }
 
-    
+     
    
     }
 }

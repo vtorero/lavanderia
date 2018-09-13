@@ -55,6 +55,7 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.egresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historicoClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +83,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblOferta = new System.Windows.Forms.Label();
-            this.historicoClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_pendientes = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -306,6 +307,13 @@
             this.egresosToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.egresosToolStripMenuItem.Text = "Egresos";
             this.egresosToolStripMenuItem.Click += new System.EventHandler(this.egresosToolStripMenuItem_Click);
+            // 
+            // historicoClientesToolStripMenuItem
+            // 
+            this.historicoClientesToolStripMenuItem.Name = "historicoClientesToolStripMenuItem";
+            this.historicoClientesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.historicoClientesToolStripMenuItem.Text = "Historico Clientes";
+            this.historicoClientesToolStripMenuItem.Click += new System.EventHandler(this.historicoClientesToolStripMenuItem_Click);
             // 
             // imprimirTicketToolStripMenuItem
             // 
@@ -535,18 +543,24 @@
             this.lblOferta.Size = new System.Drawing.Size(0, 13);
             this.lblOferta.TabIndex = 5;
             // 
-            // historicoClientesToolStripMenuItem
+            // btn_pendientes
             // 
-            this.historicoClientesToolStripMenuItem.Name = "historicoClientesToolStripMenuItem";
-            this.historicoClientesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.historicoClientesToolStripMenuItem.Text = "Historico Clientes";
-            this.historicoClientesToolStripMenuItem.Click += new System.EventHandler(this.historicoClientesToolStripMenuItem_Click);
+            this.btn_pendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pendientes.ForeColor = System.Drawing.Color.Red;
+            this.btn_pendientes.Location = new System.Drawing.Point(263, 43);
+            this.btn_pendientes.Name = "btn_pendientes";
+            this.btn_pendientes.Size = new System.Drawing.Size(190, 21);
+            this.btn_pendientes.TabIndex = 7;
+            this.btn_pendientes.Text = "button1";
+            this.btn_pendientes.UseVisualStyleBackColor = true;
+            this.btn_pendientes.Click += new System.EventHandler(this.btn_pendientes_Click);
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 596);
+            this.Controls.Add(this.btn_pendientes);
             this.Controls.Add(this.lblOferta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip);
@@ -622,6 +636,7 @@
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem egresosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historicoClientesToolStripMenuItem;
+        private System.Windows.Forms.Button btn_pendientes;
     }
 }
 
