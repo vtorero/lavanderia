@@ -28,7 +28,7 @@ namespace Lavanderia.forms
             MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("SELECT idegresos,idUsuario,sucursal,fechaEgreso,motivo,monto FROM egresos e  INNER JOIN usuario u ON e.idUsuario=u.id WHERE FechaEgreso BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaFin.Value.ToString("yyyy-MM-dd") + " 23:59:00'"), cnx.ObtenerConexion());
             DataSet ds = new DataSet();
             myadap.Fill(ds, "dsEgreso");
-            cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crEgresos.rpt");
+            cryrep.Load(varGlobales.rutaReportes+"\\Reportes\\crEgresos.rpt");
             cryrep.SetDataSource(ds);
 
             cnx.cerrarConexion();

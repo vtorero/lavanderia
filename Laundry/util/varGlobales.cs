@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lavanderia.util
 {
@@ -15,7 +16,10 @@ namespace Lavanderia.util
         public static string PrendasDia;
         public static int CantidadDia;
         public static decimal porcentajeOferta;
+        public static string rutaReportes = Application.StartupPath.Replace("bin\\Debug","");
 
         
     }
+
+
 }

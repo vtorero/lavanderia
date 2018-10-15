@@ -59,7 +59,7 @@ namespace Lavanderia.forms
                 myadap.Fill(ds, "dsCierrePagos");
 
 
-                cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crSucursales.rpt");
+                cryrep.Load(varGlobales.rutaReportes+"\\Reportes\\crSucursales.rpt");
 
                 cryrep.SetDataSource(ds);
 

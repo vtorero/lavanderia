@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lavanderia.util;
 
 namespace Lavanderia.forms
 {
@@ -69,7 +70,7 @@ namespace Lavanderia.forms
                     MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format(query), BdComun.ObtenerConexion());
                     DataSet ds = new DataSet();
                     myadap.Fill(ds, "dtRecord");
-                    cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crRecord.rpt");
+                    cryrep.Load(varGlobales.rutaReportes+"\\Reportes\\crRecord.rpt");
                     cryrep.SetDataSource(ds);
 
 
@@ -101,7 +102,7 @@ namespace Lavanderia.forms
                     myadap.Fill(ds, "dsHistorico");
 
 
-                    cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crClientesHistorico.rpt");
+                    cryrep.Load(varGlobales.rutaReportes+"\\Reportes\\crClientesHistorico.rpt");
 
                     cryrep.SetDataSource(ds);
 

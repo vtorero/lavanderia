@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Lavanderia.Persistencia;
 using MySql.Data.MySqlClient;
 using CrystalDecisions.CrystalReports.Engine;
+using Lavanderia.util;
+
 
 namespace Lavanderia.forms
 {
@@ -62,7 +64,7 @@ namespace Lavanderia.forms
                 myadap.Fill(ds,"dtDetalleOrdenes");
 
 
-                cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crReporteDetalle.rpt");
+                cryrep.Load(varGlobales.rutaReportes+"\\Reportes\\crReporteDetalle.rpt");
 
                 cryrep.SetDataSource(ds);
 

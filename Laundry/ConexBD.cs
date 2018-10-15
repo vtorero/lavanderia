@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lavanderia.util;
+using System.Windows.Forms;
 
 namespace Lavanderia
 {
@@ -23,8 +24,7 @@ namespace Lavanderia
             }
             catch (MySqlException e)
             {
-
-
+                 Console.WriteLine(e);
             }
 
         }
