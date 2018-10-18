@@ -68,15 +68,6 @@ BEGIN
 SELECT * FROM usuario WHERE nombre=USUARIO AND PASSWORD=PASS;
 END $$
 
-DELIMITER $$
-CREATE PROCEDURE ofertasDelDia(
-IN dia VARCHAR(1)
-)
-BEGIN
-SELECT * FROM oferta  WHERE diasOferta LIKE CONCAT('%', dia , '%') AND estado=1;
-END $$
-
-
 
 DELIMITER $$
 CREATE PROCEDURE addLineaOrden(

@@ -302,6 +302,13 @@ namespace Lavanderia.forms
             childForm.Show();﻿
         }
 
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            Form childForm = new AnularForm();
+            //childForm.MdiParent = this;
+            childForm.ShowDialog();
+        }
+
      
    
     }

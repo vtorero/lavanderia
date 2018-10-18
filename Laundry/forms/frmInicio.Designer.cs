@@ -80,11 +80,11 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblOferta = new System.Windows.Forms.Label();
             this.btn_pendientes = new System.Windows.Forms.Button();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -526,6 +526,17 @@
             this.toolStripButton5.ToolTipText = "Egresos";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(36, 45);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.ToolTipText = "Anular Orden";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -556,16 +567,6 @@
             this.btn_pendientes.Text = "button1";
             this.btn_pendientes.UseVisualStyleBackColor = true;
             this.btn_pendientes.Click += new System.EventHandler(this.btn_pendientes_Click);
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(36, 45);
-            this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.ToolTipText = "Anular Orden";
             // 
             // frmInicio
             // 
