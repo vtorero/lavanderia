@@ -85,4 +85,3 @@ C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.OrdenesV2.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.pdb
-D:\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache

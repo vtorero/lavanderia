@@ -84,6 +84,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblOferta = new System.Windows.Forms.Label();
             this.btn_pendientes = new System.Windows.Forms.Button();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -444,7 +445,8 @@
             this.toolStripButton3,
             this.toolStripButton2,
             this.toolStripButton4,
-            this.toolStripButton5});
+            this.toolStripButton5,
+            this.toolStripButton6});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1012, 48);
@@ -538,7 +540,7 @@
             // 
             this.lblOferta.AutoSize = true;
             this.lblOferta.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblOferta.Location = new System.Drawing.Point(497, 48);
+            this.lblOferta.Location = new System.Drawing.Point(524, 48);
             this.lblOferta.Name = "lblOferta";
             this.lblOferta.Size = new System.Drawing.Size(0, 13);
             this.lblOferta.TabIndex = 5;
@@ -547,13 +549,23 @@
             // 
             this.btn_pendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pendientes.ForeColor = System.Drawing.Color.Red;
-            this.btn_pendientes.Location = new System.Drawing.Point(263, 43);
+            this.btn_pendientes.Location = new System.Drawing.Point(301, 32);
             this.btn_pendientes.Name = "btn_pendientes";
-            this.btn_pendientes.Size = new System.Drawing.Size(190, 21);
+            this.btn_pendientes.Size = new System.Drawing.Size(190, 33);
             this.btn_pendientes.TabIndex = 7;
             this.btn_pendientes.Text = "button1";
             this.btn_pendientes.UseVisualStyleBackColor = true;
             this.btn_pendientes.Click += new System.EventHandler(this.btn_pendientes_Click);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::Lavanderia.Properties.Resources.Annotate_Disabled;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(36, 45);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.ToolTipText = "Anular Orden";
             // 
             // frmInicio
             // 
@@ -637,6 +649,7 @@
         private System.Windows.Forms.ToolStripMenuItem egresosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historicoClientesToolStripMenuItem;
         private System.Windows.Forms.Button btn_pendientes;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }
 
