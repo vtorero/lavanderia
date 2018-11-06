@@ -535,6 +535,7 @@
             this.toolStripButton6.Size = new System.Drawing.Size(36, 45);
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.ToolTipText = "Anular Orden";
+            this.toolStripButton6.Visible = false;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // label1

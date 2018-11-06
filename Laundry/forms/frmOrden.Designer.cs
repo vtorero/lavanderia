@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -95,17 +95,6 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvOrden = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rdServicio = new System.Windows.Forms.RadioButton();
-            this.rdPrenda = new System.Windows.Forms.RadioButton();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.LblId = new System.Windows.Forms.Label();
             this.clNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,6 +107,17 @@
             this.clTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rdServicio = new System.Windows.Forms.RadioButton();
+            this.rdPrenda = new System.Windows.Forms.RadioButton();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -285,6 +285,7 @@
             resources.ApplyResources(this.chkVisa, "chkVisa");
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.UseVisualStyleBackColor = true;
+            this.chkVisa.CheckedChanged += new System.EventHandler(this.chkVisa_CheckedChanged);
             this.chkVisa.Click += new System.EventHandler(this.chkVisa_Click);
             // 
             // lblObs
@@ -591,14 +592,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -617,10 +618,76 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
+            // 
+            // clNumero
+            // 
+            resources.ApplyResources(this.clNumero, "clNumero");
+            this.clNumero.Name = "clNumero";
+            // 
+            // clPrenda
+            // 
+            resources.ApplyResources(this.clPrenda, "clPrenda");
+            this.clPrenda.Name = "clPrenda";
+            // 
+            // clDescripcion
+            // 
+            resources.ApplyResources(this.clDescripcion, "clDescripcion");
+            this.clDescripcion.Name = "clDescripcion";
+            // 
+            // clCantidad
+            // 
+            resources.ApplyResources(this.clCantidad, "clCantidad");
+            this.clCantidad.Name = "clCantidad";
+            // 
+            // clPrecio
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.clPrecio, "clPrecio");
+            this.clPrecio.Name = "clPrecio";
+            // 
+            // clTotal
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.clTotal, "clTotal");
+            this.clTotal.Name = "clTotal";
+            // 
+            // clDefecto
+            // 
+            resources.ApplyResources(this.clDefecto, "clDefecto");
+            this.clDefecto.Name = "clDefecto";
+            // 
+            // clColores
+            // 
+            resources.ApplyResources(this.clColores, "clColores");
+            this.clColores.Name = "clColores";
+            // 
+            // cLmarca
+            // 
+            resources.ApplyResources(this.cLmarca, "cLmarca");
+            this.cLmarca.Name = "cLmarca";
+            // 
+            // clTipo
+            // 
+            resources.ApplyResources(this.clTipo, "clTipo");
+            this.clTipo.Name = "clTipo";
+            // 
+            // Oferta
+            // 
+            resources.ApplyResources(this.Oferta, "Oferta");
+            this.Oferta.Name = "Oferta";
+            // 
+            // clDescuento
+            // 
+            resources.ApplyResources(this.clDescuento, "clDescuento");
+            this.clDescuento.Name = "clDescuento";
             // 
             // label6
             // 
@@ -687,72 +754,6 @@
             resources.ApplyResources(this.LblId, "LblId");
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
-            // 
-            // clNumero
-            // 
-            resources.ApplyResources(this.clNumero, "clNumero");
-            this.clNumero.Name = "clNumero";
-            // 
-            // clPrenda
-            // 
-            resources.ApplyResources(this.clPrenda, "clPrenda");
-            this.clPrenda.Name = "clPrenda";
-            // 
-            // clDescripcion
-            // 
-            resources.ApplyResources(this.clDescripcion, "clDescripcion");
-            this.clDescripcion.Name = "clDescripcion";
-            // 
-            // clCantidad
-            // 
-            resources.ApplyResources(this.clCantidad, "clCantidad");
-            this.clCantidad.Name = "clCantidad";
-            // 
-            // clPrecio
-            // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            resources.ApplyResources(this.clPrecio, "clPrecio");
-            this.clPrecio.Name = "clPrecio";
-            // 
-            // clTotal
-            // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle7;
-            resources.ApplyResources(this.clTotal, "clTotal");
-            this.clTotal.Name = "clTotal";
-            // 
-            // clDefecto
-            // 
-            resources.ApplyResources(this.clDefecto, "clDefecto");
-            this.clDefecto.Name = "clDefecto";
-            // 
-            // clColores
-            // 
-            resources.ApplyResources(this.clColores, "clColores");
-            this.clColores.Name = "clColores";
-            // 
-            // cLmarca
-            // 
-            resources.ApplyResources(this.cLmarca, "cLmarca");
-            this.cLmarca.Name = "cLmarca";
-            // 
-            // clTipo
-            // 
-            resources.ApplyResources(this.clTipo, "clTipo");
-            this.clTipo.Name = "clTipo";
-            // 
-            // Oferta
-            // 
-            resources.ApplyResources(this.Oferta, "Oferta");
-            this.Oferta.Name = "Oferta";
-            // 
-            // clDescuento
-            // 
-            resources.ApplyResources(this.clDescuento, "clDescuento");
-            this.clDescuento.Name = "clDescuento";
             // 
             // frmOrden
             // 
