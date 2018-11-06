@@ -149,6 +149,11 @@ namespace Lavanderia.forms
             if (e.KeyChar == 13) { txtPassword.Focus(); }
         }
 
+        private void cmbBase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
      
     }
 }

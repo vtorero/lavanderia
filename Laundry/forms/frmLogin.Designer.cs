@@ -109,6 +109,7 @@
             this.cmbBase.Size = new System.Drawing.Size(171, 21);
             this.cmbBase.TabIndex = 8;
             this.cmbBase.Visible = false;
+            this.cmbBase.SelectedIndexChanged += new System.EventHandler(this.cmbBase_SelectedIndexChanged);
             // 
             // label3
             // 

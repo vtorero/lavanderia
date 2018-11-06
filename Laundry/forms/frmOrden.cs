@@ -98,7 +98,7 @@ namespace Lavanderia.forms
                 if (rdPrenda.Checked) { tipoServ = 1; }
                 if (rdServicio.Checked) { tipoServ = 2; }
 
-
+                //cantidadGeneral = 0;
                 string[] separators = {","};
                 string value = varGlobales.PrendasDia;
                 string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
@@ -106,14 +106,14 @@ namespace Lavanderia.forms
                      if (tipooferta == word)
                      {
 
-                         //cantidadGeneral += cantidad;
+                         cantidadGeneral += cantidad;
                          globalOferta = word;
                          //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
                          //MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                          total = Decimal.Round((cantidad * precio), 2);
                      }
                    
-                   if (tipoServ == 1 && cantidad>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
+                   if (tipoServ == 1 && cantidadGeneral>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
                     {
                         cantidadGeneral += cantidad;
                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);

@@ -296,10 +296,10 @@ namespace Lavanderia.forms
 
         private void btn_pendientes_Click(object sender, EventArgs e)
         {
-            Form childForm = new frmClientesHistorico();
+           /* Form childForm = new frmClientesHistorico();
             childForm.MdiParent = this;
             childForm.Text = "Historico Clientes";
-            childForm.Show();﻿
+            childForm.Show();﻿*/
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
