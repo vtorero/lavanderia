@@ -800,8 +800,6 @@
         public System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.RadioButton rdServicio;
-        private System.Windows.Forms.RadioButton rdPrenda;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -869,5 +867,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Oferta;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDescuento;
+        public System.Windows.Forms.RadioButton rdServicio;
+        public System.Windows.Forms.RadioButton rdPrenda;
     }
 }
