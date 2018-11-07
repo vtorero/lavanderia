@@ -158,7 +158,7 @@ namespace Lavanderia.forms
                 }
                
 
-                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta,MontoDecuento);
+                dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, total, defecto, colores, marca, tipoServ, tipooferta,0);
                 i = i + 1;
                 totalOrden += Decimal.Round(total, 2);
                 PrendaDao.agregarMarca(cmbMarca.Text);
