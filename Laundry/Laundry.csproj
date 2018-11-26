@@ -289,6 +289,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEgresos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\dsPendiente.cs">
+      <DependentUpon>dsPendiente.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\dsPendiente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPendiente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\DsPrendas.cs">
       <DependentUpon>DsPrendas.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -383,6 +392,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crInventario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crPendientes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPendientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\crPrendas.cs">
@@ -534,6 +549,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crInventario.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crPendientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPendientes.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crPrendas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrendas.cs</LastGenOutput>
@@ -645,6 +664,17 @@
     </None>
     <None Include="Models\dsEgresos.xss">
       <DependentUpon>dsEgresos.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsPendiente.xsc">
+      <DependentUpon>dsPendiente.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dsPendiente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPendiente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Models\dsPendiente.xss">
+      <DependentUpon>dsPendiente.xsd</DependentUpon>
     </None>
     <None Include="Models\DsPrendas.xsc">
       <DependentUpon>DsPrendas.xsd</DependentUpon>

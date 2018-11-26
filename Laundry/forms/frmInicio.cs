@@ -296,10 +296,20 @@ namespace Lavanderia.forms
 
         private void btn_pendientes_Click(object sender, EventArgs e)
         {
-           /* Form childForm = new frmClientesHistorico();
-            childForm.MdiParent = this;
-            childForm.Text = "Historico Clientes";
-            childForm.Show();﻿*/
+            ConexBD cnx = new ConexBD();
+            cnx.Conectar();
+            ReportDocument cryrep = new ReportDocument();
+            MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("SELECT idOrden,fechaEntrega,nombreCliente,totalOrden FROM Orden o,Cliente c WHERE o.idCliente=c.idCliente and  SUBSTRING(o.fechaEntrega,1,10)=SUBSTRING(NOW(),1,10) AND o.estado=0 AND o.idUsuario="+varGlobales.sessionUsuario+""), cnx.ObtenerConexion());
+            DataSet ds = new DataSet();
+            myadap.Fill(ds, "pendientes");
+            cryrep.Load(varGlobales.rutaReportes + "\\Reportes\\crPendientes.rpt");
+            cryrep.SetDataSource(ds);
+
+            cnx.cerrarConexion();
+            frmReporte rt = new frmReporte();
+            rt.Text = "Reporte de Entregas";
+            rt.crystalReportViewer1.ReportSource = cryrep;
+            rt.Show();﻿
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
