@@ -389,7 +389,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public pendientesRow AddpendientesRow(string idOrden, string fechaEntrega, string nombreCliente, string totalOrden) {
+            public pendientesRow AddpendientesRow(int idOrden, string fechaEntrega, string nombreCliente, string totalOrden) {
                 pendientesRow rowpendientesRow = ((pendientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -427,7 +427,7 @@ namespace Lavanderia.Models {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidOrden);
                 this.columnfechaEntrega = new global::System.Data.DataColumn("fechaEntrega", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaEntrega);
@@ -435,6 +435,7 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnnombreCliente);
                 this.columntotalOrden = new global::System.Data.DataColumn("totalOrden", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalOrden);
+                this.columnidOrden.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -577,14 +578,9 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idOrden {
+            public int idOrden {
                 get {
-                    try {
-                        return ((string)(this[this.tablependientes.idOrdenColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idOrden\' de la tabla \'pendientes\' es DBNull.", e);
-                    }
+                    return ((int)(this[this.tablependientes.idOrdenColumn]));
                 }
                 set {
                     this[this.tablependientes.idOrdenColumn] = value;
@@ -637,18 +633,6 @@ namespace Lavanderia.Models {
                 set {
                     this[this.tablependientes.totalOrdenColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidOrdenNull() {
-                return this.IsNull(this.tablependientes.idOrdenColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidOrdenNull() {
-                this[this.tablependientes.idOrdenColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
