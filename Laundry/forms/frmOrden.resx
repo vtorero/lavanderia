@@ -381,6 +381,96 @@
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="label16.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 143</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 16</value>
+  </data>
+  <data name="label16.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 143</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 16</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Aplica Descuento:</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbDescuento.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbDescuento.Items" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="cbDescuento.Items1" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="cbDescuento.Items2" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="cbDescuento.Items3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cbDescuento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 140</value>
+  </data>
+  <data name="cbDescuento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 24</value>
+  </data>
+  <data name="cbDescuento.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;cbDescuento.Name" xml:space="preserve">
+    <value>cbDescuento</value>
+  </data>
+  <data name="&gt;&gt;cbDescuento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbDescuento.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cbDescuento.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="cargoVisa.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -403,7 +493,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;cargoVisa.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="lblDescuento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -427,7 +517,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblDescuento.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="nroDscto.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -454,7 +544,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;nroDscto.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="lblPorcentaje.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -484,7 +574,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblPorcentaje.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="chkDescuento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -517,7 +607,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;chkDescuento.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="btnImprimir.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -534,7 +624,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="btnImprimir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 204</value>
+    <value>357, 275</value>
   </data>
   <data name="btnImprimir.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 54</value>
@@ -555,7 +645,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnImprimir.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="txtIg.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -582,7 +672,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtIg.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="lblSimbolopendiente.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -612,7 +702,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblSimbolopendiente.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -639,7 +729,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="chkVisa.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -669,13 +759,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;chkVisa.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="lblObs.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblObs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 158</value>
+    <value>95, 220</value>
   </data>
   <data name="lblObs.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 16</value>
@@ -696,13 +786,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblObs.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="txtObservacion.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="txtObservacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 143</value>
+    <value>142, 205</value>
   </data>
   <data name="txtObservacion.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -723,13 +813,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtObservacion.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 205</value>
+    <value>167, 276</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 16</value>
@@ -750,7 +840,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="dtHoraEntrega.DropDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -759,7 +849,7 @@
     <value>False</value>
   </data>
   <data name="dtHoraEntrega.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 236</value>
+    <value>137, 307</value>
   </data>
   <data name="dtHoraEntrega.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
@@ -780,7 +870,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;dtHoraEntrega.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>16</value>
   </data>
   <data name="btnGuardar.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -789,7 +879,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="btnGuardar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 203</value>
+    <value>254, 274</value>
   </data>
   <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 55</value>
@@ -813,7 +903,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnGuardar.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="dtFechaEntrega.CustomFormat" xml:space="preserve">
     <value>yyyy-MM-dd hh:mm:ss</value>
@@ -822,7 +912,7 @@
     <value>False</value>
   </data>
   <data name="dtFechaEntrega.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 236</value>
+    <value>17, 307</value>
   </data>
   <data name="dtFechaEntrega.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 22</value>
@@ -840,13 +930,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;dtFechaEntrega.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>18</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 204</value>
+    <value>14, 275</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 16</value>
@@ -867,7 +957,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>19</value>
   </data>
   <data name="txtPendiente.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 101</value>
@@ -891,7 +981,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtPendiente.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>20</value>
   </data>
   <data name="lblPendiente.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -921,7 +1011,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblPendiente.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>21</value>
   </data>
   <data name="txtPago.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -945,7 +1035,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtPago.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>22</value>
   </data>
   <data name="lblMontopagar.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -972,7 +1062,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblMontopagar.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>23</value>
   </data>
   <data name="rdParcial.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1002,7 +1092,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;rdParcial.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>24</value>
   </data>
   <data name="rdTotal.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1032,7 +1122,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;rdTotal.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>25</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 186</value>
@@ -1044,7 +1134,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 301</value>
+    <value>460, 351</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1077,7 +1167,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>484, 517</value>
+    <value>484, 545</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2151,7 +2241,7 @@
     <value>False</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 470</value>
+    <value>3, 520</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>719, 22</value>
@@ -2235,7 +2325,7 @@
     <value>514, 15</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 495</value>
+    <value>725, 545</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>

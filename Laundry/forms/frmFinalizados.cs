@@ -215,12 +215,33 @@ namespace Lavanderia.forms
 
                 if (txtNumero.Text.Equals(""))
                 {
-                    llenarDatos();
+            try
+            {
+        
+            llenarDatos();
+            }
+        catch
+        {
+            MessageBox.Show("formato de Código inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+      
                 }
                 else
                 {
 
-                    llenarDatosId(Convert.ToInt32(txtNumero.Text));
+                    try
+{
+    int result = int.Parse(txtNumero.Text);
+    llenarDatosId(Convert.ToInt32(txtNumero.Text));
+}
+catch
+{
+    MessageBox.Show("No es un código válido","Error",MessageBoxButtons.OK, MessageBoxIcon.Information);
+}
+
+
+                    
                 }
 
             }

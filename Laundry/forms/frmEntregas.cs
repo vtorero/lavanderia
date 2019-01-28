@@ -196,12 +196,24 @@ namespace Lavanderia.forms
                 }
                 else
                 {
+                
+                    try
+                        {
+                            int result = int.Parse(txtNumero.Text);
+                            llenarDatosId(Convert.ToInt32(txtNumero.Text));
+                        }
+                        catch
+                        {
+                         MessageBox.Show("No es un código válido","Error",MessageBoxButtons.OK, MessageBoxIcon.Information);
+}
+                        }
+
 
                     llenarDatosId(Convert.ToInt32(txtNumero.Text));
                 }
             
             }
-        }
+        
 
         private void dgvOrdenes_MouseClick(object sender, MouseEventArgs e)
         {

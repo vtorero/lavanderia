@@ -118,6 +118,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.cbDescuento = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -199,6 +202,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.cbDescuento);
             this.groupBox2.Controls.Add(this.cargoVisa);
             this.groupBox2.Controls.Add(this.lblDescuento);
             this.groupBox2.Controls.Add(this.nroDscto);
@@ -755,6 +761,27 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
+            // cbDescuento
+            // 
+            resources.ApplyResources(this.cbDescuento, "cbDescuento");
+            this.cbDescuento.FormattingEnabled = true;
+            this.cbDescuento.Items.AddRange(new object[] {
+            resources.GetString("cbDescuento.Items"),
+            resources.GetString("cbDescuento.Items1"),
+            resources.GetString("cbDescuento.Items2"),
+            resources.GetString("cbDescuento.Items3")});
+            this.cbDescuento.Name = "cbDescuento";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -869,5 +896,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clDescuento;
         public System.Windows.Forms.RadioButton rdServicio;
         public System.Windows.Forms.RadioButton rdPrenda;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbDescuento;
     }
 }

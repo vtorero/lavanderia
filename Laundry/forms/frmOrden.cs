@@ -205,6 +205,7 @@ namespace Lavanderia.forms
             btnBuscaprenda.Enabled = false;
             btnBuscaprenda.Visible = false;
             cmbServicios.Enabled = false;
+            cbDescuento.Enabled = false;
             //cmbMarca.Enabled = false;
             cmbMarca.Text = "";
             cmbColor.Enabled = false;
@@ -478,6 +479,7 @@ namespace Lavanderia.forms
             lblDescuento.Visible = false;
             nroDscto.Visible = false;
             nroDscto.Enabled = false;
+            cbDescuento.Enabled = false;
 
 
 
@@ -495,6 +497,7 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
+            cbDescuento.Enabled = true;
             chkVisa.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
             {
