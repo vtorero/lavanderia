@@ -240,8 +240,7 @@ catch
     MessageBox.Show("No es un código válido","Error",MessageBoxButtons.OK, MessageBoxIcon.Information);
 }
 
-
-                    
+            
                 }
 
             }

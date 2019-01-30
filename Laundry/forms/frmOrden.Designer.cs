@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -44,6 +44,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelporcentaje = new System.Windows.Forms.Label();
+            this.labelDescuento = new System.Windows.Forms.Label();
+            this.cbDescuento = new System.Windows.Forms.ComboBox();
             this.cargoVisa = new System.Windows.Forms.Label();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.nroDscto = new System.Windows.Forms.TextBox();
@@ -118,9 +121,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.cbDescuento = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -202,8 +202,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.labelporcentaje);
+            this.groupBox2.Controls.Add(this.labelDescuento);
             this.groupBox2.Controls.Add(this.cbDescuento);
             this.groupBox2.Controls.Add(this.cargoVisa);
             this.groupBox2.Controls.Add(this.lblDescuento);
@@ -231,6 +231,27 @@
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // labelporcentaje
+            // 
+            resources.ApplyResources(this.labelporcentaje, "labelporcentaje");
+            this.labelporcentaje.Name = "labelporcentaje";
+            // 
+            // labelDescuento
+            // 
+            resources.ApplyResources(this.labelDescuento, "labelDescuento");
+            this.labelDescuento.Name = "labelDescuento";
+            // 
+            // cbDescuento
+            // 
+            this.cbDescuento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbDescuento, "cbDescuento");
+            this.cbDescuento.FormattingEnabled = true;
+            this.cbDescuento.Items.AddRange(new object[] {
+            resources.GetString("cbDescuento.Items"),
+            resources.GetString("cbDescuento.Items1"),
+            resources.GetString("cbDescuento.Items2")});
+            this.cbDescuento.Name = "cbDescuento";
             // 
             // cargoVisa
             // 
@@ -598,14 +619,14 @@
             // 
             // dgvOrden
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clNumero,
@@ -624,8 +645,8 @@
             this.dgvOrden.MultiSelect = false;
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrden_CellMouseClick);
             // 
@@ -651,17 +672,17 @@
             // 
             // clPrecio
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.clPrecio.DefaultCellStyle = dataGridViewCellStyle14;
             resources.ApplyResources(this.clPrecio, "clPrecio");
             this.clPrecio.Name = "clPrecio";
             // 
             // clTotal
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.clTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.clTotal.DefaultCellStyle = dataGridViewCellStyle15;
             resources.ApplyResources(this.clTotal, "clTotal");
             this.clTotal.Name = "clTotal";
             // 
@@ -760,27 +781,6 @@
             resources.ApplyResources(this.LblId, "LblId");
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
-            // 
-            // cbDescuento
-            // 
-            resources.ApplyResources(this.cbDescuento, "cbDescuento");
-            this.cbDescuento.FormattingEnabled = true;
-            this.cbDescuento.Items.AddRange(new object[] {
-            resources.GetString("cbDescuento.Items"),
-            resources.GetString("cbDescuento.Items1"),
-            resources.GetString("cbDescuento.Items2"),
-            resources.GetString("cbDescuento.Items3")});
-            this.cbDescuento.Name = "cbDescuento";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
             // 
             // frmOrden
             // 
@@ -896,8 +896,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clDescuento;
         public System.Windows.Forms.RadioButton rdServicio;
         public System.Windows.Forms.RadioButton rdPrenda;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbDescuento;
+        private System.Windows.Forms.Label labelporcentaje;
+        private System.Windows.Forms.Label labelDescuento;
+        public System.Windows.Forms.ComboBox cbDescuento;
     }
 }

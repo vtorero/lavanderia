@@ -32,8 +32,10 @@ namespace Lavanderia.forms
         decimal totalDescuento = 0;
         decimal totalOfertaRopa = 0;
         decimal totalOfertaCama = 0;
-        decimal porcentajeDescuento = varGlobales.porcentajeOferta;
-        public frmOrden()
+        decimal porcentajeDescuento ;//= varGlobales.porcentajeOferta;
+        
+
+         public frmOrden()
         {
             InitializeComponent();
         }
@@ -199,7 +201,7 @@ namespace Lavanderia.forms
 
         public void restablecer()
         {
-            decimal porcentajeDescuento = varGlobales.porcentajeOferta;
+            decimal porcentajeDescuento = 0;// varGlobales.porcentajeOferta;
             txtNombrePrenda.Enabled = false;
             txtNombrePrenda.Text = "";
             btnBuscaprenda.Enabled = false;
@@ -297,6 +299,9 @@ namespace Lavanderia.forms
                 garantia = 1;
             }
 
+            if (Convert.ToDecimal(cbDescuento.SelectedItem) > 0) {
+                tipo_descuento = 1;
+            }
 
             int status = 0;
             string s = dtFechaEntrega.Value.ToString("yyyy-MM-dd HH:mm:ss").Replace("/", "-").Substring(0, 10);
@@ -308,7 +313,8 @@ namespace Lavanderia.forms
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
-            ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+            //ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+            ord.pDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
             ord.pGarantia = garantia;
 
 
@@ -323,11 +329,13 @@ namespace Lavanderia.forms
                 if (chkVisa.Checked && totalDescuento > 0)
                 {
 
-                    porcentajeDescuento = varGlobales.porcentajeOferta - 10;
+                    porcentajeDescuento = Convert.ToDecimal(cbDescuento.Text) - 10;
+                    //porcentajeDescuento = varGlobales.porcentajeOferta - 10;
                 }
                 else
                 {
-                    porcentajeDescuento = varGlobales.porcentajeOferta;
+                    porcentajeDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
+                    //porcentajeDescuento = varGlobales.porcentajeOferta;
                 }
 
                 //if (varGlobales.porcentajeOferta > 0 && (cantidadGeneralcama >= 1 || cantidadGeneral >= 1))
@@ -364,9 +372,21 @@ namespace Lavanderia.forms
                 //else
                // {
 
-                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
+                decimal montoDescuento;
+                decimal montoTotal;
+                  montoDescuento = (Decimal.Round(Decimal.Round((Convert.ToDecimal(txtPago.Text)), 2) *porcentajeDescuento / 100, 2));
+
+                  montoTotal = Convert.ToDecimal(txtPago.Text) - montoDescuento;
+
+                 pago.PagoTotal = montoTotal;
+                 ord.totalOrden = montoTotal;
+                 pago.Pago1 = montoTotal;
+
+                 montoTotal = 0;
+                 tipo_descuento = 0;
+/*                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     ord.totalOrden = Convert.ToDecimal(txtPago.Text);
-                    pago.Pago1 = Convert.ToDecimal(txtPago.Text);
+                    pago.Pago1 = Convert.ToDecimal(txtPago.Text);*/
                 //}
 
                 status = OrdenDao.Agregar(ord);
@@ -444,12 +464,15 @@ namespace Lavanderia.forms
 
             }
 
+       
+
             OrdenDao.Agregarsql(sqlAddLinea.TrimEnd(','));
             sqlAddLinea = "";
 
             MessageBox.Show(string.Format("Se grabó correctamente la orden con el número: {0}", status), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             idOrdenPrint = status;
             desHabilitaServicio();
+            
             btnImprimir.Enabled = true;
             i = 1;
 
@@ -480,9 +503,9 @@ namespace Lavanderia.forms
             nroDscto.Visible = false;
             nroDscto.Enabled = false;
             cbDescuento.Enabled = false;
-
-
-
+            cbDescuento.Visible = false;
+            labelDescuento.Visible = false;
+            labelporcentaje.Visible = false;
         }
 
         private void rdTotal_Click(object sender, EventArgs e)
@@ -498,6 +521,9 @@ namespace Lavanderia.forms
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
             cbDescuento.Enabled = true;
+            cbDescuento.Visible = true;
+            labelDescuento.Visible = true;
+            labelporcentaje.Visible = true;
             chkVisa.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
             {
@@ -611,6 +637,7 @@ namespace Lavanderia.forms
             totalOfertaRopa = 0;
             totalDescuento = 0;
             totalGeneral = 0;
+            
              if (varGlobales.porcentajeOferta > 0)
             {
                 decimal porcentajeDescuento = varGlobales.porcentajeOferta;
