@@ -32,7 +32,7 @@ namespace Lavanderia.forms
         decimal totalDescuento = 0;
         decimal totalOfertaRopa = 0;
         decimal totalOfertaCama = 0;
-        decimal porcentajeDescuento ;//= varGlobales.porcentajeOferta;
+        decimal porcentajeDescuento = varGlobales.porcentajeOferta;
         
 
          public frmOrden()
@@ -111,7 +111,7 @@ namespace Lavanderia.forms
                      {
                          cantidadGeneral += cantidad;
                          globalOferta = word;
-                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                         totalOfertaRopa = Decimal.Round((cantidad * precio), 2);
                          //MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                          total = Decimal.Round((cantidad * precio), 2);
                      }
@@ -120,8 +120,8 @@ namespace Lavanderia.forms
                     {
                         //cantidadGeneral += cantidad;
                         //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
-                        MontoDecuento = (Decimal.Round(Decimal.Round((totalGeneral), 2) * varGlobales.porcentajeOferta / 100, 2));
-                        totalDescuento+= MontoDecuento;
+                        MontoDecuento = (Decimal.Round(Decimal.Round((total), 2) * varGlobales.porcentajeOferta / 100, 2));
+                        totalDescuento= MontoDecuento;
                         //total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
                        //total = totalOfertaRopa - MontoDecuento;
 
@@ -174,7 +174,7 @@ namespace Lavanderia.forms
                 cantidad = 0;
                 chkDscto.Checked = false;
                 chkGarantia.Enabled = false;
-                //MontoDecuento = 0;
+                MontoDecuento = 0;
                 globalOferta = "";
                 total = 0;
 
@@ -674,13 +674,15 @@ namespace Lavanderia.forms
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-                    totalDescontar += Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString());
+                    totalDescontar = Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString());
                     dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index);
                 }
 
             }
+            totalGeneral = totalGeneral - totalDescontar;
             totalOrden = (totalOrden - totalDescontar);
             txtTotal.Text = Convert.ToString(totalOrden);
+            txtPendiente.Text = Convert.ToString(totalOrden);
             btnQuitar.Enabled = false;
         }
 
@@ -697,7 +699,7 @@ namespace Lavanderia.forms
         {
             if ((totalOrden - Convert.ToDecimal(txtPago.Text)) > 0)
             {
-                //txtPendiente.Text = Convert.ToString(totalOrden - Convert.ToDecimal(txtPago.Text));
+                txtPendiente.Text = Convert.ToString(totalGeneral - Convert.ToDecimal(txtPago.Text));
 
             }
             else
