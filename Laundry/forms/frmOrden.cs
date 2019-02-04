@@ -630,6 +630,12 @@ namespace Lavanderia.forms
             //porcentajeDescuento = varGlobales.porcentajeOferta;
             lblDescuento.Text = "0";
             lblDescuento.Visible = false;
+            cbDescuento.Items[0] = "0";
+            cbDescuento.SelectedIndex = 0;
+            labelDescuento.Visible = false;
+            labelporcentaje.Visible = false;
+            cbDescuento.Visible = false;
+
             cantidadGeneral = 0;
             garantia = 0;
             cantidadGeneralcama = 0;
@@ -833,22 +839,33 @@ namespace Lavanderia.forms
 
             ticket.lineasAsteriscos();
 
-            if (_reader1.GetDecimal(6) > 0 && porcentajeDescuento > 0)
+            if (_reader1.GetDecimal(6) > 0)
             {
                 ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
-                if (chkVisa.Checked)
-                { 
-                 ticket.AgregarTotales("            DESCUENTO....." + (cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
-                }
-                else
-                {
                 ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
-                }
             }
             else
             {
                 ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
             }
+
+
+            //if (_reader1.GetDecimal(6) > 0 && porcentajeDescuento > 0)
+            //{
+            //    ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+            //    if (chkVisa.Checked)
+            //    { 
+            //     ticket.AgregarTotales("            DESCUENTO....." + (cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+            //    }
+            //    else
+            //    {
+            //    ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+            //    }
+            //}
+            //else
+            //{
+            //    ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
+            //}
 
             ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
             ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));

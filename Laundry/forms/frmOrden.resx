@@ -445,12 +445,15 @@
     <value>False</value>
   </data>
   <data name="cbDescuento.Items" xml:space="preserve">
-    <value>20</value>
+    <value>0</value>
   </data>
   <data name="cbDescuento.Items1" xml:space="preserve">
-    <value>25</value>
+    <value>20</value>
   </data>
   <data name="cbDescuento.Items2" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="cbDescuento.Items3" xml:space="preserve">
     <value>30</value>
   </data>
   <data name="cbDescuento.Location" type="System.Drawing.Point, System.Drawing">

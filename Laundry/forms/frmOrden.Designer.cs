@@ -250,7 +250,8 @@
             this.cbDescuento.Items.AddRange(new object[] {
             resources.GetString("cbDescuento.Items"),
             resources.GetString("cbDescuento.Items1"),
-            resources.GetString("cbDescuento.Items2")});
+            resources.GetString("cbDescuento.Items2"),
+            resources.GetString("cbDescuento.Items3")});
             this.cbDescuento.Name = "cbDescuento";
             // 
             // cargoVisa
