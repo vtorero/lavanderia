@@ -150,7 +150,7 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Location = new System.Drawing.Point(29, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(540, 111);
+            this.groupBox1.Size = new System.Drawing.Size(540, 130);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -201,7 +201,7 @@
             // 
             this.btnSrcCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSrcCliente.Image = global::Lavanderia.Properties.Resources.magnify;
-            this.btnSrcCliente.Location = new System.Drawing.Point(448, 62);
+            this.btnSrcCliente.Location = new System.Drawing.Point(448, 76);
             this.btnSrcCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSrcCliente.Name = "btnSrcCliente";
             this.btnSrcCliente.Size = new System.Drawing.Size(73, 40);
@@ -215,9 +215,9 @@
             this.btnAddPrenda.Location = new System.Drawing.Point(406, 44);
             this.btnAddPrenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrenda.Name = "btnAddPrenda";
-            this.btnAddPrenda.Size = new System.Drawing.Size(24, 24);
+            this.btnAddPrenda.Size = new System.Drawing.Size(115, 24);
             this.btnAddPrenda.TabIndex = 7;
-            this.btnAddPrenda.Text = "....";
+            this.btnAddPrenda.Text = "Buscar Cliente";
             this.btnAddPrenda.UseVisualStyleBackColor = true;
             this.btnAddPrenda.Click += new System.EventHandler(this.btnAddPrenda_Click);
             // 

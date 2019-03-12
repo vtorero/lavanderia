@@ -289,6 +289,8 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnsucursal;
             
+            private global::System.Data.DataColumn columndireccionCliente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClientesDataTable() {
@@ -364,6 +366,14 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn direccionClienteColumn {
+                get {
+                    return this.columndireccionCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +409,15 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ClientesRow AddClientesRow(string nombreCliente, string dniCliente, string correoCliente, string telefonoCliente, string sucursal) {
+            public ClientesRow AddClientesRow(string nombreCliente, string dniCliente, string correoCliente, string telefonoCliente, string sucursal, string direccionCliente) {
                 ClientesRow rowClientesRow = ((ClientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombreCliente,
                         dniCliente,
                         correoCliente,
                         telefonoCliente,
-                        sucursal};
+                        sucursal,
+                        direccionCliente};
                 rowClientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientesRow);
                 return rowClientesRow;
@@ -434,6 +445,7 @@ namespace Lavanderia.Models {
                 this.columncorreoCliente = base.Columns["correoCliente"];
                 this.columntelefonoCliente = base.Columns["telefonoCliente"];
                 this.columnsucursal = base.Columns["sucursal"];
+                this.columndireccionCliente = base.Columns["direccionCliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +461,8 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columntelefonoCliente);
                 this.columnsucursal = new global::System.Data.DataColumn("sucursal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsucursal);
+                this.columndireccionCliente = new global::System.Data.DataColumn("direccionCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndireccionCliente);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -671,6 +685,22 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string direccionCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableClientes.direccionClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'direccionCliente\' de la tabla \'Clientes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClientes.direccionClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnombreClienteNull() {
                 return this.IsNull(this.tableClientes.nombreClienteColumn);
             }
@@ -727,6 +757,18 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetsucursalNull() {
                 this[this.tableClientes.sucursalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdireccionClienteNull() {
+                return this.IsNull(this.tableClientes.direccionClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdireccionClienteNull() {
+                this[this.tableClientes.direccionClienteColumn] = global::System.Convert.DBNull;
             }
         }
         

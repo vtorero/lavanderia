@@ -111,7 +111,7 @@ namespace Lavanderia.forms
                      {
                          cantidadGeneral += cantidad;
                          globalOferta = word;
-                         totalOfertaRopa = Decimal.Round((cantidad * precio), 2);
+                         totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
                          //MessageBox.Show("hay una oferta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                          total = Decimal.Round((cantidad * precio), 2);
                      }
@@ -120,7 +120,7 @@ namespace Lavanderia.forms
                     {
                         //cantidadGeneral += cantidad;
                         //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
-                        MontoDecuento = (Decimal.Round(Decimal.Round((total), 2) * varGlobales.porcentajeOferta / 100, 2));
+                        MontoDecuento= (Decimal.Round(Decimal.Round((total), 2) * varGlobales.porcentajeOferta / 100, 2));
                         totalDescuento= MontoDecuento;
                         //total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
                        //total = totalOfertaRopa - MontoDecuento;
@@ -372,9 +372,9 @@ namespace Lavanderia.forms
                 //else
                // {
 
-                decimal montoDescuento;
+                decimal montoDescuento=0;
                 decimal montoTotal;
-                  montoDescuento = (Decimal.Round(Decimal.Round((Convert.ToDecimal(txtPago.Text)), 2) *porcentajeDescuento / 100, 2));
+                  montoDescuento= (Decimal.Round(Decimal.Round((Convert.ToDecimal(txtPago.Text)), 2) *porcentajeDescuento / 100, 2));
 
                   montoTotal = Convert.ToDecimal(txtPago.Text) - montoDescuento;
 

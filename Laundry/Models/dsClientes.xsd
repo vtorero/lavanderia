@@ -12,7 +12,7 @@
   <xs:element name="dsClientes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsClientes" msprop:Generator_UserDSName="dsClientes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_RowClassName="ClientesRow">
+        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_RowClassName="ClientesRow" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowEvArgName="ClientesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombreCliente" msprop:Generator_ColumnVarNameInTable="columnnombreCliente" msprop:Generator_ColumnPropNameInRow="nombreCliente" msprop:Generator_ColumnPropNameInTable="nombreClienteColumn" msprop:Generator_UserColumnName="nombreCliente" type="xs:string" minOccurs="0" />
@@ -20,6 +20,7 @@
               <xs:element name="correoCliente" msprop:Generator_ColumnVarNameInTable="columncorreoCliente" msprop:Generator_ColumnPropNameInRow="correoCliente" msprop:Generator_ColumnPropNameInTable="correoClienteColumn" msprop:Generator_UserColumnName="correoCliente" type="xs:string" minOccurs="0" />
               <xs:element name="telefonoCliente" msprop:Generator_ColumnVarNameInTable="columntelefonoCliente" msprop:Generator_ColumnPropNameInRow="telefonoCliente" msprop:Generator_ColumnPropNameInTable="telefonoClienteColumn" msprop:Generator_UserColumnName="telefonoCliente" type="xs:string" minOccurs="0" />
               <xs:element name="sucursal" msprop:Generator_ColumnVarNameInTable="columnsucursal" msprop:Generator_ColumnPropNameInRow="sucursal" msprop:Generator_ColumnPropNameInTable="sucursalColumn" msprop:Generator_UserColumnName="sucursal" type="xs:string" minOccurs="0" />
+              <xs:element name="direccionCliente" msprop:Generator_ColumnVarNameInTable="columndireccionCliente" msprop:Generator_ColumnPropNameInRow="direccionCliente" msprop:Generator_ColumnPropNameInTable="direccionClienteColumn" msprop:Generator_UserColumnName="direccionCliente" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
