@@ -66,6 +66,7 @@ namespace Lavanderia.forms
                 ticket.TextoIzquierda("HORARIO: LUNES A VIERNES DE 8:00AM");
                 ticket.TextoIzquierda(" A 8:00PM Y SABADO DE 8:00AM A 7:00PM");
                 ticket.TextoIzquierda("TELEF: " + _reader1.GetString(19));
+                ticket.TextoIzquierda("WEB:LAVANDERIASANISIDRO.COM");
                 ticket.lineasIgual();
                 ticket.TextoIzquierda("CLIENTE: " + _reader1.GetString(2).ToUpper());
                 if (!_reader1.GetString(1).Equals(""))
