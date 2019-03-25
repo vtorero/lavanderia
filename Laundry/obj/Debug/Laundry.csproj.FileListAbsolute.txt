@@ -93,3 +93,4 @@ C:\proyectos\lavanderia\Laundry\bin\Debug\Newtonsoft.Json.Net20.dll
 C:\proyectos\lavanderia\Laundry\bin\Debug\NuGet.Core.dll
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.exe
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.pdb
+C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
