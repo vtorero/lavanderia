@@ -220,6 +220,8 @@ namespace Lavanderia.forms
             chkVisa.Enabled = false;
             chkDescuento.Checked = false;
             chkDescuento.Enabled = false;
+            chkExpress.Checked = false;
+            chkExpress.Visible = false;
             nroDscto.Enabled = false;
             nroDscto.Text = "0";
             txtPrecio.Text = "";
@@ -378,6 +380,12 @@ namespace Lavanderia.forms
 
                   montoTotal = Convert.ToDecimal(txtPago.Text) - montoDescuento;
 
+                  if (chkExpress.Checked) {
+                      ord.pExpress = 1;
+                      montoTotal = Convert.ToDecimal(txtPago.Text) + (Convert.ToDecimal(txtPago.Text)*50)/100;
+                  
+                  }
+
                  pago.PagoTotal = montoTotal;
                  ord.totalOrden = montoTotal;
                  pago.Pago1 = montoTotal;
@@ -501,6 +509,7 @@ namespace Lavanderia.forms
             chkDescuento.Visible = false;
             lblDescuento.Visible = false;
             nroDscto.Visible = false;
+            chkExpress.Visible = false;
             nroDscto.Enabled = false;
             cbDescuento.Enabled = false;
             cbDescuento.Visible = false;
@@ -524,6 +533,7 @@ namespace Lavanderia.forms
             cbDescuento.Visible = true;
             labelDescuento.Visible = true;
             labelporcentaje.Visible = true;
+            chkExpress.Visible = true;
             chkVisa.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
             {
@@ -622,6 +632,8 @@ namespace Lavanderia.forms
             chkDescuento.Checked = false;
             chkDescuento.Enabled = false;
             chkDescuento.Visible = false;
+            chkExpress.Checked = false;
+            chkExpress.Visible = false;
             nroDscto.Text = "0";
             nroDscto.Enabled = false;
             nroDscto.Visible = false;
@@ -794,11 +806,11 @@ namespace Lavanderia.forms
             ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
             ticket.TextoIzquierda("");
             MySqlCommand _comando1 = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,o.descuento,(l.total-o.`totalOrden`) dscto ,o.aplicaDscto,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1  FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn1.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,o.descuento,(l.total-o.`totalOrden`) dscto ,o.aplicaDscto,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.express  FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn1.ObtenerConexion());
             ConexBD cn2 = new ConexBD();
             cn2.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express  FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
@@ -847,6 +859,10 @@ namespace Lavanderia.forms
             }
             else
             {
+                if (_reader1.GetDecimal(22) > 0)
+                {
+                ticket.TextoDerecha("              SERVICIO EXPRESS 50% +");
+                }
                 ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
             }
 

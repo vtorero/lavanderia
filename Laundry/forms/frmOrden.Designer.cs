@@ -121,6 +121,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.chkExpress = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -202,6 +203,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkExpress);
             this.groupBox2.Controls.Add(this.labelporcentaje);
             this.groupBox2.Controls.Add(this.labelDescuento);
             this.groupBox2.Controls.Add(this.cbDescuento);
@@ -782,6 +784,12 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
+            // chkExpress
+            // 
+            resources.ApplyResources(this.chkExpress, "chkExpress");
+            this.chkExpress.Name = "chkExpress";
+            this.chkExpress.UseVisualStyleBackColor = true;
+            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -899,5 +907,6 @@
         private System.Windows.Forms.Label labelporcentaje;
         private System.Windows.Forms.Label labelDescuento;
         public System.Windows.Forms.ComboBox cbDescuento;
+        private System.Windows.Forms.CheckBox chkExpress;
     }
 }

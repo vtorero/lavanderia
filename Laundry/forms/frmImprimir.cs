@@ -54,11 +54,11 @@ namespace Lavanderia.forms
                 ticket.TextoCentro("LAVANDERIA SAN ISIDRO S.A");
                 ticket.TextoIzquierda("");
                 MySqlCommand _comando1 = new MySqlCommand(String.Format(
-                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,o.descuento,(l.total-o.`totalOrden`) dscto ,o.aplicaDscto,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1 FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn1.ObtenerConexion());
+                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,o.descuento,(l.total-o.`totalOrden`) dscto ,o.aplicaDscto,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.express FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn1.ObtenerConexion());
                 ConexBD cn2 = new ConexBD();
                 cn2.Conectar();
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
+                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
                 MySqlDataReader _reader1 = _comando1.ExecuteReader();
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 _reader1.Read();
@@ -107,6 +107,10 @@ namespace Lavanderia.forms
                 }
                 else
                 {
+                    if (_reader1.GetDecimal(22) > 0)
+                    {
+                        ticket.TextoDerecha("              SERVICIO EXPRESS 50% +");
+                    }
                     ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
                 }
 

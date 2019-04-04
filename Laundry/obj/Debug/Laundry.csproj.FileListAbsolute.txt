@@ -59,6 +59,12 @@ D:\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 D:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 D:\lavanderia\Laundry\obj\Debug\Laundry.exe
 D:\lavanderia\Laundry\obj\Debug\Laundry.pdb
+C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.exe.config
+C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.exe
+C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.pdb
+C:\proyectos\lavanderia\Laundry\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\proyectos\lavanderia\Laundry\bin\Debug\Newtonsoft.Json.Net20.dll
+C:\proyectos\lavanderia\Laundry\bin\Debug\NuGet.Core.dll
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.AnularForm.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarCliente.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.busquedas.frmBuscarColor.resources
@@ -85,12 +91,5 @@ C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.frmServicio.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.forms.OrdenesV2.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
-C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.exe.config
-C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.exe
-C:\proyectos\lavanderia\Laundry\bin\Debug\Laundry.pdb
-C:\proyectos\lavanderia\Laundry\bin\Debug\Microsoft.Web.XmlTransform.dll
-C:\proyectos\lavanderia\Laundry\bin\Debug\Newtonsoft.Json.Net20.dll
-C:\proyectos\lavanderia\Laundry\bin\Debug\NuGet.Core.dll
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.exe
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.pdb
-C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache

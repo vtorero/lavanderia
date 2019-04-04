@@ -34,11 +34,12 @@ IN PtipoPago INT,
 IN Pdscto INT,
 IN pDescuento DECIMAL(10,2),
 IN pGarantia INT,
+IN pExpress INT,
 OUT ultimoId INT)
 BEGIN
 START TRANSACTION;
-INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto,descuento,garantia) VALUES 
-(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto,pDescuento,pGarantia);
+INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto,descuento,garantia,express) VALUES 
+(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto,pDescuento,pGarantia,pExpress);
 SELECT LAST_INSERT_ID() INTO ultimoId;
 COMMIT;
 END $$
