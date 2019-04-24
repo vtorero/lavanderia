@@ -93,4 +93,3 @@ C:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resour
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.exe
 C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.pdb
-C:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache

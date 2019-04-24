@@ -82,7 +82,7 @@ namespace Lavanderia.Persistencia
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT idCliente,nombreCliente,dniCliente,correoCliente,telefonoCliente FROM Cliente where nombreCliente like '%{0}%' and dniCliente like '%{1}%' and usuarioCreador={2}",nombre,dni,usuarioCreador), cnx.ObtenerConexion());
+           "SELECT idCliente,nombreCliente,dniCliente,correoCliente,telefonoCliente,direccionCliente FROM Cliente where nombreCliente like '%{0}%' and dniCliente like '%{1}%' and usuarioCreador={2}",nombre,dni,usuarioCreador), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
 while (_reader.Read())
             {
@@ -92,7 +92,8 @@ while (_reader.Read())
                 cliente.DNI = _reader.GetString(2);
                 cliente.Email = _reader.GetString(3);
                 cliente.Teléfono = _reader.GetString(4);
-                _lista.Add(cliente);
+                cliente.Dirección = _reader.GetString(5);
+                    _lista.Add(cliente);
             }
             _comando.Connection.Close();
             cnx.cerrarConexion();

@@ -202,7 +202,7 @@ IN usuario INT
 )
 BEGIN
 IF(usuario<>1) THEN
-SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario  WHERE o.idUsuario=usuario AND o.estado=1 AND o.idOrden=id;
+SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario  WHERE o.idUsuario=usuario AND o.estado in(0,1,2) AND o.idOrden=id;
 END IF;
 IF(usuario=1) THEN
 SELECT * FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN usuario u ON u.id=o.idUsuario  WHERE o.idOrden=id;
