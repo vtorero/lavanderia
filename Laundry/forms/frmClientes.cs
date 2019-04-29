@@ -165,5 +165,22 @@ namespace Lavanderia.forms
             dgvClientes.Columns[6].Visible = false;
         }
 
+        private void dgvClientes_DoubleClick(object sender, EventArgs e)
+        {
+            pos = dgvClientes.CurrentRow.Index;
+            LblId.Visible = true;
+            txtIDcliente.Visible = true;
+            txtIDcliente.Text = Convert.ToString(dgvClientes[0, pos].Value);
+            txtNombres.Text = Convert.ToString(dgvClientes[1, pos].Value);
+            txtDNI.Text = Convert.ToString(dgvClientes[2, pos].Value);
+            txtEmail.Text = Convert.ToString(dgvClientes[3, pos].Value);
+            txtDireccion.Text = Convert.ToString(dgvClientes[4, pos].Value);
+            txtTelefono.Text = Convert.ToString(dgvClientes[5, pos].Value);
+
+
+            tabControl1.SelectedTab = tabPage1;
+            btnGuardar.Text = "&Actualizar";
+        }
+
     }
 }
