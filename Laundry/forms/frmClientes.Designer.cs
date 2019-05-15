@@ -222,7 +222,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(384, 24);
             this.txtNombres.TabIndex = 1;
-            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            
             // 
             // label1
             // 

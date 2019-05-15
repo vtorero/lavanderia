@@ -124,10 +124,7 @@ namespace Lavanderia.forms
         
         }
 
-        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            v.soloLetras(e);
-        }
+        
 
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
