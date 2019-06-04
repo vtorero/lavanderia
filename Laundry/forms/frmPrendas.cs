@@ -49,6 +49,16 @@ namespace Lavanderia.forms
         private void frmPrendas_Load(object sender, EventArgs e)
         {
             fillTipos();
+            if (varGlobales.sessionUsuario == 1)
+            {
+                btnGuardar.Enabled = true;
+
+            }
+            else
+            {
+                btnGuardar.Enabled = false;
+            }
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -91,6 +101,7 @@ namespace Lavanderia.forms
                 prenda.tipoPrenda = cmbTipoPrenda.Text;
                 prenda.tipo_oferta = cmbTipoPrenda.ValueMember;
 
+               
 
                 if (btnGuardar.Text.Equals("&Registrar"))
                 {

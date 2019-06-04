@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lavanderia.Models;
 using Lavanderia.Persistencia;
+using Lavanderia.util;
 
 namespace Lavanderia.forms
 {
@@ -17,6 +18,15 @@ namespace Lavanderia.forms
         public frmServicio()
         {
             InitializeComponent();
+            if (varGlobales.sessionUsuario == 1)
+            {
+                button1.Enabled = true;
+
+            }
+            else
+            {
+                button1.Enabled = false;
+            }
         }
 
 
