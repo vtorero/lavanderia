@@ -118,11 +118,11 @@ namespace Lavanderia.forms
                    
                    if (tipoServ == 1 && cantidadGeneral>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
                     {
-                        //cantidadGeneral += cantidad;
-                        //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                        cantidadGeneral += cantidad;
+                        totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
                         MontoDecuento= (Decimal.Round(Decimal.Round((total), 2) * varGlobales.porcentajeOferta / 100, 2));
-                        totalDescuento= MontoDecuento;
-                        //total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
+                       totalDescuento= MontoDecuento;
+                       total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
                        //total = totalOfertaRopa - MontoDecuento;
 
                     }
@@ -165,8 +165,8 @@ namespace Lavanderia.forms
 
                 dgvOrden.Rows.Add(i, id, detalle, cantidad, precio, (precio*cantidad), defecto, colores, marca, tipoServ, tipooferta,MontoDecuento);
                 i = i + 1;
-               // totalOrden += Decimal.Round(total, 2);
-                totalOrden = totalGeneral-MontoDecuento;
+                totalOrden += Decimal.Round(total, 2);
+               // totalOrden = totalGeneral-MontoDecuento;
                 PrendaDao.agregarMarca(cmbMarca.Text);
                 txtTotal.Text = Convert.ToString(Decimal.Round(totalOrden,2));
                 //txtIgv.Text = "S/." + Convert.ToString(Decimal.Round((totalOrden *igv) / 100,2));
@@ -201,7 +201,7 @@ namespace Lavanderia.forms
 
         public void restablecer()
         {
-            decimal porcentajeDescuento = 0;// varGlobales.porcentajeOferta;
+            decimal porcentajeDescuento =  varGlobales.porcentajeOferta;
             txtNombrePrenda.Enabled = false;
             txtNombrePrenda.Text = "";
             btnBuscaprenda.Enabled = false;
@@ -315,8 +315,8 @@ namespace Lavanderia.forms
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
-            //ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
-            ord.pDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
+            ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+            //ord.pDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
             ord.pGarantia = garantia;
 
 
@@ -435,7 +435,7 @@ namespace Lavanderia.forms
                 PagoDao.Agregar(pago);
 
             }
-            string sqlAddLinea = "INSERT INTO OrdenLinea (idOrden,item,idPrenda,Descripcion,cantidad,precio,defecto,colorPrenda,marca,total,tipoServicio,estado) VALUES ";
+            string sqlAddLinea = "INSERT INTO OrdenLinea (idOrden,item,idPrenda,Descripcion,cantidad,precio,descuento,defecto,colorPrenda,marca,total,tipoServicio,estado) VALUES ";
             try
             {
                 foreach (DataGridViewRow data in dgvOrden.Rows)            
@@ -460,7 +460,7 @@ namespace Lavanderia.forms
                         sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},'{6}','{7}','{8}',{9},{10},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), (Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value)), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
                     }
                     else {
-                        sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},'{6}','{7}','{8}',{9},{10},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), Convert.ToDecimal(data.Cells["clTotal"].Value), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
+                        sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},{6},'{7}','{8}','{9}',{10},{11},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString())),Decimal.Round(Convert.ToDecimal(data.Cells["clDescuento"].Value.ToString()), 2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), Convert.ToDecimal(data.Cells["clTotal"].Value), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
                         //sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + Convert.ToDecimal(data.Cells["clTotal"].Value) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
                     
                     }
@@ -531,10 +531,10 @@ namespace Lavanderia.forms
             txtObservacion.Enabled = true;
             dtFechaEntrega.Enabled = true;
             dtHoraEntrega.Enabled = true;
-            cbDescuento.Enabled = true;
-            cbDescuento.Visible = true;
-            labelDescuento.Visible = true;
-            labelporcentaje.Visible = true;
+            //cbDescuento.Enabled = true;
+            //cbDescuento.Visible = true;
+            //labelDescuento.Visible = true;
+            //labelporcentaje.Visible = true;
             chkExpress.Visible = true;
             chkVisa.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
@@ -812,7 +812,7 @@ namespace Lavanderia.forms
             ConexBD cn2 = new ConexBD();
             cn2.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express  FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
+          "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descuento,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express  FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", idOrdenPrint), cn2.ObtenerConexion());
             MySqlDataReader _reader1 = _comando1.ExecuteReader();
             MySqlDataReader _reader = _comando.ExecuteReader();
             _reader1.Read();
@@ -843,12 +843,17 @@ namespace Lavanderia.forms
             }
             while (_reader.Read())
             {
-                ticket.AgregaArticulo(_reader.GetString(8), _reader.GetDecimal(6), _reader.GetDecimal(7), _reader.GetDecimal(9));
-                if (!_reader.GetString(10).Equals("") || !_reader.GetString(11).Equals("") || !_reader.GetString(12).Equals(""))
+                ticket.AgregaArticulo(_reader.GetString(9), _reader.GetDecimal(6), _reader.GetDecimal(7), _reader.GetDecimal(10));
+                if (!_reader.GetString(11).Equals("") || !_reader.GetString(12).Equals("") || !_reader.GetString(13).Equals(""))
                 {
-                    ticket.TextoExtremos(_reader.GetString(10) + " " + _reader.GetString(11), _reader.GetString(12));
+                    ticket.TextoExtremos(_reader.GetString(11) + " " + _reader.GetString(12), _reader.GetString(13));
                 }
-                totalSinDescuento += _reader.GetDecimal(9);
+                if (_reader.GetDecimal(8) > 0)
+                {
+                    ticket.TextoExtremos("DESCUENTO PROMO.", " - " + _reader.GetDecimal(8));
+                }
+
+                totalSinDescuento += _reader.GetDecimal(10);
                 ticket.lineasGuio();
             }
 
@@ -857,7 +862,7 @@ namespace Lavanderia.forms
             if (_reader1.GetDecimal(6) > 0)
             {
                 ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
-                ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+              //  ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
             }
             else
             {
@@ -886,10 +891,10 @@ namespace Lavanderia.forms
             //    ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
             //}
 
-            ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
-            ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
+            ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(14));//La M indica que es un decimal en C#
+            ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(15));
             ticket.TextoIzquierda("");
-            if (_reader.GetInt32(19) == 1)
+            if (_reader.GetInt32(20) == 1)
             {
                 ticket.TextoCentro("Prendas sin garantía");
             }
@@ -907,6 +912,7 @@ namespace Lavanderia.forms
             totalOfertaCama = 0;
             totalOfertaRopa = 0;
             btnImprimir.Enabled = false;
+            totalDescuento = 0;
             /*myadap.Fill(ds,"Ticket");
 
             cryrep.Load(@"D:\lavanderia\Laundry\Reportes\crTicket.rpt");

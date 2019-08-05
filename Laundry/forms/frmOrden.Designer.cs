@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void    InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkExpress = new System.Windows.Forms.CheckBox();
             this.labelporcentaje = new System.Windows.Forms.Label();
             this.labelDescuento = new System.Windows.Forms.Label();
             this.cbDescuento = new System.Windows.Forms.ComboBox();
@@ -121,7 +122,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.chkExpress = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -233,6 +233,12 @@
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // chkExpress
+            // 
+            resources.ApplyResources(this.chkExpress, "chkExpress");
+            this.chkExpress.Name = "chkExpress";
+            this.chkExpress.UseVisualStyleBackColor = true;
             // 
             // labelporcentaje
             // 
@@ -783,12 +789,6 @@
             resources.ApplyResources(this.LblId, "LblId");
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
-            // 
-            // chkExpress
-            // 
-            resources.ApplyResources(this.chkExpress, "chkExpress");
-            this.chkExpress.Name = "chkExpress";
-            this.chkExpress.UseVisualStyleBackColor = true;
             // 
             // frmOrden
             // 
