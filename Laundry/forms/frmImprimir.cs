@@ -58,7 +58,7 @@ namespace Lavanderia.forms
                 ConexBD cn2 = new ConexBD();
                 cn2.Conectar();
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
+                "SELECT o.idOrden,c.dniCliente,c.nombreCliente,o.fechaCreado,o.fechaEntrega, o.totalOrden,l.cantidad,l.precio,l.descuento,l.descripcion,l.total,l.colorPrenda,l.marca,l.defecto,p.pago1,p.pago2,u.direccion,u.telefono,u.impresora,p.tipoPago1,o.garantia,o.express FROM Orden o INNER JOIN Cliente c ON o.idCliente=c.idCliente INNER JOIN Pago p ON o.idOrden=p.idOrden INNER JOIN OrdenLinea l ON o.idOrden=l.idOrden INNER JOIN usuario u ON u.id=o.idUsuario WHERE o.idOrden={0}", txtTicket.Text), cn2.ObtenerConexion());
                 MySqlDataReader _reader1 = _comando1.ExecuteReader();
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 _reader1.Read();
@@ -89,12 +89,17 @@ namespace Lavanderia.forms
                 }
                 while (_reader.Read())
                 {
-                    ticket.AgregaArticulo(_reader.GetString(8), _reader.GetDecimal(6), _reader.GetDecimal(7), _reader.GetDecimal(9));
-                    if (!_reader.GetString(10).Equals("") || !_reader.GetString(11).Equals("") || !_reader.GetString(12).Equals(""))
+                    ticket.AgregaArticulo(_reader.GetString(9), _reader.GetDecimal(6), _reader.GetDecimal(7), _reader.GetDecimal(10));
+                    if (!_reader.GetString(11).Equals("") || !_reader.GetString(12).Equals("") || !_reader.GetString(13).Equals(""))
                     {
-                        ticket.TextoExtremos(_reader.GetString(10) + " " + _reader.GetString(11), _reader.GetString(12));
+                        ticket.TextoExtremos(_reader.GetString(11) + " " + _reader.GetString(12), _reader.GetString(13));
                     }
-                    totalSinDescuento += _reader.GetDecimal(9);
+                    if (_reader.GetDecimal(8) > 0)
+                    {
+                        ticket.TextoExtremos("DESCUENTO PROMO.", " - " + _reader.GetDecimal(8));
+                    }
+
+                    totalSinDescuento += _reader.GetDecimal(10);
                     ticket.lineasGuio();
                 }
 
@@ -103,7 +108,7 @@ namespace Lavanderia.forms
                 if (_reader1.GetDecimal(6) > 0)
                 {
                     ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
-                    ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+                  //  ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
                 }
                 else
                 {
@@ -114,8 +119,8 @@ namespace Lavanderia.forms
                     ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
                 }
 
-                ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(13));//La M indica que es un decimal en C#
-                ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(14));
+                ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(14));//La M indica que es un decimal en C#
+                ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(15));
                 ticket.TextoIzquierda("");
                 if (_reader.GetInt32(19) == 1)
                 {

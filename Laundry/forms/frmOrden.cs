@@ -457,7 +457,8 @@ namespace Lavanderia.forms
                     if (tipo_pago == 2)
                     {
                        // sqlAddLinea += "(" + status + "," + Convert.ToInt32(data.Cells["clNumero"].Value) + "," + Convert.ToInt32(data.Cells["clPrenda"].Value) + ",'" + data.Cells["clDescripcion"].Value.ToString() + "'," + Convert.ToDecimal(data.Cells["clCantidad"].Value) + "," + Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()), 2) + ",'" + Convert.ToString(data.Cells["clDefecto"].Value) + "','" + Convert.ToString(data.Cells["clColores"].Value) + "','" + Convert.ToString(data.Cells["cLmarca"].Value) + "'," + (Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value)) + "," + Convert.ToInt32(data.Cells["clTipo"].Value) + ",0),";
-                        sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},'{6}','{7}','{8}',{9},{10},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), (Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value)), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
+                        //sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},{6},'{7}','{8}','{9}',10},{11},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString()),2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), (Convert.ToDecimal(data.Cells["clTotal"].Value) + Convert.ToDecimal(data.Cells["clDescuento"].Value)), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
+                        sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},{6},'{7}','{8}','{9}',{10},{11},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString())), Decimal.Round(Convert.ToDecimal(data.Cells["clDescuento"].Value.ToString()), 2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), Convert.ToDecimal(data.Cells["clTotal"].Value), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
                     }
                     else {
                         sqlAddLinea += String.Format("({0},{1},{2},'{3}',{4},{5},{6},'{7}','{8}','{9}',{10},{11},0),", status, Convert.ToInt32(data.Cells["clNumero"].Value), Convert.ToInt32(data.Cells["clPrenda"].Value), data.Cells["clDescripcion"].Value.ToString(), Convert.ToDecimal(data.Cells["clCantidad"].Value), Decimal.Round(Convert.ToDecimal(data.Cells["clPrecio"].Value.ToString())),Decimal.Round(Convert.ToDecimal(data.Cells["clDescuento"].Value.ToString()), 2), Convert.ToString(data.Cells["clDefecto"].Value), Convert.ToString(data.Cells["clColores"].Value), Convert.ToString(data.Cells["cLmarca"].Value), Convert.ToDecimal(data.Cells["clTotal"].Value), Convert.ToInt32(data.Cells["clTipo"].Value), 0);
@@ -469,6 +470,7 @@ namespace Lavanderia.forms
                 //Console.WriteLine(sqlAddLinea);
             }
             catch (Exception)
+            
             {
 
 
@@ -694,7 +696,7 @@ namespace Lavanderia.forms
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-                    totalDescontar = Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString());
+                    totalDescontar = Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clTotal"].Value.ToString()) - Convert.ToDecimal(dgvOrden.Rows[dgvOrden.SelectedRows[i].Index].Cells["clDescuento"].Value.ToString()); ;
                     dgvOrden.Rows.RemoveAt(dgvOrden.SelectedRows[i].Index);
                 }
 
@@ -1214,6 +1216,11 @@ namespace Lavanderia.forms
         }
 
         private void chkVisa_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
