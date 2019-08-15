@@ -94,11 +94,10 @@ namespace Lavanderia.forms
                     {
                         ticket.TextoExtremos(_reader.GetString(11) + " " + _reader.GetString(12), _reader.GetString(13));
                     }
-                    if (_reader.GetDecimal(8) > 0)
+                    if (_reader1.GetDecimal(8) > 0 && _reader.GetDecimal(8) > 0)
                     {
-                        ticket.TextoExtremos("DESCUENTO PROMO.", " - " + _reader.GetDecimal(8));
+                        ticket.TextoExtremos("PROM DSCTO -" + _reader1.GetDecimal(6) + "%  ", " - " + (Decimal.Round(Decimal.Round((Convert.ToDecimal(_reader.GetDecimal(10))), 2) * _reader1.GetDecimal(6) / 100, 2)));
                     }
-
                     totalSinDescuento += _reader.GetDecimal(10);
                     ticket.lineasGuio();
                 }
@@ -107,7 +106,15 @@ namespace Lavanderia.forms
 
                 if (_reader1.GetDecimal(6) > 0)
                 {
-                    ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+                    if (_reader1.GetDecimal(8) > 0 )  {
+
+                        ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(14));
+                        
+                        }else {
+
+                        ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+                        }
+
                   //  ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
                 }
                 else
@@ -118,6 +125,8 @@ namespace Lavanderia.forms
                     }
                     ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(5));
                 }
+
+                
 
                 ticket.AgregarTotales("            A CUENTA.......S/.", _reader.GetDecimal(14));//La M indica que es un decimal en C#
                 ticket.AgregarTotales("            SALDO..........S/.", _reader.GetDecimal(15));

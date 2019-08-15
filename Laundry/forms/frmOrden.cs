@@ -105,7 +105,7 @@ namespace Lavanderia.forms
                 string[] separators = {","};
                 string value = varGlobales.PrendasDia;
                 string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                 totalGeneral+= Decimal.Round((cantidad * precio), 2);
+                 totalGeneral+= Decimal.Round((cantidad * precio),2);
                  foreach (var word in words)
                      if (tipooferta == word && tipoServ == 1)
                      {
@@ -118,8 +118,8 @@ namespace Lavanderia.forms
                    
                    if (tipoServ == 1 && cantidadGeneral>=varGlobales.CantidadDia &&  tipooferta.Equals(globalOferta))
                     {
-                        cantidadGeneral += cantidad;
-                        totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
+                        //cantidadGeneral += cantidad;
+                        //totalOfertaRopa += Decimal.Round((cantidad * precio), 2);
                         MontoDecuento= (Decimal.Round(Decimal.Round((total), 2) * varGlobales.porcentajeOferta / 100, 2));
                        totalDescuento= MontoDecuento;
                        total = Decimal.Round((cantidad * precio), 2)-MontoDecuento;
@@ -202,6 +202,7 @@ namespace Lavanderia.forms
         public void restablecer()
         {
             decimal porcentajeDescuento =  varGlobales.porcentajeOferta;
+            decimal porcentajeDescuentoVisa = varGlobales.porcentajeVisa;
             txtNombrePrenda.Enabled = false;
             txtNombrePrenda.Text = "";
             btnBuscaprenda.Enabled = false;
@@ -282,6 +283,7 @@ namespace Lavanderia.forms
             int tipo_pago1 = 0;
             int tipo_doc = 0;
             int tipo_descuento = 0;
+            int nro_descuento = 0;
 
             if (rdTotal.Checked)
             {
@@ -301,8 +303,10 @@ namespace Lavanderia.forms
                 garantia = 1;
             }
 
-            if (Convert.ToDecimal(cbDescuento.SelectedItem) > 0) {
+            if (Convert.ToDecimal(nroDscto.Text) > 0 && !rdParcial.Checked)
+            {
                 tipo_descuento = 1;
+                nro_descuento = Convert.ToInt32(nroDscto.Text);
             }
 
             int status = 0;
@@ -315,7 +319,7 @@ namespace Lavanderia.forms
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
-            ord.pDescuento = Convert.ToDecimal(nroDscto.Text);
+            ord.pDescuento = nro_descuento;
             //ord.pDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
             ord.pGarantia = garantia;
 
@@ -331,12 +335,12 @@ namespace Lavanderia.forms
                 if (chkVisa.Checked && totalDescuento > 0)
                 {
 
-                    porcentajeDescuento = Convert.ToDecimal(cbDescuento.Text) - 10;
-                    //porcentajeDescuento = varGlobales.porcentajeOferta - 10;
+                    //porcentajeDescuento = Convert.ToDecimal(cbDescuento.Text) - 10;
+                    porcentajeDescuento = varGlobales.porcentajeVisa;
                 }
                 else
                 {
-                    porcentajeDescuento = Convert.ToDecimal(cbDescuento.SelectedItem);
+                    porcentajeDescuento = varGlobales.porcentajeOferta;
                     //porcentajeDescuento = varGlobales.porcentajeOferta;
                 }
 
@@ -376,13 +380,13 @@ namespace Lavanderia.forms
 
                 decimal montoDescuento=0;
                 decimal montoTotal;
-                  montoDescuento= (Decimal.Round(Decimal.Round((Convert.ToDecimal(txtPago.Text)), 2) *porcentajeDescuento / 100, 2));
+                  montoDescuento= (Decimal.Round(Decimal.Round((Convert.ToDecimal(totalOfertaRopa)), 2) *porcentajeDescuento / 100, 2));
 
-                  montoTotal = Convert.ToDecimal(txtPago.Text) - montoDescuento;
+                  montoTotal = Convert.ToDecimal(totalGeneral) - montoDescuento;
 
                   if (chkExpress.Checked) {
                       ord.pExpress = 1;
-                      montoTotal = Convert.ToDecimal(txtPago.Text) + (Convert.ToDecimal(txtPago.Text)*50)/100;
+                      montoTotal = Convert.ToDecimal(totalGeneral) + (Convert.ToDecimal(totalGeneral) * 50) / 100;
                   
                   }
 
@@ -392,6 +396,7 @@ namespace Lavanderia.forms
 
                  montoTotal = 0;
                  tipo_descuento = 0;
+                 nro_descuento = 0;
 /*                    pago.PagoTotal = Convert.ToDecimal(txtPago.Text);
                     ord.totalOrden = Convert.ToDecimal(txtPago.Text);
                     pago.Pago1 = Convert.ToDecimal(txtPago.Text);*/
@@ -539,8 +544,9 @@ namespace Lavanderia.forms
             //labelporcentaje.Visible = true;
             chkExpress.Visible = true;
             chkVisa.Enabled = true;
-            if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0)
+            if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0 && !chkVisa.Checked)
             {
+                txtPago.Text = Convert.ToString(totalOrden);
                // lblPorcentaje.Visible = true;
                 //nroDscto.Visible = true;
                 //lblDescuento.Visible = true;
@@ -850,9 +856,9 @@ namespace Lavanderia.forms
                 {
                     ticket.TextoExtremos(_reader.GetString(11) + " " + _reader.GetString(12), _reader.GetString(13));
                 }
-                if (_reader.GetDecimal(8) > 0)
+                    if (_reader1.GetDecimal(8) > 0 && _reader.GetDecimal(8) > 0)
                 {
-                    ticket.TextoExtremos("DESCUENTO PROMO.", " - " + _reader.GetDecimal(8));
+                    ticket.TextoExtremos("PROM DSCTO -" + _reader1.GetDecimal(6) + "%  ", " - " + (Decimal.Round(Decimal.Round((Convert.ToDecimal(_reader.GetDecimal(10))), 2) * _reader1.GetDecimal(6) / 100, 2)));
                 }
 
                 totalSinDescuento += _reader.GetDecimal(10);
@@ -863,8 +869,19 @@ namespace Lavanderia.forms
 
             if (_reader1.GetDecimal(6) > 0)
             {
-                ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
-              //  ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
+                if (_reader1.GetDecimal(8) > 0)
+                {
+
+                    ticket.AgregarTotales("            TOTAL..........S/.", _reader.GetDecimal(14));
+
+                }
+                else
+                {
+
+                    ticket.AgregarTotales("            TOTAL..........S/.", totalSinDescuento);
+                }
+
+                //  ticket.AgregarTotales("            DESCUENTO.." + (_reader1.GetDecimal(6) - cargoVisa) + "%.", (totalSinDescuento - _reader1.GetDecimal(5)));
             }
             else
             {
@@ -1180,35 +1197,36 @@ namespace Lavanderia.forms
 
         private void chkVisa_Click(object sender, EventArgs e)
         {
-            totalDescuento = Convert.ToDecimal(nroDscto.Text);
+            
 
             if (chkVisa.Checked && !rdParcial.Checked && totalDescuento >0)
             {
 
-                nroDscto.Text = Convert.ToString(porcentajeDescuento - 10);
+                nroDscto.Text = Convert.ToString(varGlobales.porcentajeVisa);
+                porcentajeDescuento = varGlobales.porcentajeVisa;
 
-
-                if (!txtPago.Text.Equals("") && porcentajeDescuento > 0 && (totalOfertaRopa > 0 || totalOfertaCama > 0))
+                if (!txtPago.Text.Equals("") && porcentajeDescuento > 0 && (totalOfertaRopa > 0 || totalOfertaCama > 0) && !rdParcial.Checked)
                 {
                     lblDescuento.Visible = true;
                     cargoVisa.Visible = true;
-                    cargoVisa.Text = "10% + Visa";
-                    if (!txtPago.Text.Equals("") && totalDescuento > 0 )
+                    cargoVisa.Text =  porcentajeDescuento + "% + Visa";
+                    if (!txtPago.Text.Equals("") && porcentajeDescuento > 0 )
                     {
-                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) + ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
-                        txtPago.Text = Convert.ToString(Convert.ToDouble(txtPago.Text) + ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(totalGeneral) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
+                        txtPago.Text = Convert.ToString(Convert.ToDouble(totalGeneral) - ((Convert.ToDouble(totalOfertaRopa) * Convert.ToDouble(nroDscto.Text)) / 100));
                     }
                 }
             }
             else
             {
 
-                if (!txtPago.Text.Equals("") && totalDescuento > 0)
+                if (!txtPago.Text.Equals("")&& !rdParcial.Checked && totalDescuento > 0)
                 {
                     cargoVisa.Visible = false;
                     cargoVisa.Text = "";
                     nroDscto.Text = Convert.ToString(porcentajeDescuento);
-                    //lblDescuento.Visible = false;
+                   lblDescuento.Visible = false;
+                   txtPago.Text = Convert.ToString(totalOrden);
                     //lblDescuento.Text = "Total a pagar: S/." + Convert.ToString(Convert.ToDouble(txtPago.Text) - ((Convert.ToDouble(txtPago.Text) * Convert.ToDouble(nroDscto.Text)) / 100));
                 }
             }

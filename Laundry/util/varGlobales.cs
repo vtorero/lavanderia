@@ -16,6 +16,7 @@ namespace Lavanderia.util
         public static string PrendasDia;
         public static int CantidadDia;
         public static decimal porcentajeOferta;
+        public static decimal porcentajeVisa;
         public static string rutaReportes = Application.StartupPath.Replace("bin\\Debug","");
 
         

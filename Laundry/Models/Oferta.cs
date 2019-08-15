@@ -16,13 +16,13 @@ namespace Lavanderia.Models
         public string Prendas { get; set; }
         public int Cantidad { get; set; }
         public int Estado {get;set;}
-
+        public decimal PorcentajeVisa { get; set; }
 
 
 
         public Oferta() { }
 
-        public Oferta(int id, string nombre, string dias, decimal oferta ,string prendas,int cantidad, int estado)
+        public Oferta(int id, string nombre, string dias, decimal oferta, string prendas, int cantidad, int estado, int visa)
         {
             this.idOferta = id;
             this.Nombre = nombre;
@@ -31,6 +31,7 @@ namespace Lavanderia.Models
             this.Prendas = prendas;
             this.Cantidad = cantidad;
             this.Estado = estado;
+            this.PorcentajeVisa = visa;
         }
     }
 }

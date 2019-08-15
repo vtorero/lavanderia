@@ -28,6 +28,7 @@ namespace Lavanderia.Persistencia
                 oferta.Porcentaje = Convert.ToDecimal(dr["porcentaje"]);
                 oferta.Prendas = Convert.ToString(dr["tipos_prenda"]);
                 oferta.Cantidad = Convert.ToInt32(dr["cantidad"]);
+                oferta.PorcentajeVisa = Convert.ToInt32(dr["porcentajeVisa"]);
 
             }
               con.cerrarConexion();

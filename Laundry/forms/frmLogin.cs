@@ -85,6 +85,8 @@ namespace Lavanderia.forms
                         varGlobales.porcentajeOferta = of.Porcentaje;
                         varGlobales.PrendasDia = of.Prendas;
                         varGlobales.CantidadDia = of.Cantidad;
+                        varGlobales.porcentajeVisa = of.PorcentajeVisa;
+                        
 
                      
 
