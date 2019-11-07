@@ -28,11 +28,11 @@
         /// </summary>
         private void    InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCodigoCliente = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkExpress = new System.Windows.Forms.CheckBox();
             this.labelporcentaje = new System.Windows.Forms.Label();
-            this.labelDescuento = new System.Windows.Forms.Label();
             this.cbDescuento = new System.Windows.Forms.ComboBox();
             this.cargoVisa = new System.Windows.Forms.Label();
             this.lblDescuento = new System.Windows.Forms.Label();
@@ -122,6 +121,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -204,9 +207,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.chkExpress);
             this.groupBox2.Controls.Add(this.labelporcentaje);
-            this.groupBox2.Controls.Add(this.labelDescuento);
             this.groupBox2.Controls.Add(this.cbDescuento);
             this.groupBox2.Controls.Add(this.cargoVisa);
             this.groupBox2.Controls.Add(this.lblDescuento);
@@ -246,11 +252,6 @@
             resources.ApplyResources(this.labelporcentaje, "labelporcentaje");
             this.labelporcentaje.Name = "labelporcentaje";
             // 
-            // labelDescuento
-            // 
-            resources.ApplyResources(this.labelDescuento, "labelDescuento");
-            this.labelDescuento.Name = "labelDescuento";
-            // 
             // cbDescuento
             // 
             this.cbDescuento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -260,7 +261,8 @@
             resources.GetString("cbDescuento.Items"),
             resources.GetString("cbDescuento.Items1"),
             resources.GetString("cbDescuento.Items2"),
-            resources.GetString("cbDescuento.Items3")});
+            resources.GetString("cbDescuento.Items3"),
+            resources.GetString("cbDescuento.Items4")});
             this.cbDescuento.Name = "cbDescuento";
             // 
             // cargoVisa
@@ -792,6 +794,32 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Name = "label11";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Name = "label16";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Name = "label17";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Name = "label18";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -907,8 +935,11 @@
         public System.Windows.Forms.RadioButton rdServicio;
         public System.Windows.Forms.RadioButton rdPrenda;
         private System.Windows.Forms.Label labelporcentaje;
-        private System.Windows.Forms.Label labelDescuento;
         public System.Windows.Forms.ComboBox cbDescuento;
         private System.Windows.Forms.CheckBox chkExpress;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }

@@ -540,7 +540,7 @@ namespace Lavanderia.forms
             nroDscto.Enabled = false;
             cbDescuento.Enabled = false;
             cbDescuento.Visible = false;
-            labelDescuento.Visible = false;
+           // labelDescuento.Visible = false;
             labelporcentaje.Visible = false;
         }
 
@@ -672,7 +672,7 @@ namespace Lavanderia.forms
             lblDescuento.Visible = false;
             cbDescuento.Items[0] = "0";
             cbDescuento.SelectedIndex = 0;
-            labelDescuento.Visible = false;
+            //labelDescuento.Visible = false;
             labelporcentaje.Visible = false;
             cbDescuento.Visible = false;
 
@@ -1257,6 +1257,16 @@ namespace Lavanderia.forms
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
         {
 
         }
