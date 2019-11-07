@@ -348,7 +348,13 @@ namespace Lavanderia.forms
                     }
                     else
                     {
-                        porcentajeDescuento = Convert.ToDecimal(cbDescuento.Text);
+                        if (cbDescuento.Text != "")
+                        {
+                            porcentajeDescuento = Convert.ToDecimal(cbDescuento.Text);
+                        }
+                        else {
+                            porcentajeDescuento = 0;
+                        }
                     }
                     ord.pDescuento = Convert.ToDecimal(porcentajeDescuento);
                 }
