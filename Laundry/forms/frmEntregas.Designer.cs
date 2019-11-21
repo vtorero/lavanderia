@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntregas));
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -63,11 +64,14 @@
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.chkDelivery = new System.Windows.Forms.CheckBox();
+            this.imgDelivery = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvOrdenes
@@ -174,7 +178,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.AutoSize = true;
-            this.txtIdCliente.Location = new System.Drawing.Point(332, 78);
+            this.txtIdCliente.Location = new System.Drawing.Point(332, 73);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(58, 13);
             this.txtIdCliente.TabIndex = 14;
@@ -239,6 +243,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkDelivery);
+            this.groupBox2.Controls.Add(this.imgDelivery);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtObs);
             this.groupBox2.Controls.Add(this.chkVisa);
@@ -418,6 +424,28 @@
             this.dgvDetalles.Size = new System.Drawing.Size(896, 149);
             this.dgvDetalles.TabIndex = 1;
             // 
+            // chkDelivery
+            // 
+            this.chkDelivery.AutoSize = true;
+            this.chkDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkDelivery.Location = new System.Drawing.Point(231, 52);
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.Size = new System.Drawing.Size(64, 17);
+            this.chkDelivery.TabIndex = 45;
+            this.chkDelivery.Text = "Delivery";
+            this.chkDelivery.UseVisualStyleBackColor = true;
+            // 
+            // imgDelivery
+            // 
+            this.imgDelivery.Image = ((System.Drawing.Image)(resources.GetObject("imgDelivery.Image")));
+            this.imgDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.imgDelivery.Location = new System.Drawing.Point(189, 45);
+            this.imgDelivery.Name = "imgDelivery";
+            this.imgDelivery.Size = new System.Drawing.Size(35, 27);
+            this.imgDelivery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgDelivery.TabIndex = 44;
+            this.imgDelivery.TabStop = false;
+            // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +465,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -472,5 +501,7 @@
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkDelivery;
+        private System.Windows.Forms.PictureBox imgDelivery;
     }
 }

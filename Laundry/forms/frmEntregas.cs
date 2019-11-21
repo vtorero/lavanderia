@@ -170,10 +170,14 @@ namespace Lavanderia.forms
         private void btnEntregar_Click(object sender, EventArgs e)
         {
             int pago2=0;
+            int v_delivery;
+            v_delivery = 1;
+            if (chkDelivery.Checked) { }
             if (chkVisa.Checked)
                 pago2 = 1;
             int re = 0;
-            re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text),pago2,txtObs.Text);
+
+            re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text),pago2,txtObs.Text,v_delivery);
             llenarDatos();
             llenarDetalles(0);
             chkVisa.Visible = false;

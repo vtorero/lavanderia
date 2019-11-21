@@ -35,11 +35,12 @@ IN Pdscto INT,
 IN pDescuento DECIMAL(10,2),
 IN pGarantia INT,
 IN pExpress INT,
+IN pDelivery INT,
 OUT ultimoId INT)
 BEGIN
 START TRANSACTION;
-INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto,descuento,garantia,express) VALUES 
-(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto,pDescuento,pGarantia,pExpress);
+INSERT INTO Orden (idCliente,fechaEntrega,totalOrden,idUsuario, Observacion, estado, tipoPago,aplicaDscto,descuento,garantia,express,delivery) VALUES 
+(PidCliente,PfechaEntrega,PtotalOrden,PidUsuario,Pobservacion,Pestado,PtipoPago,Pdscto,pDescuento,pGarantia,pExpress,pDelivery);
 SELECT LAST_INSERT_ID() INTO ultimoId;
 COMMIT;
 END $$
@@ -238,12 +239,13 @@ DELIMITER $$
 CREATE PROCEDURE entregaOrden(
 IN id INT,
 IN tipopago2 INT,
-IN obs VARCHAR(200)
+IN obs VARCHAR(200),
+IN pDelivery INT
 )
 BEGIN
 START TRANSACTION;
 UPDATE Pago SET Estado=1,tipoPago2=tipopago2,Observacion=obs,fechaActualizado=NOW() WHERE idOrden=id;
-UPDATE Orden SET estado=1 WHERE idOrden=id;
+UPDATE Orden SET estado=1 ,delivery=Pdelivery WHERE idOrden=id;
 UPDATE OrdenLinea SET estado=1 WHERE idOrden=id;
 COMMIT;
 END $$

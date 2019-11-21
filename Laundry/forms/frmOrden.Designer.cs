@@ -125,6 +125,8 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
+            this.imgDelivery = new System.Windows.Forms.PictureBox();
+            this.chkDelivery = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -134,6 +136,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -207,6 +210,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkDelivery);
+            this.groupBox2.Controls.Add(this.imgDelivery);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label16);
@@ -822,6 +827,19 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
+            // imgDelivery
+            // 
+            resources.ApplyResources(this.imgDelivery, "imgDelivery");
+            this.imgDelivery.Name = "imgDelivery";
+            this.imgDelivery.TabStop = false;
+            this.imgDelivery.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // chkDelivery
+            // 
+            resources.ApplyResources(this.chkDelivery, "chkDelivery");
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.UseVisualStyleBackColor = true;
+            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -845,6 +863,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -943,5 +962,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.PictureBox imgDelivery;
+        private System.Windows.Forms.CheckBox chkDelivery;
     }
 }

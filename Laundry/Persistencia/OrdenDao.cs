@@ -30,6 +30,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("pDescuento", orden.pDescuento));
             cmd.Parameters.Add(new MySqlParameter("pGarantia", orden.pGarantia));
             cmd.Parameters.Add(new MySqlParameter("pExpress", orden.pExpress));
+            cmd.Parameters.Add(new MySqlParameter("pDelivery", orden.pDelivery));
             cmd.Parameters.Add(new MySqlParameter("ultimoId", MySqlDbType.Int64));
             cmd.Parameters["ultimoId"].Direction = ParameterDirection.Output;
            
@@ -100,7 +101,7 @@ namespace Lavanderia.Persistencia
             //return ultimo_id();
         }
 
-        public static int entregaOrden(int id,int pago2,string obs) {
+        public static int entregaOrden(int id,int pago2,string obs,int delivery) {
             int retorno=1;
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
@@ -109,6 +110,7 @@ namespace Lavanderia.Persistencia
             cmd.Parameters.Add(new MySqlParameter("id", id));
             cmd.Parameters.Add(new MySqlParameter("tipopago2", pago2));
             cmd.Parameters.Add(new MySqlParameter("obs", obs));
+            cmd.Parameters.Add(new MySqlParameter("pDelivery", delivery));
             cmd.ExecuteReader();
             cnx.cerrarConexion();
             return retorno;

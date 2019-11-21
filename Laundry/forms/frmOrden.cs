@@ -224,6 +224,9 @@ namespace Lavanderia.forms
             chkExpress.Checked = false;
             chkExpress.Visible = false;
             nroDscto.Enabled = false;
+            imgDelivery.Visible = false;
+            chkDelivery.Checked = false;
+            chkDelivery.Visible = false;
             nroDscto.Text = "0";
             txtPrecio.Text = "";
             nroCantidad.Value = nroCantidad.Minimum;
@@ -284,6 +287,7 @@ namespace Lavanderia.forms
             int tipo_doc = 0;
             int tipo_descuento = 0;
             int nro_descuento = 0;
+            int v_delivery = 0;
 
             if (rdTotal.Checked)
             {
@@ -303,6 +307,10 @@ namespace Lavanderia.forms
                 garantia = 1;
             }
 
+            if (chkDelivery.Checked) {
+                v_delivery = 1;
+            }
+
             if (Convert.ToDecimal(nroDscto.Text) > 0 && !rdParcial.Checked)
             {
                 tipo_descuento = 1;
@@ -319,6 +327,7 @@ namespace Lavanderia.forms
             ord.estado = 0;
             ord.tipoPago = tipo_pago;
             ord.Descuento = tipo_descuento;
+            ord.pDelivery = v_delivery;
             //ord.pDescuento = nro_descuento;
             
             ord.pGarantia = garantia;
@@ -564,6 +573,8 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             cbDescuento.Enabled = true;
             cbDescuento.Visible = true;
+            chkDelivery.Visible = true;
+            imgDelivery.Visible = true;
             //labelDescuento.Visible = true;
             //labelporcentaje.Visible = true;
             chkExpress.Visible = true;
@@ -619,6 +630,8 @@ namespace Lavanderia.forms
             cmbColor.Enabled = true;
             chkGarantia.Enabled = true;
             dgvOrden.Enabled = true;
+            imgDelivery.Visible = true;
+            chkDelivery.Visible = true;
 
 
         }
@@ -668,6 +681,9 @@ namespace Lavanderia.forms
             chkDescuento.Visible = false;
             chkExpress.Checked = false;
             chkExpress.Visible = false;
+            chkDelivery.Checked = false;
+            chkDelivery.Visible = false;
+            imgDelivery.Visible = false;
             nroDscto.Text = "0";
             nroDscto.Enabled = false;
             nroDscto.Visible = false;
@@ -1273,6 +1289,11 @@ namespace Lavanderia.forms
         }
 
         private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
