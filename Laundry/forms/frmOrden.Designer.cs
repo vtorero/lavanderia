@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkDelivery = new System.Windows.Forms.CheckBox();
+            this.imgDelivery = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -125,18 +127,16 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.imgDelivery = new System.Windows.Forms.PictureBox();
-            this.chkDelivery = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.grpTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nroCantidad)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -245,6 +245,19 @@
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // chkDelivery
+            // 
+            resources.ApplyResources(this.chkDelivery, "chkDelivery");
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.UseVisualStyleBackColor = true;
+            // 
+            // imgDelivery
+            // 
+            resources.ApplyResources(this.imgDelivery, "imgDelivery");
+            this.imgDelivery.Name = "imgDelivery";
+            this.imgDelivery.TabStop = false;
+            this.imgDelivery.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label18
             // 
@@ -827,19 +840,6 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
-            // imgDelivery
-            // 
-            resources.ApplyResources(this.imgDelivery, "imgDelivery");
-            this.imgDelivery.Name = "imgDelivery";
-            this.imgDelivery.TabStop = false;
-            this.imgDelivery.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // chkDelivery
-            // 
-            resources.ApplyResources(this.chkDelivery, "chkDelivery");
-            this.chkDelivery.Name = "chkDelivery";
-            this.chkDelivery.UseVisualStyleBackColor = true;
-            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -854,6 +854,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.grpTotal.ResumeLayout(false);
@@ -863,7 +864,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.ResumeLayout(false);
 
         }
