@@ -301,6 +301,8 @@ namespace Lavanderia.Models {
             
             private global::System.Data.DataColumn columnegreso;
             
+            private global::System.Data.DataColumn columndelivery;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dsCierrePagosDataTable() {
@@ -424,6 +426,14 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn deliveryColumn {
+                get {
+                    return this.columndelivery;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dsCierrePagosRow AdddsCierrePagosRow(int idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento, string fechaPago, double pagoTotal, double egreso) {
+            public dsCierrePagosRow AdddsCierrePagosRow(int idOrden, string nombreCliente, string fechaCreado, string idUsuario, string sucursal, double pago, string modoPago, string Movimiento, string fechaPago, double pagoTotal, double egreso, string delivery) {
                 dsCierrePagosRow rowdsCierrePagosRow = ((dsCierrePagosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idOrden,
@@ -472,7 +482,8 @@ namespace Lavanderia.Models {
                         Movimiento,
                         fechaPago,
                         pagoTotal,
-                        egreso};
+                        egreso,
+                        delivery};
                 rowdsCierrePagosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCierrePagosRow);
                 return rowdsCierrePagosRow;
@@ -506,6 +517,7 @@ namespace Lavanderia.Models {
                 this.columnfechaPago = base.Columns["fechaPago"];
                 this.columnpagoTotal = base.Columns["pagoTotal"];
                 this.columnegreso = base.Columns["egreso"];
+                this.columndelivery = base.Columns["delivery"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +545,8 @@ namespace Lavanderia.Models {
                 base.Columns.Add(this.columnpagoTotal);
                 this.columnegreso = new global::System.Data.DataColumn("egreso", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnegreso);
+                this.columndelivery = new global::System.Data.DataColumn("delivery", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndelivery);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +865,22 @@ namespace Lavanderia.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string delivery {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCierrePagos.deliveryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'delivery\' de la tabla \'dsCierrePagos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCierrePagos.deliveryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidOrdenNull() {
                 return this.IsNull(this.tabledsCierrePagos.idOrdenColumn);
             }
@@ -979,6 +1009,18 @@ namespace Lavanderia.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetegresoNull() {
                 this[this.tabledsCierrePagos.egresoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdeliveryNull() {
+                return this.IsNull(this.tabledsCierrePagos.deliveryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdeliveryNull() {
+                this[this.tabledsCierrePagos.deliveryColumn] = global::System.Convert.DBNull;
             }
         }
         
