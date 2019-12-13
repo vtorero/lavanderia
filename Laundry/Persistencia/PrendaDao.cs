@@ -123,7 +123,7 @@ namespace Lavanderia.Persistencia
                 ConexBD cnx = new ConexBD();
             cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT idPrenda, nombrePrenda , descripcionPrenda, precioServicio,tipoPrenda,tipo_oferta FROM Prenda order by idPrenda"),cnx.ObtenerConexion());
+           "SELECT idPrenda, upper(nombrePrenda) nombrePrenda , upper(descripcionPrenda) descripcionPrenda, precioServicio,tipoPrenda,tipo_oferta FROM Prenda order by nombrePrenda"), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             
             while (_reader.Read())
@@ -149,7 +149,7 @@ namespace Lavanderia.Persistencia
             ConexBD cnx = new ConexBD();
             cnx.Conectar();
             MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT *  FROM Prenda where nombrePrenda like '%{0}%' ", nombre), cnx.ObtenerConexion());
+           "SELECT idPrenda,upper(nombrePrenda) nombrePrenda,descripcionPrenda,precioServicio,FechaCreacion,tipoPrenda,tipo_oferta  FROM Prenda where nombrePrenda like '%{0}%' ORDER BY nombrePrenda ASC ", nombre), cnx.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {
