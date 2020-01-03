@@ -11,12 +11,18 @@ using System.Windows.Forms;
 using Lavanderia.Models;
 using Lavanderia.Persistencia;
 using Lavanderia.util;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Lavanderia.forms
 {
-    public partial class frmPrendas : Form
 
+
+    public partial class frmPrendas : Form
     {
+
+        string url = "https://jsonplaceholder.typicode.com/posts";
         int pos;
         Validacion v = new Validacion();
         public frmPrendas()
@@ -46,8 +52,11 @@ namespace Lavanderia.forms
 
         }
 
-        private void frmPrendas_Load(object sender, EventArgs e)
+        private async void frmPrendas_Load(object sender, EventArgs e)
         {
+            string respuesta = await getHttp();
+            List<Post> lst = JsonConvert.DeserializeObject<List<Post>>(respuesta);
+            dataGridView1.DataSource = lst;
             fillTipos();
             if (varGlobales.sessionUsuario == 1)
             {
@@ -58,6 +67,8 @@ namespace Lavanderia.forms
             {
                 btnGuardar.Enabled = false;
             }
+
+
 
         }
 
@@ -238,6 +249,17 @@ namespace Lavanderia.forms
             _readerS.Close();
             cnx.cerrarConexion();
         }
+
+
+
+public async Task<string> getHttp() {
+    WebRequest oRequest = WebRequest.Create(url);
+    WebResponse oResponse = oRequest.GetResponse();
+    StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+    return await sr.ReadToEndAsync();
+
+}
+
      
     }
 }

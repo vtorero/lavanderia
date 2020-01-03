@@ -337,6 +337,7 @@
     <Compile Include="Models\Ordenes.cs" />
     <Compile Include="Models\OrdenLinea.cs" />
     <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Prenda.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Usuario.cs" />
