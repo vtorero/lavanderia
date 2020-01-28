@@ -307,7 +307,8 @@
             resources.GetString("cbDescuento.Items1"),
             resources.GetString("cbDescuento.Items2"),
             resources.GetString("cbDescuento.Items3"),
-            resources.GetString("cbDescuento.Items4")});
+            resources.GetString("cbDescuento.Items4"),
+            resources.GetString("cbDescuento.Items5")});
             this.cbDescuento.Name = "cbDescuento";
             this.cbDescuento.ValueMember = "0";
             // 

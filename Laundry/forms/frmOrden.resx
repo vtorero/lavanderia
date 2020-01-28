@@ -1402,6 +1402,9 @@
   <data name="cbDescuento.Items4" xml:space="preserve">
     <value>25</value>
   </data>
+  <data name="cbDescuento.Items5" xml:space="preserve">
+    <value>30</value>
+  </data>
   <data name="cbDescuento.Location" type="System.Drawing.Point, System.Drawing">
     <value>215, 140</value>
   </data>
