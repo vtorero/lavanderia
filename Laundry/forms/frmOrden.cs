@@ -420,7 +420,7 @@ namespace Lavanderia.forms
                   }
 
                 if(rdServicio.Checked){
-                montoTotal = Convert.ToDecimal(txtPago.Text);
+                //montoTotal = Convert.ToDecimal(txtPago.Text);
                 }
 
                  pago.PagoTotal = montoTotal;
