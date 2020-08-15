@@ -56,7 +56,7 @@ namespace Lavanderia.forms
         {
             string respuesta = await getHttp();
             List<Post> lst = JsonConvert.DeserializeObject<List<Post>>(respuesta);
-            dataGridView1.DataSource = lst;
+/*dataGridView1.DataSource = lst;*/
             fillTipos();
             if (varGlobales.sessionUsuario == 1)
             {
