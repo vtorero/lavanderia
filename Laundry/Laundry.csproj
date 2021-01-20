@@ -291,7 +291,6 @@
     </Compile>
     <Compile Include="Models\dsPendiente.cs">
       <DependentUpon>dsPendiente.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\dsPendiente.Designer.cs">
       <AutoGen>True</AutoGen>
