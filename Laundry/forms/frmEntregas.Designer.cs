@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntregas));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -50,6 +50,8 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkDelivery = new System.Windows.Forms.CheckBox();
+            this.imgDelivery = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.chkVisa = new System.Windows.Forms.CheckBox();
@@ -64,51 +66,50 @@
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
-            this.chkDelivery = new System.Windows.Forms.CheckBox();
-            this.imgDelivery = new System.Windows.Forms.PictureBox();
+            this.chkYape = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvOrdenes
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrdenes.Location = new System.Drawing.Point(29, 153);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(896, 165);
+            this.dgvOrdenes.Size = new System.Drawing.Size(946, 165);
             this.dgvOrdenes.TabIndex = 0;
             this.dgvOrdenes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseClick);
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
@@ -243,6 +244,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkYape);
             this.groupBox2.Controls.Add(this.chkDelivery);
             this.groupBox2.Controls.Add(this.imgDelivery);
             this.groupBox2.Controls.Add(this.label3);
@@ -259,9 +261,31 @@
             this.groupBox2.Controls.Add(this.txtMonto);
             this.groupBox2.Location = new System.Drawing.Point(580, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(345, 130);
+            this.groupBox2.Size = new System.Drawing.Size(395, 130);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // chkDelivery
+            // 
+            this.chkDelivery.AutoSize = true;
+            this.chkDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkDelivery.Location = new System.Drawing.Point(313, 14);
+            this.chkDelivery.Name = "chkDelivery";
+            this.chkDelivery.Size = new System.Drawing.Size(64, 17);
+            this.chkDelivery.TabIndex = 45;
+            this.chkDelivery.Text = "Delivery";
+            this.chkDelivery.UseVisualStyleBackColor = true;
+            // 
+            // imgDelivery
+            // 
+            this.imgDelivery.Image = ((System.Drawing.Image)(resources.GetObject("imgDelivery.Image")));
+            this.imgDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.imgDelivery.Location = new System.Drawing.Point(282, 14);
+            this.imgDelivery.Name = "imgDelivery";
+            this.imgDelivery.Size = new System.Drawing.Size(25, 20);
+            this.imgDelivery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgDelivery.TabIndex = 44;
+            this.imgDelivery.TabStop = false;
             // 
             // label3
             // 
@@ -277,13 +301,13 @@
             this.txtObs.Location = new System.Drawing.Point(18, 84);
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(152, 27);
+            this.txtObs.Size = new System.Drawing.Size(192, 27);
             this.txtObs.TabIndex = 10;
             // 
             // chkVisa
             // 
             this.chkVisa.AutoSize = true;
-            this.chkVisa.Location = new System.Drawing.Point(168, 49);
+            this.chkVisa.Location = new System.Drawing.Point(183, 48);
             this.chkVisa.Name = "chkVisa";
             this.chkVisa.Size = new System.Drawing.Size(46, 17);
             this.chkVisa.TabIndex = 9;
@@ -305,7 +329,7 @@
             this.btnEntregar.Enabled = false;
             this.btnEntregar.Image = global::Lavanderia.Properties.Resources._112_Tick_Green;
             this.btnEntregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEntregar.Location = new System.Drawing.Point(176, 78);
+            this.btnEntregar.Location = new System.Drawing.Point(227, 78);
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(146, 34);
             this.btnEntregar.TabIndex = 8;
@@ -334,7 +358,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(188, 21);
+            this.label4.Location = new System.Drawing.Point(180, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 4;
@@ -362,7 +386,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 21);
+            this.label2.Location = new System.Drawing.Point(139, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -372,9 +396,9 @@
             // 
             this.txtMonto.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtMonto.Enabled = false;
-            this.txtMonto.Location = new System.Drawing.Point(216, 17);
+            this.txtMonto.Location = new System.Drawing.Point(201, 17);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(81, 20);
+            this.txtMonto.Size = new System.Drawing.Size(70, 20);
             this.txtMonto.TabIndex = 0;
             // 
             // groupBox3
@@ -389,68 +413,58 @@
             // 
             // dgvDetalles
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalles.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalles.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDetalles.Location = new System.Drawing.Point(17, 19);
             this.dgvDetalles.MultiSelect = false;
             this.dgvDetalles.Name = "dgvDetalles";
             this.dgvDetalles.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDetalles.RowHeadersVisible = false;
             this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(896, 149);
+            this.dgvDetalles.Size = new System.Drawing.Size(928, 149);
             this.dgvDetalles.TabIndex = 1;
+            this.dgvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellContentClick);
             // 
-            // chkDelivery
+            // chkYape
             // 
-            this.chkDelivery.AutoSize = true;
-            this.chkDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkDelivery.Location = new System.Drawing.Point(231, 52);
-            this.chkDelivery.Name = "chkDelivery";
-            this.chkDelivery.Size = new System.Drawing.Size(64, 17);
-            this.chkDelivery.TabIndex = 45;
-            this.chkDelivery.Text = "Delivery";
-            this.chkDelivery.UseVisualStyleBackColor = true;
-            // 
-            // imgDelivery
-            // 
-            this.imgDelivery.Image = ((System.Drawing.Image)(resources.GetObject("imgDelivery.Image")));
-            this.imgDelivery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.imgDelivery.Location = new System.Drawing.Point(189, 45);
-            this.imgDelivery.Name = "imgDelivery";
-            this.imgDelivery.Size = new System.Drawing.Size(35, 27);
-            this.imgDelivery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgDelivery.TabIndex = 44;
-            this.imgDelivery.TabStop = false;
+            this.chkYape.AutoSize = true;
+            this.chkYape.Location = new System.Drawing.Point(253, 48);
+            this.chkYape.Name = "chkYape";
+            this.chkYape.Size = new System.Drawing.Size(79, 17);
+            this.chkYape.TabIndex = 46;
+            this.chkYape.Text = "Yape/Dep.";
+            this.chkYape.UseVisualStyleBackColor = true;
+            this.chkYape.Visible = false;
             // 
             // frmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 518);
+            this.ClientSize = new System.Drawing.Size(987, 518);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvOrdenes);
@@ -463,9 +477,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDelivery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,5 +517,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox chkDelivery;
         private System.Windows.Forms.PictureBox imgDelivery;
+        private System.Windows.Forms.CheckBox chkYape;
     }
 }

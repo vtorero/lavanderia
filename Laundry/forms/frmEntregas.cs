@@ -143,6 +143,7 @@ namespace Lavanderia.forms
                 lblsimdebe.Visible = true;
                 txtDebe.Text = Convert.ToString(dgvOrdenes[8, pos].Value);
                 chkVisa.Visible = true;
+                chkYape.Visible = true;
                 llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             }
             else
@@ -154,6 +155,7 @@ namespace Lavanderia.forms
                 lblsimdebe.Visible = false;
                 txtDebe.Text = Convert.ToString(0);
                 chkVisa.Visible = false;
+                chkYape.Visible=false;
                 llenarDetalles(Convert.ToInt32(dgvOrdenes[0, pos].Value));
             }
 
@@ -175,6 +177,8 @@ namespace Lavanderia.forms
             if (chkDelivery.Checked) { }
             if (chkVisa.Checked)
                 pago2 = 1;
+            if (chkYape.Checked)
+                pago2 = 3;
             int re = 0;
 
             re= OrdenDao.entregaOrden(Convert.ToInt32(txtCodigo.Text),pago2,txtObs.Text,v_delivery);
@@ -222,6 +226,11 @@ namespace Lavanderia.forms
         private void dgvOrdenes_MouseClick(object sender, MouseEventArgs e)
         {
             cargaItems();
+        }
+
+        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
        }
