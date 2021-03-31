@@ -298,6 +298,9 @@ namespace Lavanderia.forms
                 tipo_pago = 2;
             }
 
+            if (chkYape.Checked) {
+                tipo_pago1 = 3;
+            }
             if (chkVisa.Checked)
             {
                 tipo_pago1 = 1;
@@ -536,6 +539,7 @@ namespace Lavanderia.forms
             lblMontopagar.Text = "Adelanto";
             lblPendiente.Visible = true;
             chkVisa.Enabled = true;
+            chkYape.Enabled = true;
             lblSimbolopendiente.Visible = true;
             txtPendiente.Visible = true;
             txtPendiente.Text = Convert.ToString(totalGeneral);
@@ -579,6 +583,7 @@ namespace Lavanderia.forms
             //labelporcentaje.Visible = true;
             chkExpress.Visible = true;
             chkVisa.Enabled = true;
+            chkYape.Enabled = true;
             if (cantidadGeneral >= varGlobales.CantidadDia && totalOfertaRopa>0 && !chkVisa.Checked)
             {
                 txtPago.Text = Convert.ToString(totalOrden);
@@ -674,6 +679,8 @@ namespace Lavanderia.forms
             btnImprimir.Enabled = false;
             //chkVisa.Checked = false;
             chkVisa.Enabled = false;
+            chkYape.Checked = false;
+            chkYape.Enabled = false;
             chkGarantia.Checked = false;
             chkGarantia.Enabled = false;
             chkDescuento.Checked = false;
