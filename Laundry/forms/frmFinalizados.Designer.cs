@@ -55,6 +55,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdpago1D = new System.Windows.Forms.RadioButton();
+            this.rdpago2D = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -202,7 +204,7 @@
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(907, 126);
+            this.dgvOrdenes.Size = new System.Drawing.Size(1008, 126);
             this.dgvOrdenes.TabIndex = 14;
             this.dgvOrdenes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseClick);
             this.dgvOrdenes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrdenes_MouseDoubleClick);
@@ -210,9 +212,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvDetalles);
-            this.groupBox3.Location = new System.Drawing.Point(8, 293);
+            this.groupBox3.Location = new System.Drawing.Point(8, 284);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(936, 211);
+            this.groupBox3.Size = new System.Drawing.Size(1018, 178);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle de la Orden";
@@ -227,14 +229,14 @@
             this.dgvDetalles.RowHeadersVisible = false;
             this.dgvDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalles.Size = new System.Drawing.Size(908, 180);
+            this.dgvDetalles.Size = new System.Drawing.Size(1003, 144);
             this.dgvDetalles.TabIndex = 1;
             // 
             // rdpago1E
             // 
             this.rdpago1E.AutoSize = true;
             this.rdpago1E.Enabled = false;
-            this.rdpago1E.Location = new System.Drawing.Point(16, 19);
+            this.rdpago1E.Location = new System.Drawing.Point(9, 19);
             this.rdpago1E.Name = "rdpago1E";
             this.rdpago1E.Size = new System.Drawing.Size(64, 17);
             this.rdpago1E.TabIndex = 17;
@@ -246,7 +248,7 @@
             // 
             this.rdpago1T.AutoSize = true;
             this.rdpago1T.Enabled = false;
-            this.rdpago1T.Location = new System.Drawing.Point(89, 19);
+            this.rdpago1T.Location = new System.Drawing.Point(73, 19);
             this.rdpago1T.Name = "rdpago1T";
             this.rdpago1T.Size = new System.Drawing.Size(58, 17);
             this.rdpago1T.TabIndex = 18;
@@ -256,22 +258,24 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rdpago1D);
             this.groupBox2.Controls.Add(this.rdpago1T);
             this.groupBox2.Controls.Add(this.rdpago1E);
             this.groupBox2.Location = new System.Drawing.Point(579, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(167, 49);
+            this.groupBox2.Size = new System.Drawing.Size(238, 49);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pago 1";
             // 
             // grpPago2
             // 
+            this.grpPago2.Controls.Add(this.rdpago2D);
             this.grpPago2.Controls.Add(this.rdpago2T);
             this.grpPago2.Controls.Add(this.rdpago2E);
-            this.grpPago2.Location = new System.Drawing.Point(749, 10);
+            this.grpPago2.Location = new System.Drawing.Point(823, 12);
             this.grpPago2.Name = "grpPago2";
-            this.grpPago2.Size = new System.Drawing.Size(167, 47);
+            this.grpPago2.Size = new System.Drawing.Size(217, 47);
             this.grpPago2.TabIndex = 20;
             this.grpPago2.TabStop = false;
             this.grpPago2.Text = "Pago 2";
@@ -281,7 +285,7 @@
             // 
             this.rdpago2T.AutoSize = true;
             this.rdpago2T.Enabled = false;
-            this.rdpago2T.Location = new System.Drawing.Point(89, 19);
+            this.rdpago2T.Location = new System.Drawing.Point(69, 19);
             this.rdpago2T.Name = "rdpago2T";
             this.rdpago2T.Size = new System.Drawing.Size(58, 17);
             this.rdpago2T.TabIndex = 19;
@@ -355,11 +359,35 @@
             this.radioButton1.Text = "Por Entregar";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // rdpago1D
+            // 
+            this.rdpago1D.AutoSize = true;
+            this.rdpago1D.Enabled = false;
+            this.rdpago1D.Location = new System.Drawing.Point(133, 19);
+            this.rdpago1D.Name = "rdpago1D";
+            this.rdpago1D.Size = new System.Drawing.Size(97, 17);
+            this.rdpago1D.TabIndex = 19;
+            this.rdpago1D.TabStop = true;
+            this.rdpago1D.Text = "Yape/Deposito";
+            this.rdpago1D.UseVisualStyleBackColor = true;
+            // 
+            // rdpago2D
+            // 
+            this.rdpago2D.AutoSize = true;
+            this.rdpago2D.Enabled = false;
+            this.rdpago2D.Location = new System.Drawing.Point(133, 18);
+            this.rdpago2D.Name = "rdpago2D";
+            this.rdpago2D.Size = new System.Drawing.Size(78, 17);
+            this.rdpago2D.TabIndex = 20;
+            this.rdpago2D.TabStop = true;
+            this.rdpago2D.Text = "Yape/Dep.";
+            this.rdpago2D.UseVisualStyleBackColor = true;
+            // 
             // frmFinalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 510);
+            this.ClientSize = new System.Drawing.Size(1052, 510);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.txtIdPago);
             this.Controls.Add(this.btnCambiaModo);
@@ -415,5 +443,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdpago1D;
+        private System.Windows.Forms.RadioButton rdpago2D;
     }
 }

@@ -150,8 +150,10 @@ namespace Lavanderia.forms
                     btnCambiaModo.Enabled = true;
                     rdpago1E.Enabled = true;
                     rdpago1T.Enabled = true;
+                    rdpago1D.Enabled = true;
                     rdpago2E.Enabled = true;
                     rdpago2T.Enabled = true;
+                    rdpago2D.Enabled = true;
                 
                 //}
 
@@ -160,20 +162,27 @@ namespace Lavanderia.forms
                     grpPago2.Visible = true;
                     rdpago2E.Visible = true;
                     rdpago2T.Visible = true;
+                    rdpago2D.Visible = true;
                 }
                 else {
 
                     grpPago2.Visible = false;
                     rdpago2E.Visible = false;
                     rdpago2T.Visible = false;
+                    rdpago2D.Visible = false;
                 }
 
                 /*pago 1*/
                 if(tipopago1.Equals("0")){
                 rdpago1E.Checked=true;
-                }if (tipopago1.Equals("1"))
+                }
+                if (tipopago1.Equals("1"))
                 {
                     rdpago1T.Checked = true;
+                }
+                if (tipopago1.Equals("3"))
+                {
+                    rdpago1D.Checked = true;
                 }
 
                 /*pago 2*/
@@ -185,6 +194,10 @@ namespace Lavanderia.forms
                 {
                     rdpago2T.Checked = true;
                 }
+                if (tipopago2.Equals("3"))
+                {
+                    rdpago2D.Checked = true;
+                }
                 
             }
 
@@ -195,8 +208,32 @@ namespace Lavanderia.forms
 
         private void btnCambiaModo_Click(object sender, EventArgs e)
         {
-        int pago1 = (rdpago1E.Checked ==true) ? 0: 1 ;
-        int pago2 = (rdpago2E.Checked == true) ? 0 : 1;
+            int pago1;
+            int pago2;
+            if (rdpago1E.Checked == true)
+            {
+             pago1 = 0;
+            }
+            else { pago1 = 1; 
+            }
+        
+          if (rdpago2E.Checked == true)
+            {
+             pago2 = 0;
+            }
+            else { pago2 = 1; 
+            }
+
+          if (rdpago1D.Checked == true)
+          {
+              pago1 = 3;
+          }
+
+          if (rdpago2D.Checked == true)
+          {
+              pago2 = 3;
+          }
+          
 
           PagoDao.modificaPago(Convert.ToInt32(txtIdPago.Text), pago1,pago2);
 
