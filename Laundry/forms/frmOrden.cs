@@ -577,6 +577,9 @@ namespace Lavanderia.forms
             dtHoraEntrega.Enabled = true;
             cbDescuento.Enabled = true;
             cbDescuento.Visible = true;
+            lbloferta1.Visible = true;
+            lbloferta2.Visible = true;
+            lbloferta3.Visible = true;
             chkDelivery.Visible = true;
             imgDelivery.Visible = true;
             //labelDescuento.Visible = true;
@@ -704,6 +707,9 @@ namespace Lavanderia.forms
             //labelDescuento.Visible = false;
             labelporcentaje.Visible = false;
             cbDescuento.Visible = false;
+            lbloferta1.Visible = false;
+            lbloferta2.Visible = false;
+            lbloferta3.Visible = false;
 
             cantidadGeneral = 0;
             garantia = 0;

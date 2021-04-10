@@ -44,12 +44,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkYape = new System.Windows.Forms.CheckBox();
             this.chkDelivery = new System.Windows.Forms.CheckBox();
             this.imgDelivery = new System.Windows.Forms.PictureBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbloferta3 = new System.Windows.Forms.Label();
+            this.lbloferta2 = new System.Windows.Forms.Label();
+            this.lbloferta1 = new System.Windows.Forms.Label();
             this.chkExpress = new System.Windows.Forms.CheckBox();
             this.labelporcentaje = new System.Windows.Forms.Label();
             this.cbDescuento = new System.Windows.Forms.ComboBox();
@@ -127,7 +127,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.LblId = new System.Windows.Forms.Label();
-            this.chkYape = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -214,10 +213,9 @@
             this.groupBox2.Controls.Add(this.chkYape);
             this.groupBox2.Controls.Add(this.chkDelivery);
             this.groupBox2.Controls.Add(this.imgDelivery);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lbloferta3);
+            this.groupBox2.Controls.Add(this.lbloferta2);
+            this.groupBox2.Controls.Add(this.lbloferta1);
             this.groupBox2.Controls.Add(this.chkExpress);
             this.groupBox2.Controls.Add(this.labelporcentaje);
             this.groupBox2.Controls.Add(this.cbDescuento);
@@ -248,6 +246,12 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // chkYape
+            // 
+            resources.ApplyResources(this.chkYape, "chkYape");
+            this.chkYape.Name = "chkYape";
+            this.chkYape.UseVisualStyleBackColor = true;
+            // 
             // chkDelivery
             // 
             resources.ApplyResources(this.chkDelivery, "chkDelivery");
@@ -261,31 +265,24 @@
             this.imgDelivery.TabStop = false;
             this.imgDelivery.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label18
+            // lbloferta3
             // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Name = "label18";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
+            resources.ApplyResources(this.lbloferta3, "lbloferta3");
+            this.lbloferta3.ForeColor = System.Drawing.Color.Red;
+            this.lbloferta3.Name = "lbloferta3";
             // 
-            // label17
+            // lbloferta2
             // 
-            resources.ApplyResources(this.label17, "label17");
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Name = "label17";
+            resources.ApplyResources(this.lbloferta2, "lbloferta2");
+            this.lbloferta2.ForeColor = System.Drawing.Color.Red;
+            this.lbloferta2.Name = "lbloferta2";
             // 
-            // label16
+            // lbloferta1
             // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Name = "label16";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Name = "label11";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            resources.ApplyResources(this.lbloferta1, "lbloferta1");
+            this.lbloferta1.ForeColor = System.Drawing.Color.Red;
+            this.lbloferta1.Name = "lbloferta1";
+            this.lbloferta1.Click += new System.EventHandler(this.label11_Click);
             // 
             // chkExpress
             // 
@@ -306,7 +303,9 @@
             this.cbDescuento.FormattingEnabled = true;
             this.cbDescuento.Items.AddRange(new object[] {
             resources.GetString("cbDescuento.Items"),
-            resources.GetString("cbDescuento.Items1")});
+            resources.GetString("cbDescuento.Items1"),
+            resources.GetString("cbDescuento.Items2"),
+            resources.GetString("cbDescuento.Items3")});
             this.cbDescuento.Name = "cbDescuento";
             this.cbDescuento.ValueMember = "0";
             // 
@@ -839,12 +838,6 @@
             this.LblId.BackColor = System.Drawing.SystemColors.Window;
             this.LblId.Name = "LblId";
             // 
-            // chkYape
-            // 
-            resources.ApplyResources(this.chkYape, "chkYape");
-            this.chkYape.Name = "chkYape";
-            this.chkYape.UseVisualStyleBackColor = true;
-            // 
             // frmOrden
             // 
             resources.ApplyResources(this, "$this");
@@ -963,10 +956,9 @@
         private System.Windows.Forms.Label labelporcentaje;
         public System.Windows.Forms.ComboBox cbDescuento;
         private System.Windows.Forms.CheckBox chkExpress;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbloferta2;
+        private System.Windows.Forms.Label lbloferta1;
+        private System.Windows.Forms.Label lbloferta3;
         private System.Windows.Forms.PictureBox imgDelivery;
         private System.Windows.Forms.CheckBox chkDelivery;
         private System.Windows.Forms.CheckBox chkYape;
