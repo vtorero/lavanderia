@@ -42,7 +42,7 @@ MySqlDataAdapter myadap = new MySqlDataAdapter(String.Format("(SELECT pg.idOrden
             "UNION ALL " +
 " (SELECT pg.idOrden,UPPER(c.nombreCliente) nombreCliente,SUBSTRING(o.fechaCreado,1,10) AS fechaCreado,pg.fechaActualizado AS fechaPago,o.idUsuario,IF(delivery = 1, 'SI', 'NO') as delivery,u.sucursal,pg.pagoTotal, pg.pago2 AS pago ," +
 "(SELECT IFNULL(SUM(monto),0) FROM egresos  WHERE fechaEgreso BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 23:59:59' AND idUsuario=" + varGlobales.sessionUsuario + ") egreso, " +
-" case tipoPago1  when 0 then 'Efectivo'  when 1 then 'Tarjeta'  when 3 then 'Yape/Deposito'  end as modoPago, " +
+" case tipoPago2  when 0 then 'Efectivo'  when 1 then 'Tarjeta'  when 3 then 'Yape/Deposito'  end as modoPago, " +
 " IF(o.Estado=0,'Entrega','Recojo') Movimiento FROM (SELECT * FROM Pago WHERE fechaActualizado BETWEEN '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + dtFechaInicial.Value.ToString("yyyy-MM-dd") + " 23:59:59' " +
  " ) pg INNER JOIN Orden o ON o.idOrden=pg.idOrden AND o.tipoPago IN(2) AND o.`estado` IN(1) INNER JOIN usuario u ON o.idUsuario=u.id " +
   " INNER JOIN Cliente c ON o.idCliente=c.idCliente AND u.id=" + varGlobales.sessionUsuario + " ORDER BY modoPago) ORDER BY modopago,idOrden"), cnx.ObtenerConexion());
