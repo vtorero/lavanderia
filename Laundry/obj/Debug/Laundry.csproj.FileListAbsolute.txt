@@ -127,6 +127,7 @@ E:\proyectos\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resour
 E:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 E:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.exe
 E:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.pdb
+<<<<<<< HEAD
 E:\proyectos\lavanderia\Laundry\obj\Debug\Laundry.csprojResolveAssemblyReference.cache
 E:\lavanderia\Laundry\bin\Debug\Laundry.exe.config
 E:\lavanderia\Laundry\bin\Debug\Laundry.exe
@@ -162,3 +163,5 @@ E:\lavanderia\Laundry\obj\Debug\Lavanderia.Properties.Resources.resources
 E:\lavanderia\Laundry\obj\Debug\Laundry.csproj.GenerateResource.Cache
 E:\lavanderia\Laundry\obj\Debug\Laundry.exe
 E:\lavanderia\Laundry\obj\Debug\Laundry.pdb
+=======
+>>>>>>> e100b62c869c236ab05eebcb19ce0984f8eb970b
