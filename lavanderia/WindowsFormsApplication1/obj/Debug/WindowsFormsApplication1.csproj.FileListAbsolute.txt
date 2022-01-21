@@ -1,0 +1,8 @@
+E:\lavanderia\lavanderia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\lavanderia\lavanderia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\lavanderia\lavanderia\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\lavanderia\lavanderia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\lavanderia\lavanderia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\lavanderia\lavanderia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\lavanderia\lavanderia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\lavanderia\lavanderia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
