@@ -18,17 +18,9 @@ namespace Lavanderia
             {
                 //string enlace ="Server=kvconsult.com; Port=3306 ;Database=kvconsul_lavan; uid=kvconsul_lavan; pwd=vji2002;";
               //string enlace = "Server=107.190.129.66; Port=3306 ;Database=" + varGlobales.baseDeDatos + "; uid=cualesmi_web; pwd=vji2002;";
-<<<<<<< HEAD
              string enlace = "Server=35.231.78.51; Port=3306 ;Database=dashboard; uid=marife; pwd=libido16;";
             //string enlace = "Server=35.231.78.51; Port=3306 ;Database=dashtest; uid=marife; pwd=libido16;";
             //    string enlace = "Server=localhost;Port=3306;Database=dashboard;user id=root;password=root;";
-
-=======
-              //string enlace = "Server=35.231.78.51; Port=3306 ;Database=dashboard; uid=marife; pwd=libido16;";
-                //string enlace = "Server=locahost; Port=3306 ;Database=lavanderia; uid=root; pwd=vji2002;";
-               // string enlace =  "Server=localhost; Port=3306 ;Database=lavanderia; uid=root; pwd=vji2002;";
-            string enlace = "Server=35.231.78.51; Port=3306 ;Database=barcode; uid=marife; pwd=libido16;";
->>>>>>> e100b62c869c236ab05eebcb19ce0984f8eb970b
           
                 this.con = new MySqlConnection(enlace);
                 this.con.Open();
