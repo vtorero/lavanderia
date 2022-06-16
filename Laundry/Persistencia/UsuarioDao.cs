@@ -14,13 +14,17 @@ namespace Lavanderia.Persistencia
         public  static Usuario Consultar(string user,string pass)
         {
             ConexBD conec = new ConexBD();
+
             List<Usuario> _lista = new List<Usuario>();
             conec.Conectar();
             MySqlCommand _comando = new MySqlCommand("consultaUsuario",conec.ObtenerConexion());
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.Parameters.Add(new MySqlParameter("USUARIO", user));
             _comando.Parameters.Add(new MySqlParameter("PASS", pass));
-            MySqlDataReader _reader = _comando.ExecuteReader(CommandBehavior.CloseConnection);
+             MySqlDataReader _reader;
+            _reader = _comando.ExecuteReader();  //sto
+
+            //_reader=  _comando.ExecuteReader(CommandBehavior.CloseConnection);
             Usuario usuario = new Usuario();
             while (_reader.Read())
             {
@@ -32,7 +36,7 @@ namespace Lavanderia.Persistencia
                 usuario.tipoUsuario = _reader.GetInt32(6);
                              
             }
-            conec.cerrarConexion();
+            //conec.cerrarConexion();
             return usuario;
         }
 
